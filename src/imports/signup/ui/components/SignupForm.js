@@ -10,6 +10,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 import styled from "styled-components";
 import useSignupForm from "../../hooks/useSignupForm";
+import ErrorBox from "@/imports/core/components/ErrorBox";
+import PrimaryButton from "@/imports/core/components/PrimaryButton";
 
 const SignupForm = () => {
   const {
@@ -121,9 +123,9 @@ const SignupForm = () => {
         </IAgree>
       </Remember>
       {errorMessage && <ErrorBox>{errorMessage}</ErrorBox>}
-      <LoginBtn align="center" justify="center" onClick={handleSignup}>
+      <PrimaryButton align="center" justify="center" onClick={handleSignup}>
         Create account
-      </LoginBtn>
+      </PrimaryButton>
       <CreateAccount align="center" justify="center">
         <CreateText>Already have an account?</CreateText>
         <CreateLink href="/login">Log in</CreateLink>
@@ -251,19 +253,6 @@ const AgreeLink = styled(Link)`
     cursor: pointer;
   }
 `;
-const LoginBtn = styled(Flex)`
-  width: 100%;
-  height: 38px;
-  border-radius: 7px;
-  background-color: var(--blue-accent);
-  color: white;
-  font-size: 13px;
-  font-weight: 600;
-  &:hover {
-    cursor: pointer;
-    background-color: #463bd1;
-  }
-`;
 const CreateAccount = styled(Flex)`
   width: 100%;
   gap: 4px;
@@ -287,34 +276,21 @@ const PasswordText = styled(Flex)`
   font-size: 10px;
   color: var(--text-muted-2);
 `;
-const ErrorBox = styled(Flex)`
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  padding: 10px 12px;
-  border-radius: 8px;
-  background: rgb(255, 241, 242);
-  color: rgb(225, 29, 72);
-  font-size: 13px;
-`;
 const StrengthContainer = styled.div`
   width: 100%;
   margin-top: -2px;
 `;
-
 const StrengthBars = styled.div`
   display: flex;
   gap: 4px;
   width: 100%;
 `;
-
 const StrengthBar = styled.span`
   flex: 1;
   height: 3px;
   border-radius: 4px;
   background-color: ${({ $active }) => ($active ? "#10B981" : "#E2E8F0")};
 `;
-
 const StrengthText = styled.span`
   display: block;
   margin-top: 5px;

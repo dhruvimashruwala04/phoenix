@@ -37,7 +37,7 @@ const LoginDisplay = () => {
             <Number>60%</Number>
           </Data>
         </WhiteSec>
-        <DarkSec gap="12px">
+        <DarkSec gap="12px" align="center">
           <AI />
           <AiText>
             "Security audit" is due in 3 days and Sarah is at 108% capacity.
@@ -109,6 +109,7 @@ const DarkSec = styled(Flex)`
 const AiText = styled.span`
   font-size: 12px;
   line-height: 19px;
+  text-align: left;
 `;
 const Stats = styled(Flex)`
   color: var(--background);
@@ -137,6 +138,7 @@ const Bar = styled(Flex)`
   height: 4px;
   border-radius: 9999px;
   background: rgb(241, 245, 249);
+  width: 100%;
 `;
 const Data = styled(Flex)`
   width: 100%;

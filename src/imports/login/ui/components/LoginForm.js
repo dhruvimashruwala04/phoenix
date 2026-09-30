@@ -5,6 +5,8 @@ import { Flex } from "@/imports/core/components/Flex";
 import { CloseEye, GitHub, Google, OpenEye } from "../assets/Icons";
 import useLoginForm from "../../hooks/useLoginForm";
 import Link from "next/link";
+import ErrorBox from "@/imports/core/components/ErrorBox";
+import PrimaryButton from "@/imports/core/components/PrimaryButton";
 
 const LoginForm = () => {
   const {
@@ -88,9 +90,9 @@ const LoginForm = () => {
         <RememberText>Keep me signed in for 30 days</RememberText>
       </Remember>
       {errorMessage && <ErrorBox>{errorMessage}</ErrorBox>}
-      <LoginBtn align="center" justify="center" onClick={handleLogin}>
+      <PrimaryButton align="center" justify="center" onClick={handleLogin}>
         Log in
-      </LoginBtn>
+      </PrimaryButton>
       <CreateAccount align="center" justify="center" gap="4px">
         <CreateText>New to Phoenix?</CreateText>
         <CreateLink href="/signup">Create an account</CreateLink>
@@ -224,19 +226,6 @@ const RememberText = styled.span`
   font-size: 12px;
   color: #64748b;
 `;
-const LoginBtn = styled(Flex)`
-  width: 100%;
-  height: 38px;
-  border-radius: 7px;
-  background-color: var(--blue-accent);
-  color: white;
-  font-size: 13px;
-  font-weight: 600;
-  &:hover {
-    cursor: pointer;
-    background-color: #463bd1;
-  }
-`;
 const CreateAccount = styled(Flex)`
   width: 100%;
 `;
@@ -257,14 +246,4 @@ const Demo = styled(Flex)`
   width: 100%;
   font-size: 10px;
   color: var(--text-muted-2);
-`;
-const ErrorBox = styled(Flex)`
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  padding: 10px 12px;
-  border-radius: 8px;
-  background: rgb(255, 241, 242);
-  color: rgb(225, 29, 72);
-  font-size: 13px;
 `;
