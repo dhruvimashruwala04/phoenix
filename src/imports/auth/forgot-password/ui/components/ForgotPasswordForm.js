@@ -1,6 +1,6 @@
 "use client";
 import { Flex } from "@/imports/core/components/Flex";
-import { BackArrow } from "@/imports/login/ui/assets/Icons";
+import { BackArrow } from "@/imports/auth/login/ui/assets/Icons";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";

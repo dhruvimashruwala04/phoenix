@@ -1,5 +1,5 @@
 import React from "react";
-import { Done } from "../components/Done";
+import Done from "../components/Done";
 
 const DonePage = () => {
   return <Done />;

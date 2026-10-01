@@ -1,7 +1,169 @@
-import React from "react";
+"use client";
+import styled from "styled-components";
+import { Flex } from "@/imports/core/components/Flex";
+import { initialsColors } from "../../api/constant";
+import { Tick } from "../assets/Icons";
+import useOnboardingStore from "../../store/onboardingStore";
 
 const WorkspaceForm = () => {
-  return <div>WorkspaceForm</div>;
+  const {
+    workspaceName,
+    setWorkspaceName,
+    workspaceUrl,
+    setWorkspaceUrl,
+    selectedColor,
+    setSelectedColor,
+  } = useOnboardingStore();
+
+  return (
+    <Form direction="column" gap="22px">
+      <Section direction="column" gap="8px">
+        <Label>Workspace name</Label>
+        <Input
+          value={workspaceName}
+          onChange={(e) => setWorkspaceName(e.target.value)}
+          placeholder="Acme Inc."
+        />
+      </Section>
+
+      <Section direction="column" gap="8px">
+        <Label>Workspace URL</Label>
+        <UrlInput>
+          <UrlPrefix>phoenix.app/</UrlPrefix>
+          <UrlField
+            value={workspaceUrl}
+            onChange={(e) => setWorkspaceUrl(e.target.value)}
+          />
+        </UrlInput>
+        {workspaceUrl && (
+          <Available>
+            <Tick />
+            phoenix.app/{workspaceUrl} is available
+          </Available>
+        )}
+      </Section>
+
+      <Section direction="column" gap="10px">
+        <Label>Workspace icon</Label>
+
+        <IconRow>
+          <InitialIcon $color={selectedColor}>
+            {workspaceName.charAt(0).toUpperCase() || "A"}
+          </InitialIcon>
+
+          {initialsColors.map((color) => (
+            <ColorButton
+              key={color}
+              type="button"
+              $color={color}
+              $active={selectedColor === color}
+              onClick={() => setSelectedColor(color)}
+            />
+          ))}
+        </IconRow>
+      </Section>
+    </Form>
+  );
 };
 
 export default WorkspaceForm;
+
+const Form = styled(Flex)`
+  width: 100%;
+`;
+const Section = styled(Flex)`
+  width: 100%;
+`;
+const Label = styled.label`
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+`;
+const Input = styled.input`
+  width: 100%;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #dce3ed;
+  border-radius: 7px;
+  outline: none;
+  color: #172033;
+  background-color: white;
+  font-size: 13px;
+  &:focus {
+    border-color: var(--blue-accent);
+  }
+  &::placeholder {
+    color: #94a3b8;
+  }
+`;
+const UrlInput = styled.div`
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border: 1px solid #dce3ed;
+  border-radius: 7px;
+  overflow: hidden;
+  background-color: white;
+`;
+const UrlPrefix = styled.div`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  background-color: #f8fafc;
+  border-right: 1px solid #dce3ed;
+  color: #718096;
+  font-size: 13px;
+`;
+const UrlField = styled.input`
+  flex: 1;
+  height: 100%;
+  padding: 0 12px;
+  border: none;
+  outline: none;
+  color: #172033;
+  background: white;
+  font-size: 13px;
+`;
+const Available = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #00a878;
+  font-size: 12px;
+  font-weight: 500;
+`;
+
+const IconRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
+const InitialIcon = styled.div`
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background-color: ${({ $color }) => $color};
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+`;
+const ColorButton = styled.button`
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: ${({ $active }) => ($active ? "2px solid white" : "none")};
+  border-radius: 50%;
+  background-color: ${({ $color }) => $color};
+  cursor: pointer;
+  box-shadow: ${({ $active, $color }) =>
+    $active ? `0 0 0 2px ${$color}` : "none"};
+  transition: transform 0.15s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+`;

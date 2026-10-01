@@ -1,10 +1,6 @@
 "use client";
-
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
-import PrimaryButton from "@/imports/core/components/PrimaryButton";
 import { roles, teamSizes } from "../../api/constant";
 import {
   Design,
@@ -14,13 +10,11 @@ import {
   Other,
   Product,
 } from "../assets/Icons";
+import useOnboardingStore from "../../store/onboardingStore";
 
 const AboutYouForm = () => {
-  const router = useRouter();
-
-  const [name, setName] = useState("John Smith");
-  const [role, setRole] = useState("Product");
-  const [teamSize, setTeamSize] = useState("2–10");
+  const { name, setName, role, setRole, teamSize, setTeamSize } =
+    useOnboardingStore();
 
   const initials = name
     ? name
@@ -31,20 +25,9 @@ const AboutYouForm = () => {
         .toUpperCase()
     : "";
 
-  const handleContinue = () => {
-    console.log({
-      name,
-      role,
-      teamSize,
-    });
-
-    router.push("/onboarding/workspace");
-  };
-
   return (
     <>
       <Form direction="column" gap="22px">
-        {/* Name */}
         <NameRow align="center" gap="16px">
           <Avatar align="center" justify="center">
             {initials}
@@ -61,7 +44,6 @@ const AboutYouForm = () => {
           </NameField>
         </NameRow>
 
-        {/* Role */}
         <Section direction="column" gap="10px">
           <Label>What's your role?</Label>
 
@@ -88,7 +70,6 @@ const AboutYouForm = () => {
           </RoleContainer>
         </Section>
 
-        {/* Team size */}
         <Section direction="column" gap="10px">
           <Label>How big is your team?</Label>
 

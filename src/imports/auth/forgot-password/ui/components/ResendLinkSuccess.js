@@ -1,5 +1,5 @@
 import { Flex } from "@/imports/core/components/Flex";
-import { EnvelopeOpen } from "@/imports/login/ui/assets/Icons";
+import { EnvelopeOpen } from "@/imports/auth/login/ui/assets/Icons";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import styled from "styled-components";

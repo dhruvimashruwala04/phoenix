@@ -5,7 +5,7 @@ import {
   GitHub,
   Google,
   OpenEye,
-} from "@/imports/login/ui/assets/Icons";
+} from "@/imports/auth/login/ui/assets/Icons";
 import Link from "next/link";
 import React, { useState } from "react";
 import styled from "styled-components";

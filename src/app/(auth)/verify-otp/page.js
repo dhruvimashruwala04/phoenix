@@ -1,4 +1,4 @@
-import VerifyOtpPage from "@/imports/forgot-password/ui/pages/VerifyOtpPage";
+import VerifyOtpPage from "@/imports/auth/forgot-password/ui/pages/VerifyOtpPage";
 
 export default function Page() {
   return <VerifyOtpPage />;

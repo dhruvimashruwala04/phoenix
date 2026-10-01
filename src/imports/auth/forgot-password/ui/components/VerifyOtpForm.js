@@ -2,7 +2,7 @@
 import ErrorBox from "@/imports/core/components/ErrorBox";
 import { Flex } from "@/imports/core/components/Flex";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
-import { EnvelopeClose } from "@/imports/login/ui/assets/Icons";
+import { EnvelopeClose } from "@/imports/auth/login/ui/assets/Icons";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useRef, useState } from "react";

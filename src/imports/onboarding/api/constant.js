@@ -1,3 +1,5 @@
+import { Calendar, Gantt, Kanban } from "../ui/assets/Icons";
+
 export const steps = [
   {
     name: "About you",
@@ -44,4 +46,36 @@ export const roles = [
   "Operations",
   "Other",
 ];
-export const teamSizes = ["Just me", "2–10", "11–50", "51–200", "200+"];
+export const teamSizes = ["Just me", "2-10", "11-50", "51-200", "200+"];
+
+export const initialsColors = [
+  "#4f46e5",
+  "#ec4899",
+  "#10b981",
+  "#f59e0b",
+  "#172033",
+];
+export const views = [
+  {
+    name: "Kanban board",
+    description: "Move tasks through Backlog → Done",
+    icon: <Kanban />,
+  },
+  {
+    name: "Gantt roadmap",
+    description: "Plan phases with dates & dependencies",
+    icon: <Gantt />,
+  },
+  {
+    name: "Calendar",
+    description: "Schedule meetings, deadlines & focus",
+    icon: <Calendar />,
+  },
+];
+
+export const tasks = [
+  "Define goals & success metrics",
+  "Kickoff meeting with stakeholders",
+  "Draft Website Redesign requirements",
+  "Set up first milestone",
+];
