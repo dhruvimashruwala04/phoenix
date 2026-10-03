@@ -56,7 +56,7 @@ const OnboardingProgress = () => {
           })}
         </Steps>
 
-        <Skip href="/dashboard">Skip setup</Skip>
+        <Skip href="/">Skip setup</Skip>
       </Header>
 
       <ProgressTrack>

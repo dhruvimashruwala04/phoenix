@@ -1,8 +1,11 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import useAuthStore from "../../store/authStore";
 
 const useLoginForm = () => {
+  const { users, setUser } = useAuthStore();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -30,9 +33,19 @@ const useLoginForm = () => {
       setErrorMessage("Please enter password of 8+ characters.");
       return;
     }
+    const foundUser = users.find(
+      (user) => user.email === email && user.password === password,
+    );
 
+    if (!foundUser) {
+      setErrorMessage("Invalid email or password");
+      return;
+    }
+
+    const currentUser = { name: foundUser.name, email: foundUser.email };
+    setUser(currentUser);
     setErrorMessage("");
-    router.push("/workspace");
+    router.push("/onboarding/about-you");
   };
 
   return {

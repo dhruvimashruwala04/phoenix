@@ -25,7 +25,7 @@ const OnboardingLayout = ({ children }) => {
     if (!isLastStep) {
       router.push(steps[currentStep.stepNum].href);
     } else {
-      router.push("/onboarding/dashboard");
+      router.push("/");
     }
   };
 

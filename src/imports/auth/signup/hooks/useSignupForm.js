@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import useAuthStore from "../../store/authStore";
 
 const useSignupForm = () => {
   const [name, setName] = useState("");
@@ -13,6 +14,8 @@ const useSignupForm = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const router = useRouter();
   const [passwordStrength, setPasswordStrength] = useState(0);
+
+  const { registerUser } = useAuthStore();
 
   const checkPasswordStrength = (password) => {
     let strength = 0;
@@ -57,6 +60,8 @@ const useSignupForm = () => {
       return;
     }
 
+    const newUser = { name, email, password };
+    registerUser(newUser);
     setErrorMessage("");
     router.push("/login");
   };

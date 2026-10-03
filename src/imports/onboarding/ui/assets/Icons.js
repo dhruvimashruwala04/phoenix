@@ -197,40 +197,21 @@ export const Cross = () => {
 export const Gantt = () => {
   return (
     <svg
+      xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
-      viewBox="0 0 20 20"
+      viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-chart-bar-increasing preview-icon"
     >
-      <path
-        d="M5 3V16H16"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-
-      <path
-        d="M8 6H11"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-
-      <path
-        d="M10 10H14"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-
-      <path
-        d="M13 14H17"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
+      <path d="M3 3v16a2 2 0 0 0 2 2h16" />
+      <path d="M7 11h8" />
+      <path d="M7 16h12" />
+      <path d="M7 6h3" />
     </svg>
   );
 };
@@ -272,38 +253,25 @@ export const Calendar = () => {
 export const MagicWand = () => {
   return (
     <svg
+      xmlns="http://www.w3.org/2000/svg"
       width="20"
       height="20"
-      viewBox="0 0 20 20"
+      viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="lucide lucide-wand-sparkles preview-icon"
     >
-      <path
-        d="M4.1 15.9L15.9 4.1C16.35 3.65 17.08 3.65 17.53 4.1L18 4.57C18.45 5.02 18.45 5.75 18 6.2L6.2 18C5.75 18.45 5.02 18.45 4.57 18L4.1 17.53C3.65 17.08 3.65 16.35 4.1 15.9Z"
-        fill="currentColor"
-      />
-
-      <path
-        d="M14.1 5.9L15.9 4.1"
-        stroke="white"
-        strokeWidth="1.2"
-        strokeLinecap="round"
-      />
-
-      <path
-        d="M5 2L5.65 4.35L8 5L5.65 5.65L5 8L4.35 5.65L2 5L4.35 4.35L5 2Z"
-        fill="currentColor"
-      />
-
-      <path
-        d="M16 11L16.55 13.45L19 14L16.55 14.55L16 17L15.45 14.55L13 14L15.45 13.45L16 11Z"
-        fill="currentColor"
-      />
-
-      <path
-        d="M11.5 1L11.8 2.2L13 2.5L11.8 2.8L11.5 4L11.2 2.8L10 2.5L11.2 2.2L11.5 1Z"
-        fill="currentColor"
-      />
+      <path d="m21.64 3.64-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72" />
+      <path d="m14 7 3 3" />
+      <path d="M5 6v4" />
+      <path d="M19 14v4" />
+      <path d="M10 2v2" />
+      <path d="M7 8H3" />
+      <path d="M21 16h-4" />
+      <path d="M11 3H9" />
     </svg>
   );
 };

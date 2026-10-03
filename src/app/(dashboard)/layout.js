@@ -1,0 +1,147 @@
+"use client";
+import React from "react";
+import styled from "styled-components";
+import { Flex } from "@/imports/core/components/Flex";
+import NavBar from "@/imports/dashboard/ui/components/NavBar";
+import useAuthStore from "@/imports/auth/store/authStore";
+import { Logout } from "@/imports/dashboard/ui/assets/Icons";
+
+const DashboardLayout = ({ children }) => {
+  const { user, logout } = useAuthStore();
+  const initials = user?.name
+    ? user.name
+        .split(" ")
+        .map((word) => word[0])
+        .join("")
+        .slice(0, 2)
+        .toUpperCase()
+    : "";
+
+  return (
+    <Page direction="row" align="stretch">
+      <Left direction="column">
+        <LogoWrapper gap="12px" align="center">
+          <LogoIcon>
+            <img src="logo.png" alt="logo" />
+          </LogoIcon>
+          <LogoName>Phoenix</LogoName>
+        </LogoWrapper>
+        <NavBar />
+        <User>
+          <Initials>{initials}</Initials>
+          <Details direction="column">
+            <Name>{user?.name}</Name>
+            <Email>{user?.email}</Email>
+          </Details>
+          <LogoutBtn onClick={logout}>
+            <Logout />
+          </LogoutBtn>
+        </User>
+      </Left>
+
+      <Right direction="column" justify="center">
+        {children}
+      </Right>
+    </Page>
+  );
+};
+export default DashboardLayout;
+const Page = styled(Flex)`
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+`;
+const Left = styled(Flex)`
+  background-color: #0f172a;
+  max-width: 256px;
+  width: 100%;
+`;
+const Right = styled(Flex)`
+  background-color: #ffffff;
+  width: 100%;
+`;
+const LogoWrapper = styled(Flex)`
+  height: 80px;
+  width: 100%;
+  gap: 12px;
+  padding: 24px;
+`;
+const LogoIcon = styled.div`
+  height: 32px;
+  width: 32px;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`;
+const LogoName = styled.span`
+  font-size: 17px;
+  font-weight: 600;
+  font-size: 18px;
+  color: rgb(255, 255, 255);
+`;
+
+const User = styled.div`
+  border-top: 1px solid rgb(30, 41, 59);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+`;
+const Initials = styled.div`
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgb(51, 65, 85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  font-size: 12px;
+  font-weight: 600;
+  flex-shrink: 0;
+`;
+const Details = styled(Flex)`
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+`;
+const Name = styled.span`
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+const Email = styled.span`
+  color: rgb(100, 116, 139);
+  font-size: 12px;
+  line-height: 16px;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+const LogoutBtn = styled.div`
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 0px;
+  background: transparent;
+  color: rgba(195, 205, 219, 1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+`;
