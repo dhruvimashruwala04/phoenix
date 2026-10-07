@@ -1,3 +1,4 @@
+import getInitials from "@/imports/core/utils/getInitials";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
@@ -54,19 +55,12 @@ const useOnboardingStore = create(
         set((state) => {
           if (!state.inviteeEmail.trim()) return state;
 
-          const initials = state.inviteeName
-            .split(" ")
-            .map((word) => word[0])
-            .join("")
-            .slice(0, 2)
-            .toUpperCase();
-
           const newInvite = {
             inviteeEmail: state.inviteeEmail,
             inviteeRole: state.inviteeRole,
             inviteeName: state.inviteeName,
             status: state.status,
-            initials,
+            initials: getInitials(state.inviteeName),
             color: "#6366f1",
           };
 

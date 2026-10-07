@@ -5,17 +5,11 @@ import { Flex } from "@/imports/core/components/Flex";
 import NavBar from "@/imports/dashboard/ui/components/NavBar";
 import useAuthStore from "@/imports/auth/store/authStore";
 import { Logout } from "@/imports/dashboard/ui/assets/Icons";
+import getInitials from "@/imports/core/utils/getInitials";
 
 const DashboardLayout = ({ children }) => {
   const { user, logout } = useAuthStore();
-  const initials = user?.name
-    ? user.name
-        .split(" ")
-        .map((word) => word[0])
-        .join("")
-        .slice(0, 2)
-        .toUpperCase()
-    : "";
+  const initials = getInitials(user?.name);
 
   return (
     <Page direction="row" align="stretch">

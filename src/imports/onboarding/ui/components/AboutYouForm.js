@@ -11,19 +11,13 @@ import {
   Product,
 } from "../assets/Icons";
 import useOnboardingStore from "../../store/onboardingStore";
+import getInitials from "@/imports/core/utils/getInitials";
 
 const AboutYouForm = () => {
   const { name, setName, role, setRole, teamSize, setTeamSize } =
     useOnboardingStore();
 
-  const initials = name
-    ? name
-        .split(" ")
-        .map((word) => word[0])
-        .join("")
-        .slice(0, 2)
-        .toUpperCase()
-    : "";
+  const initials = getInitials(name);
 
   return (
     <>

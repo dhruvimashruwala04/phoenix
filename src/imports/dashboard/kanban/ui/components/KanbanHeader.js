@@ -1,18 +1,51 @@
 import { Flex } from "@/imports/core/components/Flex";
 import SearchBox from "@/imports/dashboard/ui/components/SearchBox";
 import styled from "styled-components";
-import { Filter, Group, KanbanHeaderIcon } from "../assets/Icons";
+import { Filter, Flag, Group, KanbanHeaderIcon, User } from "../assets/Icons";
 import AiInsightsBox from "@/imports/dashboard/ui/components/AiInsightsBox";
 import ActionButton from "@/imports/dashboard/ui/components/ActionButton";
 import { useState } from "react";
 import useKanbanStore from "../../store/kanbanStore";
+import { Kanban } from "@/imports/dashboard/ui/assets/Icons";
 
 const KanbanHeader = () => {
-  const { aiPanel, setAiPanel, setShowTask } = useKanbanStore();
+  const {
+    aiPanel,
+    setAiPanel,
+    setShowTask,
+    groupBy,
+    setGroupBy,
+    filterBy,
+    setFilterBy,
+  } = useKanbanStore();
 
   const [openFilter, setOpenFilter] = useState(false);
   const [openGroup, setOpenGroup] = useState(false);
 
+  const groupOptions = [
+    {
+      label: "Status",
+      value: "status",
+      icon: Kanban,
+    },
+    {
+      label: "Priority",
+      value: "priority",
+      icon: Flag,
+    },
+    {
+      label: "Assignee",
+      value: "assignee",
+      icon: User,
+    },
+  ];
+
+  const filterOptions = [
+    { label: "All", value: "all" },
+    { label: "High", value: "high" },
+    { label: "Medium", value: "medium" },
+    { label: "Low", value: "low" },
+  ];
   return (
     <Header wrap="wrap" align="center">
       <IconWrapper justify="center" align="center">
@@ -29,17 +62,63 @@ const KanbanHeader = () => {
 
       <FilterWrapper>
         <FilterBox onClick={() => setOpenFilter(!openFilter)}>
-          <Filter /> Filter
+          <Filter />
+          Filter
         </FilterBox>
-        {openFilter && <FilterOptions>filter</FilterOptions>}
+        {openFilter && (
+          <FilterOptions>
+            {filterOptions.map((option) => (
+              <FilterOption
+                key={option.value}
+                $active={filterBy === option.value}
+                onClick={() => {
+                  setFilterBy(option.value);
+                  setOpenFilter(false);
+                }}
+              >
+                {option.label}
+              </FilterOption>
+            ))}
+          </FilterOptions>
+        )}
       </FilterWrapper>
 
       <GroupWrapper>
         <GroupBox onClick={() => setOpenGroup(!openGroup)}>
           <Group />
-          Group: Status
+          Group:{" "}
+          {groupBy === "status"
+            ? "Status"
+            : groupBy === "priority"
+              ? "Priority"
+              : "Assignee"}
         </GroupBox>
-        {openGroup && <GroupOptions>group</GroupOptions>}
+        {openGroup && (
+          <GroupOptions direction="column" gap="2px">
+            {groupOptions.map((option) => {
+              const active = groupBy === option.value;
+              const Icon = option.icon;
+
+              return (
+                <GroupOption
+                  align="center"
+                  gap="10px"
+                  key={option.value}
+                  $active={active}
+                  onClick={() => {
+                    setGroupBy(option.value);
+                    setOpenGroup(false);
+                  }}
+                >
+                  <Icon />
+                  <OptionText $active={active}>{option.label}</OptionText>
+
+                  {active && <Check />}
+                </GroupOption>
+              );
+            })}
+          </GroupOptions>
+        )}
       </GroupWrapper>
       <ActionButton text="New Task" onClick={setShowTask} />
     </Header>
@@ -139,19 +218,56 @@ const GroupBox = styled.button`
   justify-content: center;
   gap: 8px;
 `;
-const GroupOptions = styled.div`
+const GroupOptions = styled(Flex)`
   position: absolute;
-  top: 36px;
+  top: 42px;
   left: 0;
-  width: fit-content;
+  width: 200px;
   background: rgb(255, 255, 255);
   border-radius: 12px;
   box-shadow:
     rgba(15, 23, 42, 0.14) 0px 12px 32px,
     rgb(241, 245, 249) 0px 0px 0px 1px inset;
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  padding: 5px;
   z-index: 20;
+`;
+const GroupOption = styled(Flex)`
+  width: 100%;
+  height: 36px;
+  padding: 0 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: ${({ $active }) =>
+    $active ? "rgb(238, 242, 255)" : "transparent"};
+  color: ${({ $active }) => ($active ? "rgb(79, 70, 229)" : "rgb(51, 65, 85)")};
+  &:hover {
+    background: rgb(248, 250, 252);
+  }
+`;
+const OptionText = styled.span`
+  font-size: 13px;
+  color: ${({ $active }) => ($active ? "rgb(79, 70, 229)" : "rgb(51, 65, 85)")};
+`;
+const Check = styled.span`
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+const FilterOption = styled.button`
+  width: 100%;
+  height: 34px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 7px;
+  background: ${({ $active }) =>
+    $active ? "rgb(238, 242, 255)" : "transparent"};
+  color: ${({ $active }) => ($active ? "rgb(79, 70, 229)" : "rgb(51, 65, 85)")};
+  text-align: left;
+  font-size: 13px;
+  cursor: pointer;
+  &:hover {
+    background: rgb(248, 250, 252);
+  }
 `;

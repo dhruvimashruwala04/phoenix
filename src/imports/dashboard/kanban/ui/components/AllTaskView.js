@@ -1,7 +1,195 @@
-import React from "react";
+"use client";
 
-const AllTaskView = () => {
-  return <div>AllTaskView</div>;
+import styled from "styled-components";
+import useKanbanStore from "../../store/kanbanStore";
+import formatDate from "@/imports/core/utils/formatDate";
+
+const AllTaskView = ({ tasks }) => {
+  const updateTaskStatus = useKanbanStore((state) => state.updateTaskStatus);
+
+  const statuses = [
+    {
+      value: "backlog",
+      label: "Backlog",
+      color: "rgb(148, 163, 184)",
+    },
+    {
+      value: "in_progress",
+      label: "In Progress",
+      color: "rgb(59, 130, 246)",
+    },
+    {
+      value: "review",
+      label: "Review",
+      color: "rgb(249, 115, 22)",
+    },
+    {
+      value: "done",
+      label: "Done",
+      color: "rgb(16, 185, 129)",
+    },
+  ];
+
+  return (
+    <Container>
+      {statuses.map((status) => {
+        const statusTasks = tasks.filter(
+          (task) => task.status === status.value,
+        );
+
+        return (
+          <StatusGroup key={status.value}>
+            <GroupHeader>
+              <GroupTitle>
+                <StatusDot $color={status.color} />
+                <span>{status.label}</span>
+                <Count>{statusTasks.length}</Count>
+              </GroupTitle>
+            </GroupHeader>
+
+            <TaskList>
+              {statusTasks.map((task) => (
+                <TaskRow key={task.id}>
+                  <Checkbox
+                    type="checkbox"
+                    checked={task.status === "done"}
+                    onChange={() => {
+                      if (task.status === "done") {
+                        updateTaskStatus(task.id, "backlog");
+                      } else {
+                        updateTaskStatus(task.id, "done");
+                      }
+                    }}
+                  />
+
+                  <TaskTitle $done={task.status === "done"}>
+                    {task.title}
+                  </TaskTitle>
+
+                  <Priority $priority={task.priority}>
+                    {task.priority === "high"
+                      ? "High"
+                      : task.priority === "medium"
+                        ? "Medium"
+                        : "Low"}
+                  </Priority>
+
+                  <DueDate>{formatDate(task.dueDate)}</DueDate>
+                </TaskRow>
+              ))}
+            </TaskList>
+          </StatusGroup>
+        );
+      })}
+    </Container>
+  );
 };
 
 export default AllTaskView;
+
+const Container = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+const StatusGroup = styled.div`
+  width: 100%;
+  background: white;
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 14px;
+  overflow: hidden;
+`;
+const GroupHeader = styled.div`
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  border-bottom: 1px solid rgb(226, 232, 240);
+`;
+const GroupTitle = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgb(30, 41, 59);
+`;
+const StatusDot = styled.span`
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: ${({ $color }) => $color};
+`;
+const Count = styled.span`
+  min-width: 20px;
+  height: 18px;
+  padding: 0 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9px;
+  background: rgb(241, 245, 249);
+  color: rgb(100, 116, 139);
+  font-size: 10px;
+  font-weight: 600;
+`;
+const TaskList = styled.div`
+  width: 100%;
+`;
+const TaskRow = styled.div`
+  min-height: 42px;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border-bottom: 1px solid rgb(241, 245, 249);
+  &:last-child {
+    border-bottom: none;
+  }
+  &:hover {
+    background: rgb(248, 250, 252);
+  }
+`;
+const Checkbox = styled.input`
+  width: 18px;
+  height: 18px;
+  border: 1px solid rgba(223, 228, 233, 1);
+  border-radius: 5px;
+  accent-color: var(--blue-accent);
+  cursor: pointer;
+`;
+const TaskTitle = styled.div`
+  flex: 1;
+  font-size: 14px;
+  font-weight: 500;
+  color: ${({ $done }) => ($done ? "rgb(100, 116, 139)" : "rgb(15, 23, 42)")};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-decoration: ${({ $done }) => ($done ? "line-through" : "none")};
+`;
+const Priority = styled.span`
+  min-width: 56px;
+  text-align: center;
+  padding: 3px 7px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  color: ${({ $priority }) => {
+    if ($priority === "high") return "rgb(244, 63, 94)";
+    if ($priority === "medium") return "rgb(245, 158, 11)";
+    return "rgb(16, 185, 129)";
+  }};
+  background: ${({ $priority }) => {
+    if ($priority === "high") return "rgb(255, 241, 242)";
+    if ($priority === "medium") return "rgb(255, 251, 235)";
+    return "rgb(236, 253, 245)";
+  }};
+`;
+const DueDate = styled.span`
+  width: 55px;
+  font-size: 12px;
+  color: rgb(100, 116, 139);
+  text-align: right;
+`;

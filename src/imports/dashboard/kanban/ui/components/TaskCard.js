@@ -1,23 +1,13 @@
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import useAuthStore from "@/imports/auth/store/authStore";
+import getInitials from "@/imports/core/utils/getInitials";
+import formatDate from "@/imports/core/utils/formatDate";
 
 const TaskCard = ({ title, desc, status, priority, assignee, dueDate }) => {
   const progress = Math.floor(Math.random() * 100) + 1;
   const { user } = useAuthStore();
-  const initials = assignee
-    ? assignee
-        .split(" ")
-        .map((word) => word[0])
-        .join("")
-        .slice(0, 2)
-        .toUpperCase()
-    : user.name
-        .split(" ")
-        .map((word) => word[0])
-        .join("")
-        .slice(0, 2)
-        .toUpperCase();
+  const initials = getInitials(assignee || user?.name);
 
   return (
     <Card>
@@ -46,10 +36,7 @@ const TaskCard = ({ title, desc, status, priority, assignee, dueDate }) => {
             <Right align="center" gap="8px">
               <DateText>
                 <Clock>◷</Clock>
-                {new Date(dueDate).toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                })}
+                {formatDate(dueDate)}
               </DateText>
               <Avatar justify="center" align="center">
                 {initials}

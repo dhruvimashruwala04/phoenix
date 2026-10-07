@@ -15,7 +15,7 @@ const Projects = () => {
       linkHref={"/kanban"}
     >
       <ProjectList>
-        {tasks.map((task, i) => {
+        {tasks.slice(0, 5).map((task, i) => {
           const status = statusConfig[task.status];
           return (
             <ProjectRow href="/kanban" key={i}>
@@ -25,7 +25,7 @@ const Projects = () => {
                   {task.title}
                 </ProjectName>
 
-                <Meta>128 · 6 members · due Aug 24</Meta>
+                <Meta>128 · 6 members · due {task.dueDate}</Meta>
               </ProjectInfo>
 
               <ProgressSection>

@@ -5,64 +5,20 @@ import { Add } from "../assets/Icons";
 import useKanbanStore from "../../store/kanbanStore";
 import TaskCard from "./TaskCard";
 
-const BoardView = () => {
-  const { setShowTask, tasks, sortBy } = useKanbanStore();
-  const columns = [
-    {
-      title: "Backlog",
-      status: "backlog",
-    },
-    {
-      title: "In Progress",
-      status: "in_progress",
-    },
-    {
-      title: "Review",
-      status: "review",
-    },
-    {
-      title: "Done",
-      status: "done",
-    },
-  ];
+const BoardView = ({ columns, getSortedTasks }) => {
+  const { setShowTask } = useKanbanStore();
 
   return (
     <View>
       {columns.map((column) => {
-        const filteredTasks = tasks.filter(
-          (task) => task.status === column.status,
-        );
-
-        const sortedTasks = [...filteredTasks].sort((a, b) => {
-          if (sortBy === "title") {
-            return a.title.localeCompare(b.title);
-          }
-
-          if (sortBy === "priority") {
-            const priorityOrder = {
-              high: 1,
-              medium: 2,
-              low: 3,
-            };
-
-            return priorityOrder[a.priority] - priorityOrder[b.priority];
-          }
-
-          if (sortBy === "dueDate") {
-            return new Date(a.dueDate) - new Date(b.dueDate);
-          }
-
-          return 0;
-        });
-
+        const sortedTasks = getSortedTasks(column);
         return (
-          <Column direction="column" gap="12px" key={column.status}>
+          <Column direction="column" gap="12px" key={column.value}>
             <Header justify="space-between" align="center">
               <Left align="center">
                 <Title>{column.title}</Title>
                 <Counter>{sortedTasks.length}</Counter>
               </Left>
-
               <AddBtn onClick={() => setShowTask(true)}>
                 <Add />
               </AddBtn>
@@ -80,7 +36,7 @@ const BoardView = () => {
               />
             ))}
 
-            <AddTask>+ Add task</AddTask>
+            <AddTask onClick={() => setShowTask(true)}>+ Add task</AddTask>
           </Column>
         );
       })}
@@ -96,7 +52,6 @@ const View = styled.div`
   grid-template-columns: repeat(4, minmax(260px, 1fr));
   gap: 24px;
   align-items: start;
-  overflow: auto;
 `;
 const Column = styled(Flex)`
   border-radius: 12px;

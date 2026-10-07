@@ -19,6 +19,8 @@ const useKanbanStore = create(
       tasks: [],
 
       sortBy: "title",
+      filterBy: "all",
+      groupBy: "status",
 
       setAiPanel: (aiPanel) => set({ aiPanel }),
       setShowTask: (showTask) => set({ showTask }),
@@ -32,6 +34,8 @@ const useKanbanStore = create(
       setDueDate: (dueDate) => set({ dueDate }),
 
       setSortBy: (sortBy) => set({ sortBy }),
+      setFilterBy: (filterBy) => set({ filterBy }),
+      setGroupBy: (groupBy) => set({ groupBy }),
 
       resetTask: () =>
         set({
@@ -44,6 +48,7 @@ const useKanbanStore = create(
       addTask: () =>
         set((state) => {
           const newTask = {
+            id: Date.now().toString(),
             title: state.title,
             desc: state.desc,
             priority: state.priority,
@@ -60,6 +65,15 @@ const useKanbanStore = create(
             status: "backlog",
             assignee: "",
             dueDate: "",
+          };
+        }),
+
+      updateTaskStatus: (taskId, newStatus) =>
+        set((state) => {
+          return {
+            tasks: state.tasks.map((task) =>
+              task.id === taskId ? { ...task, status: newStatus } : task,
+            ),
           };
         }),
     }),

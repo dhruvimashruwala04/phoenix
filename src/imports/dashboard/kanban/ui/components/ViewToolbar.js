@@ -29,6 +29,7 @@ const ViewToolbar = () => {
 
       <Actions align="center" gap="8px">
         <SortButton
+          gap="6px"
           align="center"
           justify="space-between"
           onClick={() => {
@@ -99,7 +100,7 @@ const Actions = styled(Flex)`
   margin-left: auto;
 `;
 const SortButton = styled(Flex)`
-  width: 115px;
+  width: fit-content;
   height: 32px;
   padding: 0 10px;
   border: 1px solid rgb(226, 232, 240);
