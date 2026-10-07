@@ -1,0 +1,75 @@
+import { persist } from "zustand/middleware";
+
+const { create } = require("zustand");
+
+const useKanbanStore = create(
+  persist(
+    (set) => ({
+      aiPanel: true,
+      showTask: false,
+      view: "board",
+
+      title: "",
+      desc: "",
+      priority: "high",
+      status: "backlog",
+      assignee: "",
+      dueDate: "",
+
+      tasks: [],
+
+      sortBy: "title",
+
+      setAiPanel: (aiPanel) => set({ aiPanel }),
+      setShowTask: (showTask) => set({ showTask }),
+      setView: (view) => set({ view }),
+
+      setTitle: (title) => set({ title }),
+      setDesc: (desc) => set({ desc }),
+      setPriority: (priority) => set({ priority }),
+      setStatus: (status) => set({ status }),
+      setAssignee: (assignee) => set({ assignee }),
+      setDueDate: (dueDate) => set({ dueDate }),
+
+      setSortBy: (sortBy) => set({ sortBy }),
+
+      resetTask: () =>
+        set({
+          title: "",
+          description: "",
+          priority: "high",
+          status: "backlog",
+        }),
+
+      addTask: () =>
+        set((state) => {
+          const newTask = {
+            title: state.title,
+            desc: state.desc,
+            priority: state.priority,
+            status: state.status,
+            assignee: state.assignee,
+            dueDate: state.dueDate,
+          };
+
+          return {
+            tasks: [...state.tasks, newTask],
+            title: "",
+            desc: "",
+            priority: "high",
+            status: "backlog",
+            assignee: "",
+            dueDate: "",
+          };
+        }),
+    }),
+    {
+      name: "kanban-storage",
+      partialize: (state) => ({
+        tasks: state.tasks,
+      }),
+    },
+  ),
+);
+
+export default useKanbanStore;

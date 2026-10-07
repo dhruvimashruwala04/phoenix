@@ -2,13 +2,14 @@
 import { Flex } from "@/imports/core/components/Flex";
 import React from "react";
 import styled from "styled-components";
-import { AI, Close } from "../assets/Icons";
+import { AI, Close, Send } from "../assets/Icons";
 import useAuthStore from "@/imports/auth/store/authStore";
 import { aiSuggestions, help } from "../../api/constants";
-import { Content } from "next/font/google";
+import useKanbanStore from "../../store/kanbanStore";
 
 const AiPanel = () => {
   const user = useAuthStore((state) => state.user);
+  const { setAiPanel } = useKanbanStore();
   const firstName = user?.name.split(" ")[0];
 
   return (
@@ -18,7 +19,11 @@ const AiPanel = () => {
           <Text>AI Assistant</Text>
           <Badge>Beta</Badge>
         </Wrapper>
-        <CloseBtn align="center" justify="center">
+        <CloseBtn
+          align="center"
+          justify="center"
+          onClick={() => setAiPanel(false)}
+        >
           <Close />
         </CloseBtn>
       </Header>
@@ -59,6 +64,13 @@ const AiPanel = () => {
           </Suggestion>
         ))}
       </Main>
+
+      <AskAi gap="8px">
+        <AskInput placeholder="Ask AI anything..."></AskInput>
+        <SendBtn align="center" justify="center">
+          <Send />
+        </SendBtn>
+      </AskAi>
     </Panel>
   );
 };
@@ -207,3 +219,29 @@ const SText = styled.span`
   text-transform: uppercase;
 `;
 const SIcon = styled(Flex)``;
+const AskAi = styled(Flex)`
+  padding: 16px 20px;
+  border-top: 1px solid rgb(241, 245, 249);
+  width: 100%;
+`;
+const AskInput = styled.input`
+  flex: 1 1 0%;
+  min-width: 0px;
+  height: 38px;
+  border-radius: 8px;
+  border: 0px;
+  background: rgb(248, 250, 252);
+  box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+  padding: 0px 12px;
+  font-size: 12px;
+  outline: 0px;
+`;
+const SendBtn = styled(Flex)`
+  width: 38px;
+  height: 38px;
+  border: 0px;
+  border-radius: 8px;
+  background: rgb(79, 70, 229);
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+`;

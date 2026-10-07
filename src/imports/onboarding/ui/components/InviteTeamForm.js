@@ -6,12 +6,16 @@ import useOnboardingStore from "../../store/onboardingStore";
 
 const InviteTeamForm = () => {
   const {
+    inviteeName,
     inviteeEmail,
     inviteeRole,
+    status,
     addInvite,
     invites,
+    setInviteeName,
     setInviteeEmail,
     setInviteeRole,
+    setStatus,
     removeInvite,
   } = useOnboardingStore();
 
@@ -22,12 +26,16 @@ const InviteTeamForm = () => {
   return (
     <Form direction="column" gap="18px">
       <AddRow>
+        <NameInput
+          value={inviteeName}
+          onChange={(e) => setInviteeName(e.target.value)}
+          placeholder="Name"
+        />
         <EmailInput
           value={inviteeEmail}
           onChange={(e) => setInviteeEmail(e.target.value)}
           placeholder="teammate@company.com"
         />
-
         <RoleSelect
           value={inviteeRole}
           onChange={(e) => setInviteeRole(e.target.value)}
@@ -36,7 +44,13 @@ const InviteTeamForm = () => {
           <option value="Member">Member</option>
           <option value="Viewer">Viewer</option>
         </RoleSelect>
-
+        <StatusSelect
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+        >
+          <option value="accepted">Accepted</option>
+          <option value="pending">Pending</option>
+        </StatusSelect>
         <AddButton type="button" onClick={addInvite}>
           Add
         </AddButton>
@@ -47,8 +61,12 @@ const InviteTeamForm = () => {
           invites.map((invite) => (
             <InviteRow key={invite.inviteeEmail}>
               <Avatar $color={invite.color}>{invite.initials}</Avatar>
-              <Email>{invite.inviteeEmail}</Email>
+              <MemberName>{invite.inviteeName}</MemberName>
               <MemberRole>{invite.inviteeRole}</MemberRole>
+              <MemberStatus $status={invite.status}>
+                {invite.status}
+              </MemberStatus>
+
               <RemoveButton
                 type="button"
                 onClick={() => removeInvite(invite.inviteeEmail)}
@@ -65,6 +83,7 @@ const InviteTeamForm = () => {
       <InviteLinkBox>
         <Link />
         <LinkText>Anyone with the link can join as a Member</LinkText>
+
         <CopyButton type="button" onClick={copyInviteLink}>
           <Copy />
           Copy invite link
@@ -84,6 +103,26 @@ const AddRow = styled.div`
   display: flex;
   gap: 8px;
 `;
+const NameInput = styled.input`
+  flex: 1;
+  min-width: 100px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #dce3ed;
+  border-radius: 7px;
+  outline: none;
+  color: #172033;
+  background: white;
+  font-size: 13px;
+
+  &:focus {
+    border-color: var(--blue-accent);
+  }
+
+  &::placeholder {
+    color: #8a919b;
+  }
+`;
 const EmailInput = styled.input`
   flex: 1;
   min-width: 0;
@@ -101,6 +140,17 @@ const EmailInput = styled.input`
   &::placeholder {
     color: #8a919b;
   }
+`;
+const StatusSelect = styled.select`
+  width: 105px;
+  height: 40px;
+  padding: 0 10px;
+  border: 1px solid #dce3ed;
+  border-radius: 7px;
+  outline: none;
+  color: #172033;
+  background: white;
+  font-size: 13px;
 `;
 const RoleSelect = styled.select`
   width: 94px;
@@ -155,10 +205,28 @@ const Avatar = styled.div`
   font-size: 10px;
   font-weight: 600;
 `;
-const Email = styled.span`
+const MemberName = styled.span`
   flex: 1;
   color: #172033;
   font-size: 13px;
+  font-weight: 500;
+`;
+const MemberStatus = styled.div`
+  min-width: 70px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: capitalize;
+
+  background-color: ${({ $status }) =>
+    $status === "accepted" ? "#ecfdf5" : "#fff7ed"};
+
+  color: ${({ $status }) => ($status === "accepted" ? "#059669" : "#ea580c")};
 `;
 const MemberRole = styled.div`
   min-width: 82px;

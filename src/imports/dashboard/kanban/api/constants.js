@@ -32,3 +32,25 @@ export const aiSuggestions = [
     buttonText: "Balance Now",
   },
 ];
+
+export const statusConfig = {
+  backlog: {
+    color: "rgb(234, 179, 8)",
+    label: "Backlog",
+  },
+
+  in_progress: {
+    color: "rgb(59, 130, 246)",
+    label: "In Progress",
+  },
+
+  review: {
+    color: "rgb(168, 85, 247)",
+    label: "Review",
+  },
+
+  done: {
+    color: "rgb(34, 197, 94)",
+    label: "Done",
+  },
+};

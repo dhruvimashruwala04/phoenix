@@ -39,9 +39,7 @@ const DashboardLayout = ({ children }) => {
         </User>
       </Left>
 
-      <Right direction="column" justify="center">
-        {children}
-      </Right>
+      <Right>{children}</Right>
     </Page>
   );
 };
@@ -63,7 +61,6 @@ const Right = styled(Flex)`
 const LogoWrapper = styled(Flex)`
   height: 80px;
   width: 100%;
-  gap: 12px;
   padding: 24px;
 `;
 const LogoIcon = styled.div`

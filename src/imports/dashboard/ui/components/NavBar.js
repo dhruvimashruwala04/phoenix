@@ -11,12 +11,15 @@ const NavBar = () => {
         <SectionWrapper key={i}>
           <Header>{main.header}</Header>
           <div>
-            {main.links.map((link, index) => (
-              <LinkText key={index} href={link.href}>
-                {link.icon}
-                {link.label}
-              </LinkText>
-            ))}
+            {main.links.map((link, index) => {
+              const Icon = link.icon;
+              return (
+                <LinkText key={index} href={link.href}>
+                  {Icon && <Icon />}
+                  {link.label}
+                </LinkText>
+              );
+            })}
           </div>
         </SectionWrapper>
       ))}

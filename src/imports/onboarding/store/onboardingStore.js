@@ -1,84 +1,102 @@
 import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
-const useOnboardingStore = create((set) => ({
-  name: "John Smith",
-  role: "Product",
-  teamSize: "2-10",
+const useOnboardingStore = create(
+  persist(
+    (set) => ({
+      name: "John Smith",
+      role: "Product",
+      teamSize: "2-10",
 
-  workspaceName: "Acme Inc.",
-  workspaceUrl: "acme-inc",
-  selectedColor: "#4f46e5",
+      workspaceName: "Acme Inc.",
+      workspaceUrl: "acme-inc",
+      selectedColor: "#4f46e5",
 
-  inviteeEmail: "",
-  inviteeRole: "Member",
-  invites: [],
+      inviteeEmail: "",
+      inviteeRole: "Member",
+      inviteeName: "",
+      status: "Pending",
+      invites: [],
 
-  projectName: "Website Redesign",
-  view: "Kanban board",
-  aiTasks: false,
+      projectName: "Website Redesign",
+      view: "Kanban board",
+      aiTasks: false,
 
-  setName: (name) => set({ name }),
-  setRole: (role) => set({ role }),
-  setTeamSize: (teamSize) => set({ teamSize }),
+      setName: (name) => set({ name }),
+      setRole: (role) => set({ role }),
+      setTeamSize: (teamSize) => set({ teamSize }),
 
-  setWorkspaceName: (workspaceName) => {
-    const slug = workspaceName
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
+      setWorkspaceName: (workspaceName) => {
+        const slug = workspaceName
+          .toLowerCase()
+          .trim()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-+|-+$/g, "");
 
-    set({
-      workspaceName,
-      workspaceUrl: slug,
-    });
-  },
+        set({
+          workspaceName,
+          workspaceUrl: slug,
+        });
+      },
 
-  setWorkspaceUrl: (workspaceUrl) => set({ workspaceUrl }),
+      setWorkspaceUrl: (workspaceUrl) => set({ workspaceUrl }),
 
-  setSelectedColor: (selectedColor) => set({ selectedColor }),
-  setWorkspaceUrl: (workspaceUrl) => set({ workspaceUrl }),
-  setSelectedColor: (selectedColor) => set({ selectedColor }),
+      setSelectedColor: (selectedColor) => set({ selectedColor }),
+      setWorkspaceUrl: (workspaceUrl) => set({ workspaceUrl }),
+      setSelectedColor: (selectedColor) => set({ selectedColor }),
 
-  setInviteeEmail: (inviteeEmail) => set({ inviteeEmail }),
-  setInviteeRole: (inviteeRole) => set({ inviteeRole }),
+      setInviteeEmail: (inviteeEmail) => set({ inviteeEmail }),
+      setInviteeRole: (inviteeRole) => set({ inviteeRole }),
+      setInviteeName: (inviteeName) => set({ inviteeName }),
+      setStatus: (status) => set({ status }),
 
-  addInvite: () =>
-    set((state) => {
-      if (!state.inviteeEmail.trim()) return state;
+      addInvite: () =>
+        set((state) => {
+          if (!state.inviteeEmail.trim()) return state;
 
-      const initials = state.inviteeEmail
-        .split("@")[0]
-        .split(/[._-]/)
-        .map((word) => word[0])
-        .join("")
-        .slice(0, 2)
-        .toUpperCase();
+          const initials = state.inviteeName
+            .split(" ")
+            .map((word) => word[0])
+            .join("")
+            .slice(0, 2)
+            .toUpperCase();
 
-      const newInvite = {
-        inviteeEmail: state.inviteeEmail,
-        inviteeRole: state.inviteeRole,
-        initials,
-        color: "#6366f1",
-      };
+          const newInvite = {
+            inviteeEmail: state.inviteeEmail,
+            inviteeRole: state.inviteeRole,
+            inviteeName: state.inviteeName,
+            status: state.status,
+            initials,
+            color: "#6366f1",
+          };
 
-      return {
-        invites: [...state.invites, newInvite],
-        inviteeEmail: "",
-        inviteeRole: "Member",
-      };
+          return {
+            invites: [...state.invites, newInvite],
+            inviteeEmail: "",
+            inviteeRole: "Member",
+            inviteeName: "",
+            status: "Pending",
+          };
+        }),
+
+      removeInvite: (inviteeEmail) =>
+        set((state) => ({
+          invites: state.invites.filter(
+            (invite) => invite.inviteeEmail !== inviteeEmail,
+          ),
+        })),
+
+      setProjectName: (projectName) => set({ projectName }),
+      setView: (view) => set({ view }),
+      setAiTasks: (aiTasks) => set({ aiTasks }),
     }),
-
-  removeInvite: (inviteeEmail) =>
-    set((state) => ({
-      invites: state.invites.filter(
-        (invite) => invite.inviteeEmail !== inviteeEmail,
-      ),
-    })),
-
-  setProjectName: (projectName) => set({ projectName }),
-  setView: (view) => set({ view }),
-  setAiTasks: (aiTasks) => set({ aiTasks }),
-}));
+    {
+      name: "invites-storage",
+      partialize: (state) => ({
+        invites: state.invites,
+      }),
+    },
+  ),
+);
 
 export default useOnboardingStore;

@@ -23,37 +23,37 @@ export const nav = [
   {
     header: "Workspace",
     links: [
-      { label: "Overview", href: "/", icon: <Overview />, active: true },
-      { label: "Inbox", href: "/inbox", icon: <Inbox />, active: false },
-      { label: "Kanban", href: "/kanban", icon: <Kanban />, active: false },
+      { label: "Overview", href: "/", icon: Overview, active: true },
+      { label: "Inbox", href: "/inbox", icon: Inbox, active: false },
+      { label: "Kanban", href: "/kanban", icon: Kanban, active: false },
       {
         label: "Gantt Chart",
         href: "/gantt-chart",
-        icon: <GanttChart />,
+        icon: GanttChart,
         active: false,
       },
       {
         label: "Calendar",
         href: "/calendar",
-        icon: <Calendar />,
+        icon: Calendar,
         active: false,
       },
       {
         label: "Timeline",
         href: "/timeline",
-        icon: <Timeline />,
+        icon: Timeline,
         active: false,
       },
       {
         label: "Milestones",
         href: "/milestones",
-        icon: <Milestones />,
+        icon: Milestones,
         active: false,
       },
       {
         label: "Dependencies",
         href: "/dependencies",
-        icon: <Dependencies />,
+        icon: Dependencies,
         active: false,
       },
     ],
@@ -61,29 +61,29 @@ export const nav = [
   {
     header: "Analytics",
     links: [
-      { label: "Reports", href: "/reports", icon: <Reports />, active: true },
+      { label: "Reports", href: "/reports", icon: Reports, active: true },
       {
         label: "Workload",
         href: "/workload",
-        icon: <Workload />,
+        icon: Workload,
         active: false,
       },
       {
         label: "Time Tracking",
         href: "/time-tracking",
-        icon: <TimeTracking />,
+        icon: TimeTracking,
         active: false,
       },
       {
         label: "Activity",
         href: "/calendar",
-        icon: <Activity />,
+        icon: Activity,
         active: false,
       },
       {
         label: "AI Insights",
         href: "/ai-insights",
-        icon: <AiInsights />,
+        icon: AiInsights,
         active: false,
       },
     ],
@@ -91,9 +91,9 @@ export const nav = [
   {
     header: "Resources",
     links: [
-      { label: "Files", href: "/files", icon: <Files />, active: true },
-      { label: "Docs", href: "/docs", icon: <Docs />, active: false },
-      { label: "Team", href: "/team", icon: <Team />, active: false },
+      { label: "Files", href: "/files", icon: Files, active: true },
+      { label: "Docs", href: "/docs", icon: Docs, active: false },
+      { label: "Team", href: "/team", icon: Team, active: false },
     ],
   },
   {
@@ -121,13 +121,13 @@ export const nav = [
       {
         label: "Settings",
         href: "/settings",
-        icon: <Settings />,
+        icon: Settings,
         active: true,
       },
       {
         label: "Help & Feedback",
         href: "/help-feedback",
-        icon: <Help />,
+        icon: Help,
         active: false,
       },
     ],
