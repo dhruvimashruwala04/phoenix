@@ -1,20 +1,15 @@
-"use client";
-
 import useKanbanStore from "../store/kanbanStore";
 import useAuthStore from "@/imports/auth/store/authStore";
 
 const useKanbanView = () => {
   const { tasks, sortBy, filterBy, groupBy } = useKanbanStore();
-
   const { user } = useAuthStore();
 
-  // 1. Filter
   const filteredTasks =
     filterBy === "all"
       ? tasks
       : tasks.filter((task) => task.priority === filterBy);
 
-  // 2. Sort
   const sortTasks = (taskList) => {
     return [...taskList].sort((a, b) => {
       if (sortBy === "title") {
@@ -27,21 +22,17 @@ const useKanbanView = () => {
           medium: 2,
           low: 3,
         };
-
         return priorityOrder[a.priority] - priorityOrder[b.priority];
       }
 
       if (sortBy === "dueDate") {
         return new Date(a.dueDate) - new Date(b.dueDate);
       }
-
       return 0;
     });
   };
 
-  // 3. Board columns
   let columns = [];
-
   if (groupBy === "status") {
     columns = [
       { title: "Backlog", value: "backlog" },
@@ -61,7 +52,6 @@ const useKanbanView = () => {
 
   if (groupBy === "assignee") {
     const assignees = [...new Set(filteredTasks.map((task) => task.assignee))];
-
     columns = assignees.map((assignee) => ({
       title: assignee === "" ? user?.name : assignee,
       value: assignee,

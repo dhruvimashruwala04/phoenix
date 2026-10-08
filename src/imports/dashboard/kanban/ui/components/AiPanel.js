@@ -7,7 +7,7 @@ import useAuthStore from "@/imports/auth/store/authStore";
 import { aiSuggestions, help } from "../../api/constants";
 import useKanbanStore from "../../store/kanbanStore";
 
-const AiPanel = () => {
+const AiPanel = ({ reply }) => {
   const user = useAuthStore((state) => state.user);
   const { setAiPanel } = useKanbanStore();
   const firstName = user?.name.split(" ")[0];
@@ -62,6 +62,9 @@ const AiPanel = () => {
             <SuggestionText>{s.content}</SuggestionText>
             <Btn $variant={s.variant}>{s.buttonText}</Btn>
           </Suggestion>
+        ))}
+        {reply?.map((r, i) => (
+          <QuickActionText key={i}>{r}</QuickActionText>
         ))}
       </Main>
 
@@ -244,4 +247,14 @@ const SendBtn = styled(Flex)`
   background: rgb(79, 70, 229);
   color: rgb(255, 255, 255);
   cursor: pointer;
+`;
+const QuickActionText = styled(Flex)`
+  max-width: 85%;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  background: rgb(248, 250, 252);
+  color: rgb(51, 65, 85);
 `;

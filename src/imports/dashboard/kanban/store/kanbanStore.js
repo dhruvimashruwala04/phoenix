@@ -1,6 +1,6 @@
 import { persist } from "zustand/middleware";
-
-const { create } = require("zustand");
+import { create } from "zustand";
+import useAuthStore from "@/imports/auth/store/authStore";
 
 const useKanbanStore = create(
   persist(
@@ -13,7 +13,7 @@ const useKanbanStore = create(
       desc: "",
       priority: "high",
       status: "backlog",
-      assignee: "",
+      assignee: useAuthStore.getState().user?.name || "",
       dueDate: "",
 
       tasks: [],

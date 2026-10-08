@@ -12,12 +12,13 @@ import {
 } from "../assets/Icons";
 import useOnboardingStore from "../../store/onboardingStore";
 import getInitials from "@/imports/core/utils/getInitials";
+import useAuthStore from "@/imports/auth/store/authStore";
 
 const AboutYouForm = () => {
+  const { user } = useAuthStore();
   const { name, setName, role, setRole, teamSize, setTeamSize } =
     useOnboardingStore();
-
-  const initials = getInitials(name);
+  const initials = getInitials(user?.name || name);
 
   return (
     <>
@@ -31,7 +32,7 @@ const AboutYouForm = () => {
             <Label>Your name</Label>
 
             <Input
-              value={name}
+              value={user?.name || name}
               onChange={(e) => setName(e.target.value)}
               placeholder="John Smith"
             />
