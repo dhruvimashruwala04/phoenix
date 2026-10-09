@@ -1,7 +1,7 @@
 import { Flex } from "@/imports/core/components/Flex";
 import React from "react";
 import styled from "styled-components";
-import useMilestones from "../../store/useMilestones";
+import useMilestones from "../../store/milestonesStore";
 import ActionButton from "@/imports/dashboard/ui/components/ActionButton";
 
 const NewMilestones = () => {

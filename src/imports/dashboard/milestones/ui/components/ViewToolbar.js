@@ -2,7 +2,7 @@
 import { Flex } from "@/imports/core/components/Flex";
 import ActionButton from "@/imports/dashboard/ui/components/ActionButton";
 import styled from "styled-components";
-import useMilestones from "../../store/useMilestones";
+import useMilestones from "../../store/milestonesStore";
 
 const ViewToolbar = () => {
   const { selectedView, setSelectedView, setShowModal, showModal, milestones } =

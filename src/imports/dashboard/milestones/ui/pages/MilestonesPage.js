@@ -4,7 +4,7 @@ import MilestonesHeader from "../components/MilestonesHeader";
 import { Flex } from "@/imports/core/components/Flex";
 import ViewToolbar from "../components/ViewToolbar";
 import MilestonesView from "../components/MilestonesView";
-import useMilestones from "../../store/useMilestones";
+import useMilestones from "../../store/milestonesStore";
 import NewMilestones from "../components/NewMilestones";
 
 const MilestonesPage = () => {

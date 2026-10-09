@@ -1,9 +1,7 @@
 import useKanbanStore from "../store/kanbanStore";
-import useAuthStore from "@/imports/auth/store/authStore";
 
 const useKanbanView = () => {
   const { tasks, sortBy, filterBy, groupBy } = useKanbanStore();
-  const { user } = useAuthStore();
 
   const filteredTasks =
     filterBy === "all"
@@ -53,7 +51,7 @@ const useKanbanView = () => {
   if (groupBy === "assignee") {
     const assignees = [...new Set(filteredTasks.map((task) => task.assignee))];
     columns = assignees.map((assignee) => ({
-      title: assignee === "" ? user?.name : assignee,
+      title: assignee,
       value: assignee,
     }));
   }

@@ -18,7 +18,7 @@ const AboutYouForm = () => {
   const { user } = useAuthStore();
   const { name, setName, role, setRole, teamSize, setTeamSize } =
     useOnboardingStore();
-  const initials = getInitials(user?.name || name);
+  const initials = getInitials(name);
 
   return (
     <>
@@ -30,9 +30,8 @@ const AboutYouForm = () => {
 
           <NameField direction="column" gap="7px">
             <Label>Your name</Label>
-
             <Input
-              value={user?.name || name}
+              value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="John Smith"
             />
@@ -58,7 +57,6 @@ const AboutYouForm = () => {
                   {item === "Operations" && <Operations />}
                   {item === "Other" && <Other />}
                 </RoleIcon>
-
                 {item}
               </RoleButton>
             ))}

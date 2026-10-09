@@ -13,22 +13,20 @@ import AllTaskView from "../components/AllTaskView";
 import useKanbanView from "../../hooks/useKanbanView";
 import AiQuickActions from "../components/AiQuickActions";
 import { useState } from "react";
-import useAuthStore from "@/imports/auth/store/authStore";
 import { AiInsights } from "@/imports/dashboard/ui/assets/Icons";
 import { AiAssignee, AiPriority, AiReport, AiTask } from "../assets/Icons";
 
 const KanbanPage = () => {
   const { aiPanel, setAiPanel, showTask, view, setSortBy, tasks } =
     useKanbanStore();
-  const { columns, getSortedTasks, sortedTasks } = useKanbanView();
-  const user = useAuthStore((state) => state.user);
 
+  const { columns, getSortedTasks, sortedTasks } = useKanbanView();
   const [aiReply, setAiReply] = useState([]);
 
   const openTask = tasks.filter((task) => task.status !== "done").length;
   const completed = tasks.filter((task) => task.status === "done").length;
   const mostTask = tasks.reduce((acc, task) => {
-    const key = task.assignee || user?.name;
+    const key = task.assignee;
     acc[key] = (acc[key] || 0) + 1;
     return acc;
   }, {});

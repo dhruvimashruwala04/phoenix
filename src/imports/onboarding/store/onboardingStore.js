@@ -86,9 +86,6 @@ const useOnboardingStore = create(
     }),
     {
       name: "invites-storage",
-      partialize: (state) => ({
-        invites: state.invites,
-      }),
     },
   ),
 );

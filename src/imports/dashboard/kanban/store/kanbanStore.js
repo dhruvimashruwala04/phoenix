@@ -13,7 +13,7 @@ const useKanbanStore = create(
       desc: "",
       priority: "high",
       status: "backlog",
-      assignee: useAuthStore.getState().user?.name || "",
+      assignee: useAuthStore.getState().user?.name,
       dueDate: "",
 
       tasks: [],

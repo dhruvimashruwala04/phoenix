@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import MilestonesCard from "./MilestonesCard";
-import useMilestones from "../../store/useMilestones";
+import useMilestones from "../../store/milestonesStore";
 
 const MilestonesView = () => {
   const { milestones, selectedView } = useMilestones();
