@@ -9,6 +9,4 @@ export const Flex = styled.div`
   align-items: ${(props) => props.align || "flex-start"};
   flex-wrap: ${(props) => props.wrap || "nowrap"};
   gap: ${(props) => props.gap || "0"};
-  /* width: ${(props) => props.width || "auto"}; */
-  /* height: ${(props) => props.height || "auto"}; */
 `;

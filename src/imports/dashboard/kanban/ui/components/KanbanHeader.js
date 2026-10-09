@@ -132,8 +132,6 @@ const Header = styled(Flex)`
   border-bottom: 1px solid rgb(241, 245, 249);
   gap: 12px 16px;
   padding: 12px 24px;
-  /* position: relative; */
-  /* top: 0px; */
   z-index: 5;
   width: 100%;
 `;

@@ -1,0 +1,94 @@
+"use client";
+import styled from "styled-components";
+import { Flex } from "@/imports/core/components/Flex";
+import { ReadMark } from "../assets/Icons";
+import useInboxStore from "../../store/useInboxStore";
+
+const ViewToolbar = () => {
+  const { selectedView, setSelectedView, messages, handleAllRead } =
+    useInboxStore();
+
+  const all = messages.filter((message) => !message.archive).length;
+  const unread = messages.filter((message) => !message.read).length;
+  const mentions = messages.filter(
+    (message) => message.type === "Mention",
+  ).length;
+  const archive = messages.filter((message) => message.archive).length;
+
+  const views = [
+    { label: "All", value: "all", number: all },
+    { label: "Unread", value: "unread", number: unread },
+    { label: "Mentions", value: "mentions", number: mentions },
+    { label: "Archived", value: "archived", number: archive },
+  ];
+
+  return (
+    <Toolbar align="center" justify="space-between" gap="16px">
+      <ViewTabs align="center">
+        {views.map((v, i) => (
+          <Tab
+            key={i}
+            $active={v.value === selectedView}
+            onClick={() => setSelectedView(v.value)}
+          >
+            {v.label}
+            <span>{v.number}</span>
+          </Tab>
+        ))}
+      </ViewTabs>
+
+      <ReadButton onClick={handleAllRead}>
+        <ReadMark />
+        Mark all as read
+      </ReadButton>
+    </Toolbar>
+  );
+};
+
+export default ViewToolbar;
+
+const Toolbar = styled(Flex)`
+  width: 100%;
+`;
+const ViewTabs = styled(Flex)`
+  height: 36px;
+  padding: 3px;
+  background: rgb(241, 245, 249);
+  border-radius: 9px;
+`;
+const Tab = styled.button`
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  height: 30px;
+  padding: 0 25px;
+  border: none;
+  border-radius: 7px;
+  background: ${({ $active }) => ($active ? "#ffffff" : "transparent")};
+  color: ${({ $active }) =>
+    $active ? "rgb(67, 56, 202)" : "rgb(100, 116, 139)"};
+  font-size: 14px;
+  font-weight: ${({ $active }) => ($active ? 500 : 400)};
+  cursor: pointer;
+  box-shadow: ${({ $active }) =>
+    $active ? "0 1px 3px rgba(15, 23, 42, 0.08)" : "none"};
+  > span {
+    font-size: 10px;
+    color: rgb(148, 163, 184);
+  }
+`;
+
+const ReadButton = styled.button`
+  height: 34px;
+  padding: 0px 14px;
+  border-radius: 8px;
+  border: 0px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+  font-size: 13px;
+  color: rgb(51, 65, 85);
+  cursor: pointer;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+`;
