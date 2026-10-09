@@ -5,12 +5,19 @@ import styled from "styled-components";
 import useMilestones from "../../store/useMilestones";
 
 const ViewToolbar = () => {
-  const { selectedView, setSelectedView, setShowModal } = useMilestones();
+  const { selectedView, setSelectedView, setShowModal, showModal, milestones } =
+    useMilestones();
+
+  const all = milestones.length;
+  const upcoming = milestones.filter((m) => m.status === "Upcoming").length;
+  const due = milestones.filter((m) => m.status === "Due soon").length;
+  const completed = milestones.filter((m) => m.status === "Completed").length;
+
   const views = [
-    { label: "All", value: "all", number: 46 },
-    { label: "Upcoming", value: "upcoming", number: 12 },
-    { label: "Due soon", value: "due", number: 2 },
-    { label: "Completed", value: "completed", number: 32 },
+    { label: "All", value: "all", number: all },
+    { label: "Upcoming", value: "upcoming", number: upcoming },
+    { label: "Due soon", value: "due", number: due },
+    { label: "Completed", value: "completed", number: completed },
   ];
   return (
     <Toolbar align="center" justify="space-between" gap="16px">
@@ -30,7 +37,7 @@ const ViewToolbar = () => {
       <ActionButton
         text="New Milestone"
         variant="secondary"
-        onClick={() => setShowModal(true)}
+        onClick={() => setShowModal(!showModal)}
       />
     </Toolbar>
   );
