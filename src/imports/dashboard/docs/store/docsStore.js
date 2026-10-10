@@ -7,7 +7,7 @@ const useDocsStore = create(
       title: "",
       editorVal: "",
       selectedDocId: null,
-      viewState: "",
+      viewState: "edit",
       text: "",
 
       documents: [],

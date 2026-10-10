@@ -19,7 +19,7 @@ export default DocsPage;
 const Page = styled(Flex)`
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  overflow: auto;
 `;
 
 const Content = styled(Flex)`

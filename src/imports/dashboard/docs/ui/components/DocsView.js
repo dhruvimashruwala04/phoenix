@@ -9,6 +9,7 @@ import getInitials from "@/imports/core/utils/getInitials";
 import { useRef } from "react";
 import FallBackText from "@/imports/core/components/FallBackText";
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const DocsView = () => {
   const {
@@ -135,7 +136,7 @@ const DocsView = () => {
                 spellCheck={false}
               />
             ) : (
-              <Markdown>{editorVal}</Markdown>
+              <Markdown remarkPlugins={[remarkGfm]}>{editorVal}</Markdown>
             )}
           </MarkdownWrapper>
         </DocumentWrapper>
