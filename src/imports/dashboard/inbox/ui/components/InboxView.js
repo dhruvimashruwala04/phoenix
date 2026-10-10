@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import { Archive, Mail, Star, StarredMessage } from "../assets/Icons";
 import useInboxStore from "../../store/useInboxStore";
+import FallBackText from "@/imports/core/components/FallBackText";
 
 const InboxView = () => {
   const {
@@ -28,36 +29,39 @@ const InboxView = () => {
 
   return (
     <Wrapper>
-      <MessageList>
-        {filteredMessages.map((message) => (
-          <MessageItem
-            key={message.id}
-            $active={message.id === selectedId}
-            onClick={() => handleMessageClick(message.id)}
-            gap="14px"
-          >
-            <Avatar $color={message.color}>{message.initials}</Avatar>
+      {filteredMessages.length === 0 ? (
+        <FallBackText text="You're all caught up" />
+      ) : (
+        <MessageList>
+          {filteredMessages.map((message) => (
+            <MessageItem
+              key={message.id}
+              $active={message.id === selectedId}
+              onClick={() => handleMessageClick(message.id)}
+              gap="14px"
+            >
+              <Avatar $color={message.color}>{message.initials}</Avatar>
 
-            <MessageContent direction="column">
-              <TopRow justify="space-between" align="center">
-                <Name $read={message.read}>{message.name}</Name>
+              <MessageContent direction="column">
+                <TopRow justify="space-between" align="center">
+                  <Name $read={message.read}>{message.name}</Name>
 
-                <Time>{message.time}</Time>
-              </TopRow>
+                  <Time>{message.time}</Time>
+                </TopRow>
 
-              <Subject $read={message.read}>{message.subject}</Subject>
+                <Subject $read={message.read}>{message.subject}</Subject>
 
-              <Meta align="center" gap="7px">
-                <Type $type={message.type}>{message.type}</Type>
+                <Meta align="center" gap="7px">
+                  <Type $type={message.type}>{message.type}</Type>
 
-                {!message.read && <UnreadDot />}
-                {message.starred && <StarredMessage />}
-              </Meta>
-            </MessageContent>
-          </MessageItem>
-        ))}
-      </MessageList>
-
+                  {!message.read && <UnreadDot />}
+                  {message.starred && <StarredMessage />}
+                </Meta>
+              </MessageContent>
+            </MessageItem>
+          ))}
+        </MessageList>
+      )}
       {selectedMessage && (
         <Conversation direction="column">
           <ConversationHeader justify="space-between" align="center">

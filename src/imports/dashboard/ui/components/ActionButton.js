@@ -6,10 +6,11 @@ const ActionButton = ({
   text,
   icon = <Add />,
   variant = "primary",
+  height = "32px",
   onClick,
 }) => {
   return (
-    <Button $variant={variant} onClick={onClick}>
+    <Button $variant={variant} $height={height} onClick={onClick}>
       {icon}
       {text}
     </Button>
@@ -20,7 +21,7 @@ export default ActionButton;
 
 const Button = styled.button`
   white-space: nowrap;
-  height: 36px;
+  height: ${({ $height }) => $height};
   padding: 0px 16px;
   border: 0px;
   background: ${({ $variant }) =>
