@@ -1,0 +1,257 @@
+import { Flex } from "@/imports/core/components/Flex";
+import { Close } from "@/imports/dashboard/kanban/ui/assets/Icons";
+import useCalendarStore from "../../store/CalendarStore";
+import styled from "styled-components";
+import { categories } from "../../api/constants";
+
+const NewEventModal = () => {
+  const {
+    setShowNewEvent,
+    category,
+    setCategory,
+    title,
+    setTitle,
+    date,
+    setDate,
+    startTime,
+    setStartTime,
+    endTime,
+    setEndTime,
+    saveEvent,
+    selectedEventId,
+    deleteEvent,
+  } = useCalendarStore();
+
+  return (
+    <Overlay
+      align="center"
+      justify="center"
+      onClick={() => setShowNewEvent(false)}
+    >
+      <Card onClick={(e) => e.stopPropagation()}>
+        <Header align="center" justify="space-between">
+          <Title>{selectedEventId ? "Edit Event" : "Create Event"}</Title>
+          <CloseButton onClick={() => setShowNewEvent(false)}>
+            <Close />
+          </CloseButton>
+        </Header>
+
+        <TitleInput direction="column" gap="6px">
+          Title
+          <input
+            name="title"
+            type="text"
+            placeholder="e.g. Sprint Retro"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+          />
+        </TitleInput>
+
+        <Details gap="12px">
+          <DropdownInput direction="column" gap="6px">
+            Date
+            <input
+              name="date"
+              type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </DropdownInput>
+          <DropdownInput direction="column" gap="6px">
+            Start
+            <input
+              name="startTime"
+              type="time"
+              value={startTime}
+              onChange={(e) => setStartTime(e.target.value)}
+            />
+          </DropdownInput>
+          <DropdownInput direction="column" gap="6px">
+            End
+            <input
+              name="endTime"
+              type="time"
+              value={endTime}
+              onChange={(e) => setEndTime(e.target.value)}
+            />
+          </DropdownInput>
+        </Details>
+
+        <Section direction="column" gap="6px">
+          <Label>Category</Label>
+          <CategoryContainer>
+            {categories.map((c) => (
+              <CategoryButton
+                key={c.label}
+                type="button"
+                $active={category === c.label}
+                $bg={c.bg}
+                $color={c.color}
+                onClick={() => setCategory(c.label)}
+              >
+                <Dot color={c.color}></Dot>
+                {c.label}
+              </CategoryButton>
+            ))}
+          </CategoryContainer>
+        </Section>
+
+        <Footer gap="8px" justify="space-between">
+          {selectedEventId && (
+            <DeleteButton
+              type="button"
+              onClick={() => deleteEvent(selectedEventId)}
+            >
+              Delete
+            </DeleteButton>
+          )}
+
+          <div style={{ display: "flex", gap: "8px", marginLeft: "auto" }}>
+            <CancelButton type="button" onClick={() => setShowNewEvent(false)}>
+              Cancel
+            </CancelButton>
+
+            <PrimaryButton type="button" onClick={saveEvent}>
+              Save
+            </PrimaryButton>
+          </div>
+        </Footer>
+      </Card>
+    </Overlay>
+  );
+};
+
+export default NewEventModal;
+
+const Overlay = styled(Flex)`
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(15, 23, 42, 0.4);
+`;
+const Card = styled.form`
+  width: 440px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 255, 255);
+  border-radius: 14px;
+  box-shadow: rgba(15, 23, 42, 0.25) 0px 20px 50px;
+  padding: 24px;
+  gap: 16px;
+`;
+const Header = styled(Flex)``;
+const Title = styled.span`
+  color: rgb(15, 23, 42);
+  font-size: 16px;
+  font-weight: 600;
+`;
+const CloseButton = styled(Flex)`
+  background: transparent;
+  cursor: pointer;
+`;
+const TitleInput = styled(Flex)`
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(71, 85, 105);
+  > input {
+    height: 38px;
+    border-radius: 8px;
+    border: 0px;
+    box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+    padding: 0px 12px;
+    font-size: 14px;
+    outline: 0px;
+    width: 100%;
+  }
+`;
+const Details = styled(Flex)``;
+const DropdownInput = styled(Flex)`
+  flex: 1 1 0%;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(71, 85, 105);
+  > select,
+  > input {
+    width: 100%;
+    height: 38px;
+    border-radius: 8px;
+    border: 1px solid rgb(226, 232, 240);
+    padding: 0px 8px;
+    font-size: 13px;
+    color: rgb(71, 85, 105);
+  }
+`;
+const Footer = styled(Flex)`
+  margin-top: 4px;
+`;
+const PrimaryButton = styled.button`
+  height: 36px;
+  padding: 0px 16px;
+  border-radius: 8px;
+  border: 0px;
+  background: rgb(79, 70, 229);
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+`;
+const CancelButton = styled.button`
+  height: 36px;
+  padding: 0 16px;
+  border: 1px solid rgb(226, 232, 240);
+  border-radius: 7px;
+  background: white;
+  color: rgb(51, 65, 85);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+`;
+const CategoryContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`;
+const CategoryButton = styled.button`
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border: 1px solid ${({ $active, $color }) => ($active ? $color : "#dce3ed")};
+  border-radius: 20px;
+  background-color: ${({ $active, $bg }) => ($active ? $bg : "white")};
+  color: ${({ $active, $color }) => ($active ? $color : "#172033")};
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+`;
+const Dot = styled.span`
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: ${({ color }) => color};
+`;
+const Label = styled.span`
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(71, 85, 105);
+  align-self: flex-start;
+`;
+const Section = styled(Flex)`
+  width: 100%;
+`;
+const DeleteButton = styled.button`
+  height: 36px;
+  padding: 0 16px;
+  border: 1px solid rgb(254, 202, 202);
+  border-radius: 7px;
+  background: rgb(254, 242, 242);
+  color: rgb(220, 38, 38);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  align-self: flex-start;
+  &:hover {
+    background: rgb(254, 226, 226);
+  }
+`;

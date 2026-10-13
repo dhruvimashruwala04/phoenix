@@ -1,0 +1,477 @@
+"use client";
+import { Flex } from "@/imports/core/components/Flex";
+import styled from "styled-components";
+import { useState } from "react";
+
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/react/daygrid";
+import interactionPlugin from "@fullcalendar/react/interaction";
+
+// const defaultEvents = [
+//   {
+//     id: 1,
+//     title: "Design Review",
+//     date: "Today",
+//     time: "2:00 PM",
+//     color: "#635bff",
+//     extra: "+2",
+//   },
+//   {
+//     id: 2,
+//     title: "Client Meeting",
+//     date: "Tomorrow",
+//     time: "11:00 AM",
+//     color: "#ff982f",
+//   },
+//   {
+//     id: 3,
+//     title: "Development Sync",
+//     date: "Jun 19",
+//     time: "10:00 AM",
+//     color: "#3182ff",
+//   },
+// ];
+// const defaultTasks = [
+//   { id: 1, title: "Review homepage design", priority: "High" },
+//   { id: 2, title: "Update style guide", priority: "Medium" },
+// ];
+
+const AiPanel = ({ onCalendarReady, onDateChange, selectedDate }) => {
+  return (
+    <Panel direction="column" gap="28px">
+      <CalendarSection>
+        <FullCalendar
+          plugins={[dayGridPlugin, interactionPlugin]}
+          initialView="dayGridMonth"
+          headerToolbar={{
+            left: "title",
+            center: "",
+            right: "prev,next",
+          }}
+          height="auto"
+          fixedWeekCount={false}
+          dayHeaderFormat={{ weekday: "narrow" }}
+          showNonCurrentDates={true}
+          datesSet={(info) => {
+            onCalendarReady?.(info.view.calendar);
+            onDateChange?.(info.view.calendar.getDate());
+          }}
+          dateClick={(info) => {
+            onDateChange?.(info.date);
+          }}
+          dayCellClassNames={(info) => {
+            const sameDate =
+              info.date.getFullYear() === selectedDate.getFullYear() &&
+              info.date.getMonth() === selectedDate.getMonth() &&
+              info.date.getDate() === selectedDate.getDate();
+
+            return sameDate ? ["selected-mini-date"] : [];
+          }}
+          events={[]}
+        />
+      </CalendarSection>
+
+      {/* <ContentSection>
+        <SectionHeading>
+          <SectionTitle>Upcoming Events</SectionTitle>
+          <TextButton type="button" onClick={onViewAllEvents}>
+            View all
+          </TextButton>
+        </SectionHeading>
+        <EventList>
+          {events.map((event) => (
+            <EventRow key={event.id}>
+              <EventDot $color={event.color} />
+              <EventInfo>
+                <EventName>{event.title}</EventName>
+                <EventTime>
+                  {event.date} • {event.time}
+                </EventTime>
+              </EventInfo>
+              {event.extra ? (
+                <EventBadge>{event.extra}</EventBadge>
+              ) : (
+                <EventBadge>−</EventBadge>
+              )}
+            </EventRow>
+          ))}
+        </EventList>
+      </ContentSection> */}
+
+      {/* <ContentSection>
+        <SectionHeading>
+          <SectionTitle>My Tasks</SectionTitle>
+          <TextButton type="button" onClick={onViewAllTasks}>
+            View all
+          </TextButton>
+        </SectionHeading>
+        <TaskList>
+          {tasks.map((task) => (
+            <TaskRow key={task.id}>
+              <TaskCheckbox
+                type="checkbox"
+                checked={Boolean(task.completed)}
+                onChange={() => toggleTask(task.id)}
+                aria-label={`Complete ${task.title}`}
+              />
+              <TaskName $completed={task.completed}>{task.title}</TaskName>
+              <Priority $priority={task.priority}>{task.priority}</Priority>
+            </TaskRow>
+          ))}
+        </TaskList>
+        <AddTaskForm
+          onSubmit={(e) => {
+            e.preventDefault();
+            addTask();
+          }}
+        >
+          <AddTaskInput
+            value={newTask}
+            onChange={(e) => setNewTask(e.target.value)}
+            placeholder="+ Add Task"
+            aria-label="New task"
+          />
+          {newTask.trim() && <AddTaskButton type="submit">Add</AddTaskButton>}
+        </AddTaskForm>
+      </ContentSection>
+
+      <AssistantCard>
+        <AssistantHeading>
+          <SectionTitle>AI Schedule Assistant</SectionTitle>
+          <BetaBadge>BETA</BetaBadge>
+        </AssistantHeading>
+        <AssistantInner>
+          <SuccessRow>
+            <SuccessIcon>✓</SuccessIcon>
+            <SuccessText>Your schedule looks good!</SuccessText>
+          </SuccessRow>
+          <AssistantDescription>
+            No conflicts found. You have 2.5h focus time tomorrow.
+          </AssistantDescription>
+          <OptimizeButton type="button" onClick={onOptimizeSchedule}>
+            Optimize My Schedule
+          </OptimizeButton>
+        </AssistantInner>
+      </AssistantCard> */}
+    </Panel>
+  );
+};
+
+export default AiPanel;
+
+const Panel = styled(Flex)`
+  width: 320px;
+  flex-shrink: 0;
+  background: rgb(255, 255, 255);
+  border-left: 1px solid rgb(241, 245, 249);
+  padding: 24px;
+  height: 100vh;
+  overflow-y: auto;
+  @media (max-width: 1280px) {
+    display: none;
+  }
+`;
+const CalendarSection = styled.section`
+  margin-bottom: 32px;
+  width: 100%;
+`;
+const SectionHeading = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 14px;
+`;
+const MonthTitle = styled.h3`
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+`;
+const MonthNavigation = styled.div`
+  display: flex;
+  gap: 4px;
+`;
+const IconButton = styled.button`
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  &:hover {
+    background: #f1f5f9;
+    color: #4f46e5;
+  }
+`;
+const CalendarGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  row-gap: 4px;
+  text-align: center;
+`;
+const Weekday = styled.div`
+  padding: 4px 0 7px;
+  color: #64748b;
+  font-size: 10px;
+  font-weight: 600;
+`;
+const DayButton = styled.button`
+  position: relative;
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border: 0;
+  border-radius: 50%;
+  background: ${({ $selected }) => ($selected ? "#5145ed" : "transparent")};
+  color: ${({ $selected, $muted }) =>
+    $selected ? "#fff" : $muted ? "#cbd5e1" : "#0f172a"};
+  font-size: 11px;
+  cursor: pointer;
+  &:hover {
+    background: ${({ $selected }) => ($selected ? "#5145ed" : "#f1f0ff")};
+  }
+`;
+const DayDot = styled.span`
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: ${({ $color }) => $color};
+  transform: translateX(-50%);
+`;
+const ContentSection = styled.section`
+  margin-bottom: 30px;
+  width: 100%;
+`;
+const SectionTitle = styled.h3`
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #0f172a;
+`;
+const TextButton = styled.button`
+  padding: 3px 0;
+  border: 0;
+  background: transparent;
+  color: #5145ff;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  &:hover {
+    color: #3730a3;
+  }
+`;
+const EventList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+`;
+const EventRow = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-width: 0;
+`;
+const EventDot = styled.span`
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: ${({ $color }) => $color};
+`;
+const EventInfo = styled.div`
+  flex: 1;
+  min-width: 0;
+`;
+const EventName = styled.div`
+  overflow: hidden;
+  color: #0f172a;
+  font-size: 12px;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+const EventTime = styled.div`
+  margin-top: 3px;
+  color: #64748b;
+  font-size: 10px;
+`;
+const EventBadge = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 20px;
+  height: 17px;
+  padding: 0 5px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  color: #64748b;
+  font-size: 10px;
+`;
+const TaskList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+`;
+const TaskRow = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-width: 0;
+  cursor: pointer;
+`;
+const TaskCheckbox = styled.input`
+  appearance: none;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  &:checked {
+    border-color: #5145ed;
+    background: #5145ed;
+  }
+  &:checked::after {
+    display: block;
+    content: "✓";
+    color: #fff;
+    font-size: 11px;
+    text-align: center;
+    line-height: 14px;
+  }
+`;
+const TaskName = styled.span`
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  color: #334155;
+  font-size: 12px;
+  text-decoration: ${({ $completed }) =>
+    $completed ? "line-through" : "none"};
+  opacity: ${({ $completed }) => ($completed ? 0.55 : 1)};
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+const Priority = styled.span`
+  flex-shrink: 0;
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: ${({ $priority }) =>
+    $priority === "High" ? "#f0efff" : "#fff4e5"};
+  color: ${({ $priority }) => ($priority === "High" ? "#5145ed" : "#c77716")};
+  font-size: 9px;
+  font-weight: 600;
+`;
+const AddTaskForm = styled.form`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0 0 25px;
+`;
+const AddTaskInput = styled.input`
+  width: 100%;
+  min-width: 0;
+  padding: 3px 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: #334155;
+  font: inherit;
+  font-size: 12px;
+  &::placeholder {
+    color: #64748b;
+    opacity: 1;
+  }
+`;
+const AddTaskButton = styled.button`
+  border: 0;
+  background: transparent;
+  color: #5145ed;
+  font-size: 11px;
+  cursor: pointer;
+`;
+const AssistantCard = styled.section`
+  padding: 16px;
+  border: 1px solid #edf0f5;
+  border-radius: 14px;
+  background: #f8fafc;
+  width: 100%;
+`;
+const AssistantHeading = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+`;
+const BetaBadge = styled.span`
+  padding: 3px 5px;
+  border-radius: 4px;
+  background: #eeedff;
+  color: #5145ed;
+  font-size: 9px;
+  font-weight: 700;
+`;
+const AssistantInner = styled.div`
+  padding: 13px;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  background: #fff;
+`;
+const SuccessRow = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 9px;
+`;
+const SuccessIcon = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #d1fae5;
+  color: #059669;
+  font-size: 12px;
+  font-weight: 700;
+`;
+const SuccessText = styled.span`
+  color: #059669;
+  font-size: 11px;
+  font-weight: 700;
+`;
+const AssistantDescription = styled.p`
+  margin: 10px 0 12px 29px;
+  color: #64748b;
+  font-size: 10px;
+  line-height: 1.6;
+`;
+const OptimizeButton = styled.button`
+  width: 100%;
+  min-height: 33px;
+  padding: 7px 8px;
+  border: 1px solid #c7c5ff;
+  border-radius: 8px;
+  background: #fff;
+  color: #5145ed;
+  font-size: 10px;
+  font-weight: 650;
+  cursor: pointer;
+  &:hover {
+    background: #f5f3ff;
+  }
+`;
