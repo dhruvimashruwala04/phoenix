@@ -36,6 +36,29 @@ import interactionPlugin from "@fullcalendar/react/interaction";
 //   { id: 2, title: "Update style guide", priority: "Medium" },
 // ];
 
+const isSameDay = (a, b) =>
+  !!a &&
+  !!b &&
+  a.getFullYear() === b.getFullYear() &&
+  a.getMonth() === b.getMonth() &&
+  a.getDate() === b.getDate();
+
+const Chevron = ({ direction }) => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d={direction === "left" ? "M15 18l-6-6 6-6" : "M9 18l6-6-6-6"} />
+  </svg>
+);
+
 const AiPanel = ({ onCalendarReady, onDateChange, selectedDate }) => {
   return (
     <Panel direction="column" gap="28px">
@@ -59,14 +82,34 @@ const AiPanel = ({ onCalendarReady, onDateChange, selectedDate }) => {
           dateClick={(info) => {
             onDateChange?.(info.date);
           }}
-          dayCellClassNames={(info) => {
-            const sameDate =
-              info.date.getFullYear() === selectedDate.getFullYear() &&
-              info.date.getMonth() === selectedDate.getMonth() &&
-              info.date.getDate() === selectedDate.getDate();
-
-            return sameDate ? ["selected-mini-date"] : [];
+          buttons={{
+            prev: {
+              display: "icon",
+              iconContent: () => <Chevron direction="left" />,
+            },
+            next: {
+              display: "icon",
+              iconContent: () => <Chevron direction="right" />,
+            },
           }}
+          toolbarClass="mini-toolbar"
+          toolbarTitleClass="mini-title"
+          buttonClass="mini-nav-btn"
+          toolbarSectionClass="mini-toolbar-section"
+          dayHeaderClass="mini-weekday"
+          dayHeaderInnerClass="mini-weekday-inner"
+          dayCellTopClass="mini-day-top"
+          dayCellClass={(info) =>
+            [
+              "mini-day",
+              info.isOther && "mini-day-other",
+              info.isToday && "mini-day-today",
+              isSameDay(info.date, selectedDate) && "mini-day-selected",
+            ]
+              .filter(Boolean)
+              .join(" ")
+          }
+          dayCellTopInnerClass="mini-day-number"
           events={[]}
         />
       </CalendarSection>
@@ -174,6 +217,90 @@ const Panel = styled(Flex)`
 const CalendarSection = styled.section`
   margin-bottom: 32px;
   width: 100%;
+
+  && .mini-toolbar {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    margin-bottom: 12px;
+  }
+  && .mini-toolbar-section {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 4px;
+  }
+  && .mini-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+  && .mini-nav-btn {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: #94a3b8;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  && .mini-nav-btn:hover {
+    background: #f1f5f9;
+    color: #4f46e5;
+  }
+  && .mini-weekday {
+    padding: 4px 0 7px;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+  }
+  && .mini-weekday,
+  && .mini-weekday-inner,
+  && .mini-day-top {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  && .mini-weekday-inner {
+    width: 27px;
+    margin: 0 auto;
+  }
+  && .mini-day {
+    cursor: pointer;
+  }
+  && .mini-day-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    margin: 2px auto;
+    border-radius: 50%;
+    color: #0f172a;
+    font-size: 11px;
+  }
+  && .mini-day:hover .mini-day-number {
+    background: #f1f0ff;
+  }
+  && .mini-day-other .mini-day-number {
+    color: #cbd5e1;
+  }
+  && .mini-day-today .mini-day-number {
+    color: #5145ed;
+    font-weight: 700;
+  }
+  && .mini-day-selected .mini-day-number,
+  && .mini-day-selected:hover .mini-day-number {
+    background: #5145ed;
+    color: #fff;
+  }
 `;
 const SectionHeading = styled.div`
   display: flex;

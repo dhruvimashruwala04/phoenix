@@ -38,11 +38,25 @@ const CalendarView = ({ onCalendarReady, onDateChange, selectedDate }) => {
         ]}
         initialView="dayGridMonth"
         headerToolbar={{
-          left: "today,prev,next",
-          center: "title",
+          left: "today prev,next title",
           right: "dayGridMonth,timeGridWeek,timeGridDay,allEvents",
         }}
         headerToolbarClass="header"
+        toolbarSectionClass="cal-toolbar-section"
+        toolbarTitleClass="cal-title"
+        buttonGroupClass={(info) =>
+          info.hasSelection ? "cal-view-switcher" : "cal-nav-group"
+        }
+        eventClass="cal-event"
+        dayCellClass="cal-day"
+        listItemEventBeforeClass="cal-list-dot"
+        listDayHeaderInnerClass={(info) =>
+          info.level
+            ? "cal-list-day-sub"
+            : info.isToday
+              ? "cal-list-day-main cal-list-day-today"
+              : "cal-list-day-main"
+        }
         events={calendarEvents}
         buttons={{
           allEvents: {
@@ -71,7 +85,7 @@ const CalendarView = ({ onCalendarReady, onDateChange, selectedDate }) => {
                 fontSize: "22px",
                 fontWeight: 700,
                 lineHeight: "26px",
-                color: "#0f172a",
+                color: info.isToday ? "#4f46e5" : "#0f172a",
               }}
             >
               {info.date.getDate()}
@@ -98,45 +112,86 @@ const CalendarView = ({ onCalendarReady, onDateChange, selectedDate }) => {
           const category = categories.find(
             (item) => item.label === info.event.extendedProps.category,
           );
-          const isListView = info.view.type === "listWeek";
+          const isListView = info.view.type === "allEvents";
           const formatTime = (date) =>
             date?.toLocaleTimeString("en-US", {
               hour: "numeric",
               minute: "2-digit",
             }) || "";
 
+          if (isListView) {
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "16px",
+                  width: "100%",
+                  padding: "10px 12px",
+                  borderRadius: "8px",
+                  backgroundColor: category?.bg,
+                  color: category?.color,
+                  boxShadow: `inset 0 0 0 1px ${category?.color}`,
+                  overflow: "hidden",
+                }}
+              >
+                <span
+                  style={{
+                    width: "140px",
+                    flexShrink: 0,
+                    fontSize: "11px",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {formatTime(info.event.start)} - {formatTime(info.event.end)}
+                </span>
+                <span
+                  style={{
+                    flex: 1,
+                    minWidth: 0,
+                    fontSize: "13px",
+                    fontWeight: 700,
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {info.event.title}
+                </span>
+                <span
+                  style={{
+                    flexShrink: 0,
+                    fontSize: "11px",
+                    color: "#64748b",
+                  }}
+                >
+                  {category?.label}
+                </span>
+              </div>
+            );
+          }
+
           return (
             <div
               style={{
                 display: "flex",
-                flexDirection: isListView ? "row-reverse" : "column",
-                alignItems: isListView ? "center" : "flex-start",
+                flexDirection: "column",
+                alignItems: "flex-start",
                 height: "100%",
-                justifyContent: isListView ? "space-between" : "flex-start",
+                justifyContent: "flex-start",
                 gap: "8px",
                 backgroundColor: category?.bg,
                 color: category?.color,
                 borderRadius: "8px",
-                padding: isListView ? "10px 12px" : "6px 8px",
+                padding: "6px 8px",
                 boxShadow: `inset 0 0 0 1px ${category?.color}, inset 3px 0 0 ${category?.color}`,
                 overflow: "hidden",
                 width: "100%",
               }}
             >
-              {isListView && (
-                <span
-                  style={{
-                    fontSize: "11px",
-                    color: "#64748b",
-                    flexShrink: 0,
-                  }}
-                >
-                  {category?.label}
-                </span>
-              )}
               <span
                 style={{
-                  fontSize: isListView ? "13px" : "11px",
+                  fontSize: "11px",
                   fontWeight: 700,
                   textAlign: "center",
                   overflow: "hidden",
@@ -149,7 +204,7 @@ const CalendarView = ({ onCalendarReady, onDateChange, selectedDate }) => {
 
               <span
                 style={{
-                  fontSize: isListView ? "11px" : "9px",
+                  fontSize: "9px",
                   whiteSpace: "nowrap",
                   flexShrink: 0,
                 }}
@@ -187,33 +242,45 @@ const Container = styled.div`
 
   .header {
     background-color: transparent;
-    & > :nth-child(3) {
-      padding: 3px;
-      border-radius: 8px;
-      box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
-      button[aria-selected="true"] {
-        background: rgb(238, 242, 255);
-        color: rgb(79, 70, 229);
-        height: 28px;
-        padding: 0px 14px;
-      }
-      button[aria-selected="false"] {
-        height: 28px;
-        padding: 0px 14px;
-      }
+  }
+
+  && .cal-toolbar-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  && .cal-title {
+    margin: 0 0 0 4px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  && .cal-view-switcher {
+    padding: 3px;
+    border-radius: 8px;
+    box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+    button[aria-selected="true"] {
+      background: rgb(238, 242, 255);
+      color: rgb(79, 70, 229);
+      height: 28px;
+      padding: 0px 14px;
+    }
+    button[aria-selected="false"] {
+      height: 28px;
+      padding: 0px 14px;
     }
   }
 
-  // remove blue in bg
-  && .fc-breezy-uqo.fc-breezy-yg7 {
+  && .cal-event {
     background: transparent;
     box-shadow: none;
     padding: 4px;
     height: 100%;
   }
 
-  // remove dot in list view
-  && .fc-breezy-5JF.fc-breezy-lNM.fc-breezy-AAA {
+  && .cal-list-dot {
     display: none;
   }
   && .event-title {
@@ -232,14 +299,18 @@ const Container = styled.div`
     text-overflow: ellipsis;
   }
 
-  // Month grid cell hover
-  && .fc-Zq > div > div:hover {
+  && .cal-day:hover {
     background-color: rgb(250, 250, 255) !important;
     cursor: pointer;
   }
 
-  &&
-    .fc-breezy-cJ3.fc-breezy-2rx.fc-breezy-Nca.fc-breezy-PtF.fc-breezy-AAA.fc-breezy-9yp.fc-breezy-mNS {
+  && .cal-list-day-today,
+  && .cal-list-day-today:hover {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  && .cal-list-day-sub {
     display: none !important;
   }
 `;
