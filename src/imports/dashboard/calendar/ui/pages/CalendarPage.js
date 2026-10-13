@@ -18,9 +18,7 @@ const CalendarPage = () => {
   useEffect(() => {
     [mainCalendarApi, miniCalendarApi].forEach((api) => {
       if (!api) return;
-
       const calendarDate = api.getDate();
-
       if (calendarDate.getTime() !== currentDate.getTime()) {
         api.gotoDate(currentDate);
       }
@@ -63,4 +61,5 @@ const Page = styled(Flex)`
 `;
 const Content = styled(Flex)`
   flex: 1 1 70%;
+  border-right: 1px solid rgb(241, 245, 249);
 `;

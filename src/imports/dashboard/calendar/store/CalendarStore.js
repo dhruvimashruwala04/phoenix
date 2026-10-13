@@ -23,26 +23,45 @@ const useCalendarStore = create(
 
       saveEvent: () =>
         set((state) => {
+          const {
+            selectedEventId,
+            title,
+            date,
+            startTime,
+            endTime,
+            category,
+            events,
+          } = state;
+
+          const eventData = {
+            title,
+            startTime: `${date}T${startTime}:00`,
+            endTime: `${date}T${endTime}:00`,
+            category,
+          };
+
+          if (selectedEventId) {
+            return {
+              events: events.map((event) =>
+                event.id === selectedEventId
+                  ? { ...event, ...eventData }
+                  : event,
+              ),
+              showNewEvent: false,
+              selectedEventId: null,
+            };
+          }
+
           const newEvent = {
             id: Date.now().toString(),
-            title: state.title,
-            startTime: `${state.date}T${state.startTime}`,
-            endTime: `${state.date}T${state.endTime}`,
-            category: state.category,
+            ...eventData,
           };
 
           return {
-            events: [...state.events, newEvent],
+            events: [...events, newEvent],
             showNewEvent: false,
-            selectedEventId: null,
-            title: "",
-            date: new Date().toISOString().slice(0, 10),
-            startTime: "10:00",
-            endTime: "11:00",
-            category: "Meeting",
           };
         }),
-
       setSelectedEvent: (id) =>
         set((state) => {
           const event = state.events.find((event) => event.id === id);

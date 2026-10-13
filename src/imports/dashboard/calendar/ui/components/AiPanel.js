@@ -1,40 +1,16 @@
 "use client";
 import { Flex } from "@/imports/core/components/Flex";
 import styled from "styled-components";
-import { useState } from "react";
 
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/react/daygrid";
 import interactionPlugin from "@fullcalendar/react/interaction";
-
-// const defaultEvents = [
-//   {
-//     id: 1,
-//     title: "Design Review",
-//     date: "Today",
-//     time: "2:00 PM",
-//     color: "#635bff",
-//     extra: "+2",
-//   },
-//   {
-//     id: 2,
-//     title: "Client Meeting",
-//     date: "Tomorrow",
-//     time: "11:00 AM",
-//     color: "#ff982f",
-//   },
-//   {
-//     id: 3,
-//     title: "Development Sync",
-//     date: "Jun 19",
-//     time: "10:00 AM",
-//     color: "#3182ff",
-//   },
-// ];
-// const defaultTasks = [
-//   { id: 1, title: "Review homepage design", priority: "High" },
-//   { id: 2, title: "Update style guide", priority: "Medium" },
-// ];
+import useCalendarStore from "../../store/CalendarStore";
+import { categories } from "../../api/constants";
+import formatDate from "@/imports/core/utils/formatDate";
+import useKanbanStore from "@/imports/dashboard/kanban/store/kanbanStore";
+import useAuthStore from "@/imports/auth/store/authStore";
+import { Chevron } from "../assets/Icons";
 
 const isSameDay = (a, b) =>
   !!a &&
@@ -43,23 +19,26 @@ const isSameDay = (a, b) =>
   a.getMonth() === b.getMonth() &&
   a.getDate() === b.getDate();
 
-const Chevron = ({ direction }) => (
-  <svg
-    width="16"
-    height="16"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d={direction === "left" ? "M15 18l-6-6 6-6" : "M9 18l6-6-6-6"} />
-  </svg>
-);
-
 const AiPanel = ({ onCalendarReady, onDateChange, selectedDate }) => {
+  const { events } = useCalendarStore();
+  const { tasks } = useKanbanStore();
+  const { user } = useAuthStore();
+
+  const eventsByDate = events.reduce((result, event) => {
+    const start = event.startTime || event.start;
+    if (!start) return result;
+    const date = new Date(start);
+    const dateKey = [
+      date.getFullYear(),
+      String(date.getMonth() + 1).padStart(2, "0"),
+      String(date.getDate()).padStart(2, "0"),
+    ].join("-");
+    const category = categories.find((item) => item.label === event.category);
+    if (!result[dateKey]) result[dateKey] = [];
+    if (category) result[dateKey].push(category.color);
+    return result;
+  }, {});
+
   return (
     <Panel direction="column" gap="28px">
       <CalendarSection>
@@ -109,26 +88,61 @@ const AiPanel = ({ onCalendarReady, onDateChange, selectedDate }) => {
               .filter(Boolean)
               .join(" ")
           }
-          dayCellTopInnerClass="mini-day-number"
+          dayCellTopInnerClass="mini-day-top-inner"
           events={[]}
+          dayCellTopContent={(info) => {
+            const date = info.date;
+
+            const dateKey = [
+              date.getFullYear(),
+              String(date.getMonth() + 1).padStart(2, "0"),
+              String(date.getDate()).padStart(2, "0"),
+            ].join("-");
+
+            const colors = [...new Set(eventsByDate[dateKey] || [])].slice(
+              0,
+              3,
+            );
+
+            return (
+              <div className="mini-day-content">
+                <span className="mini-day-number">{info.dayNumberText}</span>
+
+                <div className="mini-event-dots">
+                  {colors.map((color, index) => (
+                    <span
+                      key={`${dateKey}-${index}`}
+                      className="mini-event-dot"
+                      style={{ backgroundColor: color }}
+                    />
+                  ))}
+                </div>
+              </div>
+            );
+          }}
         />
       </CalendarSection>
 
-      {/* <ContentSection>
+      <ContentSection>
         <SectionHeading>
           <SectionTitle>Upcoming Events</SectionTitle>
-          <TextButton type="button" onClick={onViewAllEvents}>
-            View all
-          </TextButton>
+          <TextButton type="button">View all</TextButton>
         </SectionHeading>
         <EventList>
-          {events.map((event) => (
+          {events.slice(0, 3).map((event) => (
             <EventRow key={event.id}>
-              <EventDot $color={event.color} />
+              <EventDot
+                $color={
+                  categories.find(
+                    (category) => category.label === event.category,
+                  )?.color || "#94a3b8"
+                }
+              />
               <EventInfo>
                 <EventName>{event.title}</EventName>
                 <EventTime>
-                  {event.date} • {event.time}
+                  {formatDate(event.startTime.split("T")[0])} •{" "}
+                  {event.startTime.split("T")[1]}
                 </EventTime>
               </EventInfo>
               {event.extra ? (
@@ -139,42 +153,42 @@ const AiPanel = ({ onCalendarReady, onDateChange, selectedDate }) => {
             </EventRow>
           ))}
         </EventList>
-      </ContentSection> */}
+      </ContentSection>
 
-      {/* <ContentSection>
+      <ContentSection>
         <SectionHeading>
           <SectionTitle>My Tasks</SectionTitle>
-          <TextButton type="button" onClick={onViewAllTasks}>
-            View all
-          </TextButton>
+          <TextButton type="button">View all</TextButton>
         </SectionHeading>
         <TaskList>
-          {tasks.map((task) => (
-            <TaskRow key={task.id}>
-              <TaskCheckbox
-                type="checkbox"
-                checked={Boolean(task.completed)}
-                onChange={() => toggleTask(task.id)}
-                aria-label={`Complete ${task.title}`}
-              />
-              <TaskName $completed={task.completed}>{task.title}</TaskName>
-              <Priority $priority={task.priority}>{task.priority}</Priority>
-            </TaskRow>
-          ))}
+          {tasks
+            .filter((task) => task.assignee === user.name)
+            .slice(0, 3)
+            .map((task) => (
+              <TaskRow key={task.id}>
+                <TaskCheckbox
+                  type="checkbox"
+                  checked={Boolean(task.completed)}
+                  onChange={() => console.log("toggle")}
+                  aria-label={`Complete ${task.title}`}
+                />
+                <TaskName $completed={task.completed}>{task.title}</TaskName>
+                <Priority $priority={task.priority}>{task.priority}</Priority>
+              </TaskRow>
+            ))}
         </TaskList>
         <AddTaskForm
           onSubmit={(e) => {
             e.preventDefault();
-            addTask();
           }}
         >
           <AddTaskInput
-            value={newTask}
-            onChange={(e) => setNewTask(e.target.value)}
+            // value={newTask}
+            onChange={(e) => {}}
             placeholder="+ Add Task"
             aria-label="New task"
           />
-          {newTask.trim() && <AddTaskButton type="submit">Add</AddTaskButton>}
+          <AddTaskButton type="submit">Add</AddTaskButton>
         </AddTaskForm>
       </ContentSection>
 
@@ -191,11 +205,9 @@ const AiPanel = ({ onCalendarReady, onDateChange, selectedDate }) => {
           <AssistantDescription>
             No conflicts found. You have 2.5h focus time tomorrow.
           </AssistantDescription>
-          <OptimizeButton type="button" onClick={onOptimizeSchedule}>
-            Optimize My Schedule
-          </OptimizeButton>
+          <OptimizeButton type="button">Optimize My Schedule</OptimizeButton>
         </AssistantInner>
-      </AssistantCard> */}
+      </AssistantCard>
     </Panel>
   );
 };
@@ -206,10 +218,8 @@ const Panel = styled(Flex)`
   width: 320px;
   flex-shrink: 0;
   background: rgb(255, 255, 255);
-  border-left: 1px solid rgb(241, 245, 249);
   padding: 24px;
   height: 100vh;
-  overflow-y: auto;
   @media (max-width: 1280px) {
     display: none;
   }
@@ -301,6 +311,46 @@ const CalendarSection = styled.section`
     background: #5145ed;
     color: #fff;
   }
+  && .mini-day-top-inner {
+    display: flex !important;
+    justify-content: center !important;
+    width: 100%;
+  }
+
+  && .mini-day-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 38px;
+  }
+
+  && .mini-day-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    margin: 2px auto 0;
+    border-radius: 50%;
+    font-size: 11px;
+  }
+
+  && .mini-event-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    min-height: 5px;
+    margin-top: 2px;
+  }
+
+  && .mini-event-dot {
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
 `;
 const SectionHeading = styled.div`
   display: flex;
@@ -308,71 +358,6 @@ const SectionHeading = styled.div`
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 14px;
-`;
-const MonthTitle = styled.h3`
-  margin: 0;
-  font-size: 14px;
-  font-weight: 700;
-`;
-const MonthNavigation = styled.div`
-  display: flex;
-  gap: 4px;
-`;
-const IconButton = styled.button`
-  width: 24px;
-  height: 24px;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: #94a3b8;
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-  &:hover {
-    background: #f1f5f9;
-    color: #4f46e5;
-  }
-`;
-const CalendarGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(7, minmax(0, 1fr));
-  row-gap: 4px;
-  text-align: center;
-`;
-const Weekday = styled.div`
-  padding: 4px 0 7px;
-  color: #64748b;
-  font-size: 10px;
-  font-weight: 600;
-`;
-const DayButton = styled.button`
-  position: relative;
-  justify-self: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 27px;
-  height: 27px;
-  border: 0;
-  border-radius: 50%;
-  background: ${({ $selected }) => ($selected ? "#5145ed" : "transparent")};
-  color: ${({ $selected, $muted }) =>
-    $selected ? "#fff" : $muted ? "#cbd5e1" : "#0f172a"};
-  font-size: 11px;
-  cursor: pointer;
-  &:hover {
-    background: ${({ $selected }) => ($selected ? "#5145ed" : "#f1f0ff")};
-  }
-`;
-const DayDot = styled.span`
-  position: absolute;
-  bottom: 2px;
-  left: 50%;
-  width: 3px;
-  height: 3px;
-  border-radius: 50%;
-  background: ${({ $color }) => $color};
-  transform: translateX(-50%);
 `;
 const ContentSection = styled.section`
   margin-bottom: 30px;
