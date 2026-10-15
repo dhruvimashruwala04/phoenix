@@ -90,9 +90,7 @@ const LoginForm = () => {
         <RememberText>Keep me signed in for 30 days</RememberText>
       </Remember>
       {errorMessage && <ErrorBox>{errorMessage}</ErrorBox>}
-      <PrimaryButton align="center" justify="center" onClick={handleLogin}>
-        Log in
-      </PrimaryButton>
+      <PrimaryButton onClick={handleLogin}>Log in</PrimaryButton>
       <CreateAccount align="center" justify="center" gap="4px">
         <CreateText>New to Phoenix?</CreateText>
         <CreateLink href="/signup">Create an account</CreateLink>

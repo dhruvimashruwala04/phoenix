@@ -2,6 +2,8 @@ import { Flex } from "@/imports/core/components/Flex";
 import { Close } from "@/imports/dashboard/ui/assets/Icons";
 import styled from "styled-components";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
+import PrimaryButton from "@/imports/core/components/PrimaryButton";
+import CancelButton from "@/imports/core/components/CancelButton";
 
 const NewInviteModal = ({ setShowInvite }) => {
   const {
@@ -87,10 +89,11 @@ const NewInviteModal = ({ setShowInvite }) => {
 
         <Footer gap="8px" justify="space-between">
           <div style={{ display: "flex", gap: "8px", marginLeft: "auto" }}>
-            <CancelButton type="button" onClick={() => setShowInvite(false)}>
+            <CancelButton onClick={() => setShowInvite(false)}>
               Cancel
             </CancelButton>
             <PrimaryButton
+              width="fit-content"
               type="button"
               onClick={() => {
                 addInvite();
@@ -156,28 +159,28 @@ const DropdownInput = styled(Flex)`
 const Footer = styled(Flex)`
   margin-top: 4px;
 `;
-const PrimaryButton = styled.button`
-  height: 36px;
-  padding: 0px 16px;
-  border-radius: 8px;
-  border: 0px;
-  background: rgb(79, 70, 229);
-  color: rgb(255, 255, 255);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-`;
-const CancelButton = styled.button`
-  height: 36px;
-  padding: 0 16px;
-  border: 1px solid rgb(226, 232, 240);
-  border-radius: 7px;
-  background: white;
-  color: rgb(51, 65, 85);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-`;
+// const PrimaryButton = styled.button`
+//   height: 36px;
+//   padding: 0px 16px;
+//   border-radius: 8px;
+//   border: 0px;
+//   background: rgb(79, 70, 229);
+//   color: rgb(255, 255, 255);
+//   font-size: 14px;
+//   font-weight: 500;
+//   cursor: pointer;
+// `;
+// const CancelButton = styled.button`
+//   height: 38px;
+//   padding: 0 16px;
+//   border: 1px solid rgb(226, 232, 240);
+//   border-radius: 7px;
+//   background: white;
+//   color: rgb(51, 65, 85);
+//   font-size: 15px;
+//   font-weight: 500;
+//   cursor: pointer;
+// `;
 const Input = styled(Flex)`
   font-size: 12px;
   font-weight: 600;

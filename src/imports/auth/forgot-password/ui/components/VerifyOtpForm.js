@@ -69,9 +69,7 @@ const VerifyOtpForm = () => {
           />
         ))}
       </OtpContainer>
-      <PrimaryButton align="center" justify="center" onClick={verifyOtp}>
-        Verify & continue
-      </PrimaryButton>
+      <PrimaryButton onClick={verifyOtp}>Verify & continue</PrimaryButton>
       {otpError && <ErrorBox>{otpError}</ErrorBox>}
 
       <ResendOtp align="center" justify="center" gap="4px">

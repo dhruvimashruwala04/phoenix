@@ -1,14 +1,19 @@
 import styled from "styled-components";
-import { Flex } from "./Flex";
 
-const PrimaryButton = styled(Flex)`
-  width: 100%;
+const PrimaryButton = styled.button`
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: ${(props) => props.width || "100%"};
   height: 38px;
+  padding: 0 16px;
   border-radius: 7px;
-  background-color: var(--blue-accent);
+  background-color: ${(props) =>
+    props.variant === "secondary" ? "rgb(109, 40, 217)" : "var(--blue-accent)"};
   color: white;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 500;
 
   &:hover {
     cursor: pointer;

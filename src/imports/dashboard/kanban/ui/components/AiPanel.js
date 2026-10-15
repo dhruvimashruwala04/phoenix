@@ -7,6 +7,7 @@ import useAuthStore from "@/imports/auth/store/authStore";
 import { aiSuggestions, help } from "../../api/constants";
 import useKanbanStore from "../../store/kanbanStore";
 import { Close } from "@/imports/dashboard/ui/assets/Icons";
+import PrimaryButton from "@/imports/core/components/PrimaryButton";
 
 const AiPanel = ({ reply }) => {
   const user = useAuthStore((state) => state.user);
@@ -71,9 +72,9 @@ const AiPanel = ({ reply }) => {
 
       <AskAi gap="8px">
         <AskInput placeholder="Ask AI anything..."></AskInput>
-        <SendBtn align="center" justify="center">
+        <PrimaryButton width="fit-content">
           <Send />
-        </SendBtn>
+        </PrimaryButton>
       </AskAi>
     </Panel>
   );
@@ -239,15 +240,6 @@ const AskInput = styled.input`
   padding: 0px 12px;
   font-size: 12px;
   outline: 0px;
-`;
-const SendBtn = styled(Flex)`
-  width: 38px;
-  height: 38px;
-  border: 0px;
-  border-radius: 8px;
-  background: rgb(79, 70, 229);
-  color: rgb(255, 255, 255);
-  cursor: pointer;
 `;
 const QuickActionText = styled(Flex)`
   max-width: 85%;

@@ -3,6 +3,8 @@ import useCalendarStore from "../../store/CalendarStore";
 import styled from "styled-components";
 import { categories } from "../../api/constants";
 import { Close } from "@/imports/dashboard/ui/assets/Icons";
+import PrimaryButton from "@/imports/core/components/PrimaryButton";
+import CancelButton from "@/imports/core/components/CancelButton";
 
 const NewEventModal = () => {
   const {
@@ -79,7 +81,7 @@ const NewEventModal = () => {
 
         <Section direction="column" gap="6px">
           <Label>Category</Label>
-          <CategoryContainer align="stretch" gap="8px">
+          <CategoryContainer align="stretch" gap="8px" wrap="wrap">
             {categories.map((c) => (
               <CategoryButton
                 key={c.label}
@@ -107,11 +109,11 @@ const NewEventModal = () => {
           )}
 
           <div style={{ display: "flex", gap: "8px", marginLeft: "auto" }}>
-            <CancelButton type="button" onClick={() => setShowNewEvent(false)}>
+            <CancelButton onClick={() => setShowNewEvent(false)}>
               Cancel
             </CancelButton>
 
-            <PrimaryButton type="button" onClick={saveEvent}>
+            <PrimaryButton width="fit-content" onClick={saveEvent}>
               Save
             </PrimaryButton>
           </div>
@@ -185,31 +187,7 @@ const DropdownInput = styled(Flex)`
 const Footer = styled(Flex)`
   margin-top: 4px;
 `;
-const PrimaryButton = styled.button`
-  height: 36px;
-  padding: 0px 16px;
-  border-radius: 8px;
-  border: 0px;
-  background: rgb(79, 70, 229);
-  color: rgb(255, 255, 255);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-`;
-const CancelButton = styled.button`
-  height: 36px;
-  padding: 0 16px;
-  border: 1px solid rgb(226, 232, 240);
-  border-radius: 7px;
-  background: white;
-  color: rgb(51, 65, 85);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-`;
-const CategoryContainer = styled(Flex)`
-  flex-wrap: wrap;
-`;
+const CategoryContainer = styled(Flex)``;
 const CategoryButton = styled.button`
   display: flex;
   align-items: center;

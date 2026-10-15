@@ -123,9 +123,7 @@ const SignupForm = () => {
         </IAgree>
       </Remember>
       {errorMessage && <ErrorBox>{errorMessage}</ErrorBox>}
-      <PrimaryButton align="center" justify="center" onClick={handleSignup}>
-        Create account
-      </PrimaryButton>
+      <PrimaryButton onClick={handleSignup}>Create account</PrimaryButton>
       <CreateAccount gap="4px" align="center" justify="center">
         <CreateText>Already have an account?</CreateText>
         <CreateLink href="/login">Log in</CreateLink>

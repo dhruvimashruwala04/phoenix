@@ -4,6 +4,7 @@ import { Flex } from "@/imports/core/components/Flex";
 import { Archive, Mail, Star, StarredMessage } from "../assets/Icons";
 import useInboxStore from "../../store/useInboxStore";
 import FallBackText from "@/imports/core/components/FallBackText";
+import PrimaryButton from "@/imports/core/components/PrimaryButton";
 
 const InboxView = () => {
   const {
@@ -40,7 +41,9 @@ const InboxView = () => {
               onClick={() => handleMessageClick(message.id)}
               gap="14px"
             >
-              <Avatar align="center" justify="center" $color={message.color}>{message.initials}</Avatar>
+              <Avatar align="center" justify="center" $color={message.color}>
+                {message.initials}
+              </Avatar>
 
               <MessageContent direction="column">
                 <TopRow gap="12px" justify="space-between" align="center">
@@ -87,7 +90,11 @@ const InboxView = () => {
 
           <ConversationBody gap="5px" direction="column">
             <Sender align="center" gap="10px">
-              <Avatar align="center" justify="center" $color={selectedMessage.color}>
+              <Avatar
+                align="center"
+                justify="center"
+                $color={selectedMessage.color}
+              >
                 {selectedMessage.initials}
               </Avatar>
 
@@ -123,7 +130,9 @@ const InboxView = () => {
               }}
             />
 
-            <ReplyButton onClick={handleReply}>Reply</ReplyButton>
+            <PrimaryButton onClick={handleReply} width="fit-content">
+              Reply
+            </PrimaryButton>
           </ReplyArea>
         </Conversation>
       )}
@@ -188,8 +197,7 @@ const MessageContent = styled(Flex)`
   min-width: 0;
   flex: 1;
 `;
-const TopRow = styled(Flex)`
-`;
+const TopRow = styled(Flex)``;
 const Name = styled.div`
   font-size: 13px;
   font-weight: ${({ $read }) => ($read ? 500 : 700)};
@@ -311,36 +319,4 @@ const ReplyArea = styled(Flex)`
   width: 100%;
   padding: 14px 18px;
   border-top: 1px solid rgb(226, 232, 240);
-`;
-const ReplyInput = styled.input`
-  flex: 1;
-  min-width: 0;
-  height: 38px;
-  padding: 0 12px;
-  box-sizing: border-box;
-  border: 1px solid rgb(203, 213, 225);
-  border-radius: 7px;
-  outline: none;
-  font-size: 12px;
-  color: rgb(15, 23, 42);
-  &::placeholder {
-    color: rgb(148, 163, 184);
-  }
-  &:focus {
-    border-color: rgb(99, 102, 241);
-  }
-`;
-const ReplyButton = styled.button`
-  height: 38px;
-  padding: 0 18px;
-  border: 0;
-  border-radius: 7px;
-  background: rgb(79, 70, 229);
-  color: white;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  &:hover {
-    background: rgb(67, 56, 202);
-  }
 `;

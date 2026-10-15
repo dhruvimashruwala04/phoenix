@@ -5,6 +5,8 @@ import useKanbanStore from "../../store/kanbanStore";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
 import useAuthStore from "@/imports/auth/store/authStore";
 import { Close } from "@/imports/dashboard/ui/assets/Icons";
+import PrimaryButton from "@/imports/core/components/PrimaryButton";
+import CancelButton from "@/imports/core/components/CancelButton";
 
 const NewTaskModal = () => {
   const {
@@ -108,6 +110,7 @@ const NewTaskModal = () => {
         <Footer justify="flex-end" gap="8px">
           <CancelButton onClick={() => setShowTask(false)}>Cancel</CancelButton>
           <PrimaryButton
+            width="fit-content"
             onClick={() => {
               addTask();
               setShowTask(false);
@@ -206,27 +209,4 @@ const DropdownInput = styled(Flex)`
 
 const Footer = styled(Flex)`
   margin-top: 4px;
-`;
-
-const PrimaryButton = styled.button`
-  height: 36px;
-  padding: 0px 16px;
-  border-radius: 8px;
-  border: 0px;
-  background: rgb(79, 70, 229);
-  color: rgb(255, 255, 255);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-`;
-const CancelButton = styled.button`
-  height: 36px;
-  padding: 0 16px;
-  border: 1px solid rgb(226, 232, 240);
-  border-radius: 7px;
-  background: white;
-  color: rgb(51, 65, 85);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
 `;
