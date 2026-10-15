@@ -1,5 +1,5 @@
 import { Flex } from "@/imports/core/components/Flex";
-import useCalendarStore from "../../store/CalendarStore";
+import useCalendarStore from "../../store/calendarStore";
 import styled from "styled-components";
 import { categories } from "../../api/constants";
 import { Close } from "@/imports/dashboard/ui/assets/Icons";

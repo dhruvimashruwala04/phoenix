@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import { ReadMark } from "../assets/Icons";
-import useInboxStore from "../../store/useInboxStore";
+import useInboxStore from "../../store/inboxStore";
 
 const ViewToolbar = () => {
   const { selectedView, setSelectedView, messages, handleAllRead } =

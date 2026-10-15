@@ -17,6 +17,8 @@ const KanbanHeader = () => {
     setGroupBy,
     filterBy,
     setFilterBy,
+    searchQuery,
+    setSearchQuery,
   } = useKanbanStore();
 
   const [openFilter, setOpenFilter] = useState(false);
@@ -57,7 +59,11 @@ const KanbanHeader = () => {
         <Content>Build AI-powered SaaS platform for analytics</Content>
       </TextWrapper>
 
-      <SearchBox placeholder="Search tasks, people, tags..." />
+      <SearchBox
+        placeholder="Search tasks, people, tags..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
       <AiInsightsBox text="AI Insights" onClick={() => setAiPanel(!aiPanel)} />
 
       <FilterWrapper>

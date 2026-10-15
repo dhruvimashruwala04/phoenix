@@ -5,7 +5,7 @@ import styled from "styled-components";
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/react/daygrid";
 import interactionPlugin from "@fullcalendar/react/interaction";
-import useCalendarStore from "../../store/CalendarStore";
+import useCalendarStore from "../../store/calendarStore";
 import { categories } from "../../api/constants";
 import formatDate from "@/imports/core/utils/formatDate";
 import useKanbanStore from "@/imports/dashboard/kanban/store/kanbanStore";
@@ -377,8 +377,7 @@ const TextButton = styled.button`
     color: #3730a3;
   }
 `;
-const EventList = styled(Flex)`
-`;
+const EventList = styled(Flex)``;
 const EventRow = styled(Flex)`
   min-width: 0;
 `;
@@ -420,8 +419,7 @@ const EventBadge = styled.span`
   color: #64748b;
   font-size: 10px;
 `;
-const TaskList = styled(Flex)`
-`;
+const TaskList = styled(Flex)``;
 const TaskRow = styled.label`
   display: flex;
   align-items: center;
@@ -527,8 +525,7 @@ const AssistantInner = styled.div`
   border-radius: 12px;
   background: #fff;
 `;
-const SuccessRow = styled(Flex)`
-`;
+const SuccessRow = styled(Flex)``;
 const SuccessIcon = styled.span`
   display: flex;
   align-items: center;

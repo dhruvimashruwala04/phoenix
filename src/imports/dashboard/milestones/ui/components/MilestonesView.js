@@ -4,16 +4,24 @@ import useMilestones from "../../store/milestonesStore";
 import FallBackText from "@/imports/core/components/FallBackText";
 
 const MilestonesView = () => {
-  const { milestones, selectedView } = useMilestones();
+  const { milestones, selectedView, searchQuery } = useMilestones();
 
-  const filteredMilestones =
-    selectedView === "all"
-      ? milestones
-      : selectedView === "completed"
-        ? milestones.filter((m) => m.status === "Completed")
-        : selectedView === "upcoming"
-          ? milestones.filter((m) => m.status === "Upcoming")
-          : milestones.filter((m) => m.status === "Due soon");
+  const query = (searchQuery || "").trim().toLowerCase();
+
+  const filteredMilestones = milestones.filter((milestone) => {
+    const matchesView =
+      selectedView === "all"
+        ? true
+        : selectedView === "completed"
+          ? milestone.status === "Completed"
+          : selectedView === "upcoming"
+            ? milestone.status === "Upcoming"
+            : milestone.status === "Due soon";
+
+    const matchesSearch = milestone.title?.toLowerCase().includes(query);
+
+    return matchesView && matchesSearch;
+  });
 
   return (
     <>

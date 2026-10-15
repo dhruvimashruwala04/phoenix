@@ -6,12 +6,21 @@ import useKanbanStore from "../../store/kanbanStore";
 import TaskCard from "./TaskCard";
 
 const BoardView = ({ columns, getSortedTasks }) => {
-  const { setShowTask } = useKanbanStore();
+  const { setShowTask, searchQuery } = useKanbanStore();
+
+  const query = searchQuery.trim().toLowerCase();
 
   return (
     <View>
       {columns.map((column) => {
         const sortedTasks = getSortedTasks(column);
+        const filteredTasks = sortedTasks.filter((task) => {
+          return (
+            task.title?.toLowerCase().includes(query) ||
+            task.desc?.toLowerCase().includes(query)
+          );
+        });
+
         return (
           <Column direction="column" gap="12px" key={column.value}>
             <Header justify="space-between" align="center">
@@ -24,7 +33,7 @@ const BoardView = ({ columns, getSortedTasks }) => {
               </AddBtn>
             </Header>
 
-            {sortedTasks.map((task) => (
+            {filteredTasks.map((task) => (
               <TaskCard
                 key={task.id}
                 title={task.title}

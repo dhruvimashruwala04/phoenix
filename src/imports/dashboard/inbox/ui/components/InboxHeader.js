@@ -1,9 +1,13 @@
+"use client";
 import { Flex } from "@/imports/core/components/Flex";
 import NotificationBox from "@/imports/dashboard/ui/components/NotificationBox";
 import SearchBox from "@/imports/dashboard/ui/components/SearchBox";
 import styled from "styled-components";
+import useInboxStore from "../../store/inboxStore";
 
 const InboxHeader = () => {
+  const { searchQuery, setSearchQuery } = useInboxStore();
+
   return (
     <Header gap="12px 16px" wrap="wrap" align="center">
       <TextWrapper direction="column">
@@ -11,7 +15,11 @@ const InboxHeader = () => {
         <Content>Mentions, requests and updates</Content>
       </TextWrapper>
 
-      <SearchBox placeholder="Search inbox..." />
+      <SearchBox
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        placeholder="Search inbox..."
+      />
       <NotificationBox />
     </Header>
   );

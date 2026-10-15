@@ -11,6 +11,7 @@ const useCalendarStore = create(
       endTime: "11:00",
       category: "Meeting",
       selectedEventId: null,
+      searchQuery: "",
 
       events: [],
 
@@ -20,6 +21,7 @@ const useCalendarStore = create(
       setStartTime: (startTime) => set({ startTime }),
       setEndTime: (endTime) => set({ endTime }),
       setCategory: (category) => set({ category }),
+      setSearchQuery: (searchQuery) => set({ searchQuery }),
 
       saveEvent: () =>
         set((state) => {

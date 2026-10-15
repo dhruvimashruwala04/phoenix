@@ -1,9 +1,12 @@
 import { Flex } from "@/imports/core/components/Flex";
 import NotificationBox from "@/imports/dashboard/ui/components/NotificationBox";
 import SearchBox from "@/imports/dashboard/ui/components/SearchBox";
+import useMilestones from "../../store/milestonesStore";
 import styled from "styled-components";
 
 const MilestonesHeader = () => {
+  const { searchQuery, setSearchQuery } = useMilestones();
+
   return (
     <Header gap="12px 16px" wrap="wrap" align="center">
       <TextWrapper direction="column">
@@ -11,7 +14,11 @@ const MilestonesHeader = () => {
         <Content>Track major deliverables</Content>
       </TextWrapper>
 
-      <SearchBox placeholder="Search milestones..." />
+      <SearchBox
+        placeholder="Search milestones..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
       <NotificationBox />
     </Header>
   );

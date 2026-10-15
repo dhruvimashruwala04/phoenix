@@ -22,6 +22,8 @@ const useKanbanStore = create(
       filterBy: "all",
       groupBy: "status",
 
+      searchQuery: "",
+
       setAiPanel: (aiPanel) => set({ aiPanel }),
       setShowTask: (showTask) => set({ showTask }),
       setView: (view) => set({ view }),
@@ -36,6 +38,8 @@ const useKanbanStore = create(
       setSortBy: (sortBy) => set({ sortBy }),
       setFilterBy: (filterBy) => set({ filterBy }),
       setGroupBy: (groupBy) => set({ groupBy }),
+
+      setSearchQuery: (searchQuery) => set({ searchQuery }),
 
       resetTask: () =>
         set({

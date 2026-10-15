@@ -28,6 +28,8 @@ const useOnboardingStore = create(
       selectedView: "Members",
       activeFilter: "All",
 
+      searchQuery: "",
+
       setName: (name) => set({ name }),
       setRole: (role) => set({ role }),
       setTeamSize: (teamSize) => set({ teamSize }),
@@ -64,6 +66,8 @@ const useOnboardingStore = create(
       setProjectName: (projectName) => set({ projectName }),
       setView: (view) => set({ view }),
       setAiTasks: (aiTasks) => set({ aiTasks }),
+
+      setSearchQuery: (searchQuery) => set({ searchQuery }),
 
       addInvite: () =>
         set((state) => {

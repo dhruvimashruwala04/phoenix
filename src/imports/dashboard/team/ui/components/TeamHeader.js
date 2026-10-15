@@ -1,10 +1,13 @@
 import { Flex } from "@/imports/core/components/Flex";
 import NotificationBox from "@/imports/dashboard/ui/components/NotificationBox";
 import SearchBox from "@/imports/dashboard/ui/components/SearchBox";
+import useOnboarding from "@/imports/onboarding/store/onboardingStore";
 import React from "react";
 import styled from "styled-components";
 
 const TeamHeader = () => {
+  const { searchQuery, setSearchQuery } = useOnboarding();
+
   return (
     <Header gap="12px 16px" wrap="wrap" align="center">
       <TextWrapper direction="column">
@@ -12,7 +15,11 @@ const TeamHeader = () => {
         <Content>People and roles</Content>
       </TextWrapper>
 
-      <SearchBox placeholder="Search teams..." />
+      <SearchBox
+        placeholder="Search teams..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
       <NotificationBox />
     </Header>
   );

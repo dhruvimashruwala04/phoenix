@@ -13,18 +13,26 @@ import "@fullcalendar/react/themes/breezy/theme.css";
 import "@fullcalendar/react/themes/breezy/palettes/indigo.css";
 
 import { categories } from "../../api/constants";
-import useCalendarStore from "../../store/CalendarStore";
+import useCalendarStore from "../../store/calendarStore";
 import { useRef } from "react";
 
-const CalendarView = ({ onCalendarReady, onDateChange, selectedDate }) => {
-  const { events, setSelectedEvent, setShowNewEvent } = useCalendarStore();
+const CalendarView = ({ onCalendarReady, onDateChange }) => {
+  const { events, setSelectedEvent, setShowNewEvent, searchQuery } =
+    useCalendarStore();
   const calendarRef = useRef(null);
+
+  const query = searchQuery.trim().toLowerCase();
 
   const calendarEvents = events.map((event) => ({
     ...event,
     start: event.startTime,
     end: event.endTime,
   }));
+  const filteredEvents = query
+    ? calendarEvents.filter((event) =>
+        event.title?.toLowerCase().includes(query),
+      )
+    : calendarEvents;
 
   return (
     <Container>
@@ -58,7 +66,7 @@ const CalendarView = ({ onCalendarReady, onDateChange, selectedDate }) => {
               ? "cal-list-day-main cal-list-day-today"
               : "cal-list-day-main"
         }
-        events={calendarEvents}
+        events={filteredEvents}
         buttons={{
           allEvents: {
             text: "Agenda",

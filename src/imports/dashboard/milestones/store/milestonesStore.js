@@ -13,6 +13,7 @@ const useMilestones = create(
       totalTasks: "",
       dueDate: "",
       status: "",
+      searchQuery: "",
 
       milestones: [],
 
@@ -23,6 +24,7 @@ const useMilestones = create(
       setTotalTasks: (totalTasks) => set({ totalTasks }),
       setDueDate: (dueDate) => set({ dueDate }),
       setStatus: (status) => set({ status }),
+      setSearchQuery: (searchQuery) => set({ searchQuery }),
 
       addMilestone: () => {
         set((state) => {

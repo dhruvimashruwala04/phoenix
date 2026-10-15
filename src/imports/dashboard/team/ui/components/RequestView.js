@@ -11,9 +11,11 @@ const RequestView = ({ requests, setRequests }) => {
     <List>
       {requests.map((invite, i) => (
         <InvitationRow align="center" gap="14px" key={i}>
-          <Avatar align="center" justify="center">{getInitials(invite.name)}</Avatar>
+          <Avatar align="center" justify="center">
+            {getInitials(invite.name)}
+          </Avatar>
 
-          <InviteInfo direction="column" align="stretch" gap="3px">
+          <InviteInfo direction="column" align="flex-start" gap="3px">
             <Email>
               {invite.name} <Muted>wants to join</Muted>
             </Email>

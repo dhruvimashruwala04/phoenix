@@ -6,10 +6,12 @@ const useInboxStore = create((set) => ({
   reply: "",
   messages: inbox_messages,
   selectedView: "all",
+  searchQuery: "",
 
   setSelectedView: (selectedView) => set({ selectedView }),
   setSelectedId: (selectedId) => set({ selectedId }),
   setReply: (reply) => set({ reply }),
+  setSearchQuery: (searchQuery) => set({ searchQuery }),
 
   handleMessageClick: (id) =>
     set((state) => ({

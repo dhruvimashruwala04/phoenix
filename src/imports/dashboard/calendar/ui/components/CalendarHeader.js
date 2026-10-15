@@ -5,13 +5,14 @@ import AiInsightsBox from "@/imports/dashboard/ui/components/AiInsightsBox";
 import NotificationBox from "@/imports/dashboard/ui/components/NotificationBox";
 import SearchBox from "@/imports/dashboard/ui/components/SearchBox";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
-import useCalendarStore from "../../store/CalendarStore";
+import useCalendarStore from "../../store/calendarStore";
 import styled from "styled-components";
 import { Down } from "../assets/Icons";
 
 const CalendarHeader = () => {
   const projectName = useOnboardingStore((state) => state.projectName);
-  const { setShowNewEvent, clearSelectedEvent } = useCalendarStore();
+  const { setShowNewEvent, clearSelectedEvent, searchQuery, setSearchQuery } =
+    useCalendarStore();
 
   return (
     <Header gap="12px 16px" wrap="wrap" align="center">
@@ -25,7 +26,11 @@ const CalendarHeader = () => {
         {projectName}
         <Down />
       </Details>
-      <SearchBox placeholder="Search events, tasks, people..." />
+      <SearchBox
+        placeholder="Search events, tasks, people..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+      />
       <AiInsightsBox text="AI Insights" />
       <NotificationBox />
       <ActionButton

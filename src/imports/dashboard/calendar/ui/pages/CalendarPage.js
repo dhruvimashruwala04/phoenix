@@ -6,7 +6,7 @@ import CalendarStats from "../components/CalendarStats";
 import CalendarView from "../components/CalendarView";
 import AiPanel from "../components/AiPanel";
 import NewEventModal from "../components/NewEventModal";
-import useCalendarStore from "../../store/CalendarStore";
+import useCalendarStore from "../../store/calendarStore";
 import { useEffect, useState } from "react";
 
 const CalendarPage = () => {

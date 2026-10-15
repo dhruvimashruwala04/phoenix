@@ -2,11 +2,16 @@ import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import { Search } from "../assets/Icons";
 
-const SearchBox = ({ width, placeholder }) => {
+const SearchBox = ({ width, placeholder, value, onChange }) => {
   return (
     <Container align="center" gap="8px" $width={width}>
       <Search />
-      <Input type="text" placeholder={placeholder} />
+      <Input
+        type="text"
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+      />
     </Container>
   );
 };
@@ -24,7 +29,6 @@ const Container = styled(Flex)`
   padding: 0 10px;
   color: rgb(148, 163, 184);
 `;
-
 const Input = styled.input`
   flex: 1;
   min-width: 0;

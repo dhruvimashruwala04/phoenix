@@ -14,6 +14,7 @@ import BulkStrip from "../components/BulkStrip";
 import useTeam from "../../hooks/useTeam";
 import { useState } from "react";
 import { initialRequests } from "../../api/constant";
+import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
 
 const TeamPage = () => {
   const {
@@ -36,6 +37,8 @@ const TeamPage = () => {
     bulkDeactivate,
     roleCount,
   } = useTeam();
+
+  const { searchQuery } = useOnboardingStore();
 
   const [requests, setRequests] = useState(initialRequests);
 
@@ -91,10 +94,14 @@ const TeamPage = () => {
               toggleSelected={toggleSelected}
               toggleAll={toggleAll}
               changeInviteeRole={changeInviteeRole}
+              searchQuery={searchQuery}
             />
           </MembersTable>
         ) : selectedView === "Invitations" ? (
-          <InvitationsView pendingInvites={pendingInvites} />
+          <InvitationsView
+            pendingInvites={pendingInvites}
+            searchQuery={searchQuery}
+          />
         ) : selectedView === "Access requests" ? (
           <RequestView requests={requests} setRequests={setRequests} />
         ) : (

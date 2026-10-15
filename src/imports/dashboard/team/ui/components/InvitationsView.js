@@ -2,17 +2,26 @@ import { Flex } from "@/imports/core/components/Flex";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
 import styled from "styled-components";
 
-const InvitationsView = ({ pendingInvites }) => {
+const InvitationsView = ({ pendingInvites, searchQuery }) => {
   const { updateInvite, removeInvite } = useOnboardingStore();
+
+  const query = (searchQuery || "").trim().toLowerCase();
+
+  const filteredInvites = pendingInvites.filter(
+    (invite) =>
+      invite.inviteeName?.toLowerCase().includes(query) ||
+      invite.inviteeEmail?.toLowerCase().includes(query),
+  );
+
   return (
     <List>
-      {pendingInvites.map((invite) => (
+      {filteredInvites.map((invite) => (
         <InvitationRow align="center" gap="14px" key={invite.inviteeEmail}>
           <EmailIcon align="center" justify="center">
             <MailIcon />
           </EmailIcon>
 
-          <InviteInfo direction="column" align="stretch" gap="3px">
+          <InviteInfo direction="column" align="flex-start" gap="3px">
             <Email>{invite.inviteeEmail}</Email>
             <Subtitle>Invited as {invite.inviteeRole} · Just now</Subtitle>
           </InviteInfo>

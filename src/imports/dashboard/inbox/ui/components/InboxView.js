@@ -2,7 +2,7 @@
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import { Archive, Mail, Star, StarredMessage } from "../assets/Icons";
-import useInboxStore from "../../store/useInboxStore";
+import useInboxStore from "../../store/inboxStore";
 import FallBackText from "@/imports/core/components/FallBackText";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
 
@@ -18,15 +18,27 @@ const InboxView = () => {
     selectedView,
     handleUnread,
     handleArchive,
+    searchQuery,
   } = useInboxStore();
 
   const selectedMessage = messages.find((message) => message.id === selectedId);
-  const filteredMessages =
-    selectedView === "all"
-      ? messages.filter((m) => !m.archive)
-      : selectedView === "unread"
-        ? messages.filter((m) => m.read === false)
-        : messages.filter((m) => m.archive);
+
+  const filteredMessages = messages.filter((message) => {
+    const matchesView =
+      selectedView === "all"
+        ? !message.archive
+        : selectedView === "unread"
+          ? !message.read
+          : message.archive;
+
+    const query = searchQuery.trim().toLowerCase();
+
+    const matchesSearch =
+      message.name?.toLowerCase().includes(query) ||
+      message.subject?.toLowerCase().includes(query);
+
+    return matchesView && matchesSearch;
+  });
 
   return (
     <Wrapper>
@@ -319,4 +331,22 @@ const ReplyArea = styled(Flex)`
   width: 100%;
   padding: 14px 18px;
   border-top: 1px solid rgb(226, 232, 240);
+`;
+const ReplyInput = styled.input`
+  flex: 1;
+  min-width: 0;
+  height: 38px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  border: 1px solid rgb(203, 213, 225);
+  border-radius: 7px;
+  outline: none;
+  font-size: 12px;
+  color: rgb(15, 23, 42);
+  &::placeholder {
+    color: rgb(148, 163, 184);
+  }
+  &:focus {
+    border-color: rgb(99, 102, 241);
+  }
 `;

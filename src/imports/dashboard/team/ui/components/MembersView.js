@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import { Activate, Deactivate, Remove } from "../assets/Icons";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
-import { useState } from "react";
 
 const MembersView = ({
   selected,
@@ -11,6 +10,7 @@ const MembersView = ({
   teamFilter,
   toggleSelected,
   toggleAll,
+  searchQuery,
 }) => {
   const { removeInvite, updateInvite } = useOnboardingStore();
 
@@ -23,6 +23,15 @@ const MembersView = ({
     "ACTIONS",
   ];
 
+  const query = (searchQuery || "").trim().toLowerCase();
+
+  const filteredMembers = teamFilter.filter((member) => {
+    return (
+      member.inviteeName?.toLowerCase().includes(query) ||
+      member.inviteeEmail?.toLowerCase().includes(query)
+    );
+  });
+
   return (
     <GridContainer>
       <GridHeader>
@@ -30,8 +39,8 @@ const MembersView = ({
           <CheckBox
             type="checkbox"
             checked={
-              teamFilter.filter((member) => !member.you).length > 0 &&
-              teamFilter
+              filteredMembers.filter((member) => !member.you).length > 0 &&
+              filteredMembers
                 .filter((member) => !member.you)
                 .every((member) => selected.includes(member.inviteeEmail))
             }
@@ -42,7 +51,7 @@ const MembersView = ({
           <ColumnLabel key={i}>{column}</ColumnLabel>
         ))}
       </GridHeader>
-      {teamFilter.map((member, i) => (
+      {filteredMembers.map((member, i) => (
         <MemberRow key={i}>
           <CheckboxCell align="center">
             <CheckBox
@@ -144,8 +153,7 @@ const MemberRow = styled.div`
     background: #fcfdff;
   }
 `;
-const CheckboxCell = styled(Flex)`
-`;
+const CheckboxCell = styled(Flex)``;
 const CheckBox = styled.input`
   appearance: none;
   width: 16px;
@@ -252,8 +260,7 @@ const AccessSelect = styled.select`
     cursor: not-allowed;
   }
 `;
-const StatusCell = styled(Flex)`
-`;
+const StatusCell = styled(Flex)``;
 const StatusBadge = styled.span`
   padding: 3px 7px;
   border-radius: 4px;
@@ -266,8 +273,7 @@ const LastActive = styled.span`
   color: #64748b;
   font-size: 11px;
 `;
-const Actions = styled(Flex)`
-`;
+const Actions = styled(Flex)``;
 const ActionButton = styled.button`
   display: flex;
   align-items: center;
