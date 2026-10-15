@@ -21,13 +21,13 @@ const DashboardLayout = ({ children }) => {
           <LogoName>Phoenix</LogoName>
         </LogoWrapper>
         <NavBar />
-        <User>
-          <Initials>{initials}</Initials>
+        <User align="center" gap="12px">
+          <Initials align="center" justify="center">{initials}</Initials>
           <Details direction="column">
             <Name>{user?.name}</Name>
             <Email>{user?.email}</Email>
           </Details>
-          <LogoutBtn onClick={logout}>
+          <LogoutBtn align="center" justify="center" onClick={logout}>
             <Logout />
           </LogoutBtn>
         </User>
@@ -73,22 +73,16 @@ const LogoName = styled.span`
   color: rgb(255, 255, 255);
 `;
 
-const User = styled.div`
+const User = styled(Flex)`
   border-top: 1px solid rgb(30, 41, 59);
   padding: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
   width: 100%;
 `;
-const Initials = styled.div`
+const Initials = styled(Flex)`
   width: 36px;
   height: 36px;
   border-radius: 50%;
   background: rgb(51, 65, 85);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: rgb(255, 255, 255);
   font-size: 12px;
   font-weight: 600;
@@ -120,7 +114,7 @@ const Email = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
 `;
-const LogoutBtn = styled.div`
+const LogoutBtn = styled(Flex)`
   flex-shrink: 0;
   width: 32px;
   height: 32px;
@@ -129,9 +123,6 @@ const LogoutBtn = styled.div`
   background: transparent;
   color: rgba(195, 205, 219, 1);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   &:hover {
     background: rgba(255, 255, 255, 0.08);
   }

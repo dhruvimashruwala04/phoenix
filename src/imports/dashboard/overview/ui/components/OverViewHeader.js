@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const OverViewHeader = () => {
   return (
-    <Header wrap="wrap" align="center">
+    <Header gap="12px 16px" wrap="wrap" align="center">
       <TextWrapper direction="column">
         <Title>Overview</Title>
         <Content>Your workspace at a glance</Content>
@@ -21,7 +21,6 @@ const Header = styled(Flex)`
   min-height: 64px;
   background: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(241, 245, 249);
-  gap: 12px 16px;
   padding: 12px 24px;
   position: sticky;
   top: 0px;

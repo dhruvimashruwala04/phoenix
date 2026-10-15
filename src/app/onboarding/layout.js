@@ -48,7 +48,7 @@ const OnboardingLayout = ({ children }) => {
           </>
         )}
 
-        <Footer>
+        <Footer align="center" justify="space-between">
           {isFirstStep || isLastStep ? (
             <div />
           ) : (
@@ -57,7 +57,7 @@ const OnboardingLayout = ({ children }) => {
             </BackButton>
           )}
 
-          <FooterRight>
+          <FooterRight align="center" gap="28px">
             {currentStep.stepNum === 3 && (
               <SkipButton
                 onClick={() => router.push("/onboarding/first-project")}
@@ -129,11 +129,8 @@ const Card = styled.div`
   border-radius: 14px;
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
 `;
-const Footer = styled.div`
+const Footer = styled(Flex)`
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin-top: 30px;
 `;
 const BackButton = styled.button`
@@ -163,10 +160,7 @@ const ContinueButton = styled.button`
     background-color: #463bd1;
   }
 `;
-const FooterRight = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 28px;
+const FooterRight = styled(Flex)`
 `;
 const SkipButton = styled.button`
   padding: 0;

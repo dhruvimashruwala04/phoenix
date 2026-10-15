@@ -101,7 +101,7 @@ const SignupForm = () => {
           </Eye>
         </PasswordWrapper>
         <StrengthContainer>
-          <StrengthBars>
+          <StrengthBars align="stretch" gap="4px">
             {[1, 2, 3, 4, 5].map((bar) => (
               <StrengthBar key={bar} $active={bar <= passwordStrength} />
             ))}
@@ -126,7 +126,7 @@ const SignupForm = () => {
       <PrimaryButton align="center" justify="center" onClick={handleSignup}>
         Create account
       </PrimaryButton>
-      <CreateAccount align="center" justify="center">
+      <CreateAccount gap="4px" align="center" justify="center">
         <CreateText>Already have an account?</CreateText>
         <CreateLink href="/login">Log in</CreateLink>
       </CreateAccount>
@@ -255,7 +255,6 @@ const AgreeLink = styled(Link)`
 `;
 const CreateAccount = styled(Flex)`
   width: 100%;
-  gap: 4px;
 `;
 const CreateText = styled.span`
   font-size: 11px;
@@ -280,9 +279,7 @@ const StrengthContainer = styled.div`
   width: 100%;
   margin-top: -2px;
 `;
-const StrengthBars = styled.div`
-  display: flex;
-  gap: 4px;
+const StrengthBars = styled(Flex)`
   width: 100%;
 `;
 const StrengthBar = styled.span`

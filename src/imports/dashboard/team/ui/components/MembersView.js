@@ -1,5 +1,6 @@
 "use client";
 import styled from "styled-components";
+import { Flex } from "@/imports/core/components/Flex";
 import { Activate, Deactivate, Remove } from "../assets/Icons";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
 import { useState } from "react";
@@ -25,7 +26,7 @@ const MembersView = ({
   return (
     <GridContainer>
       <GridHeader>
-        <CheckboxCell>
+        <CheckboxCell align="center">
           <CheckBox
             type="checkbox"
             checked={
@@ -43,7 +44,7 @@ const MembersView = ({
       </GridHeader>
       {teamFilter.map((member, i) => (
         <MemberRow key={i}>
-          <CheckboxCell>
+          <CheckboxCell align="center">
             <CheckBox
               type="checkbox"
               disabled={member.you}
@@ -51,12 +52,12 @@ const MembersView = ({
               onChange={() => toggleSelected(member.inviteeEmail)}
             />
           </CheckboxCell>
-          <MemberCell>
-            <Avatar $color={member.color}>
+          <MemberCell align="center" gap="12px">
+            <Avatar align="center" justify="center" $color={member.color}>
               {member.initials} <OnlineIndicator $online={member.online} />
             </Avatar>
             <MemberInfo>
-              <NameLine>
+              <NameLine align="center" gap="6px">
                 <MemberName>{member.inviteeName}</MemberName>
                 {member.you && <YouBadge>YOU</YouBadge>}
               </NameLine>
@@ -76,13 +77,13 @@ const MembersView = ({
               <option>Member</option> <option>Viewer</option>
             </AccessSelect>
           </AccessCell>
-          <StatusCell>
+          <StatusCell align="center">
             <StatusBadge $active={member.status === "Active"}>
               {member.status}
             </StatusBadge>
           </StatusCell>
           <LastActive>12 min ago</LastActive>
-          <Actions>
+          <Actions align="center" gap="12px">
             <ActionButton
               type="button"
               onClick={() => updateInvite(member.inviteeEmail)}
@@ -143,10 +144,7 @@ const MemberRow = styled.div`
     background: #fcfdff;
   }
 `;
-const CheckboxCell = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+const CheckboxCell = styled(Flex)`
 `;
 const CheckBox = styled.input`
   appearance: none;
@@ -178,17 +176,11 @@ const ColumnLabel = styled.span`
   letter-spacing: 0.25px;
   text-align: ${({ $right }) => ($right ? "right" : "left")};
 `;
-const MemberCell = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
+const MemberCell = styled(Flex)`
   min-width: 0;
 `;
-const Avatar = styled.div`
+const Avatar = styled(Flex)`
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 35px;
   height: 35px;
   flex-shrink: 0;
@@ -211,10 +203,7 @@ const OnlineIndicator = styled.span`
 const MemberInfo = styled.div`
   min-width: 0;
 `;
-const NameLine = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 6px;
+const NameLine = styled(Flex)`
   min-width: 0;
 `;
 const MemberName = styled.span`
@@ -263,9 +252,7 @@ const AccessSelect = styled.select`
     cursor: not-allowed;
   }
 `;
-const StatusCell = styled.div`
-  display: flex;
-  align-items: center;
+const StatusCell = styled(Flex)`
 `;
 const StatusBadge = styled.span`
   padding: 3px 7px;
@@ -279,10 +266,7 @@ const LastActive = styled.span`
   color: #64748b;
   font-size: 11px;
 `;
-const Actions = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 12px;
+const Actions = styled(Flex)`
 `;
 const ActionButton = styled.button`
   display: flex;

@@ -29,7 +29,7 @@ const Projects = () => {
               </ProjectInfo>
 
               <ProgressSection>
-                <ProgressLabel>
+                <ProgressLabel align="stretch" justify="space-between">
                   <span>Progress</span>
                   <span>{Math.floor(Math.random() * 100) + 1}%</span>
                 </ProgressLabel>
@@ -103,9 +103,7 @@ const ProgressSection = styled.div`
   width: 120px;
   flex-shrink: 0;
 `;
-const ProgressLabel = styled.div`
-  display: flex;
-  justify-content: space-between;
+const ProgressLabel = styled(Flex)`
   margin-bottom: 5px;
   font-size: 10px;
   color: rgb(148, 163, 184);

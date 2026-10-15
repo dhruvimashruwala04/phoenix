@@ -18,7 +18,7 @@ const LoginDisplay = () => {
           before they become delays.
         </SubText>
       </TextWrapper>
-      <AiChat direction="column">
+      <AiChat gap="12px" direction="column">
         <WhiteSec direction="column" gap="10px">
           <WhiteHeader>AI chat integration</WhiteHeader>
           <WhiteText>Integrate OpenAI API for chat functionality</WhiteText>
@@ -46,11 +46,11 @@ const LoginDisplay = () => {
         </DarkSec>
       </AiChat>
       <Stats gap="28px">
-        <Stat>
+        <Stat direction="column">
           <Text>12k+ </Text>
           <Value>teams</Value>
         </Stat>
-        <Stat>
+        <Stat direction="column">
           <Text>31% </Text>
           <Value>fewer missed deadlines</Value>
         </Stat>
@@ -90,7 +90,6 @@ const SubText = styled.span`
 `;
 
 const AiChat = styled(Flex)`
-  gap: 12px;
 `;
 const WhiteSec = styled(Flex)`
   width: 100%;
@@ -115,7 +114,6 @@ const Stats = styled(Flex)`
   color: var(--background);
 `;
 const Stat = styled(Flex)`
-  flex-direction: column;
 `;
 
 const Text = styled.span`

@@ -15,7 +15,7 @@ const BoardView = ({ columns, getSortedTasks }) => {
         return (
           <Column direction="column" gap="12px" key={column.value}>
             <Header justify="space-between" align="center">
-              <Left align="center">
+              <Left gap="12px" align="center">
                 <Title>{column.title}</Title>
                 <Counter>{sortedTasks.length}</Counter>
               </Left>
@@ -64,7 +64,6 @@ const Header = styled(Flex)`
   width: 100%;
 `;
 const Left = styled(Flex)`
-  gap: 12px;
   color: rgb(100, 116, 139);
 `;
 const Title = styled.span`

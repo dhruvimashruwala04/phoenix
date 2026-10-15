@@ -28,15 +28,15 @@ const WorkspaceForm = () => {
 
       <Section direction="column" gap="8px">
         <Label>Workspace URL</Label>
-        <UrlInput>
-          <UrlPrefix>phoenix.app/</UrlPrefix>
+        <UrlInput align="center">
+          <UrlPrefix align="center">phoenix.app/</UrlPrefix>
           <UrlField
             value={workspaceUrl}
             onChange={(e) => setWorkspaceUrl(e.target.value)}
           />
         </UrlInput>
         {workspaceUrl && (
-          <Available>
+          <Available align="center" gap="5px">
             <Tick />
             phoenix.app/{workspaceUrl} is available
           </Available>
@@ -46,8 +46,8 @@ const WorkspaceForm = () => {
       <Section direction="column" gap="10px">
         <Label>Workspace icon</Label>
 
-        <IconRow>
-          <InitialIcon $color={selectedColor}>
+        <IconRow align="center" gap="10px">
+          <InitialIcon align="center" justify="center" $color={selectedColor}>
             {workspaceName.charAt(0).toUpperCase() || "A"}
           </InitialIcon>
 
@@ -96,20 +96,16 @@ const Input = styled.input`
     color: #94a3b8;
   }
 `;
-const UrlInput = styled.div`
+const UrlInput = styled(Flex)`
   width: 100%;
   height: 40px;
-  display: flex;
-  align-items: center;
   border: 1px solid #dce3ed;
   border-radius: 7px;
   overflow: hidden;
   background-color: white;
 `;
-const UrlPrefix = styled.div`
+const UrlPrefix = styled(Flex)`
   height: 100%;
-  display: flex;
-  align-items: center;
   padding: 0 12px;
   background-color: #f8fafc;
   border-right: 1px solid #dce3ed;
@@ -126,26 +122,17 @@ const UrlField = styled.input`
   background: white;
   font-size: 13px;
 `;
-const Available = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 5px;
+const Available = styled(Flex)`
   color: #00a878;
   font-size: 12px;
   font-weight: 500;
 `;
 
-const IconRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
+const IconRow = styled(Flex)`
 `;
-const InitialIcon = styled.div`
+const InitialIcon = styled(Flex)`
   width: 48px;
   height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 9px;
   background-color: ${({ $color }) => $color};
   color: white;

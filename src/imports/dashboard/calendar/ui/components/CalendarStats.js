@@ -38,8 +38,8 @@ const CalendarStats = () => {
       {stats.map((stat) => {
         const Icon = stat.icon;
         return (
-          <Card key={stat.title} align="center">
-            <IconBox $background={stat.iconBg}>
+          <Card gap="16px" key={stat.title} align="center">
+            <IconBox align="center" justify="center" $background={stat.iconBg}>
               <Icon />
             </IconBox>
 
@@ -67,7 +67,6 @@ const Container = styled.div`
 const Card = styled(Flex)`
   min-width: 0;
   padding: 20px 16px;
-  gap: 16px;
   background: rgb(255, 255, 255);
   border-radius: 12px;
   box-shadow:
@@ -78,8 +77,6 @@ const IconBox = styled(Flex)`
   width: 44px;
   height: 44px;
   flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
   border-radius: 12px;
   background: ${({ $background }) => $background};
 `;

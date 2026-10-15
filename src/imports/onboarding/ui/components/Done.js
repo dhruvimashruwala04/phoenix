@@ -64,7 +64,7 @@ const Done = () => {
 
       <SummaryCard>
         {summary.map((item) => (
-          <SummaryRow key={item.label}>
+          <SummaryRow align="center" key={item.label}>
             <IconBox align="center" justify="center">
               {item.icon}
             </IconBox>
@@ -127,10 +127,8 @@ const SummaryCard = styled.div`
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
 `;
 
-const SummaryRow = styled.div`
+const SummaryRow = styled(Flex)`
   min-height: 75px;
-  display: flex;
-  align-items: center;
   padding: 12px 20px;
   border-bottom: 1px solid #edf0f4;
 

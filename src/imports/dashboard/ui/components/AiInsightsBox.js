@@ -5,7 +5,7 @@ import { AiInsights } from "../assets/Icons";
 
 const AiInsightsBox = ({ variant = "primary", text, onClick }) => {
   return (
-    <AiInsightsWrapper $variant={variant} onClick={onClick}>
+    <AiInsightsWrapper align="center" gap="8px" $variant={variant} onClick={onClick}>
       <AiInsights />
       {text}
     </AiInsightsWrapper>
@@ -27,7 +27,5 @@ const AiInsightsWrapper = styled(Flex)`
   font-size: 14px;
   font-weight: 500;
   display: flex;
-  align-items: center;
-  gap: 8px;
   cursor: pointer;
 `;

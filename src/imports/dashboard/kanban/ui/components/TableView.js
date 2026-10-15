@@ -158,8 +158,7 @@ const TaskDescription = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
 `;
-const StatusWrapper = styled.div`
-  display: flex;
+const StatusWrapper = styled(Flex)`
   align-items: center;
   gap: 7px;
   white-space: nowrap;
@@ -209,9 +208,8 @@ const DueDate = styled.span`
   color: rgb(100, 116, 139);
   white-space: nowrap;
 `;
-const ProgressWrapper = styled.div`
+const ProgressWrapper = styled(Flex)`
   width: 150px;
-  display: flex;
   align-items: center;
   gap: 8px;
 `;

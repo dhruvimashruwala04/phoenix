@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Flex } from "@/imports/core/components/Flex";
 import FullCalendar from "@fullcalendar/react";
 
 import breezyTheme from "@fullcalendar/react/themes/breezy";
@@ -222,7 +223,7 @@ const CalendarView = ({ onCalendarReady, onDateChange, selectedDate }) => {
           onDateChange?.(info.date);
         }}
       />
-      <Footer>
+      <Footer align="stretch" gap="20px">
         {categories.map((i) => (
           <Item key={i.label}>
             <Dot color={i.color} />
@@ -314,10 +315,8 @@ const Container = styled.div`
     display: none !important;
   }
 `;
-const Footer = styled.div`
-  display: flex;
+const Footer = styled(Flex)`
   width: 100%;
-  gap: 20px;
   margin-top: 16px;
 `;
 const Item = styled.span`

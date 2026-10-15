@@ -55,7 +55,7 @@ const KanbanStats = () => {
         const Icon = stat.icon;
         return (
           <Card key={stat.title} align="center" gap="16px">
-            <IconBox $background={stat.iconBg}>
+            <IconBox align="center" justify="center" $background={stat.iconBg}>
               <Icon />
             </IconBox>
 
@@ -91,8 +91,6 @@ const IconBox = styled(Flex)`
   width: 44px;
   height: 44px;
   flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
   border-radius: 12px;
   background: ${({ $background }) => $background};
 `;

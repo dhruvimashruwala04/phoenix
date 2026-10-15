@@ -6,7 +6,7 @@ import { nav } from "../../api/constants";
 
 const NavBar = () => {
   return (
-    <Nav direction="column">
+    <Nav direction="column" gap="16px">
       {nav.map((main, i) => (
         <SectionWrapper key={i}>
           <Header>{main.header}</Header>
@@ -34,8 +34,6 @@ const Nav = styled(Flex)`
   overflow: auto;
   scrollbar-width: none;
   display: flex;
-  flex-direction: column;
-  gap: 16px;
   padding: 8px 16px;
 `;
 const SectionWrapper = styled.div`

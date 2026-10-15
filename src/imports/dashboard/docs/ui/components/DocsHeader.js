@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const DocsHeader = () => {
   return (
-    <Header wrap="wrap" align="center">
+    <Header gap="12px 16px" wrap="wrap" align="center">
       <TextWrapper direction="column">
         <Title>Docs</Title>
         <Content>Specs, notes and meeting minutes</Content>
@@ -23,7 +23,6 @@ const Header = styled(Flex)`
   min-height: 64px;
   background: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(241, 245, 249);
-  gap: 12px 16px;
   padding: 12px 24px;
   z-index: 5;
   width: 100%;

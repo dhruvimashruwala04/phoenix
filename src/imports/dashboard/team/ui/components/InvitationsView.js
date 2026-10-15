@@ -7,12 +7,12 @@ const InvitationsView = ({ pendingInvites }) => {
   return (
     <List>
       {pendingInvites.map((invite) => (
-        <InvitationRow key={invite.inviteeEmail}>
-          <EmailIcon>
+        <InvitationRow align="center" gap="14px" key={invite.inviteeEmail}>
+          <EmailIcon align="center" justify="center">
             <MailIcon />
           </EmailIcon>
 
-          <InviteInfo>
+          <InviteInfo direction="column" align="stretch" gap="3px">
             <Email>{invite.inviteeEmail}</Email>
             <Subtitle>Invited as {invite.inviteeRole} · Just now</Subtitle>
           </InviteInfo>
@@ -71,8 +71,6 @@ const InvitationRow = styled(Flex)`
   min-width: 0;
   min-height: 64px;
   padding: 10px 28px;
-  gap: 14px;
-  align-items: center;
   border-bottom: 1px solid #f0f2f6;
 
   &:last-child {
@@ -86,24 +84,18 @@ const InvitationRow = styled(Flex)`
   }
 `;
 
-const EmailIcon = styled.div`
+const EmailIcon = styled(Flex)`
   width: 34px;
   height: 34px;
   flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: #58769b;
   background: #f0f4f9;
   border-radius: 50%;
 `;
 
-const InviteInfo = styled.div`
+const InviteInfo = styled(Flex)`
   flex: 1;
   min-width: 100px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
 `;
 
 const Email = styled.div`

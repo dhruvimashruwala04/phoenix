@@ -1,6 +1,7 @@
 "use client";
 
 import styled from "styled-components";
+import { Flex } from "@/imports/core/components/Flex";
 import useKanbanStore from "../../store/kanbanStore";
 import formatDate from "@/imports/core/utils/formatDate";
 
@@ -87,9 +88,9 @@ const AllTaskView = ({ tasks }) => {
 
 export default AllTaskView;
 
-const Container = styled.div`
+const Container = styled(Flex)`
+  align-items: stretch;
   width: 100%;
-  display: flex;
   flex-direction: column;
   gap: 16px;
 `;
@@ -100,15 +101,13 @@ const StatusGroup = styled.div`
   border-radius: 14px;
   overflow: hidden;
 `;
-const GroupHeader = styled.div`
+const GroupHeader = styled(Flex)`
   height: 44px;
-  display: flex;
   align-items: center;
   padding: 0 18px;
   border-bottom: 1px solid rgb(226, 232, 240);
 `;
-const GroupTitle = styled.div`
-  display: flex;
+const GroupTitle = styled(Flex)`
   align-items: center;
   gap: 8px;
   font-size: 14px;
@@ -137,10 +136,9 @@ const Count = styled.span`
 const TaskList = styled.div`
   width: 100%;
 `;
-const TaskRow = styled.div`
+const TaskRow = styled(Flex)`
   min-height: 42px;
   padding: 0 18px;
-  display: flex;
   align-items: center;
   gap: 14px;
   border-bottom: 1px solid rgb(241, 245, 249);

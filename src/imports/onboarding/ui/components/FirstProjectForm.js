@@ -29,7 +29,7 @@ const FirstProjectForm = () => {
               $active={active}
               onClick={() => setView(item.name)}
             >
-              <ViewIcon $active={active}>{item.icon}</ViewIcon>
+              <ViewIcon align="center" justify="center" $active={active}>{item.icon}</ViewIcon>
               <ViewTitle>{item.name}</ViewTitle>
               <ViewDescription>{item.description}</ViewDescription>
             </ViewCard>
@@ -37,8 +37,8 @@ const FirstProjectForm = () => {
         })}
       </ViewContainer>
 
-      <AiBox>
-        <AiIcon>
+      <AiBox align="center">
+        <AiIcon align="center" justify="center">
           <MagicWand />
         </AiIcon>
         <AiText>
@@ -58,12 +58,12 @@ const FirstProjectForm = () => {
       </AiBox>
 
       {aiTasks && (
-        <SuggestedSection>
+        <SuggestedSection direction="column" gap="8px">
           <SuggestedTitle>SUGGESTED TASKS</SuggestedTitle>
 
           {tasks.map((task) => (
-            <Task key={task}>
-              <TaskCheckbox>✓</TaskCheckbox>
+            <Task align="center" gap="8px" key={task}>
+              <TaskCheckbox align="center" justify="center">✓</TaskCheckbox>
               <TaskText>{task}</TaskText>
             </Task>
           ))}
@@ -124,12 +124,9 @@ const ViewCard = styled.button`
   text-align: left;
   cursor: pointer;
 `;
-const ViewIcon = styled.div`
+const ViewIcon = styled(Flex)`
   width: 40px;
   height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-bottom: 10px;
   border-radius: 9px;
   background-color: ${({ $active }) =>
@@ -149,12 +146,10 @@ const ViewDescription = styled.div`
   font-size: 12px;
   line-height: 1.5;
 `;
-const AiBox = styled.div`
+const AiBox = styled(Flex)`
   width: 100%;
   min-height: 68px;
 
-  display: flex;
-  align-items: center;
 
   padding: 10px 14px;
 
@@ -163,12 +158,9 @@ const AiBox = styled.div`
   background-color: #eef2ff;
 `;
 
-const AiIcon = styled.div`
+const AiIcon = styled(Flex)`
   width: 38px;
   height: 38px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-right: 12px;
   border-radius: 8px;
   background-color: white;
@@ -211,8 +203,6 @@ const ToggleCircle = styled.span`
 `;
 const SuggestedSection = styled(Flex)`
   width: 100%;
-  flex-direction: column;
-  gap: 8px;
 `;
 const SuggestedTitle = styled.div`
   margin-bottom: 1px;
@@ -221,17 +211,11 @@ const SuggestedTitle = styled.div`
   font-weight: 700;
   letter-spacing: 0.5px;
 `;
-const Task = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 8px;
+const Task = styled(Flex)`
 `;
-const TaskCheckbox = styled.div`
+const TaskCheckbox = styled(Flex)`
   width: 13px;
   height: 13px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: 1px solid #8b9cff;
   border-radius: 2px;
   color: #647cff;

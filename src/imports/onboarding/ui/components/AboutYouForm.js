@@ -39,7 +39,7 @@ const AboutYouForm = () => {
         <Section direction="column" gap="10px">
           <Label>What's your role?</Label>
 
-          <RoleContainer>
+          <RoleContainer align="stretch" gap="8px">
             {roles.map((item) => (
               <RoleButton
                 key={item}
@@ -64,7 +64,7 @@ const AboutYouForm = () => {
         <Section direction="column" gap="10px">
           <Label>How big is your team?</Label>
 
-          <TeamContainer>
+          <TeamContainer align="center">
             {teamSizes.map((size) => (
               <TeamButton
                 key={size}
@@ -127,10 +127,8 @@ const Input = styled.input`
 const Section = styled(Flex)`
   width: 100%;
 `;
-const RoleContainer = styled.div`
-  display: flex;
+const RoleContainer = styled(Flex)`
   flex-wrap: wrap;
-  gap: 8px;
 `;
 const RoleButton = styled.button`
   height: 39px;
@@ -150,11 +148,9 @@ const RoleButton = styled.button`
 const RoleIcon = styled.span`
   font-size: 12px;
 `;
-const TeamContainer = styled.div`
+const TeamContainer = styled(Flex)`
   width: 100%;
   height: 43px;
-  display: flex;
-  align-items: center;
   padding: 4px;
   border-radius: 9px;
   background-color: #f1f5f9;

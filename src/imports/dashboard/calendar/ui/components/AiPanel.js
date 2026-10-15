@@ -124,13 +124,13 @@ const AiPanel = ({ onCalendarReady, onDateChange, selectedDate }) => {
       </CalendarSection>
 
       <ContentSection>
-        <SectionHeading>
+        <SectionHeading align="center" justify="space-between" gap="8px">
           <SectionTitle>Upcoming Events</SectionTitle>
           <TextButton type="button">View all</TextButton>
         </SectionHeading>
-        <EventList>
+        <EventList direction="column" align="stretch" gap="14px">
           {events.slice(0, 3).map((event) => (
-            <EventRow key={event.id}>
+            <EventRow gap="10px" key={event.id}>
               <EventDot
                 $color={
                   categories.find(
@@ -156,11 +156,11 @@ const AiPanel = ({ onCalendarReady, onDateChange, selectedDate }) => {
       </ContentSection>
 
       <ContentSection>
-        <SectionHeading>
+        <SectionHeading align="center" justify="space-between" gap="8px">
           <SectionTitle>My Tasks</SectionTitle>
           <TextButton type="button">View all</TextButton>
         </SectionHeading>
-        <TaskList>
+        <TaskList direction="column" align="stretch" gap="11px">
           {tasks
             .filter((task) => task.assignee === user.name)
             .slice(0, 3)
@@ -193,12 +193,12 @@ const AiPanel = ({ onCalendarReady, onDateChange, selectedDate }) => {
       </ContentSection>
 
       <AssistantCard>
-        <AssistantHeading>
+        <AssistantHeading align="center" gap="8px">
           <SectionTitle>AI Schedule Assistant</SectionTitle>
           <BetaBadge>BETA</BetaBadge>
         </AssistantHeading>
         <AssistantInner>
-          <SuccessRow>
+          <SuccessRow align="center" gap="9px">
             <SuccessIcon>✓</SuccessIcon>
             <SuccessText>Your schedule looks good!</SuccessText>
           </SuccessRow>
@@ -352,11 +352,7 @@ const CalendarSection = styled.section`
     flex-shrink: 0;
   }
 `;
-const SectionHeading = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+const SectionHeading = styled(Flex)`
   margin-bottom: 14px;
 `;
 const ContentSection = styled.section`
@@ -381,15 +377,9 @@ const TextButton = styled.button`
     color: #3730a3;
   }
 `;
-const EventList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
+const EventList = styled(Flex)`
 `;
-const EventRow = styled.div`
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
+const EventRow = styled(Flex)`
   min-width: 0;
 `;
 const EventDot = styled.span`
@@ -430,10 +420,7 @@ const EventBadge = styled.span`
   color: #64748b;
   font-size: 10px;
 `;
-const TaskList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 11px;
+const TaskList = styled(Flex)`
 `;
 const TaskRow = styled.label`
   display: flex;
@@ -522,11 +509,8 @@ const AssistantCard = styled.section`
   background: #f8fafc;
   width: 100%;
 `;
-const AssistantHeading = styled.div`
-  display: flex;
-  align-items: center;
+const AssistantHeading = styled(Flex)`
   flex-wrap: wrap;
-  gap: 8px;
   margin-bottom: 12px;
 `;
 const BetaBadge = styled.span`
@@ -543,10 +527,7 @@ const AssistantInner = styled.div`
   border-radius: 12px;
   background: #fff;
 `;
-const SuccessRow = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 9px;
+const SuccessRow = styled(Flex)`
 `;
 const SuccessIcon = styled.span`
   display: flex;

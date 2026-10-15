@@ -50,7 +50,7 @@ const VerifyOtpForm = () => {
       <SubText>
         Enter the 6-digit code we sent to <Bold>{email}</Bold>.
       </SubText>
-      <OtpContainer>
+      <OtpContainer gap="8px">
         {otp.map((value, index) => (
           <OtpInput
             key={index}
@@ -136,7 +136,6 @@ const Demo = styled(Flex)`
 `;
 const OtpContainer = styled(Flex)`
   width: 100%;
-  gap: 8px;
 `;
 
 const OtpInput = styled.input`

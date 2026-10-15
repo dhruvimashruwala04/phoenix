@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Flex } from "@/imports/core/components/Flex";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
 
 const FilterStrip = ({ active, design, engineering, product, marketing }) => {
@@ -13,7 +14,7 @@ const FilterStrip = ({ active, design, engineering, product, marketing }) => {
   ];
 
   return (
-    <Container>
+    <Container align="center" gap="8px">
       {filters.map((filter) => (
         <FilterButton
           key={filter.label}
@@ -30,11 +31,8 @@ const FilterStrip = ({ active, design, engineering, product, marketing }) => {
 
 export default FilterStrip;
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
+const Container = styled(Flex)`
   flex-wrap: wrap;
-  gap: 8px;
   width: 100%;
 `;
 

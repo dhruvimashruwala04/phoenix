@@ -10,10 +10,10 @@ const RequestView = ({ requests, setRequests }) => {
   return (
     <List>
       {requests.map((invite, i) => (
-        <InvitationRow key={i}>
-          <Avatar>{getInitials(invite.name)}</Avatar>
+        <InvitationRow align="center" gap="14px" key={i}>
+          <Avatar align="center" justify="center">{getInitials(invite.name)}</Avatar>
 
-          <InviteInfo>
+          <InviteInfo direction="column" align="stretch" gap="3px">
             <Email>
               {invite.name} <Muted>wants to join</Muted>
             </Email>
@@ -63,8 +63,6 @@ const InvitationRow = styled(Flex)`
   min-width: 0;
   min-height: 64px;
   padding: 10px 28px;
-  gap: 14px;
-  align-items: center;
   border-bottom: 1px solid #f0f2f6;
   &:last-child {
     border-bottom: none;
@@ -75,24 +73,18 @@ const InvitationRow = styled(Flex)`
     gap: 10px;
   }
 `;
-const Avatar = styled.div`
+const Avatar = styled(Flex)`
   width: 34px;
   height: 34px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-size: 11px;
   font-weight: 700;
   color: rgb(255, 255, 255);
   background: rgb(245, 158, 11);
 `;
-const InviteInfo = styled.div`
+const InviteInfo = styled(Flex)`
   flex: 1;
   min-width: 100px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
 `;
 const Email = styled.div`
   color: #17243a;

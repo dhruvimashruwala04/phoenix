@@ -47,7 +47,7 @@ const KanbanHeader = () => {
     { label: "Low", value: "low" },
   ];
   return (
-    <Header wrap="wrap" align="center">
+    <Header gap="12px 16px" wrap="wrap" align="center">
       <IconWrapper justify="center" align="center">
         <KanbanHeaderIcon />
       </IconWrapper>
@@ -66,7 +66,7 @@ const KanbanHeader = () => {
           Filter
         </FilterBox>
         {openFilter && (
-          <FilterOptions>
+          <FilterOptions direction="column" align="stretch" gap="10px">
             {filterOptions.map((option) => (
               <FilterOption
                 key={option.value}
@@ -130,7 +130,6 @@ const Header = styled(Flex)`
   min-height: 64px;
   background: rgb(255, 255, 255);
   border-bottom: 1px solid rgb(241, 245, 249);
-  gap: 12px 16px;
   padding: 12px 24px;
   z-index: 5;
   width: 100%;
@@ -179,7 +178,7 @@ const FilterBox = styled.button`
   justify-content: center;
   gap: 8px;
 `;
-const FilterOptions = styled.div`
+const FilterOptions = styled(Flex)`
   position: absolute;
   top: 36px;
   left: 0;
@@ -190,9 +189,6 @@ const FilterOptions = styled.div`
     rgba(15, 23, 42, 0.14) 0px 12px 32px,
     rgb(241, 245, 249) 0px 0px 0px 1px inset;
   padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   z-index: 20;
 `;
 const GroupWrapper = styled.div`

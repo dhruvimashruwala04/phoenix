@@ -35,10 +35,10 @@ const TeamStats = ({ active, pendingInvites, requests }) => {
   return (
     <Container>
       {stats.map((stat) => (
-        <Card key={stat.title} direction="column">
+        <Card gap="5px" key={stat.title} direction="column">
           {stat.type === "seats" ? (
             <>
-              <SeatsHeader align="center" justify="space-between">
+              <SeatsHeader gap="8px" align="center" justify="space-between">
                 <Title>{stat.title}</Title>
                 <SeatsValue>{stat.value}</SeatsValue>
               </SeatsHeader>
@@ -89,7 +89,6 @@ const Card = styled(Flex)`
   min-width: 0;
   min-height: 88px;
   padding: 16px 20px;
-  gap: 5px;
   background: #ffffff;
   border: 1px solid #f1f5f9;
   border-radius: 12px;
@@ -98,7 +97,6 @@ const Card = styled(Flex)`
 
 const SeatsHeader = styled(Flex)`
   width: 100%;
-  gap: 8px;
 `;
 
 const Title = styled.span`

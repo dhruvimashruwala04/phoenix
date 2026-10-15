@@ -14,7 +14,7 @@ const MilestonesCard = ({ milestone }) => {
   return (
     <Card>
       <TopSection align="center" gap="12px">
-        <IconBox $status={milestone?.status}>
+        <IconBox align="center" justify="center" $status={milestone?.status}>
           {milestone.status === "Upcoming" ? (
             <Flag />
           ) : milestone.status === "Completed" ? (
@@ -78,13 +78,10 @@ const Card = styled.div`
 const TopSection = styled(Flex)`
   min-width: 0;
 `;
-const IconBox = styled.div`
+const IconBox = styled(Flex)`
   width: 40px;
   height: 40px;
   flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 11px;
   color: ${({ $status }) =>
     $status === "Upcoming"

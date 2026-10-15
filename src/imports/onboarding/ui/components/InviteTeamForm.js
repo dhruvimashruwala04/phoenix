@@ -27,7 +27,7 @@ const InviteTeamForm = () => {
 
   return (
     <Form direction="column" gap="18px">
-      <AddRow>
+      <AddRow align="stretch" gap="8px">
         <NameInput
           value={inviteeName}
           onChange={(e) => setInviteeName(e.target.value)}
@@ -64,14 +64,14 @@ const InviteTeamForm = () => {
         </AddButton>
       </AddRow>
 
-      <InviteList>
+      <InviteList direction="column" gap="8px">
         {invites.length > 0 ? (
           invites.map((invite) => (
-            <InviteRow key={invite.inviteeEmail}>
-              <Avatar $color={invite.color}>{invite.initials}</Avatar>
+            <InviteRow align="center" gap="12px" key={invite.inviteeEmail}>
+              <Avatar align="center" justify="center" $color={invite.color}>{invite.initials}</Avatar>
               <MemberName>{invite.inviteeName}</MemberName>
-              <MemberRole>{invite.inviteeRole}</MemberRole>
-              <MemberStatus $status={invite.linkStatus}>
+              <MemberRole align="center" justify="center">{invite.inviteeRole}</MemberRole>
+              <MemberStatus align="center" justify="center" $status={invite.linkStatus}>
                 {invite.linkStatus}
               </MemberStatus>
 
@@ -88,7 +88,7 @@ const InviteTeamForm = () => {
         )}
       </InviteList>
 
-      <InviteLinkBox>
+      <InviteLinkBox align="center" gap="10px">
         <Link />
         <LinkText>Anyone with the link can join as a Member</LinkText>
 
@@ -106,10 +106,8 @@ export default InviteTeamForm;
 const Form = styled(Flex)`
   width: 100%;
 `;
-const AddRow = styled.div`
+const AddRow = styled(Flex)`
   width: 100%;
-  display: flex;
-  gap: 8px;
 `;
 const NameInput = styled.input`
   flex: 1;
@@ -187,26 +185,18 @@ const AddButton = styled.button`
 `;
 const InviteList = styled(Flex)`
   width: 100%;
-  flex-direction: column;
-  gap: 8px;
 `;
-const InviteRow = styled.div`
+const InviteRow = styled(Flex)`
   width: 100%;
   min-height: 50px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
   padding: 0 12px;
   border-radius: 9px;
   background-color: #f8fafc;
 `;
-const Avatar = styled.div`
+const Avatar = styled(Flex)`
   width: 30px;
   height: 30px;
   flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 50%;
   background-color: ${({ $color }) => $color};
   color: white;
@@ -219,12 +209,9 @@ const MemberName = styled.span`
   font-size: 13px;
   font-weight: 500;
 `;
-const MemberStatus = styled.div`
+const MemberStatus = styled(Flex)`
   min-width: 70px;
   height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 0 8px;
   border-radius: 6px;
   font-size: 11px;
@@ -236,12 +223,9 @@ const MemberStatus = styled.div`
 
   color: ${({ $status }) => ($status === "accepted" ? "#059669" : "#ea580c")};
 `;
-const MemberRole = styled.div`
+const MemberRole = styled(Flex)`
   min-width: 82px;
   height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 0 10px;
   border: 1px solid #dce3ed;
   border-radius: 6px;
@@ -262,12 +246,9 @@ const RemoveButton = styled.button`
     color: #475569;
   }
 `;
-const InviteLinkBox = styled.div`
+const InviteLinkBox = styled(Flex)`
   width: 100%;
   min-height: 60px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
   padding: 10px 12px;
   border: 1px solid #dce3ed;
   border-radius: 9px;

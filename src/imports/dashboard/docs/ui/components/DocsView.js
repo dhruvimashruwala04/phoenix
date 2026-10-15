@@ -118,7 +118,7 @@ const DocsView = () => {
             </ToolbarActions>
           </Toolbar>
 
-          <MarkdownWrapper>
+          <MarkdownWrapper direction="column" align="stretch" gap="14px">
             <Title
               value={title}
               onChange={(e) => handleChange(setTitle, e.target.value)}
@@ -126,7 +126,7 @@ const DocsView = () => {
               disabled={viewState === "preview"}
             />
             <EditDetails gap="10px" align="center">
-              <Initials>{getInitials(user.name)}</Initials>
+              <Initials align="center" justify="center">{getInitials(user.name)}</Initials>
               {user.name} · edited just now
             </EditDetails>
             {viewState === "edit" ? (
@@ -282,11 +282,8 @@ const Editor = styled.textarea`
   font-family: inherit;
   padding: 0px;
 `;
-const MarkdownWrapper = styled.div`
+const MarkdownWrapper = styled(Flex)`
   padding: 24px clamp(16px, 4vw, 36px);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
   max-width: 820px;
 `;
 const Title = styled.input`
@@ -305,14 +302,11 @@ const EditDetails = styled(Flex)`
   font-size: 11px;
   color: rgb(100, 116, 139);
 `;
-const Initials = styled.div`
+const Initials = styled(Flex)`
   width: 24px;
   height: 24px;
   border-radius: 50%;
   background: rgb(124, 58, 237);
   color: white;
   font-size: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;

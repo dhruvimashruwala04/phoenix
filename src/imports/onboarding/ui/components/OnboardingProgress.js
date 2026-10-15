@@ -1,6 +1,7 @@
 "use client";
 
 import styled from "styled-components";
+import { Flex } from "@/imports/core/components/Flex";
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import { steps } from "@/imports/onboarding/api/constant";
@@ -23,7 +24,7 @@ const OnboardingProgress = () => {
   return (
     <>
       <Header>
-        <Brand>
+        <Brand align="center" gap="10px">
           <Logo>
             <img src="/logo.png" alt="logo" />
           </Logo>
@@ -31,7 +32,7 @@ const OnboardingProgress = () => {
           <BrandName>Phoenix</BrandName>
         </Brand>
 
-        <Steps>
+        <Steps align="center" gap="28px">
           {steps.map((step) => {
             const active = step.stepNum === currentStep;
             const completed = step.stepNum < currentStep;
@@ -44,7 +45,7 @@ const OnboardingProgress = () => {
                 $visited={visited}
                 onClick={() => handleStepClick(step)}
               >
-                <StepNumber $active={active} $completed={completed}>
+                <StepNumber align="center" justify="center" $active={active} $completed={completed}>
                   {completed ? "✓" : step.stepNum}
                 </StepNumber>
 
@@ -79,10 +80,7 @@ const Header = styled.header`
   justify-content: space-between;
 `;
 
-const Brand = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
+const Brand = styled(Flex)`
   width: 270px;
 `;
 
@@ -103,10 +101,7 @@ const BrandName = styled.span`
   color: #172033;
 `;
 
-const Steps = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 28px;
+const Steps = styled(Flex)`
 `;
 
 const Step = styled.button`
@@ -121,12 +116,9 @@ const Step = styled.button`
   cursor: ${({ $visited }) => ($visited ? "pointer" : "default")};
 `;
 
-const StepNumber = styled.div`
+const StepNumber = styled(Flex)`
   width: 23px;
   height: 23px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 50%;
 
   background-color: ${({ $active, $completed }) =>

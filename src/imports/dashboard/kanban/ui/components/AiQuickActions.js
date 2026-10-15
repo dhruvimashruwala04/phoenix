@@ -7,7 +7,7 @@ const AiQuickActions = ({ actions, onAction }) => {
       {actions.map((action) => {
         const Icon = action.icon;
         return (
-          <Action
+          <Action align="center" gap="7px"
             key={action.label}
             $title={action.title}
             onClick={() => {
@@ -44,8 +44,6 @@ const QuickActions = styled(Flex)`
 const Action = styled(Flex)`
   height: 38px;
   padding: 0 12px;
-  align-items: center;
-  gap: 7px;
   border-radius: 7px;
   font-size: 12px;
   font-weight: 600;

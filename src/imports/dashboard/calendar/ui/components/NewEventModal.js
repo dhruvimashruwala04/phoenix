@@ -79,7 +79,7 @@ const NewEventModal = () => {
 
         <Section direction="column" gap="6px">
           <Label>Category</Label>
-          <CategoryContainer>
+          <CategoryContainer align="stretch" gap="8px">
             {categories.map((c) => (
               <CategoryButton
                 key={c.label}
@@ -207,10 +207,8 @@ const CancelButton = styled.button`
   font-weight: 500;
   cursor: pointer;
 `;
-const CategoryContainer = styled.div`
-  display: flex;
+const CategoryContainer = styled(Flex)`
   flex-wrap: wrap;
-  gap: 8px;
 `;
 const CategoryButton = styled.button`
   display: flex;

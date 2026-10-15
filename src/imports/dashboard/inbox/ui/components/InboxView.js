@@ -40,10 +40,10 @@ const InboxView = () => {
               onClick={() => handleMessageClick(message.id)}
               gap="14px"
             >
-              <Avatar $color={message.color}>{message.initials}</Avatar>
+              <Avatar align="center" justify="center" $color={message.color}>{message.initials}</Avatar>
 
               <MessageContent direction="column">
-                <TopRow justify="space-between" align="center">
+                <TopRow gap="12px" justify="space-between" align="center">
                   <Name $read={message.read}>{message.name}</Name>
 
                   <Time>{message.time}</Time>
@@ -85,9 +85,9 @@ const InboxView = () => {
             </HeaderActions>
           </ConversationHeader>
 
-          <ConversationBody direction="column">
+          <ConversationBody gap="5px" direction="column">
             <Sender align="center" gap="10px">
-              <Avatar $color={selectedMessage.color}>
+              <Avatar align="center" justify="center" $color={selectedMessage.color}>
                 {selectedMessage.initials}
               </Avatar>
 
@@ -174,13 +174,10 @@ const MessageItem = styled(Flex)`
     background: rgb(248, 250, 252);
   }
 `;
-const Avatar = styled.div`
+const Avatar = styled(Flex)`
   flex-shrink: 0;
   width: 34px;
   height: 34px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 50%;
   background: ${({ $color }) => $color};
   color: white;
@@ -192,7 +189,6 @@ const MessageContent = styled(Flex)`
   flex: 1;
 `;
 const TopRow = styled(Flex)`
-  gap: 12px;
 `;
 const Name = styled.div`
   font-size: 13px;
@@ -285,7 +281,6 @@ const ConversationBody = styled(Flex)`
   padding: 22px 20px;
   overflow-y: auto;
   width: 100%;
-  gap: 5px;
 `;
 const Sender = styled(Flex)``;
 const SenderDetails = styled(Flex)``;

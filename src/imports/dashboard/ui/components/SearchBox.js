@@ -4,7 +4,7 @@ import { Search } from "../assets/Icons";
 
 const SearchBox = ({ width, placeholder }) => {
   return (
-    <Container $width={width}>
+    <Container align="center" gap="8px" $width={width}>
       <Search />
       <Input type="text" placeholder={placeholder} />
     </Container>
@@ -21,8 +21,6 @@ const Container = styled(Flex)`
   border-radius: 8px;
   background: rgb(248, 250, 252);
   box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
-  align-items: center;
-  gap: 8px;
   padding: 0 10px;
   color: rgb(148, 163, 184);
 `;
