@@ -1,8 +1,8 @@
 import { Flex } from "@/imports/core/components/Flex";
-import { Close } from "@/imports/dashboard/kanban/ui/assets/Icons";
 import useCalendarStore from "../../store/CalendarStore";
 import styled from "styled-components";
 import { categories } from "../../api/constants";
+import { Close } from "@/imports/dashboard/ui/assets/Icons";
 
 const NewEventModal = () => {
   const {

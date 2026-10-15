@@ -1,10 +1,10 @@
 import { Flex } from "@/imports/core/components/Flex";
 import React from "react";
 import styled from "styled-components";
-import { Close } from "../assets/Icons";
 import useKanbanStore from "../../store/kanbanStore";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
 import useAuthStore from "@/imports/auth/store/authStore";
+import { Close } from "@/imports/dashboard/ui/assets/Icons";
 
 const NewTaskModal = () => {
   const {

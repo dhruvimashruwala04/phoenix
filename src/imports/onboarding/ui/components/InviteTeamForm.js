@@ -9,13 +9,15 @@ const InviteTeamForm = () => {
     inviteeName,
     inviteeEmail,
     inviteeRole,
-    status,
+    team,
+    linkStatus,
     addInvite,
     invites,
     setInviteeName,
     setInviteeEmail,
     setInviteeRole,
-    setStatus,
+    setTeam,
+    setLinkStatus,
     removeInvite,
   } = useOnboardingStore();
 
@@ -45,11 +47,17 @@ const InviteTeamForm = () => {
           <option value="Viewer">Viewer</option>
         </RoleSelect>
         <StatusSelect
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
+          value={linkStatus}
+          onChange={(e) => setLinkStatus(e.target.value)}
         >
-          <option value="accepted">Accepted</option>
-          <option value="pending">Pending</option>
+          <option value="Accepted">Accepted</option>
+          <option value="Pending">Pending</option>
+        </StatusSelect>
+        <StatusSelect value={team} onChange={(e) => setTeam(e.target.value)}>
+          <option value="Design">Design</option>
+          <option value="Engineering">Engineering</option>
+          <option value="Product">Product</option>
+          <option value="Marketing">Marketing</option>
         </StatusSelect>
         <AddButton type="button" onClick={addInvite}>
           Add
@@ -63,8 +71,8 @@ const InviteTeamForm = () => {
               <Avatar $color={invite.color}>{invite.initials}</Avatar>
               <MemberName>{invite.inviteeName}</MemberName>
               <MemberRole>{invite.inviteeRole}</MemberRole>
-              <MemberStatus $status={invite.status}>
-                {invite.status}
+              <MemberStatus $status={invite.linkStatus}>
+                {invite.linkStatus}
               </MemberStatus>
 
               <RemoveButton

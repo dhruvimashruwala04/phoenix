@@ -2,10 +2,11 @@
 import { Flex } from "@/imports/core/components/Flex";
 import React from "react";
 import styled from "styled-components";
-import { AI, Close, Send } from "../assets/Icons";
+import { AI, Send } from "../assets/Icons";
 import useAuthStore from "@/imports/auth/store/authStore";
 import { aiSuggestions, help } from "../../api/constants";
 import useKanbanStore from "../../store/kanbanStore";
+import { Close } from "@/imports/dashboard/ui/assets/Icons";
 
 const AiPanel = ({ reply }) => {
   const user = useAuthStore((state) => state.user);

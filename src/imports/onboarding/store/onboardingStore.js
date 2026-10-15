@@ -16,12 +16,17 @@ const useOnboardingStore = create(
       inviteeEmail: "",
       inviteeRole: "Member",
       inviteeName: "",
-      status: "Pending",
+      linkStatus: "Pending",
+      team: "Design",
+      status: "Deactivated",
       invites: [],
 
       projectName: "Website Redesign",
       view: "Kanban board",
       aiTasks: false,
+
+      selectedView: "Members",
+      activeFilter: "All",
 
       setName: (name) => set({ name }),
       setRole: (role) => set({ role }),
@@ -49,7 +54,16 @@ const useOnboardingStore = create(
       setInviteeEmail: (inviteeEmail) => set({ inviteeEmail }),
       setInviteeRole: (inviteeRole) => set({ inviteeRole }),
       setInviteeName: (inviteeName) => set({ inviteeName }),
+      setLinkStatus: (linkStatus) => set({ linkStatus }),
+      setTeam: (team) => set({ team }),
       setStatus: (status) => set({ status }),
+
+      setSelectedView: (selectedView) => set({ selectedView }),
+      setActiveFilter: (activeFilter) => set({ activeFilter }),
+
+      setProjectName: (projectName) => set({ projectName }),
+      setView: (view) => set({ view }),
+      setAiTasks: (aiTasks) => set({ aiTasks }),
 
       addInvite: () =>
         set((state) => {
@@ -59,6 +73,8 @@ const useOnboardingStore = create(
             inviteeEmail: state.inviteeEmail,
             inviteeRole: state.inviteeRole,
             inviteeName: state.inviteeName,
+            linkStatus: state.linkStatus,
+            team: state.team,
             status: state.status,
             initials: getInitials(state.inviteeName),
             color: "#6366f1",
@@ -69,7 +85,9 @@ const useOnboardingStore = create(
             inviteeEmail: "",
             inviteeRole: "Member",
             inviteeName: "",
-            status: "Pending",
+            linkStatus: "Pending",
+            team: "Design",
+            status: "Deactivated",
           };
         }),
 
@@ -80,9 +98,44 @@ const useOnboardingStore = create(
           ),
         })),
 
-      setProjectName: (projectName) => set({ projectName }),
-      setView: (view) => set({ view }),
-      setAiTasks: (aiTasks) => set({ aiTasks }),
+      updateInvite: (inviteeEmail) =>
+        set((state) => ({
+          invites: state.invites.map((invite) =>
+            invite.inviteeEmail === inviteeEmail
+              ? {
+                  ...invite,
+                  linkStatus: "Accepted",
+                  status: invite.status === "Active" ? "Deactivated" : "Active",
+                }
+              : invite,
+          ),
+        })),
+
+      changeInviteeRole: (inviteeEmail, inviteeRole) =>
+        set((state) => ({
+          invites: state.invites.map((invite) =>
+            invite.inviteeEmail === inviteeEmail
+              ? { ...invite, inviteeRole: inviteeRole }
+              : invite,
+          ),
+        })),
+
+      addStaticInvite: (invite) => {
+        set((state) => {
+          const newInvite = {
+            inviteeEmail: invite.email,
+            inviteeRole: "Viewer",
+            inviteeName: invite.name,
+            linkStatus: "Accepted",
+            team: invite.team,
+            status: "Active",
+            initials: getInitials(invite.name),
+            color: "#6366f1",
+          };
+
+          return { invites: [...state.invites, newInvite] };
+        });
+      },
     }),
     {
       name: "invites-storage",

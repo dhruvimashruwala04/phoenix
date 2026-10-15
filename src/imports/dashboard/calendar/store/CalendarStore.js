@@ -35,8 +35,8 @@ const useCalendarStore = create(
 
           const eventData = {
             title,
-            startTime: `${date}T${startTime}:00`,
-            endTime: `${date}T${endTime}:00`,
+            startTime: `${date}T${startTime}`,
+            endTime: `${date}T${endTime}`,
             category,
           };
 
