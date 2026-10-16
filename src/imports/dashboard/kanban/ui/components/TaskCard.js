@@ -58,7 +58,6 @@ const Card = styled.div`
   border: 1px solid rgb(226, 232, 240);
   border-radius: 11px;
   box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06);
-  cursor: grab;
 `;
 const Title = styled.div`
   font-size: 14px;

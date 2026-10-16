@@ -30,6 +30,7 @@ const KanbanPage = () => {
     acc[key] = (acc[key] || 0) + 1;
     return acc;
   }, {});
+
   const mostTaskAssignee = Object.keys(mostTask).reduce(
     (a, b) => (mostTask[a] > mostTask[b] ? a : b),
     "",

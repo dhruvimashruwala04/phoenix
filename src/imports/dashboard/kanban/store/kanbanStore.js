@@ -80,6 +80,13 @@ const useKanbanStore = create(
             ),
           };
         }),
+
+      updateTask: (taskId, updates) =>
+        set((state) => ({
+          tasks: state.tasks.map((task) =>
+            task.id === taskId ? { ...task, ...updates } : task,
+          ),
+        })),
     }),
     {
       name: "kanban-storage",
