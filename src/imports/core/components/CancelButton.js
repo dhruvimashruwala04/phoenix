@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const CancelButton = styled.button`
-  height: 38px;
+  height: ${(props) => props.height || "38px"};
   padding: 0 16px;
   border: 1px solid rgb(226, 232, 240);
   border-radius: 7px;

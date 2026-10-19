@@ -6,7 +6,7 @@ const PrimaryButton = styled.button`
   align-items: center;
   justify-content: center;
   width: ${(props) => props.width || "100%"};
-  height: 38px;
+  height: ${(props) => props.height || "38px"};
   padding: 0 16px;
   border-radius: 7px;
   background-color: ${(props) =>

@@ -1,0 +1,203 @@
+"use client";
+import useAuthStore from "@/imports/auth/store/authStore";
+import { Flex } from "@/imports/core/components/Flex";
+import getInitials from "@/imports/core/utils/getInitials";
+import styled from "styled-components";
+import { Camera, Save } from "../../assets/Icons";
+import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
+import { useEffect, useState } from "react";
+import CancelButton from "@/imports/core/components/CancelButton";
+import PrimaryButton from "@/imports/core/components/PrimaryButton";
+import { roles } from "@/imports/onboarding/api/constant";
+
+const Profile = () => {
+  const { user, updateUser } = useAuthStore();
+  const { role, setRole } = useOnboardingStore();
+
+  const [name, setName] = useState(user?.name || "");
+  const [email, setEmail] = useState(user?.email || "");
+  const [newRole, setNewRole] = useState(role || "");
+
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  useEffect(() => {
+    if (user) {
+      setName(user?.name);
+      setEmail(user?.email);
+      setNewRole(role);
+    }
+  }, [user, role]);
+
+  const handleSave = () => {
+    updateUser({ name, email });
+    setRole(newRole);
+
+    setShowSuccess(true);
+
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 2000);
+  };
+
+  return (
+    <Wrapper direction="column" gap="18px">
+      <Title>Profile</Title>
+      <PhotoWrapper gap="16px" align="center">
+        <Initials align="center" justify="center">
+          {getInitials(user?.name)}
+        </Initials>
+        <PhotoDetails direction="column" gap="6px">
+          <Info>JPG or PNG, up to 2 MB</Info>
+          <Label>
+            <Camera />
+            Change photo
+            <input type="file" accept="image/*" />
+          </Label>
+        </PhotoDetails>
+      </PhotoWrapper>
+      <Details direction="column" gap="16px">
+        <InputLabel>
+          Full Name
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </InputLabel>
+
+        <InputLabel>
+          Email
+          <input
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </InputLabel>
+
+        <InputLabel>
+          Role
+          <select onChange={(e) => setNewRole(e.target.value)} value={newRole}>
+            {roles.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
+          </select>
+        </InputLabel>
+
+        <InputLabel>
+          Time Zone
+          <select>
+            <option value="pac">Pacific Time (UTC-7)</option>
+            <option value="eas">Eastern Time (UTC-4)</option>
+            <option value="lon">London (UTC+1)</option>
+            <option value="ber">Berlin (UTC+2)</option>
+            <option value="sin">Singapore (UTC+8)</option>
+          </select>
+        </InputLabel>
+      </Details>
+
+      <Buttons justify="flex-end" align="center" gap="10px">
+        {showSuccess && (
+          <Success>
+            <Save />
+            Changes saved
+          </Success>
+        )}
+        <CancelButton
+          onClick={() => {
+            updateUser({ name: "John Smith", email: "john@acme.com" });
+            setRole("Product");
+          }}
+        >
+          Reset
+        </CancelButton>
+        <PrimaryButton onClick={handleSave} width="fit-content">
+          Save changes
+        </PrimaryButton>
+      </Buttons>
+    </Wrapper>
+  );
+};
+
+export default Profile;
+
+const Wrapper = styled(Flex)`
+  width: 100%;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  box-shadow:
+    rgb(241, 245, 249) 0px 0px 0px 1px inset,
+    rgba(0, 0, 0, 0.05) 0px 1px 2px;
+  padding: 24px;
+`;
+const Title = styled.span`
+  font-size: 16px;
+  font-weight: 700;
+  color: rgb(15, 23, 42);
+`;
+const PhotoWrapper = styled(Flex)``;
+const Details = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+`;
+const Initials = styled(Flex)`
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgb(79, 70, 229);
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight: 700;
+`;
+const PhotoDetails = styled(Flex)``;
+const Info = styled.div`
+  font-size: 12px;
+  color: rgb(100, 116, 139);
+`;
+const Label = styled.label`
+  height: 32px;
+  padding: 0px 12px;
+  border-radius: 8px;
+  background: rgb(255, 255, 255);
+  box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: max-content;
+  > input {
+    display: none;
+  }
+`;
+const InputLabel = styled.label`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgb(71, 85, 105);
+  > input,
+  select {
+    height: 38px;
+    border-radius: 8px;
+    border: 0px;
+    box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+    padding: 0px 12px;
+    font-size: 14px;
+    outline: 0px;
+  }
+`;
+const Buttons = styled(Flex)`
+  width: 100%;
+`;
+const Success = styled.span`
+  font-size: 12px;
+  color: rgb(5, 150, 105);
+  display: flex;
+  gap: 6px;
+  align-items: center;
+`;

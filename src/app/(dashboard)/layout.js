@@ -22,7 +22,9 @@ const DashboardLayout = ({ children }) => {
         </LogoWrapper>
         <NavBar />
         <User align="center" gap="12px">
-          <Initials align="center" justify="center">{initials}</Initials>
+          <Initials align="center" justify="center">
+            {initials}
+          </Initials>
           <Details direction="column">
             <Name>{user?.name}</Name>
             <Email>{user?.email}</Email>
@@ -94,21 +96,21 @@ const Details = styled(Flex)`
   overflow: hidden;
 `;
 const Name = styled.span`
+  display: flex;
   color: rgb(255, 255, 255);
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
-  display: block;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 const Email = styled.span`
+  display: flex;
   color: rgb(100, 116, 139);
   font-size: 12px;
   line-height: 16px;
-  display: block;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;

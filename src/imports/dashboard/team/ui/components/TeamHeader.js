@@ -50,24 +50,3 @@ const Content = styled.span`
   line-height: 16px;
   text-align: left;
 `;
-const Details = styled(Flex)`
-  width: fit-content;
-  height: 32px;
-  padding: 0 10px;
-  border: 1px solid rgb(226, 232, 240);
-  border-radius: 8px;
-  background: #ffffff;
-  color: rgb(100, 116, 139);
-  font-size: 12px;
-  cursor: pointer;
-  strong {
-    color: rgb(30, 41, 59);
-    font-weight: 600;
-  }
-`;
-const Dot = styled.span`
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgb(99, 102, 241);
-`;

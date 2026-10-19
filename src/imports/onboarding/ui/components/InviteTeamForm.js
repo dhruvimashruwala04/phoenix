@@ -68,10 +68,18 @@ const InviteTeamForm = () => {
         {invites.length > 0 ? (
           invites.map((invite) => (
             <InviteRow align="center" gap="12px" key={invite.inviteeEmail}>
-              <Avatar align="center" justify="center" $color={invite.color}>{invite.initials}</Avatar>
+              <Avatar align="center" justify="center" $color={invite.color}>
+                {invite.initials}
+              </Avatar>
               <MemberName>{invite.inviteeName}</MemberName>
-              <MemberRole align="center" justify="center">{invite.inviteeRole}</MemberRole>
-              <MemberStatus align="center" justify="center" $status={invite.linkStatus}>
+              <MemberRole align="center" justify="center">
+                {invite.inviteeRole}
+              </MemberRole>
+              <MemberStatus
+                align="center"
+                justify="center"
+                $status={invite.linkStatus}
+              >
                 {invite.linkStatus}
               </MemberStatus>
 
@@ -204,6 +212,7 @@ const Avatar = styled(Flex)`
   font-weight: 600;
 `;
 const MemberName = styled.span`
+  display: flex;
   flex: 1;
   color: #172033;
   font-size: 13px;
@@ -258,6 +267,7 @@ const LinkText = styled.span`
   flex: 1;
   color: #526174;
   font-size: 13px;
+  display: flex;
 `;
 const CopyButton = styled.button`
   height: 34px;

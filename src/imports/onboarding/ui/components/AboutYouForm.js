@@ -11,26 +11,26 @@ import {
   Product,
 } from "../assets/Icons";
 import useOnboardingStore from "../../store/onboardingStore";
+import useAuthStore from "@/imports/auth/store/authStore";
 import getInitials from "@/imports/core/utils/getInitials";
 
 const AboutYouForm = () => {
-  const { name, setName, role, setRole, teamSize, setTeamSize } =
-    useOnboardingStore();
-  const initials = getInitials(name);
+  const { user, updateUser } = useAuthStore();
+  const { role, setRole, teamSize, setTeamSize } = useOnboardingStore();
 
   return (
     <>
       <Form direction="column" gap="22px">
         <NameRow align="center" gap="16px">
           <Avatar align="center" justify="center">
-            {initials}
+            {getInitials(user?.name)}
           </Avatar>
 
           <NameField direction="column" gap="7px">
             <Label>Your name</Label>
             <Input
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={user?.name || "John Smith"}
+              onChange={(e) => updateUser({ name: e.target.value })}
               placeholder="John Smith"
             />
           </NameField>

@@ -5,7 +5,6 @@ import { persist } from "zustand/middleware";
 const useOnboardingStore = create(
   persist(
     (set) => ({
-      name: "John Smith",
       role: "Product",
       teamSize: "2-10",
 
@@ -30,7 +29,8 @@ const useOnboardingStore = create(
 
       searchQuery: "",
 
-      setName: (name) => set({ name }),
+      settingsView: "Profile",
+
       setRole: (role) => set({ role }),
       setTeamSize: (teamSize) => set({ teamSize }),
 
@@ -68,6 +68,8 @@ const useOnboardingStore = create(
       setAiTasks: (aiTasks) => set({ aiTasks }),
 
       setSearchQuery: (searchQuery) => set({ searchQuery }),
+
+      setSettingsView: (settingsView) => set({ settingsView }),
 
       addInvite: () =>
         set((state) => {

@@ -14,6 +14,14 @@ const useAuthStore = create(
 
       setUser: (user) => set({ user }),
       logout: () => set({ user: null }),
+
+      updateUser: (updatedData) =>
+        set((state) => ({
+          user: {
+            ...state.user,
+            ...updatedData,
+          },
+        })),
     }),
     {
       name: "auth-user",
