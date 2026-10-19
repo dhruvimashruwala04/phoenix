@@ -17,6 +17,7 @@ const Projects = () => {
       <ProjectList>
         {tasks.slice(0, 5).map((task, i) => {
           const status = statusConfig[task.status];
+          const progress = Math.floor(Math.random() * 100) + 1;
           return (
             <ProjectRow href="/kanban" key={i}>
               <ProjectInfo>
@@ -31,14 +32,11 @@ const Projects = () => {
               <ProgressSection>
                 <ProgressLabel align="stretch" justify="space-between">
                   <span>Progress</span>
-                  <span>{Math.floor(Math.random() * 100) + 1}%</span>
+                  <span>{progress}%</span>
                 </ProgressLabel>
 
                 <ProgressTrack>
-                  <ProgressBar
-                    $progress={Math.floor(Math.random() * 100) + 1}
-                    $color={status?.color}
-                  />
+                  <ProgressBar $progress={progress} $color={status?.color} />
                 </ProgressTrack>
               </ProgressSection>
 

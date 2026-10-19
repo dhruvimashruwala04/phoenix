@@ -182,6 +182,7 @@ const TaskList = styled.div`
   flex-direction: column;
   gap: 12px;
   min-height: 80px;
+  width: 100%;
 `;
 const DraggableTask = styled.div`
   width: 100%;
