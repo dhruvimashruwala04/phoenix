@@ -76,7 +76,7 @@ const PermissionCard = styled.div`
   overflow: hidden;
   background: var(--white);
   border: 1px solid var(--border-soft);
-  border-radius: 13px;
+  border-radius: var(--radius-13);
   box-shadow: 0 1px 3px var(--shadow-sm);
 `;
 const Grid = styled.div`
@@ -88,8 +88,8 @@ const HeaderCell = styled(Flex)`
   min-height: 57px;
   padding: 12px 20px;
   border-bottom: 1px solid var(--border-soft);
-  font-size: 14px;
-  font-weight: 650;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-650);
   color: var(--gray-900);
 `;
 const RoleHeader = styled.div`
@@ -98,15 +98,15 @@ const RoleHeader = styled.div`
   border-bottom: 1px solid var(--border-soft);
 `;
 const RoleName = styled.div`
-  font-size: 13px;
-  font-weight: 650;
-  line-height: 18px;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-650);
+  line-height: var(--lh-18);
   color: var(--gray-900);
 `;
 const RoleCount = styled.div`
   margin-top: 1px;
-  font-size: 10px;
-  line-height: 14px;
+  font-size: var(--fs-10);
+  line-height: var(--lh-14);
   color: var(--text-muted-2);
 `;
 const PermissionRow = styled.div`
@@ -121,15 +121,15 @@ const PermissionInfo = styled(Flex)`
   border-bottom: 1px solid var(--surface-muted);
 `;
 const PermissionName = styled.div`
-  font-size: 12px;
+  font-size: var(--fs-12);
   font-weight: 550;
-  line-height: 17px;
+  line-height: var(--lh-17);
   color: var(--gray-900);
 `;
 const PermissionDescription = styled.div`
   margin-top: 1px;
-  font-size: 11px;
-  line-height: 15px;
+  font-size: var(--fs-11);
+  line-height: var(--lh-15);
   color: var(--gray-500);
 `;
 const PermissionCheckboxCell = styled(Flex)`
@@ -146,7 +146,7 @@ const Checkbox = styled.input`
   height: 22px;
   margin: 0;
   border: 1.5px solid #cbd8e8;
-  border-radius: 6px;
+  border-radius: var(--radius-6);
   background: var(--white);
   cursor: pointer;
   &:checked {
@@ -176,7 +176,7 @@ const Checkbox = styled.input`
 `;
 const FooterNote = styled.p`
   margin: 18px 0 0;
-  font-size: 11px;
-  line-height: 17px;
+  font-size: var(--fs-11);
+  line-height: var(--lh-17);
   color: var(--text-muted-2);
 `;

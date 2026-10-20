@@ -94,14 +94,14 @@ const Checkbox = styled.input`
   width: 18px;
   height: 18px;
   border: 1px solid var(--border-gray);
-  border-radius: 5px;
+  border-radius: var(--radius-5);
   accent-color: var(--blue-accent);
   cursor: pointer;
 `;
 const TaskTitle = styled.div`
   flex: 1;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-500);
   color: ${({ $done }) => ($done ? "var(--text-muted)" : "var(--slate-900)")};
   overflow: hidden;
   text-overflow: ellipsis;
@@ -112,9 +112,9 @@ const Priority = styled.span`
   min-width: 56px;
   text-align: center;
   padding: 3px 7px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: 600;
+  border-radius: var(--radius-4);
+  font-size: var(--fs-10);
+  font-weight: var(--fw-600);
   color: ${({ $priority }) => {
     if ($priority === "high") return "var(--rose-500)";
     if ($priority === "medium") return "var(--amber-500)";
@@ -128,7 +128,7 @@ const Priority = styled.span`
 `;
 const DueDate = styled.span`
   width: 55px;
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--text-muted);
   text-align: right;
 `;
@@ -144,9 +144,9 @@ const Input = styled.input`
   padding: 0 12px;
   box-sizing: border-box;
   border: 1px solid var(--slate-100);
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   outline: none;
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--slate-900);
   &::placeholder {
     color: var(--text-muted-2);

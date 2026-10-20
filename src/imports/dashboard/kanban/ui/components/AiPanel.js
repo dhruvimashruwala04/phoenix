@@ -102,17 +102,17 @@ const Header = styled(Flex)`
   padding: 0px 20px;
 `;
 const Text = styled.div`
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: var(--fw-700);
+  font-size: var(--fs-14);
   color: var(--slate-900);
 `;
 const Badge = styled.div`
   background: var(--indigo-50);
   color: var(--blue-accent);
-  font-size: 9px;
-  font-weight: 700;
+  font-size: var(--fs-9);
+  font-weight: var(--fw-700);
   padding: 2px 6px;
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   text-transform: uppercase;
 `;
 const CloseBtn = styled(Flex)`
@@ -121,7 +121,7 @@ const CloseBtn = styled(Flex)`
   cursor: pointer;
   width: 28px;
   height: 28px;
-  border-radius: 6px;
+  border-radius: var(--radius-6);
   &:hover {
     background-color: var(--slate-50);
   }
@@ -137,17 +137,17 @@ const Greet = styled(Flex)``;
 const AiIcon = styled(Flex)`
   width: 28px;
   height: 28px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--indigo-50);
   color: var(--blue-accent);
-  font-size: 12px;
+  font-size: var(--fs-12);
 `;
 const BoldText = styled.span`
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: var(--fw-700);
+  font-size: var(--fs-14);
 `;
 const SubText = styled.div`
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--text-muted);
 `;
 const Row = styled(Flex)`
@@ -155,30 +155,30 @@ const Row = styled(Flex)`
   text-align: left;
   cursor: pointer;
   background: var(--indigo-50);
-  border-radius: 10px;
+  border-radius: var(--radius-10);
   padding: 12px;
 `;
 const Icon = styled(Flex)`
   width: 28px;
   height: 28px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--white);
   color: var(--blue-accent);
-  font-size: 12px;
+  font-size: var(--fs-12);
   flex-shrink: 0;
 `;
 const TextWrapper = styled(Flex)``;
 const Title = styled.span`
-  font-size: 12px;
-  font-weight: 700;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-700);
   color: var(--slate-900);
 `;
 const ContentVal = styled.span`
-  font-size: 10px;
+  font-size: var(--fs-10);
   color: var(--text-muted);
 `;
 const Suggestion = styled(Flex)`
-  border-radius: 10px;
+  border-radius: var(--radius-10);
   background: ${({ $variant }) =>
     $variant === "red" ? "var(--rose-50)" : " var(--emerald-50)"};
   box-shadow: ${({ $variant }) =>
@@ -188,15 +188,15 @@ const Suggestion = styled(Flex)`
   padding: 16px;
 `;
 const SuggestionText = styled.span`
-  font-size: 12px;
-  line-height: 19px;
+  font-size: var(--fs-12);
+  line-height: var(--lh-19);
   color: var(--slate-700);
   font-style: italic;
 `;
 const HeadingText = styled(Flex)`
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
+  font-size: var(--fs-10);
+  font-weight: var(--fw-700);
+  letter-spacing: var(--ls-md);
   color: ${({ $variant }) =>
     $variant === "red" ? "var(--rose-600)" : "var(--emerald-600)"};
 `;
@@ -209,16 +209,16 @@ const Btn = styled(Flex)`
   background: var(--white);
   color: ${({ $variant }) =>
     $variant === "red" ? "var(--rose-600)" : "var(--emerald-600)"};
-  font-size: 10px;
-  font-weight: 700;
+  font-size: var(--fs-10);
+  font-weight: var(--fw-700);
   padding: 5px 10px;
-  border-radius: 6px;
+  border-radius: var(--radius-6);
   cursor: pointer;
 `;
 const SText = styled.span`
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.4px;
+  font-size: var(--fs-10);
+  font-weight: var(--fw-700);
+  letter-spacing: var(--ls-md);
   color: ${({ $variant }) =>
     $variant === "red" ? "var(--rose-600)" : "var(--emerald-600)"};
   text-transform: uppercase;
@@ -233,20 +233,20 @@ const AskInput = styled.input`
   flex: 1 1 0%;
   min-width: 0px;
   height: 38px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   border: 0px;
   background: var(--slate-50);
   box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
   padding: 0px 12px;
-  font-size: 12px;
+  font-size: var(--fs-12);
   outline: 0px;
 `;
 const QuickActionText = styled(Flex)`
   max-width: 85%;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: var(--fs-12);
+  line-height: var(--lh-18);
   padding: 10px 12px;
-  border-radius: 10px;
+  border-radius: var(--radius-10);
   white-space: pre-wrap;
   background: var(--slate-50);
   color: var(--slate-700);

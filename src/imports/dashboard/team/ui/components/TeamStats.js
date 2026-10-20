@@ -91,7 +91,7 @@ const Card = styled(Flex)`
   padding: 16px 20px;
   background: var(--white);
   border: 1px solid var(--slate-100);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   box-shadow: 0 1px 2px var(--shadow-sm);
 `;
 
@@ -101,16 +101,16 @@ const SeatsHeader = styled(Flex)`
 
 const Title = styled.span`
   color: var(--text-muted-2);
-  font-size: 12px;
-  line-height: 18px;
-  font-weight: 400;
+  font-size: var(--fs-12);
+  line-height: var(--lh-18);
+  font-weight: var(--fw-400);
 `;
 
 const SeatsValue = styled.span`
   color: var(--slate-900);
-  font-size: 12px;
-  line-height: 18px;
-  font-weight: 700;
+  font-size: var(--fs-12);
+  line-height: var(--lh-18);
+  font-weight: var(--fw-700);
   white-space: nowrap;
 `;
 
@@ -121,9 +121,9 @@ const Value = styled.span`
       : $type === "requests"
         ? "#ff941f"
         : "var(--slate-900)"};
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 26px;
+  font-size: var(--fs-22);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-26);
 `;
 
 const ProgressTrack = styled.div`
@@ -131,7 +131,7 @@ const ProgressTrack = styled.div`
   height: 6px;
   margin-top: 1px;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: var(--radius-20);
   background: #edf1f7;
 `;
 
@@ -149,8 +149,8 @@ const Button = styled.button`
   padding: 0;
   margin-top: 3px;
   color: var(--blue-accent);
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   cursor: pointer;
 
   &:hover {

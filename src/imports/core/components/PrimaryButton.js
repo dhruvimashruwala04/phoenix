@@ -8,12 +8,12 @@ const PrimaryButton = styled.button`
   width: ${(props) => props.width || "100%"};
   height: ${(props) => props.height || "38px"};
   padding: 0 16px;
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   background-color: ${(props) =>
     props.variant === "secondary" ? "var(--violet-700)" : "var(--blue-accent)"};
   color: var(--white);
-  font-size: 15px;
-  font-weight: 500;
+  font-size: var(--fs-15);
+  font-weight: var(--fw-500);
 
   &:hover {
     cursor: pointer;

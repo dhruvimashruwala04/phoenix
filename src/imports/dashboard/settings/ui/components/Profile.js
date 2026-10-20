@@ -125,15 +125,15 @@ export default Profile;
 const Wrapper = styled(Flex)`
   width: 100%;
   background: var(--white);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   box-shadow:
     var(--slate-100) 0px 0px 0px 1px inset,
     var(--shadow-black) 0px 1px 2px;
   padding: 24px;
 `;
 const Title = styled.span`
-  font-size: 16px;
-  font-weight: 700;
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
   color: var(--slate-900);
 `;
 const PhotoWrapper = styled(Flex)``;
@@ -146,24 +146,24 @@ const Details = styled.div`
 const Initials = styled(Flex)`
   width: 64px;
   height: 64px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--blue-accent);
   color: var(--white);
-  font-size: 20px;
-  font-weight: 700;
+  font-size: var(--fs-20);
+  font-weight: var(--fw-700);
 `;
 const PhotoDetails = styled(Flex)``;
 const Info = styled.div`
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--text-muted);
 `;
 const Label = styled.label`
   height: 32px;
   padding: 0px 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--white);
   box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
-  font-size: 12px;
+  font-size: var(--fs-12);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -177,17 +177,17 @@ const InputLabel = styled.label`
   display: flex;
   flex-direction: column;
   gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   color: var(--slate-600);
   > input,
   select {
     height: 38px;
-    border-radius: 8px;
+    border-radius: var(--radius-8);
     border: 0px;
     box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
     padding: 0px 12px;
-    font-size: 14px;
+    font-size: var(--fs-14);
     outline: 0px;
   }
 `;
@@ -195,7 +195,7 @@ const Buttons = styled(Flex)`
   width: 100%;
 `;
 const Success = styled.span`
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--emerald-600);
   display: flex;
   gap: 6px;

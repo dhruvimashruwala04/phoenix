@@ -80,17 +80,17 @@ const ViewTabs = styled(Flex)`
   height: 36px;
   padding: 3px;
   background: var(--slate-100);
-  border-radius: 9px;
+  border-radius: var(--radius-9);
 `;
 const Tab = styled.button`
   height: 30px;
   padding: 0 25px;
   border: none;
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   background: ${({ $active }) => ($active ? "var(--white)" : "transparent")};
   color: ${({ $active }) =>
     $active ? "var(--indigo-700)" : "var(--text-muted)"};
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: ${({ $active }) => ($active ? 500 : 400)};
   cursor: pointer;
   box-shadow: ${({ $active }) =>
@@ -104,14 +104,14 @@ const SortButton = styled(Flex)`
   height: 32px;
   padding: 0 10px;
   border: 1px solid var(--border-muted);
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--white);
   color: var(--text-muted);
-  font-size: 12px;
+  font-size: var(--fs-12);
   cursor: pointer;
   strong {
     color: var(--slate-800);
-    font-weight: 600;
+    font-weight: var(--fw-600);
   }
 `;
 const IconButton = styled.button`
@@ -122,7 +122,7 @@ const IconButton = styled.button`
   align-items: center;
   justify-content: center;
   border: 1px solid var(--border-muted);
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   background: var(--white);
   color: var(--slate-600);
   cursor: pointer;

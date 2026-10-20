@@ -243,8 +243,8 @@ const CalendarSection = styled.section`
   }
   && .mini-title {
     margin: 0;
-    font-size: 14px;
-    font-weight: 700;
+    font-size: var(--fs-14);
+    font-weight: var(--fw-700);
     color: var(--slate-900);
   }
   && .mini-nav-btn {
@@ -252,7 +252,7 @@ const CalendarSection = styled.section`
     height: 24px;
     padding: 0;
     border: 0;
-    border-radius: 6px;
+    border-radius: var(--radius-6);
     background: transparent;
     color: var(--text-muted-2);
     cursor: pointer;
@@ -267,8 +267,8 @@ const CalendarSection = styled.section`
   && .mini-weekday {
     padding: 4px 0 7px;
     color: var(--text-muted);
-    font-size: 10px;
-    font-weight: 600;
+    font-size: var(--fs-10);
+    font-weight: var(--fw-600);
     text-align: center;
   }
   && .mini-weekday,
@@ -292,9 +292,9 @@ const CalendarSection = styled.section`
     width: 27px;
     height: 27px;
     margin: 2px auto;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     color: var(--slate-900);
-    font-size: 11px;
+    font-size: var(--fs-11);
   }
   && .mini-day:hover .mini-day-number {
     background: #f1f0ff;
@@ -304,7 +304,7 @@ const CalendarSection = styled.section`
   }
   && .mini-day-today .mini-day-number {
     color: var(--blue-accent);
-    font-weight: 700;
+    font-weight: var(--fw-700);
   }
   && .mini-day-selected .mini-day-number,
   && .mini-day-selected:hover .mini-day-number {
@@ -331,8 +331,8 @@ const CalendarSection = styled.section`
     width: 27px;
     height: 27px;
     margin: 2px auto 0;
-    border-radius: 50%;
-    font-size: 11px;
+    border-radius: var(--radius-full);
+    font-size: var(--fs-11);
   }
 
   && .mini-event-dots {
@@ -348,7 +348,7 @@ const CalendarSection = styled.section`
     display: block;
     width: 5px;
     height: 5px;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     flex-shrink: 0;
   }
 `;
@@ -361,8 +361,8 @@ const ContentSection = styled.section`
 `;
 const SectionTitle = styled.h3`
   margin: 0;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-700);
   color: var(--slate-900);
 `;
 const TextButton = styled.button`
@@ -370,8 +370,8 @@ const TextButton = styled.button`
   border: 0;
   background: transparent;
   color: #5145ff;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: var(--fs-11);
+  font-weight: var(--fw-600);
   cursor: pointer;
   &:hover {
     color: var(--indigo-800);
@@ -386,7 +386,7 @@ const EventDot = styled.span`
   width: 6px;
   height: 6px;
   margin-top: 5px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: ${({ $color }) => $color};
 `;
 const EventInfo = styled.div`
@@ -396,15 +396,15 @@ const EventInfo = styled.div`
 const EventName = styled.div`
   overflow: hidden;
   color: var(--slate-900);
-  font-size: 12px;
-  font-weight: 650;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-650);
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
 const EventTime = styled.div`
   margin-top: 3px;
   color: var(--text-muted);
-  font-size: 10px;
+  font-size: var(--fs-10);
 `;
 const EventBadge = styled.span`
   display: flex;
@@ -414,10 +414,10 @@ const EventBadge = styled.span`
   min-width: 20px;
   height: 17px;
   padding: 0 5px;
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   background: var(--slate-100);
   color: var(--text-muted);
-  font-size: 10px;
+  font-size: var(--fs-10);
 `;
 const TaskList = styled(Flex)``;
 const TaskRow = styled.label`
@@ -434,7 +434,7 @@ const TaskCheckbox = styled.input`
   height: 16px;
   margin: 0;
   border: 1.5px solid var(--slate-300);
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   background: var(--white);
   cursor: pointer;
   &:checked {
@@ -445,9 +445,9 @@ const TaskCheckbox = styled.input`
     display: block;
     content: "✓";
     color: var(--white);
-    font-size: 11px;
+    font-size: var(--fs-11);
     text-align: center;
-    line-height: 14px;
+    line-height: var(--lh-14);
   }
 `;
 const TaskName = styled.span`
@@ -455,7 +455,7 @@ const TaskName = styled.span`
   min-width: 0;
   overflow: hidden;
   color: var(--slate-700);
-  font-size: 12px;
+  font-size: var(--fs-12);
   text-decoration: ${({ $completed }) =>
     $completed ? "line-through" : "none"};
   opacity: ${({ $completed }) => ($completed ? 0.55 : 1)};
@@ -465,12 +465,12 @@ const TaskName = styled.span`
 const Priority = styled.span`
   flex-shrink: 0;
   padding: 2px 5px;
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   background: ${({ $priority }) =>
     $priority === "High" ? "var(--indigo-50)" : "#fff4e5"};
   color: ${({ $priority }) => ($priority === "High" ? "var(--blue-accent)" : "#c77716")};
-  font-size: 9px;
-  font-weight: 600;
+  font-size: var(--fs-9);
+  font-weight: var(--fw-600);
 `;
 const AddTaskForm = styled.form`
   display: flex;
@@ -487,7 +487,7 @@ const AddTaskInput = styled.input`
   background: transparent;
   color: var(--slate-700);
   font: inherit;
-  font-size: 12px;
+  font-size: var(--fs-12);
   &::placeholder {
     color: var(--text-muted);
     opacity: 1;
@@ -497,13 +497,13 @@ const AddTaskButton = styled.button`
   border: 0;
   background: transparent;
   color: var(--blue-accent);
-  font-size: 11px;
+  font-size: var(--fs-11);
   cursor: pointer;
 `;
 const AssistantCard = styled.section`
   padding: 16px;
   border: 1px solid var(--border-soft);
-  border-radius: 14px;
+  border-radius: var(--radius-14);
   background: var(--slate-50);
   width: 100%;
 `;
@@ -513,16 +513,16 @@ const AssistantHeading = styled(Flex)`
 `;
 const BetaBadge = styled.span`
   padding: 3px 5px;
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   background: #eeedff;
   color: var(--blue-accent);
-  font-size: 9px;
-  font-weight: 700;
+  font-size: var(--fs-9);
+  font-weight: var(--fw-700);
 `;
 const AssistantInner = styled.div`
   padding: 13px;
   border: 1px solid var(--slate-100);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   background: var(--white);
 `;
 const SuccessRow = styled(Flex)``;
@@ -533,21 +533,21 @@ const SuccessIcon = styled.span`
   width: 20px;
   height: 20px;
   flex-shrink: 0;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: #d1fae5;
   color: var(--emerald-600);
-  font-size: 12px;
-  font-weight: 700;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-700);
 `;
 const SuccessText = styled.span`
   color: var(--emerald-600);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: var(--fs-11);
+  font-weight: var(--fw-700);
 `;
 const AssistantDescription = styled.p`
   margin: 10px 0 12px 29px;
   color: var(--text-muted);
-  font-size: 10px;
+  font-size: var(--fs-10);
   line-height: 1.6;
 `;
 const OptimizeButton = styled.button`
@@ -555,11 +555,11 @@ const OptimizeButton = styled.button`
   min-height: 33px;
   padding: 7px 8px;
   border: 1px solid #c7c5ff;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--white);
   color: var(--blue-accent);
-  font-size: 10px;
-  font-weight: 650;
+  font-size: var(--fs-10);
+  font-weight: var(--fw-650);
   cursor: pointer;
   &:hover {
     background: var(--violet-50);

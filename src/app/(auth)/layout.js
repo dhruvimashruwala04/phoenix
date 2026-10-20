@@ -52,8 +52,8 @@ const Logo = styled.div`
   }
 `;
 const LogoName = styled.span`
-  font-size: 17px;
-  font-weight: 600;
+  font-size: var(--fs-17);
+  font-weight: var(--fw-600);
   color: var(--text-heading);
 `;
 const FormMain = styled(Flex)`
@@ -62,6 +62,6 @@ const FormMain = styled(Flex)`
 `;
 const FormBottom = styled(Flex)`
   color: var(--text-muted-2);
-  font-size: 11px;
+  font-size: var(--fs-11);
   flex-shrink: 0;
 `;

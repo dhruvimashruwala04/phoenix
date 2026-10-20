@@ -43,25 +43,25 @@ const SectionWrapper = styled.div`
 const Header = styled.div`
   width: 100%;
   padding: 0px 8px 8px;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.6px;
+  font-weight: var(--fw-600);
+  font-size: var(--fs-12);
+  line-height: var(--lh-16);
+  letter-spacing: var(--ls-lg);
   color: var(--text-muted);
   text-transform: uppercase;
 `;
 const LinkText = styled(Link)`
   height: 40px;
   width: 100%;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   display: flex;
   align-items: center;
   gap: 12px;
   padding: 8px 12px;
-  font-size: 16px;
+  font-size: var(--fs-16);
   background: transparent;
   color: var(--slate-300);
-  font-weight: 400;
+  font-weight: var(--fw-400);
   &:hover {
     color: var(--white);
   }
@@ -69,6 +69,6 @@ const LinkText = styled(Link)`
 const Dot = styled.div`
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: ${({ $color }) => $color || "var(--blue-accent)"};
 `;

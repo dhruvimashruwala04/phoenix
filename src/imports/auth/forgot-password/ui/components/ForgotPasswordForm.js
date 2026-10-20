@@ -69,8 +69,8 @@ const FormBox = styled(Flex)`
   width: 100%;
 `;
 const BackText = styled(Link)`
-  font-size: 13px;
-  font-weight: 500;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-500);
   display: flex;
   gap: 8px;
   align-items: center;
@@ -78,32 +78,32 @@ const BackText = styled(Link)`
 `;
 const Header = styled(Flex)``;
 const Text = styled.span`
-  font-size: 28px;
-  line-height: 34px;
-  letter-spacing: -0.6px;
-  font-weight: 700;
+  font-size: var(--fs-28);
+  line-height: var(--lh-34);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-700);
   color: var(--text-heading);
 `;
 const SubText = styled.span`
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: var(--fs-13);
 `;
 const Field = styled(Flex)`
   width: 100%;
 `;
 const Label = styled.span`
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   color: var(--slate-700);
 `;
 const Input = styled.input`
   width: 100%;
   height: 37px;
   border: 1px solid ${({ $error }) => ($error ? "var(--rose-600)" : "var(--border-input)")};
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   padding: 0 12px;
   outline: none;
-  font-size: 13px;
+  font-size: var(--fs-13);
   color: var(--text-heading);
   background-color: var(--background);
   &::placeholder {

@@ -71,7 +71,7 @@ const Card = styled.div`
   padding: 19px;
   background: var(--white);
   border: 1px solid #f0eef5;
-  border-radius: 13px;
+  border-radius: var(--radius-13);
   box-shadow: 0 2px 5px var(--shadow-xs);
   color: var(--gray-900);
 `;
@@ -82,7 +82,7 @@ const IconBox = styled(Flex)`
   width: 40px;
   height: 40px;
   flex-shrink: 0;
-  border-radius: 11px;
+  border-radius: var(--radius-11);
   color: ${({ $status }) =>
     $status === "Upcoming"
       ? "var(--violet-600)"
@@ -102,21 +102,21 @@ const ProjectInfo = styled(Flex)`
 `;
 const ProjectName = styled.h3`
   margin: 0;
-  font-size: 14px;
-  font-weight: 650;
-  line-height: 18px;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-650);
+  line-height: var(--lh-18);
   color: var(--gray-900);
 `;
 const Category = styled.span`
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: var(--text-muted);
 `;
 const Status = styled.span`
   flex-shrink: 0;
   padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: 650;
+  border-radius: var(--radius-4);
+  font-size: var(--fs-10);
+  font-weight: var(--fw-650);
   color: ${({ $status }) =>
     $status === "Upcoming"
       ? "var(--violet-600)"
@@ -137,19 +137,19 @@ const ProgressHeader = styled(Flex)`
   margin-bottom: 6px;
 `;
 const ProgressLabel = styled.span`
-  font-size: 10px;
-  letter-spacing: 0.25px;
+  font-size: var(--fs-10);
+  letter-spacing: var(--ls-sm);
   color: var(--text-muted);
 `;
 const ProgressValue = styled.span`
-  font-size: 11px;
-  font-weight: 700;
+  font-size: var(--fs-11);
+  font-weight: var(--fw-700);
   color: var(--gray-900);
 `;
 const ProgressTrack = styled.div`
   width: 100%;
   height: 6px;
-  border-radius: 20px;
+  border-radius: var(--radius-20);
   overflow: hidden;
   background: #f0f0f3;
 `;
@@ -169,11 +169,11 @@ const Details = styled(Flex)`
   margin-top: 14px;
 `;
 const DueDate = styled(Flex)`
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: var(--text-muted);
 `;
 const TaskCount = styled.span`
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: var(--text-muted);
 `;
 const Divider = styled.div`
@@ -188,11 +188,11 @@ const CompleteButton = styled.button`
   flex: 1;
   height: 34px;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: ${({ $completed }) => ($completed ? "#ede9fe" : "#f5f1ff")};
   color: var(--violet-600);
-  font-size: 12px;
-  font-weight: 650;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-650);
   cursor: pointer;
   transition: background 150ms ease;
   &:hover {
@@ -207,7 +207,7 @@ const DeleteButton = styled.button`
   align-items: center;
   justify-content: center;
   border: 1px solid #e5e7eb;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--white);
   color: var(--text-muted-2);
   cursor: pointer;

@@ -71,7 +71,7 @@ const MailIcon = () => (
 const List = styled.div`
   width: 100%;
   border: 1px solid var(--border-soft);
-  border-radius: 9px;
+  border-radius: var(--radius-9);
   overflow: hidden;
   background: var(--white);
 `;
@@ -99,7 +99,7 @@ const EmailIcon = styled(Flex)`
   flex-shrink: 0;
   color: #58769b;
   background: #f0f4f9;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
 `;
 
 const InviteInfo = styled(Flex)`
@@ -109,34 +109,34 @@ const InviteInfo = styled(Flex)`
 
 const Email = styled.div`
   color: var(--text-heading);
-  font-size: 13px;
-  font-weight: 650;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-650);
   overflow-wrap: anywhere;
 `;
 
 const Subtitle = styled.div`
   color: var(--gray-500);
-  font-size: 11px;
+  font-size: var(--fs-11);
 `;
 
 const PendingBadge = styled.span`
   flex-shrink: 0;
   padding: 3px 8px;
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   background: var(--indigo-50);
   color: #5554f0;
-  font-size: 10px;
-  font-weight: 650;
+  font-size: var(--fs-10);
+  font-weight: var(--fw-650);
 `;
 
 const ResendButton = styled.button`
   height: 33px;
   padding: 0 12px;
   border: 1px solid var(--border-input);
-  border-radius: 6px;
+  border-radius: var(--radius-6);
   background: var(--white);
   color: var(--text-heading);
-  font-size: 12px;
+  font-size: var(--fs-12);
   cursor: pointer;
 
   &:hover {
@@ -148,11 +148,11 @@ const JoinedButton = styled.button`
   height: 33px;
   padding: 0 13px;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-6);
   background: #e8fbf3;
   color: #00966b;
-  font-size: 12px;
-  font-weight: 650;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-650);
   white-space: nowrap;
   cursor: pointer;
 
@@ -167,8 +167,8 @@ const RevokeButton = styled.button`
   border: none;
   background: transparent;
   color: var(--rose-500);
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   cursor: pointer;
 
   &:hover {

@@ -87,19 +87,19 @@ const DateBadge = styled(Flex)`
   height: 42px;
   background: var(--slate-50);
   border: 1px solid var(--border-soft);
-  border-radius: 11px;
+  border-radius: var(--radius-11);
 `;
 const Month = styled.span`
   color: #ff4564;
-  font-size: 9px;
-  font-weight: 700;
+  font-size: var(--fs-9);
+  font-weight: var(--fw-700);
   line-height: 12px;
 `;
 const Day = styled.span`
   color: var(--text-heading);
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 18px;
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-18);
 `;
 const TaskInfo = styled(Flex)`
   flex: 1;
@@ -107,23 +107,23 @@ const TaskInfo = styled(Flex)`
 `;
 const TaskTitle = styled.div`
   color: var(--text-heading);
-  font-size: 13px;
-  font-weight: 650;
-  line-height: 17px;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-650);
+  line-height: var(--lh-17);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
 const Category = styled.div`
   color: #71809a;
-  font-size: 11px;
-  line-height: 14px;
+  font-size: var(--fs-11);
+  line-height: var(--lh-14);
 `;
 const Deadline = styled.span`
   flex-shrink: 0;
   margin-left: auto;
-  font-size: 11px;
-  font-weight: 500;
+  font-size: var(--fs-11);
+  font-weight: var(--fw-500);
   white-space: nowrap;
   color: ${({ $type }) => {
     switch ($type) {
@@ -138,6 +138,6 @@ const Deadline = styled.span`
     }
   }};
   @media (max-width: 420px) {
-    font-size: 10px;
+    font-size: var(--fs-10);
   }
 `;

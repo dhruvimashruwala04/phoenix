@@ -137,13 +137,13 @@ const Header = styled(Flex)`
   background: var(--white);
   border-bottom: 1px solid var(--slate-100);
   padding: 12px 24px;
-  z-index: 5;
+  z-index: var(--z-header);
   width: 100%;
 `;
 const IconWrapper = styled(Flex)`
   width: 32px;
   height: 32px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--indigo-50);
   color: var(--blue-accent);
   flex-shrink: 0;
@@ -153,14 +153,14 @@ const TextWrapper = styled(Flex)`
   flex: 1 1 160px;
 `;
 const Title = styled.span`
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
+  font-weight: var(--fw-700);
+  font-size: var(--fs-18);
+  line-height: var(--lh-24);
 `;
 const Content = styled.span`
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--text-muted);
-  line-height: 16px;
+  line-height: var(--lh-16);
   text-align: left;
 `;
 const FilterWrapper = styled.div`
@@ -171,13 +171,13 @@ const FilterBox = styled.button`
   white-space: nowrap;
   height: 36px;
   padding: 0px 14px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   border: 0px;
   background: var(--white);
   box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
   color: var(--slate-700);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-500);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -190,7 +190,7 @@ const FilterOptions = styled(Flex)`
   left: 0;
   width: fit-content;
   background: var(--white);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   box-shadow:
     var(--shadow-xl) 0px 12px 32px,
     var(--slate-100) 0px 0px 0px 1px inset;
@@ -205,13 +205,13 @@ const GroupBox = styled.button`
   white-space: nowrap;
   height: 36px;
   padding: 0px 14px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   border: 0px;
   background: var(--white);
   box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
   color: var(--slate-700);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-500);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -224,7 +224,7 @@ const GroupOptions = styled(Flex)`
   left: 0;
   width: 200px;
   background: var(--white);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   box-shadow:
     var(--shadow-xl) 0px 12px 32px,
     var(--slate-100) 0px 0px 0px 1px inset;
@@ -235,7 +235,7 @@ const GroupOption = styled(Flex)`
   width: 100%;
   height: 36px;
   padding: 0 10px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   cursor: pointer;
   background: ${({ $active }) =>
     $active ? "var(--indigo-50)" : "transparent"};
@@ -245,7 +245,7 @@ const GroupOption = styled(Flex)`
   }
 `;
 const OptionText = styled.span`
-  font-size: 13px;
+  font-size: var(--fs-13);
   color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--slate-700)")};
 `;
 const Check = styled.span`
@@ -260,12 +260,12 @@ const FilterOption = styled.button`
   height: 34px;
   padding: 0 10px;
   border: none;
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   background: ${({ $active }) =>
     $active ? "var(--indigo-50)" : "transparent"};
   color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--slate-700)")};
   text-align: left;
-  font-size: 13px;
+  font-size: var(--fs-13);
   cursor: pointer;
   &:hover {
     background: var(--slate-50);

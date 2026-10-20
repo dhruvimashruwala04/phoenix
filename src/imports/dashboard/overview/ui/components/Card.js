@@ -33,7 +33,7 @@ const CardWrapper = styled(Flex)`
   /* width: 100%; */
 
   background: var(--white);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   box-shadow:
     var(--slate-100) 0px 0px 0px 1px inset,
     var(--shadow-black) 0px 1px 2px;
@@ -48,22 +48,22 @@ const CardHeader = styled(Flex)`
 
 const Title = styled.span`
   color: var(--slate-900);
-  font-size: 14px;
-  font-weight: 700;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-700);
 `;
 
 const HeaderLink = styled(Link)`
   color: var(--violet-600);
-  font-size: 12px;
-  font-weight: 500;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-500);
   cursor: pointer;
   text-decoration: none;
 `;
 
 const HeaderText = styled.div`
   color: var(--text-muted);
-  font-size: 12px;
-  font-weight: 500;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-500);
 `;
 const Content = styled.div`
   width: 100%;

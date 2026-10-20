@@ -22,40 +22,40 @@ export default DangerZone;
 
 const Card = styled(Flex)`
   background: var(--white);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   box-shadow: var(--rose-200) 0px 0px 0px 1px inset;
   padding: 24px;
   width: 100%;
 `;
 const Header = styled.span`
-  font-size: 16px;
-  font-weight: 700;
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
   color: var(--rose-700);
   width: 100%;
 `;
 const Info = styled.span`
-  font-size: 13px;
+  font-size: var(--fs-13);
   color: var(--slate-600);
   width: 100%;
 `;
 const DeleteWrapper = styled(Flex)``;
 const Input = styled.input`
   height: 38px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   border: 0px;
   box-shadow: var(--rose-200) 0px 0px 0px 1px inset;
   padding: 0px 12px;
-  font-size: 14px;
+  font-size: var(--fs-14);
   width: 240px;
   outline: 0px;
 `;
 const DeleteBtn = styled.button`
   height: 38px;
   padding: 0px 16px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   border: 0px;
-  font-size: 13px;
-  font-weight: 600;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-600);
   cursor: pointer;
   background: var(--red-100);
   color: rgb(251, 113, 133);

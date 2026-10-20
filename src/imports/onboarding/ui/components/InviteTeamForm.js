@@ -123,11 +123,11 @@ const NameInput = styled.input`
   height: 40px;
   padding: 0 12px;
   border: 1px solid var(--border-input);
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   outline: none;
   color: var(--text-heading);
   background: var(--white);
-  font-size: 13px;
+  font-size: var(--fs-13);
 
   &:focus {
     border-color: var(--blue-accent);
@@ -143,11 +143,11 @@ const EmailInput = styled.input`
   height: 40px;
   padding: 0 12px;
   border: 1px solid var(--border-input);
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   outline: none;
   color: var(--text-heading);
   background: var(--white);
-  font-size: 13px;
+  font-size: var(--fs-13);
   &:focus {
     border-color: var(--blue-accent);
   }
@@ -160,32 +160,32 @@ const StatusSelect = styled.select`
   height: 40px;
   padding: 0 10px;
   border: 1px solid var(--border-input);
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   outline: none;
   color: var(--text-heading);
   background: var(--white);
-  font-size: 13px;
+  font-size: var(--fs-13);
 `;
 const RoleSelect = styled.select`
   width: 94px;
   height: 40px;
   padding: 0 10px;
   border: 1px solid var(--border-input);
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   outline: none;
   color: var(--text-heading);
   background: var(--white);
-  font-size: 13px;
+  font-size: var(--fs-13);
 `;
 const AddButton = styled.button`
   width: 60px;
   height: 40px;
   border: none;
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   background-color: var(--blue-accent);
   color: var(--white);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-600);
   cursor: pointer;
   &:hover {
     background-color: var(--blue-accent-hover);
@@ -198,33 +198,33 @@ const InviteRow = styled(Flex)`
   width: 100%;
   min-height: 50px;
   padding: 0 12px;
-  border-radius: 9px;
+  border-radius: var(--radius-9);
   background-color: var(--slate-50);
 `;
 const Avatar = styled(Flex)`
   width: 30px;
   height: 30px;
   flex-shrink: 0;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background-color: ${({ $color }) => $color};
   color: var(--white);
-  font-size: 10px;
-  font-weight: 600;
+  font-size: var(--fs-10);
+  font-weight: var(--fw-600);
 `;
 const MemberName = styled.span`
   display: flex;
   flex: 1;
   color: var(--text-heading);
-  font-size: 13px;
-  font-weight: 500;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-500);
 `;
 const MemberStatus = styled(Flex)`
   min-width: 70px;
   height: 28px;
   padding: 0 8px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 600;
+  border-radius: var(--radius-6);
+  font-size: var(--fs-11);
+  font-weight: var(--fw-600);
   text-transform: capitalize;
 
   background-color: ${({ $status }) =>
@@ -237,10 +237,10 @@ const MemberRole = styled(Flex)`
   height: 30px;
   padding: 0 10px;
   border: 1px solid var(--border-input);
-  border-radius: 6px;
+  border-radius: var(--radius-6);
   background: var(--white);
   color: var(--text-heading);
-  font-size: 12px;
+  font-size: var(--fs-12);
 `;
 const RemoveButton = styled.button`
   width: 25px;
@@ -260,13 +260,13 @@ const InviteLinkBox = styled(Flex)`
   min-height: 60px;
   padding: 10px 12px;
   border: 1px solid var(--border-input);
-  border-radius: 9px;
+  border-radius: var(--radius-9);
   background: var(--white);
 `;
 const LinkText = styled.span`
   flex: 1;
   color: var(--text-secondary);
-  font-size: 13px;
+  font-size: var(--fs-13);
   display: flex;
 `;
 const CopyButton = styled.button`
@@ -276,18 +276,18 @@ const CopyButton = styled.button`
   gap: 6px;
   padding: 0 11px;
   border: none;
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   background-color: var(--indigo-50);
   color: var(--blue-accent);
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   cursor: pointer;
   &:hover {
     background-color: #e4e5ff;
   }
 `;
 const EmptyText = styled.span`
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--text-muted-2);
   padding: 8px 0px;
 `;

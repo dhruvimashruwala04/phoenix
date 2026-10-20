@@ -18,14 +18,14 @@ const AiInsightsWrapper = styled(Flex)`
   white-space: nowrap;
   height: 36px;
   padding: 0px 14px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   border: 0px;
   background: ${({ $variant }) =>
     $variant === "primary" ? "var(--indigo-50)" : "var(--white)"};
   color: ${({ $variant }) =>
     $variant === "primary" ? "var(--blue-accent)" : " var(--violet-700)"};
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-500);
   display: flex;
   cursor: pointer;
 `;

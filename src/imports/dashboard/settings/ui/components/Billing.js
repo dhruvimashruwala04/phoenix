@@ -78,7 +78,7 @@ const Card = styled.section`
   box-sizing: border-box;
   background: var(--white);
   border: 1px solid var(--border-soft);
-  border-radius: 13px;
+  border-radius: var(--radius-13);
   box-shadow: 0 2px 4px var(--shadow-xs);
 `;
 const Header = styled(Flex)`
@@ -86,25 +86,25 @@ const Header = styled(Flex)`
 `;
 const TitleWrapper = styled(Flex)``;
 const Title = styled.span`
-  font-size: 16px;
-  font-weight: 700;
+  font-size: var(--fs-16);
+  font-weight: var(--fw-700);
 `;
 const Subtitle = styled.span`
   color: var(--text-muted);
-  font-size: 12px;
+  font-size: var(--fs-12);
 `;
 const BillingToggle = styled(Flex)`
   padding: 4px;
-  border-radius: 9px;
+  border-radius: var(--radius-9);
   background: var(--slate-100);
 `;
 const BillingOption = styled.button`
   padding: 6px 10px;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-6);
   background: ${({ $active }) => ($active ? "var(--white)" : "transparent")};
   color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--text-muted)")};
-  font-size: 12px;
+  font-size: var(--fs-12);
   white-space: nowrap;
   cursor: pointer;
 `;
@@ -121,12 +121,12 @@ const PlanCard = styled.div`
   padding: 16px;
   border: ${({ $current }) =>
     $current ? "2px solid #5146ff" : "1px solid #dce5f0"};
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   background: ${({ $current }) => ($current ? "var(--slate-50)" : "var(--white)")};
 `;
 const PlanName = styled.span`
-  font-size: 14px;
-  font-weight: 700;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-700);
 `;
 const PriceRow = styled.div`
   display: flex;
@@ -136,14 +136,14 @@ const PriceRow = styled.div`
 `;
 const Price = styled.span`
   font-size: 26px;
-  font-weight: 700;
+  font-weight: var(--fw-700);
 `;
 const PriceUnit = styled.span`
   color: var(--text-muted);
-  font-size: 12px;
+  font-size: var(--fs-12);
 `;
 const Description = styled.span`
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--text-muted);
 `;
 const PlanButton = styled.button`
@@ -151,11 +151,11 @@ const PlanButton = styled.button`
   min-height: 35px;
   padding: 8px;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: ${({ $current }) => ($current ? "#edf2ff" : "var(--blue-accent)")};
   color: ${({ $current }) => ($current ? "var(--blue-accent)" : "var(--white)")};
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
   transition: background 150ms ease;
   &:not(:disabled):hover {

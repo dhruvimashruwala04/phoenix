@@ -105,12 +105,12 @@ const TableWrapper = styled.div`
   width: 100%;
   background: var(--white);
   border: 1px solid var(--border-muted);
-  border-radius: 14px;
+  border-radius: var(--radius-14);
 `;
 const Table = styled.div`
   width: 100%;
   background: var(--white);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   box-shadow:
     var(--slate-100) 0px 0px 0px 1px inset,
     var(--shadow-black) 0px 1px 2px;
@@ -121,9 +121,9 @@ const HeaderRow = styled.div`
   gap: 16px;
   padding: 12px 20px;
   border-bottom: 1px solid var(--slate-100);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.6px;
+  font-size: var(--fs-10);
+  font-weight: var(--fw-700);
+  letter-spacing: var(--ls-lg);
   color: var(--text-muted-2);
   text-transform: uppercase;
 `;
@@ -142,17 +142,17 @@ const Row = styled.div`
   }
 `;
 const Cell = styled.div`
-  font-size: 13px;
+  font-size: var(--fs-13);
   color: var(--slate-600);
 `;
 const TaskTitle = styled.div`
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-600);
   color: var(--slate-900);
   margin-bottom: 3px;
 `;
 const TaskDescription = styled.div`
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--text-muted);
   white-space: nowrap;
   overflow: hidden;
@@ -166,7 +166,7 @@ const StatusWrapper = styled(Flex)`
 const StatusDot = styled.span`
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: ${({ $status }) => {
     if ($status === "in_progress") return "var(--blue-500)";
     if ($status === "review") return "var(--orange-500)";
@@ -175,10 +175,10 @@ const StatusDot = styled.span`
   }};
 `;
 const Priority = styled.span`
-  font-size: 11px;
-  font-weight: 600;
+  font-size: var(--fs-11);
+  font-weight: var(--fw-600);
   padding: 4px 8px;
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   ${({ $priority }) => {
     if ($priority === "high") {
       return `
@@ -216,7 +216,7 @@ const ProgressWrapper = styled(Flex)`
 const ProgressTrack = styled.div`
   width: 130px;
   height: 4px;
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   background: var(--border-muted);
   overflow: hidden;
 `;
@@ -224,19 +224,19 @@ const ProgressBar = styled.div`
   height: 100%;
   width: ${({ $progress }) => `${$progress}%`};
   background: var(--blue-accent);
-  border-radius: 4px;
+  border-radius: var(--radius-4);
 `;
 const ProgressValue = styled.span`
-  font-size: 10px;
+  font-size: var(--fs-10);
   color: var(--text-muted-2);
   min-width: 28px;
 `;
 const OwnerAvatar = styled(Flex)`
   width: 26px;
   height: 26px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--blue-500);
   color: var(--white);
-  font-size: 9px;
-  font-weight: 700;
+  font-size: var(--fs-9);
+  font-weight: var(--fw-700);
 `;

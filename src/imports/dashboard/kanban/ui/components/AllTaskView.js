@@ -98,7 +98,7 @@ const StatusGroup = styled.div`
   width: 100%;
   background: var(--white);
   border: 1px solid var(--border-muted);
-  border-radius: 14px;
+  border-radius: var(--radius-14);
   overflow: hidden;
 `;
 const GroupHeader = styled(Flex)`
@@ -110,14 +110,14 @@ const GroupHeader = styled(Flex)`
 const GroupTitle = styled(Flex)`
   align-items: center;
   gap: 8px;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-600);
   color: var(--slate-800);
 `;
 const StatusDot = styled.span`
   width: 7px;
   height: 7px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: ${({ $color }) => $color};
 `;
 const Count = styled.span`
@@ -127,11 +127,11 @@ const Count = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 9px;
+  border-radius: var(--radius-9);
   background: var(--slate-100);
   color: var(--text-muted);
-  font-size: 10px;
-  font-weight: 600;
+  font-size: var(--fs-10);
+  font-weight: var(--fw-600);
 `;
 const TaskList = styled.div`
   width: 100%;
@@ -153,14 +153,14 @@ const Checkbox = styled.input`
   width: 18px;
   height: 18px;
   border: 1px solid var(--border-gray);
-  border-radius: 5px;
+  border-radius: var(--radius-5);
   accent-color: var(--blue-accent);
   cursor: pointer;
 `;
 const TaskTitle = styled.div`
   flex: 1;
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-500);
   color: ${({ $done }) => ($done ? "var(--text-muted)" : "var(--slate-900)")};
   overflow: hidden;
   text-overflow: ellipsis;
@@ -171,9 +171,9 @@ const Priority = styled.span`
   min-width: 56px;
   text-align: center;
   padding: 3px 7px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: 600;
+  border-radius: var(--radius-4);
+  font-size: var(--fs-10);
+  font-weight: var(--fw-600);
   color: ${({ $priority }) => {
     if ($priority === "high") return "var(--rose-500)";
     if ($priority === "medium") return "var(--amber-500)";
@@ -187,7 +187,7 @@ const Priority = styled.span`
 `;
 const DueDate = styled.span`
   width: 55px;
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--text-muted);
   text-align: right;
 `;

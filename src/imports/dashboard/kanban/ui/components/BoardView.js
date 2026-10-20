@@ -130,7 +130,7 @@ const Column = styled(Flex)`
   outline: ${({ $isDraggingOver }) =>
     $isDraggingOver ? "var(--indigo-300)dashed 2px" : "transparent"};
   outline-offset: 6px;
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   min-height: 200px;
   transition:
     background 150ms ease,
@@ -144,16 +144,16 @@ const Left = styled(Flex)`
   color: var(--text-muted);
 `;
 const Title = styled.span`
-  font-size: 14px;
-  font-weight: 700;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-700);
   color: var(--slate-900);
 `;
 const Counter = styled.span`
-  font-size: 10px;
-  font-weight: 600;
+  font-size: var(--fs-10);
+  font-weight: var(--fw-600);
   color: var(--text-muted);
   background: var(--border-muted);
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
   padding: 1px 7px;
 `;
 const AddBtn = styled.div`
@@ -164,15 +164,15 @@ const AddTask = styled.button`
   border: 0px;
   background: transparent;
   color: var(--indigo-500);
-  font-size: 12px;
-  font-weight: 500;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-500);
   padding: 8px;
   cursor: pointer;
   display: flex;
   gap: 6px;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   &:hover {
     background: var(--indigo-50);
   }

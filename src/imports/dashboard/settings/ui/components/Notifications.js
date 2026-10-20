@@ -50,7 +50,7 @@ const SettingsCard = styled.div`
   width: 100%;
   padding: 0 24px;
   background: var(--white);
-  border-radius: 13px;
+  border-radius: var(--radius-13);
   box-shadow:
     0 0 0 1px var(--border-soft),
     0 2px 4px var(--shadow-xs);
@@ -74,11 +74,11 @@ const SettingInfo = styled.div`
   padding: 12px 0;
 `;
 const SettingTitle = styled.div`
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-600);
 `;
 const Description = styled.div`
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--text-muted);
 `;
 const Toggle = styled.button`
@@ -88,7 +88,7 @@ const Toggle = styled.button`
   flex-shrink: 0;
   padding: 0;
   border: none;
-  border-radius: 20px;
+  border-radius: var(--radius-20);
   background: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--border-muted)")};
   cursor: pointer;
   transition: background 180ms ease;
@@ -103,7 +103,7 @@ const ToggleThumb = styled.span`
   left: ${({ $active }) => ($active ? "21px" : "3px")};
   width: 16px;
   height: 16px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--white);
   box-shadow: 0 1px 2px var(--shadow-lg);
   transition: left 180ms ease;
@@ -119,10 +119,10 @@ const ResetButton = styled.button`
   height: 37px;
   padding: 0 14px;
   border: 1px solid var(--border-input);
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--white);
   color: var(--gray-900);
-  font-size: 14px;
+  font-size: var(--fs-14);
   cursor: pointer;
   &:hover {
     background: var(--slate-50);
@@ -132,11 +132,11 @@ const SaveButton = styled.button`
   height: 37px;
   padding: 0 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--blue-accent);
   color: var(--white);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-500);
   cursor: pointer;
   &:hover {
     background: var(--indigo-700);

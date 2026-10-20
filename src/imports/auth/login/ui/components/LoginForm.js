@@ -109,15 +109,15 @@ const FormBox = styled(Flex)`
 `;
 const Header = styled(Flex)``;
 const Text = styled.span`
-  font-size: 28px;
-  line-height: 34px;
-  letter-spacing: -0.6px;
-  font-weight: 700;
+  font-size: var(--fs-28);
+  line-height: var(--lh-34);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-700);
   color: var(--text-heading);
 `;
 const SubText = styled.span`
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: var(--fs-13);
 `;
 const Buttons = styled(Flex)`
   width: 100%;
@@ -126,9 +126,9 @@ const Btn = styled(Flex)`
   width: 50%;
   height: 38px;
   border: 1px solid var(--border-muted);
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   background-color: var(--background);
-  font-size: 13px;
+  font-size: var(--fs-13);
   color: var(--text-heading);
   &:hover {
     cursor: pointer;
@@ -140,8 +140,8 @@ const Icon = styled(Flex)`
   width: 14px;
 `;
 const Name = styled.span`
-  font-size: 13px;
-  font-weight: 500;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-500);
 `;
 const Line = styled(Flex)`
   color: var(--border-muted);
@@ -155,15 +155,15 @@ const HLine = styled.span`
 `;
 const DividerText = styled.span`
   flex-shrink: 0;
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: var(--text-muted-2);
 `;
 const Field = styled(Flex)`
   width: 100%;
 `;
 const Label = styled.span`
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   color: var(--slate-700);
 `;
 const Input = styled.input`
@@ -171,10 +171,10 @@ const Input = styled.input`
   height: 37px;
 
   border: 1px solid ${({ $error }) => ($error ? "var(--rose-600)" : "var(--border-input)")};
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   padding: 0 12px;
   outline: none;
-  font-size: 13px;
+  font-size: var(--fs-13);
   color: var(--text-heading);
   background-color: var(--background);
   &::placeholder {
@@ -188,7 +188,7 @@ const PasswordHeader = styled(Flex)`
   width: 100%;
 `;
 const Forgot = styled(Link)`
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: var(--blue-accent);
   &:hover {
     cursor: pointer;
@@ -208,7 +208,7 @@ const Eye = styled.span`
   top: 50%;
   transform: translateY(-50%);
   color: var(--text-muted-2);
-  font-size: 13px;
+  font-size: var(--fs-13);
   cursor: pointer;
 `;
 const Remember = styled(Flex)`
@@ -221,19 +221,19 @@ const Checkbox = styled.input`
   cursor: pointer;
 `;
 const RememberText = styled.span`
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--text-muted);
 `;
 const CreateAccount = styled(Flex)`
   width: 100%;
 `;
 const CreateText = styled.span`
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: var(--text-muted);
 `;
 const CreateLink = styled(Link)`
-  font-size: 11px;
-  font-weight: 600;
+  font-size: var(--fs-11);
+  font-weight: var(--fw-600);
   color: var(--blue-accent);
   &:hover {
     cursor: pointer;
@@ -242,6 +242,6 @@ const CreateLink = styled(Link)`
 `;
 const Demo = styled(Flex)`
   width: 100%;
-  font-size: 10px;
+  font-size: var(--fs-10);
   color: var(--text-muted-2);
 `;

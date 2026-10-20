@@ -46,8 +46,8 @@ const FilterButton = styled.button`
   border-radius: 999px;
   background: ${({ $active }) => ($active ? "var(--indigo-50)" : "var(--white)")};
   color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--slate-700)")};
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   white-space: nowrap;
   cursor: pointer;
   transition:

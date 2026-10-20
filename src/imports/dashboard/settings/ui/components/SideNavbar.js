@@ -34,10 +34,10 @@ const Item = styled(Flex)`
   width: 100%;
   height: 38px;
   border: 0px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   padding: 0px 12px;
   text-align: left;
-  font-size: 14px;
+  font-size: var(--fs-14);
   cursor: pointer;
   background: ${({ $active }) =>
     $active ? "var(--indigo-50)" : "transparent"};

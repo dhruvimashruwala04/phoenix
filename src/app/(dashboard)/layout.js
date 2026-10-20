@@ -69,9 +69,9 @@ const LogoIcon = styled.div`
   }
 `;
 const LogoName = styled.span`
-  font-size: 17px;
-  font-weight: 600;
-  font-size: 18px;
+  font-size: var(--fs-17);
+  font-weight: var(--fw-600);
+  font-size: var(--fs-18);
   color: var(--white);
 `;
 
@@ -83,11 +83,11 @@ const User = styled(Flex)`
 const Initials = styled(Flex)`
   width: 36px;
   height: 36px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--slate-700);
   color: var(--white);
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   flex-shrink: 0;
 `;
 const Details = styled(Flex)`
@@ -98,9 +98,9 @@ const Details = styled(Flex)`
 const Name = styled.span`
   display: flex;
   color: var(--white);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-500);
+  line-height: var(--lh-20);
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -109,8 +109,8 @@ const Name = styled.span`
 const Email = styled.span`
   display: flex;
   color: var(--text-muted);
-  font-size: 12px;
-  line-height: 16px;
+  font-size: var(--fs-12);
+  line-height: var(--lh-16);
   width: 100%;
   white-space: nowrap;
   overflow: hidden;
@@ -120,7 +120,7 @@ const LogoutBtn = styled(Flex)`
   flex-shrink: 0;
   width: 32px;
   height: 32px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   border: 0px;
   background: transparent;
   color: rgba(195, 205, 219, 1);

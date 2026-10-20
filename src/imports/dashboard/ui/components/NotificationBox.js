@@ -16,7 +16,7 @@ const NotificationWrapper = styled(Flex)`
   flex-shrink: 0;
   width: 36px;
   height: 36px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--white);
   box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
   color: var(--text-muted);

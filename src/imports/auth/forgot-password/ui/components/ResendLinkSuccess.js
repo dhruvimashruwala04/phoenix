@@ -33,37 +33,37 @@ const ResendLinkSuccess = ({ email }) => {
 export default ResendLinkSuccess;
 const Wrapper = styled(Flex)``;
 const Text = styled.span`
-  font-size: 28px;
-  line-height: 34px;
-  letter-spacing: -0.6px;
-  font-weight: 700;
+  font-size: var(--fs-28);
+  line-height: var(--lh-34);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-700);
   color: var(--text-heading);
 `;
 const SubText = styled.span`
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: var(--fs-13);
   text-align: left;
 `;
 const ResendBtn = styled(Flex)`
   height: 40px;
   padding: 0px 16px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   border: 0px;
   background: var(--white);
   box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
-  font-size: 13px;
+  font-size: var(--fs-13);
   cursor: pointer;
 `;
 const IconHolder = styled.span`
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   background: var(--emerald-50);
   color: var(--emerald-500);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: var(--fs-20);
 `;
 const Bold = styled.span`
   font-weight: bolder;

@@ -105,28 +105,28 @@ const Header = styled.div`
 const StepText = styled.div`
   margin-bottom: 8px;
   color: var(--blue-accent);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-600);
 `;
 const Title = styled.h1`
   margin: 0 0 8px;
   color: var(--gray-900);
   font-size: 29px;
-  line-height: 1.2;
-  font-weight: 700;
+  line-height: var(--lh-tight);
+  font-weight: var(--fw-700);
 `;
 const SubText = styled.p`
   margin: 0;
   color: var(--text-muted);
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: var(--fs-15);
+  line-height: var(--lh-normal);
 `;
 const Card = styled.div`
   width: 100%;
   padding: 28px 26px;
   background: var(--white);
   border: 1px solid var(--border-soft);
-  border-radius: 14px;
+  border-radius: var(--radius-14);
   box-shadow: 0 2px 6px var(--shadow-sm);
 `;
 const Footer = styled(Flex)`
@@ -137,10 +137,10 @@ const BackButton = styled.button`
   height: 46px;
   padding: 0 18px;
   border: 1px solid var(--border-input);
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--white);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-500);
   cursor: pointer;
   &:hover {
     background-color: var(--slate-50);
@@ -150,11 +150,11 @@ const ContinueButton = styled.button`
   height: 46px;
   padding: 0 24px;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background-color: var(--blue-accent);
   color: var(--white);
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-600);
   cursor: pointer;
   &:hover {
     background-color: var(--blue-accent-hover);
@@ -167,7 +167,7 @@ const SkipButton = styled.button`
   border: none;
   background: transparent;
   color: var(--text-muted);
-  font-size: 14px;
+  font-size: var(--fs-14);
   cursor: pointer;
   &:hover {
     color: var(--text-heading);

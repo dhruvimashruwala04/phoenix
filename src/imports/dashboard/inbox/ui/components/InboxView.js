@@ -162,7 +162,7 @@ const Wrapper = styled.div`
   grid-template-columns: 445px minmax(0, 1fr);
   background: var(--white);
   border: 1px solid var(--border-muted);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   overflow: hidden;
 `;
 const MessageList = styled.div`
@@ -199,11 +199,11 @@ const Avatar = styled(Flex)`
   flex-shrink: 0;
   width: 34px;
   height: 34px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: ${({ $color }) => $color};
   color: var(--white);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: var(--fs-11);
+  font-weight: var(--fw-700);
 `;
 const MessageContent = styled(Flex)`
   min-width: 0;
@@ -211,13 +211,13 @@ const MessageContent = styled(Flex)`
 `;
 const TopRow = styled(Flex)``;
 const Name = styled.div`
-  font-size: 13px;
+  font-size: var(--fs-13);
   font-weight: ${({ $read }) => ($read ? 500 : 700)};
   color: var(--slate-900);
 `;
 const Time = styled.div`
   flex-shrink: 0;
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: var(--text-muted-2);
 `;
 const Subject = styled.div`
@@ -225,7 +225,7 @@ const Subject = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 13px;
+  font-size: var(--fs-13);
   font-weight: ${({ $read }) => ($read ? 500 : 600)};
   color: var(--slate-900);
 `;
@@ -234,10 +234,10 @@ const Meta = styled(Flex)`
 `;
 const Type = styled.span`
   padding: 1px 5px;
-  border-radius: 3px;
+  border-radius: var(--radius-3);
   background: var(--indigo-50);
-  font-size: 9px;
-  font-weight: 600;
+  font-size: var(--fs-9);
+  font-weight: var(--fw-600);
   ${({ $type }) => {
     switch ($type) {
       case "Mention":
@@ -255,7 +255,7 @@ const UnreadDot = styled.span`
   width: 5px;
   height: 5px;
   flex-shrink: 0;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--blue-accent);
 `;
 const Conversation = styled(Flex)`
@@ -272,8 +272,8 @@ const ConversationHeader = styled(Flex)`
 `;
 const HeaderTitle = styled.h2`
   margin: 0;
-  font-size: 14px;
-  font-weight: 700;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-700);
   color: var(--slate-900);
 `;
 const HeaderActions = styled(Flex)``;
@@ -305,20 +305,20 @@ const ConversationBody = styled(Flex)`
 const Sender = styled(Flex)``;
 const SenderDetails = styled(Flex)``;
 const SenderName = styled.span`
-  font-size: 13px;
-  font-weight: 700;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-700);
   color: var(--slate-900);
 `;
 const SenderMeta = styled.span`
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: var(--text-muted);
 `;
 const MessageText = styled.p`
   max-width: 760px;
-  font-size: 14px;
+  font-size: var(--fs-14);
   line-height: 1.7;
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: var(--radius-10);
   align-self: ${({ $type }) => ($type === "in" ? "flex-start" : "flex-end")};
 
   background: ${({ $type }) =>
@@ -339,9 +339,9 @@ const ReplyInput = styled.input`
   padding: 0 12px;
   box-sizing: border-box;
   border: 1px solid var(--slate-300);
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   outline: none;
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--slate-900);
   &::placeholder {
     color: var(--text-muted-2);

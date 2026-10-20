@@ -27,7 +27,7 @@ const LoginDisplay = () => {
               style={{
                 height: "100%",
                 width: "60%",
-                borderRadius: " 9999px",
+                borderRadius: "var(--radius-pill)",
                 background: "var(--blue-accent)",
               }}
             ></div>
@@ -70,9 +70,9 @@ const SupText = styled.span`
   background-color: rgba(99, 102, 241, 0.2);
   color: var(--indigo-200);
   text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.6px;
+  font-size: var(--fs-11);
+  font-weight: var(--fw-700);
+  letter-spacing: var(--ls-lg);
   width: fit-content;
   padding: 4px 10px;
   border-radius: 50px;
@@ -81,8 +81,8 @@ const Header = styled.span`
   color: var(--white);
   font-size: 36px;
   letter-spacing: -0.5px;
-  font-weight: 700;
-  line-height: 1.2;
+  font-weight: var(--fw-700);
+  line-height: var(--lh-tight);
 `;
 
 const SubText = styled.span`
@@ -93,21 +93,21 @@ const AiChat = styled(Flex)`
 `;
 const WhiteSec = styled(Flex)`
   width: 100%;
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   background-color: var(--background);
   color: var(--foreground);
   padding: 16px;
 `;
 const DarkSec = styled(Flex)`
   margin-left: 32px;
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   padding: 14px 16px;
   background-color: var(--slate-800);
   color: var(--slate-300);
 `;
 const AiText = styled.span`
-  font-size: 12px;
-  line-height: 19px;
+  font-size: var(--fs-12);
+  line-height: var(--lh-19);
   text-align: left;
 `;
 const Stats = styled(Flex)`
@@ -117,24 +117,24 @@ const Stat = styled(Flex)`
 `;
 
 const Text = styled.span`
-  font-size: 22px;
-  font-weight: 700;
+  font-size: var(--fs-22);
+  font-weight: var(--fw-700);
 `;
 const Value = styled.span`
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--text-muted-2);
 `;
 const WhiteHeader = styled.span`
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: var(--fw-600);
+  font-size: var(--fs-14);
 `;
 const WhiteText = styled.span`
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--text-muted);
 `;
 const Bar = styled(Flex)`
   height: 4px;
-  border-radius: 9999px;
+  border-radius: var(--radius-pill);
   background: var(--slate-100);
   width: 100%;
 `;
@@ -142,14 +142,14 @@ const Data = styled(Flex)`
   width: 100%;
 `;
 const Risk = styled.div`
-  font-size: 10px;
-  font-weight: 700;
+  font-size: var(--fs-10);
+  font-weight: var(--fw-700);
   padding: 2px 8px;
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   background: var(--rose-50);
   color: var(--rose-500);
 `;
 const Number = styled.div`
-  font-size: 10px;
+  font-size: var(--fs-10);
   color: var(--text-muted-2);
 `;

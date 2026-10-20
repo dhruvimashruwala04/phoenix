@@ -86,26 +86,26 @@ const VerifyOtpForm = () => {
 export default VerifyOtpForm;
 const Wrapper = styled(Flex)``;
 const Text = styled.span`
-  font-size: 28px;
-  line-height: 34px;
-  letter-spacing: -0.6px;
-  font-weight: 700;
+  font-size: var(--fs-28);
+  line-height: var(--lh-34);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--fw-700);
   color: var(--text-heading);
 `;
 const SubText = styled.span`
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: var(--fs-13);
   text-align: left;
 `;
 const IconHolder = styled.span`
   width: 48px;
   height: 48px;
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   background: var(--indigo-50);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
+  font-size: var(--fs-20);
 `;
 const Bold = styled.span`
   font-weight: bolder;
@@ -115,12 +115,12 @@ const ResendOtp = styled(Flex)`
   width: 100%;
 `;
 const ResendText = styled.span`
-  font-size: 13px;
+  font-size: var(--fs-13);
   color: var(--text-muted);
 `;
 const ResendLink = styled(Link)`
-  font-size: 13px;
-  font-weight: 600;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-600);
   color: var(--blue-accent);
   &:hover {
     cursor: pointer;
@@ -129,7 +129,7 @@ const ResendLink = styled(Link)`
 `;
 const Demo = styled(Flex)`
   width: 100%;
-  font-size: 10px;
+  font-size: var(--fs-10);
   color: var(--text-muted-2);
 `;
 const OtpContainer = styled(Flex)`
@@ -140,11 +140,11 @@ const OtpInput = styled.input`
   width: 60px;
   height: 52px;
   border: 1px solid var(--border-input);
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   outline: none;
   text-align: center;
-  font-size: 22px;
-  font-weight: 600;
+  font-size: var(--fs-22);
+  font-weight: var(--fw-600);
   color: var(--text-heading);
   background: var(--background);
   &:focus {

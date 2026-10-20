@@ -128,7 +128,7 @@ export default NewEventModal;
 const Overlay = styled(Flex)`
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: var(--z-modal);
   background: var(--overlay);
 `;
 const Card = styled.form`
@@ -137,7 +137,7 @@ const Card = styled.form`
   display: flex;
   flex-direction: column;
   background: var(--white);
-  border-radius: 14px;
+  border-radius: var(--radius-14);
   box-shadow: var(--shadow-modal) 0px 20px 50px;
   padding: 24px;
   gap: 16px;
@@ -145,24 +145,24 @@ const Card = styled.form`
 const Header = styled(Flex)``;
 const Title = styled.span`
   color: var(--slate-900);
-  font-size: 16px;
-  font-weight: 600;
+  font-size: var(--fs-16);
+  font-weight: var(--fw-600);
 `;
 const CloseButton = styled(Flex)`
   background: transparent;
   cursor: pointer;
 `;
 const TitleInput = styled(Flex)`
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   color: var(--slate-600);
   > input {
     height: 38px;
-    border-radius: 8px;
+    border-radius: var(--radius-8);
     border: 0px;
     box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
     padding: 0px 12px;
-    font-size: 14px;
+    font-size: var(--fs-14);
     outline: 0px;
     width: 100%;
   }
@@ -170,17 +170,17 @@ const TitleInput = styled(Flex)`
 const Details = styled(Flex)``;
 const DropdownInput = styled(Flex)`
   flex: 1 1 0%;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   color: var(--slate-600);
   > select,
   > input {
     width: 100%;
     height: 38px;
-    border-radius: 8px;
+    border-radius: var(--radius-8);
     border: 1px solid var(--border-muted);
     padding: 0px 8px;
-    font-size: 13px;
+    font-size: var(--fs-13);
     color: var(--slate-600);
   }
 `;
@@ -194,22 +194,22 @@ const CategoryButton = styled.button`
   gap: 6px;
   padding: 6px 10px;
   border: 1px solid ${({ $active, $color }) => ($active ? $color : "var(--border-input)")};
-  border-radius: 20px;
+  border-radius: var(--radius-20);
   background-color: ${({ $active, $bg }) => ($active ? $bg : "white")};
   color: ${({ $active, $color }) => ($active ? $color : "var(--text-heading)")};
-  font-size: 13px;
-  font-weight: 500;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-500);
   cursor: pointer;
 `;
 const Dot = styled.span`
   width: 7px;
   height: 7px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: ${({ color }) => color};
 `;
 const Label = styled.span`
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   color: var(--slate-600);
   align-self: flex-start;
 `;
@@ -220,11 +220,11 @@ const DeleteButton = styled.button`
   height: 36px;
   padding: 0 16px;
   border: 1px solid rgb(254, 202, 202);
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   background: var(--red-50);
   color: rgb(220, 38, 38);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-500);
   cursor: pointer;
   align-self: flex-start;
   &:hover {

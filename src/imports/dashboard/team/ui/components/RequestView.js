@@ -57,7 +57,7 @@ export default RequestView;
 const List = styled.div`
   width: 100%;
   border: 1px solid var(--border-soft);
-  border-radius: 9px;
+  border-radius: var(--radius-9);
   overflow: hidden;
   background: var(--white);
 `;
@@ -78,9 +78,9 @@ const InvitationRow = styled(Flex)`
 const Avatar = styled(Flex)`
   width: 34px;
   height: 34px;
-  border-radius: 50%;
-  font-size: 11px;
-  font-weight: 700;
+  border-radius: var(--radius-full);
+  font-size: var(--fs-11);
+  font-weight: var(--fw-700);
   color: var(--white);
   background: var(--amber-500);
 `;
@@ -90,36 +90,36 @@ const InviteInfo = styled(Flex)`
 `;
 const Email = styled.div`
   color: var(--text-heading);
-  font-size: 13px;
-  font-weight: 650;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-650);
   overflow-wrap: anywhere;
 `;
 const Subtitle = styled.div`
   color: var(--gray-500);
-  font-size: 11px;
+  font-size: var(--fs-11);
 `;
 const Muted = styled.span`
-  font-weight: 400;
+  font-weight: var(--fw-400);
   color: var(--text-muted);
 `;
 const ApproveButton = styled.button`
   height: 32px;
   padding: 0px 14px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   border: 0px;
   background: var(--blue-accent);
   color: var(--white);
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   cursor: pointer;
 `;
 const DenyButton = styled.button`
   height: 32px;
   padding: 0px 14px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   border: 0px;
   background: var(--white);
   box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
-  font-size: 12px;
+  font-size: var(--fs-12);
   cursor: pointer;
 `;

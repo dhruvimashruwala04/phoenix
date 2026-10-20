@@ -83,19 +83,19 @@ const Section = styled(Flex)`
 `;
 const Label = styled.label`
   color: var(--slate-700);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-600);
 `;
 const Input = styled.input`
   width: 100%;
   height: 40px;
   padding: 0 12px;
   border: 1px solid var(--border-input);
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   outline: none;
   color: var(--text-heading);
   background: var(--white);
-  font-size: 13px;
+  font-size: var(--fs-13);
   &:focus {
     border-color: var(--blue-accent);
   }
@@ -117,7 +117,7 @@ const ViewCard = styled.button`
   padding: 16px;
   border: 1px solid
     ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--border-input)")};
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   background: ${({ $active }) => ($active ? "#f5f4ff" : "white")};
   box-shadow: ${({ $active }) =>
     $active ? "0 0 0 1px var(--blue-accent)" : "none"};
@@ -128,23 +128,23 @@ const ViewIcon = styled(Flex)`
   width: 40px;
   height: 40px;
   margin-bottom: 10px;
-  border-radius: 9px;
+  border-radius: var(--radius-9);
   background-color: ${({ $active }) =>
     $active ? "var(--blue-accent)" : "var(--indigo-50)"};
   color: ${({ $active }) => ($active ? "white" : "var(--blue-accent)")};
-  font-size: 18px;
-  font-weight: 600;
+  font-size: var(--fs-18);
+  font-weight: var(--fw-600);
 `;
 const ViewTitle = styled.div`
   margin-bottom: 7px;
   color: var(--text-heading);
-  font-size: 15px;
-  font-weight: 600;
+  font-size: var(--fs-15);
+  font-weight: var(--fw-600);
 `;
 const ViewDescription = styled.div`
   color: var(--text-muted);
-  font-size: 12px;
-  line-height: 1.5;
+  font-size: var(--fs-12);
+  line-height: var(--lh-normal);
 `;
 const AiBox = styled(Flex)`
   width: 100%;
@@ -153,7 +153,7 @@ const AiBox = styled(Flex)`
 
   padding: 10px 14px;
 
-  border-radius: 10px;
+  border-radius: var(--radius-10);
 
   background-color: var(--indigo-50);
 `;
@@ -162,10 +162,10 @@ const AiIcon = styled(Flex)`
   width: 38px;
   height: 38px;
   margin-right: 12px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background-color: var(--white);
   color: var(--blue-accent);
-  font-size: 18px;
+  font-size: var(--fs-18);
 `;
 const AiText = styled.div`
   flex: 1;
@@ -173,12 +173,12 @@ const AiText = styled.div`
 const AiTitle = styled.div`
   margin-bottom: 2px;
   color: var(--text-heading);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-600);
 `;
 const AiDescription = styled.div`
   color: var(--text-secondary);
-  font-size: 12px;
+  font-size: var(--fs-12);
 `;
 const Toggle = styled.button`
   width: 44px;
@@ -186,7 +186,7 @@ const Toggle = styled.button`
   position: relative;
   padding: 0;
   border: none;
-  border-radius: 20px;
+  border-radius: var(--radius-20);
   background-color: ${({ $active }) =>
     $active ? "var(--blue-accent)" : "var(--slate-300)"};
   cursor: pointer;
@@ -197,7 +197,7 @@ const ToggleCircle = styled.span`
   position: absolute;
   top: 3px;
   left: ${({ $active }) => ($active ? "23px" : "3px")};
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background-color: var(--white);
   transition: left 0.2s ease;
 `;
@@ -207,8 +207,8 @@ const SuggestedSection = styled(Flex)`
 const SuggestedTitle = styled.div`
   margin-bottom: 1px;
   color: var(--text-muted-2);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: var(--fs-11);
+  font-weight: var(--fw-700);
   letter-spacing: 0.5px;
 `;
 const Task = styled(Flex)`
@@ -219,10 +219,10 @@ const TaskCheckbox = styled(Flex)`
   border: 1px solid #8b9cff;
   border-radius: 2px;
   color: #647cff;
-  font-size: 9px;
-  font-weight: 700;
+  font-size: var(--fs-9);
+  font-weight: var(--fw-700);
 `;
 const TaskText = styled.span`
   color: var(--slate-700);
-  font-size: 13px;
+  font-size: var(--fs-13);
 `;

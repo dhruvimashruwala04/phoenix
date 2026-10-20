@@ -94,8 +94,8 @@ const ProjectInfo = styled.div`
   min-width: 185px;
 `;
 const ProjectName = styled(Flex)`
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-600);
   color: var(--slate-900);
   white-space: nowrap;
   overflow: hidden;
@@ -105,13 +105,13 @@ const Dot = styled.span`
   width: 8px;
   height: 8px;
   flex-shrink: 0;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: ${({ $color }) => $color};
 `;
 const Meta = styled.div`
   margin-top: 3px;
-  font-size: 11px;
-  line-height: 14px;
+  font-size: var(--fs-11);
+  line-height: var(--lh-14);
   color: var(--text-muted);
   white-space: nowrap;
 `;
@@ -121,28 +121,28 @@ const ProgressSection = styled.div`
 `;
 const ProgressLabel = styled(Flex)`
   margin-bottom: 5px;
-  font-size: 10px;
+  font-size: var(--fs-10);
   color: var(--text-muted-2);
 `;
 const ProgressTrack = styled.div`
   width: 100%;
   height: 4px;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   background: var(--slate-100);
 `;
 const ProgressBar = styled.div`
   width: ${({ $progress }) => `${$progress}%`};
   height: 100%;
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   background: ${({ $color }) => $color};
 `;
 const Status = styled.span`
   margin-left: auto;
   padding: 3px 8px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: 600;
+  border-radius: var(--radius-4);
+  font-size: var(--fs-10);
+  font-weight: var(--fw-600);
   white-space: nowrap;
   color: ${({ $color }) => $color};
   background: ${({ $type }) => {

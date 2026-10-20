@@ -27,11 +27,11 @@ const Button = styled.button`
   background: ${({ $variant }) =>
     $variant === "primary" ? "var(--blue-accent)" : "var(--violet-700)"};
   color: var(--white);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-500);
   display: flex;
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
 `;

@@ -76,6 +76,64 @@
   --shadow-modal: rgba(15, 23, 42, 0.25);
   --overlay: rgba(15, 23, 42, 0.4);
   --shadow-black: rgba(0, 0, 0, 0.05);
+
+  --fs-9: 9px;
+  --fs-10: 10px;
+  --fs-11: 11px;
+  --fs-12: 12px;
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-17: 17px;
+  --fs-18: 18px;
+  --fs-20: 20px;
+  --fs-22: 22px;
+  --fs-28: 28px;
+  --fs-32: 32px;
+
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-650: 650;
+  --fw-700: 700;
+
+  --lh-14: 14px;
+  --lh-15: 15px;
+  --lh-16: 16px;
+  --lh-17: 17px;
+  --lh-18: 18px;
+  --lh-19: 19px;
+  --lh-20: 20px;
+  --lh-24: 24px;
+  --lh-26: 26px;
+  --lh-34: 34px;
+  --lh-tight: 1.2;
+  --lh-normal: 1.5;
+
+  --ls-tight: -0.6px;
+  --ls-sm: 0.25px;
+  --ls-md: 0.4px;
+  --ls-lg: 0.6px;
+
+  --radius-3: 3px;
+  --radius-4: 4px;
+  --radius-5: 5px;
+  --radius-6: 6px;
+  --radius-7: 7px;
+  --radius-8: 8px;
+  --radius-9: 9px;
+  --radius-10: 10px;
+  --radius-11: 11px;
+  --radius-12: 12px;
+  --radius-13: 13px;
+  --radius-14: 14px;
+  --radius-20: 20px;
+  --radius-pill: 9999px;
+  --radius-full: 50%;
+
+  --z-header: 5;
+  --z-modal: 100;
 }
 
 @media (prefers-color-scheme: dark) {

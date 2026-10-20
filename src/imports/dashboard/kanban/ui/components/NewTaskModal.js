@@ -145,7 +145,7 @@ export default NewTaskModal;
 const Overlay = styled(Flex)`
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: var(--z-modal);
   background: var(--overlay);
 `;
 const Card = styled.form`
@@ -154,7 +154,7 @@ const Card = styled.form`
   display: flex;
   flex-direction: column;
   background: var(--white);
-  border-radius: 14px;
+  border-radius: var(--radius-14);
   box-shadow: var(--shadow-modal) 0px 20px 50px;
   padding: 24px;
   gap: 16px;
@@ -162,38 +162,38 @@ const Card = styled.form`
 const Header = styled(Flex)``;
 const Title = styled.span`
   color: var(--slate-900);
-  font-size: 16px;
-  font-weight: 600;
+  font-size: var(--fs-16);
+  font-weight: var(--fw-600);
 `;
 const CloseButton = styled(Flex)`
   background: transparent;
   cursor: pointer;
 `;
 const TitleInput = styled(Flex)`
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   color: var(--slate-600);
   > input {
     height: 38px;
-    border-radius: 8px;
+    border-radius: var(--radius-8);
     border: 0px;
     box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
     padding: 0px 12px;
-    font-size: 14px;
+    font-size: var(--fs-14);
     outline: 0px;
     width: 100%;
   }
 `;
 const DescInput = styled(Flex)`
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   color: var(--slate-600);
   > textarea {
-    border-radius: 8px;
+    border-radius: var(--radius-8);
     border: 0px;
     box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
     padding: 10px 12px;
-    font-size: 13px;
+    font-size: var(--fs-13);
     outline: 0px;
     width: 100%;
     resize: vertical;
@@ -202,17 +202,17 @@ const DescInput = styled(Flex)`
 const Details = styled(Flex)``;
 const DropdownInput = styled(Flex)`
   flex: 1 1 0%;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   color: var(--slate-600);
   > select,
   > input {
     width: 100%;
     height: 38px;
-    border-radius: 8px;
+    border-radius: var(--radius-8);
     border: 1px solid var(--border-muted);
     padding: 0px 8px;
-    font-size: 13px;
+    font-size: var(--fs-13);
     color: var(--slate-600);
   }
 `;

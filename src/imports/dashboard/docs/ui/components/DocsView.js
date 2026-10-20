@@ -153,7 +153,7 @@ const Container = styled(Flex)`
 const ListWrapper = styled(Flex)`
   flex: 1 1 240px;
   background: var(--white);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   box-shadow:
     var(--gray-100) 0px 0px 0px 1px inset,
     var(--shadow-black) 0px 1px 2px;
@@ -164,8 +164,8 @@ const ListHeader = styled(Flex)`
   border-bottom: 1px solid var(--slate-100);
 `;
 const Text = styled.span`
-  font-size: 13px;
-  font-weight: 600;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-600);
 `;
 const List = styled.div`
   width: 100%;
@@ -197,21 +197,21 @@ const Content = styled(Flex)`
   flex: 1;
 `;
 const Subject = styled.span`
-  font-size: 13px;
-  font-weight: 600;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-600);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 const Meta = styled.span`
-  font-size: 10px;
+  font-size: var(--fs-10);
   color: var(--gray-400);
 `;
 const DocumentWrapper = styled.div`
   max-width: 70%;
   width: 100%;
   background: var(--white);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   box-shadow:
     var(--gray-100) 0px 0px 0px 1px inset,
     var(--shadow-black) 0px 1px 2px;
@@ -224,7 +224,7 @@ const Toolbar = styled(Flex)`
   flex-shrink: 0;
 `;
 const FileName = styled(Flex)`
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--slate-600);
   svg {
     width: 13px;
@@ -235,7 +235,7 @@ const ToolbarActions = styled(Flex)`
   flex-shrink: 0;
 `;
 const SavedText = styled.span`
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: var(--emerald-600);
   white-space: nowrap;
 `;
@@ -247,10 +247,10 @@ const PreviewButton = styled.button`
   height: 30px;
   padding: 0 11px;
   border: 1px solid var(--border-muted);
-  border-radius: 6px;
+  border-radius: var(--radius-6);
   background: var(--white);
   color: var(--slate-900);
-  font-size: 12px;
+  font-size: var(--fs-12);
   cursor: pointer;
   &:hover {
     background: var(--slate-50);
@@ -276,8 +276,8 @@ const Editor = styled.textarea`
   outline: 0px;
   resize: vertical;
   min-height: 420px;
-  font-size: 14px;
-  line-height: 24px;
+  font-size: var(--fs-14);
+  line-height: var(--lh-24);
   color: rgb(55, 65, 81);
   font-family: inherit;
   padding: 0px;
@@ -292,21 +292,21 @@ const Title = styled.input`
   border: 0px;
   outline: 0px;
   font-size: 24px;
-  font-weight: 700;
+  font-weight: var(--fw-700);
   color: var(--gray-900);
   padding: 0px;
   background: transparent;
   text-overflow: ellipsis;
 `;
 const EditDetails = styled(Flex)`
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: var(--text-muted);
 `;
 const Initials = styled(Flex)`
   width: 24px;
   height: 24px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--violet-600);
   color: var(--white);
-  font-size: 10px;
+  font-size: var(--fs-10);
 `;

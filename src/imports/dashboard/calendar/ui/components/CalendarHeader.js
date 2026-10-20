@@ -51,7 +51,7 @@ const Header = styled(Flex)`
   background: var(--white);
   border-bottom: 1px solid var(--slate-100);
   padding: 12px 24px;
-  z-index: 5;
+  z-index: var(--z-header);
   width: 100%;
 `;
 const TextWrapper = styled(Flex)`
@@ -59,14 +59,14 @@ const TextWrapper = styled(Flex)`
   flex: 1 1 160px;
 `;
 const Title = styled.span`
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 24px;
+  font-weight: var(--fw-700);
+  font-size: var(--fs-18);
+  line-height: var(--lh-24);
 `;
 const Content = styled.span`
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--text-muted);
-  line-height: 16px;
+  line-height: var(--lh-16);
   text-align: left;
 `;
 const Details = styled(Flex)`
@@ -74,19 +74,19 @@ const Details = styled(Flex)`
   height: 32px;
   padding: 0 10px;
   border: 1px solid var(--border-muted);
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--white);
   color: var(--text-muted);
-  font-size: 12px;
+  font-size: var(--fs-12);
   cursor: pointer;
   strong {
     color: var(--slate-800);
-    font-weight: 600;
+    font-weight: var(--fw-600);
   }
 `;
 const Dot = styled.span`
   width: 7px;
   height: 7px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--indigo-500);
 `;

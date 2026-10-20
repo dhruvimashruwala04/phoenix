@@ -80,7 +80,7 @@ const Container = styled.div`
 `;
 const Card = styled(Flex)`
   background: var(--white);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   box-shadow:
     var(--slate-100) 0px 0px 0px 1px inset,
     var(--shadow-black) 0px 1px 2px;
@@ -91,7 +91,7 @@ const IconBox = styled(Flex)`
   width: 44px;
   height: 44px;
   flex-shrink: 0;
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   background: ${({ $background }) => $background};
 `;
 const Content = styled(Flex)`
@@ -99,19 +99,19 @@ const Content = styled(Flex)`
 `;
 const Title = styled.span`
   color: var(--text-muted);
-  font-size: 12px;
+  font-size: var(--fs-12);
   text-align: left;
-  line-height: 18px;
+  line-height: var(--lh-18);
 `;
 const Value = styled.span`
   color: var(--slate-900);
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 26px;
+  font-size: var(--fs-22);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-26);
 `;
 const SubText = styled.span`
   color: var(--text-muted-2);
-  font-size: 11px;
-  line-height: 16px;
+  font-size: var(--fs-11);
+  line-height: var(--lh-16);
   text-align: left;
 `;

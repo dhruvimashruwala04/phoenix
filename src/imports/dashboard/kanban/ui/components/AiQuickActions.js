@@ -37,16 +37,16 @@ const QuickActions = styled(Flex)`
   padding: 5px 8px;
   background: var(--white);
   border: 1px solid var(--border-muted);
-  border-radius: 10px;
+  border-radius: var(--radius-10);
   box-shadow: 0 8px 24px var(--shadow-lg);
   z-index: 50;
 `;
 const Action = styled(Flex)`
   height: 38px;
   padding: 0 12px;
-  border-radius: 7px;
-  font-size: 12px;
-  font-weight: 600;
+  border-radius: var(--radius-7);
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   color: var(--slate-600);
   cursor: pointer;
   white-space: nowrap;

@@ -48,7 +48,7 @@ const Toolbar = styled(Flex)`
   min-height: 50px;
   padding: 9px 13px;
   box-sizing: border-box;
-  border-radius: 10px;
+  border-radius: var(--radius-10);
   background: var(--slate-800);
   color: var(--white);
   margin: 14px 0 20px;
@@ -58,8 +58,8 @@ const Toolbar = styled(Flex)`
   }
 `;
 const SelectedCount = styled.span`
-  font-size: 13px;
-  font-weight: 650;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-650);
   white-space: nowrap;
 `;
 const Actions = styled(Flex)`
@@ -73,10 +73,10 @@ const SecondaryButton = styled.button`
   height: 31px;
   padding: 0 12px;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--radius-6);
   background: var(--slate-700);
   color: var(--slate-50);
-  font-size: 12px;
+  font-size: var(--fs-12);
   white-space: nowrap;
   cursor: pointer;
   &:hover {

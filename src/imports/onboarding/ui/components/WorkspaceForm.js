@@ -76,19 +76,19 @@ const Section = styled(Flex)`
 `;
 const Label = styled.label`
   color: var(--slate-700);
-  font-size: 13px;
-  font-weight: 600;
+  font-size: var(--fs-13);
+  font-weight: var(--fw-600);
 `;
 const Input = styled.input`
   width: 100%;
   height: 40px;
   padding: 0 12px;
   border: 1px solid var(--border-input);
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   outline: none;
   color: var(--text-heading);
   background-color: var(--white);
-  font-size: 13px;
+  font-size: var(--fs-13);
   &:focus {
     border-color: var(--blue-accent);
   }
@@ -100,7 +100,7 @@ const UrlInput = styled(Flex)`
   width: 100%;
   height: 40px;
   border: 1px solid var(--border-input);
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   overflow: hidden;
   background-color: var(--white);
 `;
@@ -110,7 +110,7 @@ const UrlPrefix = styled(Flex)`
   background-color: var(--slate-50);
   border-right: 1px solid var(--border-input);
   color: var(--gray-500);
-  font-size: 13px;
+  font-size: var(--fs-13);
 `;
 const UrlField = styled.input`
   flex: 1;
@@ -120,12 +120,12 @@ const UrlField = styled.input`
   outline: none;
   color: var(--text-heading);
   background: var(--white);
-  font-size: 13px;
+  font-size: var(--fs-13);
 `;
 const Available = styled(Flex)`
   color: #00a878;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-500);
 `;
 
 const IconRow = styled(Flex)`
@@ -133,18 +133,18 @@ const IconRow = styled(Flex)`
 const InitialIcon = styled(Flex)`
   width: 48px;
   height: 48px;
-  border-radius: 9px;
+  border-radius: var(--radius-9);
   background-color: ${({ $color }) => $color};
   color: var(--white);
-  font-size: 20px;
-  font-weight: 600;
+  font-size: var(--fs-20);
+  font-weight: var(--fw-600);
 `;
 const ColorButton = styled.button`
   width: 38px;
   height: 38px;
   padding: 0;
   border: ${({ $active }) => ($active ? "2px solid white" : "none")};
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background-color: ${({ $color }) => $color};
   cursor: pointer;
   box-shadow: ${({ $active, $color }) =>

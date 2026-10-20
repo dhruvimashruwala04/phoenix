@@ -23,7 +23,7 @@ const Container = styled(Flex)`
   min-width: 140px;
   width: ${({ $width }) => $width || "280px"};
   height: 36px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   background: var(--slate-50);
   box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
   padding: 0 10px;
@@ -36,7 +36,7 @@ const Input = styled.input`
   outline: none;
   background: transparent;
   color: var(--slate-700);
-  font-size: 13px;
+  font-size: var(--fs-13);
   &::placeholder {
     color: var(--text-muted-2);
   }

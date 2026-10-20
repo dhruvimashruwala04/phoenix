@@ -79,7 +79,7 @@ export default NewMilestones;
 const Modal = styled(Flex)`
   width: 100%;
   background: var(--white);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   box-shadow:
     var(--gray-100) 0px 0px 0px 1px inset,
     var(--shadow-black) 0px 1px 2px;
@@ -92,33 +92,33 @@ const Row = styled.div`
   gap: 10px;
 `;
 const Input = styled(Flex)`
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   color: var(--slate-600);
   > input {
     height: 38px;
-    border-radius: 8px;
+    border-radius: var(--radius-8);
     border: 0px;
     box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
     padding: 0px 12px;
-    font-size: 14px;
+    font-size: var(--fs-14);
     outline: 0px;
     width: 100%;
   }
 `;
 const DropdownInput = styled(Flex)`
   flex: 1 1 0%;
-  font-size: 12px;
-  font-weight: 600;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-600);
   color: var(--slate-600);
   > select,
   > input {
     width: 100%;
     height: 38px;
-    border-radius: 8px;
+    border-radius: var(--radius-8);
     border: 1px solid var(--border-muted);
     padding: 0px 8px;
-    font-size: 13px;
+    font-size: var(--fs-13);
     color: var(--slate-600);
   }
 `;

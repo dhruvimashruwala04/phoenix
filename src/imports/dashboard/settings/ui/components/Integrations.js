@@ -63,7 +63,7 @@ const Grid = styled.div`
 `;
 const Card = styled.div`
   background: var(--white);
-  border-radius: 12px;
+  border-radius: var(--radius-12);
   box-shadow:
     var(--slate-100) 0px 0px 0px 1px inset,
     var(--shadow-black) 0px 1px 2px;
@@ -76,19 +76,19 @@ const Info = styled(Flex)``;
 const Icon = styled(Flex)`
   height: 40px;
   width: 40px;
-  border-radius: 10px;
+  border-radius: var(--radius-10);
   background: var(--slate-50);
   box-shadow: var(--slate-100) 0px 0px 0px 1px inset;
-  font-size: 18px;
+  font-size: var(--fs-18);
   color: var(--slate-700);
 `;
 const Details = styled(Flex)``;
 const Name = styled.span`
-  font-size: 14px;
-  font-weight: 600;
+  font-size: var(--fs-14);
+  font-weight: var(--fw-600);
 `;
 const Description = styled.span`
-  font-size: 11px;
+  font-size: var(--fs-11);
   color: var(--text-muted);
   text-align: left;
 `;

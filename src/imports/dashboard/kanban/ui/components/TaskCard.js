@@ -56,19 +56,19 @@ const Card = styled.div`
   padding: 16px;
   background: var(--white);
   border: 1px solid var(--border-muted);
-  border-radius: 11px;
+  border-radius: var(--radius-11);
   box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06);
 `;
 const Title = styled.div`
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: 600;
+  font-size: var(--fs-14);
+  line-height: var(--lh-20);
+  font-weight: var(--fw-600);
   color: var(--slate-800);
 `;
 const Description = styled.div`
   margin-top: 10px;
-  font-size: 12px;
-  line-height: 20px;
+  font-size: var(--fs-12);
+  line-height: var(--lh-20);
   color: var(--text-muted);
 `;
 const ProgressSection = styled.div`
@@ -76,20 +76,20 @@ const ProgressSection = styled.div`
 `;
 const ProgressLabel = styled(Flex)`
   margin-bottom: 5px;
-  font-size: 10px;
+  font-size: var(--fs-10);
   color: var(--text-muted-2);
 `;
 const ProgressTrack = styled.div`
   width: 100%;
   height: 4px;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   background: var(--border-muted);
 `;
 const ProgressBar = styled.div`
   width: ${({ $progress }) => `${$progress}%`};
   height: 100%;
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   background: var(--blue-accent);
 `;
 const Bottom = styled(Flex)`
@@ -97,9 +97,9 @@ const Bottom = styled(Flex)`
 `;
 const Priority = styled.span`
   padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 10px;
-  font-weight: 600;
+  border-radius: var(--radius-4);
+  font-size: var(--fs-10);
+  font-weight: var(--fw-600);
 
   color: ${({ $priority }) => {
     if ($priority === "low") return "rgb(34, 197, 94)";
@@ -120,27 +120,27 @@ const DateText = styled.span`
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 10px;
+  font-size: var(--fs-10);
   color: var(--text-muted-2);
 `;
 const Clock = styled.span`
-  font-size: 13px;
+  font-size: var(--fs-13);
 `;
 const Avatar = styled(Flex)`
   width: 20px;
   height: 20px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--indigo-500);
   color: var(--white);
-  font-size: 9px;
-  font-weight: 600;
+  font-size: var(--fs-9);
+  font-weight: var(--fw-600);
 `;
 const CompletedText = styled.span`
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   padding: 2px 8px;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 15px;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-700);
+  line-height: var(--lh-15);
   background: transparent;
   color: var(--emerald-500);
 `;

@@ -46,7 +46,7 @@ const ViewTabs = styled(Flex)`
   height: 36px;
   padding: 3px;
   background: var(--slate-100);
-  border-radius: 9px;
+  border-radius: var(--radius-9);
 `;
 const Tab = styled.button`
   display: flex;
@@ -55,17 +55,17 @@ const Tab = styled.button`
   height: 30px;
   padding: 0 25px;
   border: none;
-  border-radius: 7px;
+  border-radius: var(--radius-7);
   background: ${({ $active }) => ($active ? "var(--white)" : "transparent")};
   color: ${({ $active }) =>
     $active ? "var(--blue-accent)" : "var(--text-muted)"};
-  font-size: 14px;
+  font-size: var(--fs-14);
   font-weight: ${({ $active }) => ($active ? 500 : 400)};
   cursor: pointer;
   box-shadow: ${({ $active }) =>
     $active ? "0 1px 3px var(--shadow-md)" : "none"};
   > span {
-    font-size: 10px;
+    font-size: var(--fs-10);
     color: var(--text-muted-2);
   }
 `;
@@ -73,11 +73,11 @@ const Tab = styled.button`
 const ReadButton = styled.button`
   height: 34px;
   padding: 0px 14px;
-  border-radius: 8px;
+  border-radius: var(--radius-8);
   border: 0px;
   background: var(--white);
   box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
-  font-size: 13px;
+  font-size: var(--fs-13);
   color: var(--slate-700);
   cursor: pointer;
   display: flex;

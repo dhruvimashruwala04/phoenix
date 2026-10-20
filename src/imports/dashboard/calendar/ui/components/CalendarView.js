@@ -91,9 +91,9 @@ const CalendarView = ({ onCalendarReady, onDateChange }) => {
           >
             <span
               style={{
-                fontSize: "22px",
-                fontWeight: 700,
-                lineHeight: "26px",
+                fontSize: "var(--fs-22)",
+                fontWeight: "var(--fw-700)",
+                lineHeight: "var(--lh-26)",
                 color: info.isToday ? "var(--blue-accent)" : "var(--slate-900)",
               }}
             >
@@ -102,9 +102,9 @@ const CalendarView = ({ onCalendarReady, onDateChange }) => {
 
             <span
               style={{
-                fontSize: "12px",
-                fontWeight: 400,
-                lineHeight: "16px",
+                fontSize: "var(--fs-12)",
+                fontWeight: "var(--fw-400)",
+                lineHeight: "var(--lh-16)",
                 color: "var(--text-muted)",
               }}
             >
@@ -137,7 +137,7 @@ const CalendarView = ({ onCalendarReady, onDateChange }) => {
                   gap: "16px",
                   width: "100%",
                   padding: "10px 12px",
-                  borderRadius: "8px",
+                  borderRadius: "var(--radius-8)",
                   backgroundColor: category?.bg,
                   color: category?.color,
                   boxShadow: `inset 0 0 0 1px ${category?.color}`,
@@ -148,7 +148,7 @@ const CalendarView = ({ onCalendarReady, onDateChange }) => {
                   style={{
                     width: "140px",
                     flexShrink: 0,
-                    fontSize: "11px",
+                    fontSize: "var(--fs-11)",
                     whiteSpace: "nowrap",
                   }}
                 >
@@ -158,8 +158,8 @@ const CalendarView = ({ onCalendarReady, onDateChange }) => {
                   style={{
                     flex: 1,
                     minWidth: 0,
-                    fontSize: "13px",
-                    fontWeight: 700,
+                    fontSize: "var(--fs-13)",
+                    fontWeight: "var(--fw-700)",
                     overflow: "hidden",
                     textOverflow: "ellipsis",
                     whiteSpace: "nowrap",
@@ -170,7 +170,7 @@ const CalendarView = ({ onCalendarReady, onDateChange }) => {
                 <span
                   style={{
                     flexShrink: 0,
-                    fontSize: "11px",
+                    fontSize: "var(--fs-11)",
                     color: "var(--text-muted)",
                   }}
                 >
@@ -191,7 +191,7 @@ const CalendarView = ({ onCalendarReady, onDateChange }) => {
                 gap: "8px",
                 backgroundColor: category?.bg,
                 color: category?.color,
-                borderRadius: "8px",
+                borderRadius: "var(--radius-8)",
                 padding: "6px 8px",
                 boxShadow: `inset 0 0 0 1px ${category?.color}, inset 3px 0 0 ${category?.color}`,
                 overflow: "hidden",
@@ -200,8 +200,8 @@ const CalendarView = ({ onCalendarReady, onDateChange }) => {
             >
               <span
                 style={{
-                  fontSize: "11px",
-                  fontWeight: 700,
+                  fontSize: "var(--fs-11)",
+                  fontWeight: "var(--fw-700)",
                   textAlign: "center",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
@@ -213,7 +213,7 @@ const CalendarView = ({ onCalendarReady, onDateChange }) => {
 
               <span
                 style={{
-                  fontSize: "9px",
+                  fontSize: "var(--fs-9)",
                   whiteSpace: "nowrap",
                   flexShrink: 0,
                 }}
@@ -261,14 +261,14 @@ const Container = styled.div`
 
   && .cal-title {
     margin: 0 0 0 4px;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: var(--fs-18);
+    font-weight: var(--fw-700);
     color: var(--slate-900);
   }
 
   && .cal-view-switcher {
     padding: 3px;
-    border-radius: 8px;
+    border-radius: var(--radius-8);
     box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
     button[aria-selected="true"] {
       background: var(--indigo-50);
@@ -294,15 +294,15 @@ const Container = styled.div`
   }
   && .event-title {
     display: block;
-    font-size: 11px;
-    font-weight: 600;
+    font-size: var(--fs-11);
+    font-weight: var(--fw-600);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
   }
 
   && .event-time {
-    font-size: 9px;
+    font-size: var(--fs-9);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -331,12 +331,12 @@ const Item = styled.span`
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
+  font-size: var(--fs-12);
   color: var(--slate-600);
 `;
 const Dot = styled.span`
   width: 7px;
   height: 7px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: ${({ color }) => color};
 `;

@@ -42,6 +42,6 @@ const Icon = styled(Flex)`
   color: var(--text-muted-2);
 `;
 const Text = styled.div`
-  font-size: 13px;
+  font-size: var(--fs-13);
   color: var(--text-muted-2);
 `;

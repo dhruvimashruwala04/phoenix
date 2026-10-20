@@ -122,7 +122,7 @@ const GridContainer = styled.div`
   overflow-x: auto;
   background: var(--white);
   border: 1px solid var(--border-soft);
-  border-radius: 13px;
+  border-radius: var(--radius-13);
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
 `;
 const GridHeader = styled.div`
@@ -160,7 +160,7 @@ const CheckBox = styled.input`
   height: 16px;
   margin: 0;
   border: 1.5px solid var(--slate-300);
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   background: var(--white);
   cursor: pointer;
   flex-shrink: 0;
@@ -173,15 +173,15 @@ const CheckBox = styled.input`
     display: block;
     color: var(--white);
     text-align: center;
-    font-size: 11px;
-    line-height: 14px;
+    font-size: var(--fs-11);
+    line-height: var(--lh-14);
   }
 `;
 const ColumnLabel = styled.span`
   color: var(--text-muted-2);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.25px;
+  font-size: var(--fs-10);
+  font-weight: var(--fw-700);
+  letter-spacing: var(--ls-sm);
   text-align: ${({ $right }) => ($right ? "right" : "left")};
 `;
 const MemberCell = styled(Flex)`
@@ -192,11 +192,11 @@ const Avatar = styled(Flex)`
   width: 35px;
   height: 35px;
   flex-shrink: 0;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: ${({ $color }) => $color};
   color: var(--white);
-  font-size: 11px;
-  font-weight: 700;
+  font-size: var(--fs-11);
+  font-weight: var(--fw-700);
 `;
 const OnlineIndicator = styled.span`
   position: absolute;
@@ -205,7 +205,7 @@ const OnlineIndicator = styled.span`
   width: 11px;
   height: 11px;
   border: 2px solid var(--white);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: ${({ $online }) => ($online ? "#00c781" : "var(--slate-300)")};
 `;
 const MemberInfo = styled.div`
@@ -217,29 +217,29 @@ const NameLine = styled(Flex)`
 const MemberName = styled.span`
   overflow: hidden;
   color: var(--slate-900);
-  font-size: 12px;
-  font-weight: 650;
+  font-size: var(--fs-12);
+  font-weight: var(--fw-650);
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
 const YouBadge = styled.span`
   padding: 1px 4px;
-  border-radius: 3px;
+  border-radius: var(--radius-3);
   background: var(--slate-100);
   color: var(--text-muted);
-  font-size: 9px;
-  font-weight: 700;
+  font-size: var(--fs-9);
+  font-weight: var(--fw-700);
 `;
 const Email = styled.div`
   overflow: hidden;
   color: var(--text-muted);
-  font-size: 10px;
+  font-size: var(--fs-10);
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
 const TeamName = styled.span`
   color: var(--slate-600);
-  font-size: 12px;
+  font-size: var(--fs-12);
 `;
 const AccessCell = styled.div`
   min-width: 0;
@@ -250,10 +250,10 @@ const AccessSelect = styled.select`
   height: 30px;
   padding: 0 8px;
   border: 1px solid #dce4ee;
-  border-radius: 6px;
+  border-radius: var(--radius-6);
   background: var(--white);
   color: var(--slate-900);
-  font-size: 12px;
+  font-size: var(--fs-12);
   &:disabled {
     background: var(--white);
     color: var(--text-muted-2);
@@ -263,15 +263,15 @@ const AccessSelect = styled.select`
 const StatusCell = styled(Flex)``;
 const StatusBadge = styled.span`
   padding: 3px 7px;
-  border-radius: 4px;
+  border-radius: var(--radius-4);
   background: ${({ $active }) => ($active ? "#e5fbf2" : "var(--slate-100)")};
   color: ${({ $active }) => ($active ? "#009b70" : "var(--text-muted)")};
-  font-size: 10px;
-  font-weight: 700;
+  font-size: var(--fs-10);
+  font-weight: var(--fw-700);
 `;
 const LastActive = styled.span`
   color: var(--text-muted);
-  font-size: 11px;
+  font-size: var(--fs-11);
 `;
 const Actions = styled(Flex)``;
 const ActionButton = styled.button`
