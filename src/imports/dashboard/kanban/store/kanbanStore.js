@@ -15,6 +15,7 @@ const useKanbanStore = create(
       status: "backlog",
       assignee: useAuthStore.getState().user?.name,
       dueDate: "",
+      projName: "phoenix",
 
       tasks: [],
 
@@ -34,6 +35,7 @@ const useKanbanStore = create(
       setStatus: (status) => set({ status }),
       setAssignee: (assignee) => set({ assignee }),
       setDueDate: (dueDate) => set({ dueDate }),
+      setProjName: (projName) => set({ projName }),
 
       setSortBy: (sortBy) => set({ sortBy }),
       setFilterBy: (filterBy) => set({ filterBy }),
@@ -47,6 +49,7 @@ const useKanbanStore = create(
           description: "",
           priority: "high",
           status: "backlog",
+          projName: "phoenix",
         }),
 
       addTask: () =>
@@ -59,6 +62,7 @@ const useKanbanStore = create(
             status: state.status,
             assignee: state.assignee,
             dueDate: state.dueDate,
+            projName: state.projName,
           };
 
           return {
@@ -69,6 +73,7 @@ const useKanbanStore = create(
             status: "backlog",
             assignee: "",
             dueDate: "",
+            projName: "phoenix",
           };
         }),
 

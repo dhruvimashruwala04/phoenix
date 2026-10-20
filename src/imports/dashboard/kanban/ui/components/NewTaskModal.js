@@ -7,6 +7,7 @@ import useAuthStore from "@/imports/auth/store/authStore";
 import { Close } from "@/imports/dashboard/ui/assets/Icons";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
 import CancelButton from "@/imports/core/components/CancelButton";
+import { projects } from "../../api/constants";
 
 const NewTaskModal = () => {
   const {
@@ -24,6 +25,8 @@ const NewTaskModal = () => {
     setAssignee,
     addTask,
     setShowTask,
+    projName,
+    setProjName,
   } = useKanbanStore();
   const { invites } = useOnboardingStore();
   const { user } = useAuthStore();
@@ -105,6 +108,19 @@ const NewTaskModal = () => {
               ))}
             </select>
           </DropdownInput>
+          <DropdownInput direction="column" gap="6px">
+            Project
+            <select
+              value={projName}
+              onChange={(e) => setProjName(e.target.value)}
+            >
+              {projects?.map((p) => (
+                <option key={p.value} value={p.value}>
+                  {p.label}
+                </option>
+              ))}
+            </select>
+          </DropdownInput>
         </Details>
 
         <Footer justify="flex-end" gap="8px">
@@ -132,7 +148,6 @@ const Overlay = styled(Flex)`
   z-index: 100;
   background: rgba(15, 23, 42, 0.4);
 `;
-
 const Card = styled.form`
   width: 440px;
   max-width: 100%;
@@ -144,20 +159,16 @@ const Card = styled.form`
   padding: 24px;
   gap: 16px;
 `;
-
 const Header = styled(Flex)``;
-
 const Title = styled.span`
   color: rgb(15, 23, 42);
   font-size: 16px;
   font-weight: 600;
 `;
-
 const CloseButton = styled(Flex)`
   background: transparent;
   cursor: pointer;
 `;
-
 const TitleInput = styled(Flex)`
   font-size: 12px;
   font-weight: 600;
@@ -189,7 +200,6 @@ const DescInput = styled(Flex)`
   }
 `;
 const Details = styled(Flex)``;
-
 const DropdownInput = styled(Flex)`
   flex: 1 1 0%;
   font-size: 12px;
@@ -206,7 +216,6 @@ const DropdownInput = styled(Flex)`
     color: rgb(71, 85, 105);
   }
 `;
-
 const Footer = styled(Flex)`
   margin-top: 4px;
 `;

@@ -1,3 +1,4 @@
+import { Flex } from "@/imports/core/components/Flex";
 import { plans } from "@/imports/dashboard/team/api/constant";
 import React, { useState } from "react";
 import styled from "styled-components";
@@ -12,12 +13,12 @@ const Billing = () => {
 
   return (
     <Card>
-      <Header>
-        <div>
+      <Header justify="space-between" align="center" gap="16px">
+        <TitleWrapper direction="column">
           <Title>Current plan</Title>
           <Subtitle> Billed {billing} · renews Jul 1, 2026 </Subtitle>{" "}
-        </div>
-        <BillingToggle>
+        </TitleWrapper>
+        <BillingToggle gap="3px">
           <BillingOption
             type="button"
             $active={billing === "monthly"}
@@ -80,32 +81,19 @@ const Card = styled.section`
   border-radius: 13px;
   box-shadow: 0 2px 4px rgba(15, 23, 42, 0.035);
 `;
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
+const Header = styled(Flex)`
   margin-bottom: 17px;
-  @media (max-width: 520px) {
-    align-items: flex-start;
-    flex-direction: column;
-  }
 `;
-const Title = styled.h3`
-  margin: 0;
-  color: #111827;
+const TitleWrapper = styled(Flex)``;
+const Title = styled.span`
   font-size: 16px;
-  font-weight: 650;
+  font-weight: 700;
 `;
-const Subtitle = styled.p`
-  margin: 4px 0 0;
+const Subtitle = styled.span`
   color: #64748b;
   font-size: 12px;
 `;
-const BillingToggle = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 3px;
+const BillingToggle = styled(Flex)`
   padding: 4px;
   border-radius: 9px;
   background: #f1f5f9;
@@ -123,7 +111,7 @@ const BillingOption = styled.button`
 const PlanGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  gap: 18px;
   @media (max-width: 720px) {
     grid-template-columns: 1fr;
   }
@@ -136,11 +124,9 @@ const PlanCard = styled.div`
   border-radius: 12px;
   background: ${({ $current }) => ($current ? "#f8faff" : "#ffffff")};
 `;
-const PlanName = styled.h4`
-  margin: 0 0 8px;
-  color: #111827;
+const PlanName = styled.span`
   font-size: 14px;
-  font-weight: 650;
+  font-weight: 700;
 `;
 const PriceRow = styled.div`
   display: flex;
@@ -156,11 +142,9 @@ const PriceUnit = styled.span`
   color: #64748b;
   font-size: 12px;
 `;
-const Description = styled.p`
-  margin: 0 0 10px;
-  color: #64748b;
+const Description = styled.span`
   font-size: 12px;
-  line-height: 17px;
+  color: rgb(100, 116, 139);
 `;
 const PlanButton = styled.button`
   width: 100%;

@@ -5,15 +5,15 @@ import Deadlines from "./Deadlines";
 import MyTasks from "./MyTasks";
 import RecentActivities from "./RecentActivities";
 
-const OverviewCards = () => {
+const OverviewCards = ({ tasksByProj, projByFilter }) => {
   return (
     <Section>
       <Column>
-        <Projects />
-        <MyTasks />
+        <Projects projByFilter={projByFilter} />
+        <MyTasks tasksByProj={tasksByProj} />
       </Column>
       <Column>
-        <Deadlines />
+        <Deadlines tasksByProj={tasksByProj} />
         <RecentActivities />
       </Column>
     </Section>

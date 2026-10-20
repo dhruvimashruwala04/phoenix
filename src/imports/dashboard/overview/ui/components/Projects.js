@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Card from "./Card";
 import { Flex } from "@/imports/core/components/Flex";
 import useKanbanStore from "@/imports/dashboard/kanban/store/kanbanStore";
-import { statusConfig } from "@/imports/dashboard/kanban/api/constants";
+import {
+  projects,
+  statusConfig,
+} from "@/imports/dashboard/kanban/api/constants";
 
-const Projects = () => {
+const Projects = ({ projByFilter }) => {
   const { tasks } = useKanbanStore();
+  const [progressValues, setProgressValues] = useState([]);
+
+  const taskCount = tasks.reduce((acc, p) => {
+    const key = p.projName;
+    if (!acc[key]) {
+      acc[key] = 0;
+    }
+    acc[key]++;
+    return acc;
+  }, {});
+
+  useEffect(() => {
+    setProgressValues(
+      projByFilter.slice(0, 5).map(() => Math.floor(Math.random() * 100) + 1),
+    );
+  }, [projByFilter]);
+
   return (
     <Card
       title="Projects"
@@ -15,18 +35,19 @@ const Projects = () => {
       linkHref={"/kanban"}
     >
       <ProjectList>
-        {tasks.slice(0, 5).map((task, i) => {
-          const status = statusConfig[task.status];
-          const progress = Math.floor(Math.random() * 100) + 1;
+        {projByFilter.slice(0, 5).map((p, i) => {
+          const status = statusConfig[p.status];
+          const progress = progressValues[i] ?? 0;
+
           return (
             <ProjectRow href="/kanban" key={i}>
               <ProjectInfo>
                 <ProjectName align="center" gap="8px">
                   <Dot $color={status?.color} />
-                  {task.title}
+                  {p.label}
                 </ProjectName>
 
-                <Meta>128 · 6 members · due {task.dueDate}</Meta>
+                <Meta>{taskCount[p.value]} tasks · 6 members · due Aug 24</Meta>
               </ProjectInfo>
 
               <ProgressSection>
@@ -40,7 +61,7 @@ const Projects = () => {
                 </ProgressTrack>
               </ProgressSection>
 
-              <Status $color={status?.color} $type={task.status}>
+              <Status $color={status?.color} $type={p.status}>
                 {status?.label}
               </Status>
             </ProjectRow>

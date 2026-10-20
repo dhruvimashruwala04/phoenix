@@ -7,11 +7,11 @@ import formatDate from "@/imports/core/utils/formatDate";
 import useAuthStore from "@/imports/auth/store/authStore";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
 
-const MyTasks = () => {
-  const { tasks, updateTaskStatus } = useKanbanStore();
+const MyTasks = ({ tasksByProj }) => {
+  const { updateTaskStatus } = useKanbanStore();
   const { user } = useAuthStore();
 
-  const myTasks = tasks
+  const myTasks = tasksByProj
     .filter((task) => task.assignee === user?.name)
     .slice(0, 5);
 

@@ -54,3 +54,11 @@ export const statusConfig = {
     label: "Done",
   },
 };
+
+export const projects = [
+  { label: "Project Phoenix", value: "phoenix", status: "in_progress" },
+  { label: "Mobile App", value: "mobile", status: "done" },
+  { label: "Website Redesign", value: "website", status: "backlog" },
+  { label: "Marketing Campaign", value: "marketing", status: "review" },
+  { label: "Product Launch", value: "launch", status: "done" },
+];

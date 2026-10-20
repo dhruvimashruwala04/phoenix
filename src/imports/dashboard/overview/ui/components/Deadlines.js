@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import formatDateLong from "@/imports/core/utils/formatDateLong";
 
-const Deadlines = () => {
+const Deadlines = ({ tasksByProj }) => {
   const { tasks } = useKanbanStore();
 
   const getLabel = (date) => {
@@ -33,7 +33,7 @@ const Deadlines = () => {
       linkHref={"/calendar"}
     >
       <List direction="column">
-        {tasks
+        {tasksByProj
           .slice(0, 4)
           .sort((a, b) => new Date(a.dueDate) - new Date(b.dueDate))
           .map((task) => {
