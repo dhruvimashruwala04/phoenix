@@ -155,8 +155,8 @@ const ListWrapper = styled(Flex)`
   background: var(--white);
   border-radius: 12px;
   box-shadow:
-    rgb(243, 244, 246) 0px 0px 0px 1px inset,
-    rgba(0, 0, 0, 0.05) 0px 1px 2px;
+    var(--gray-100) 0px 0px 0px 1px inset,
+    var(--shadow-black) 0px 1px 2px;
 `;
 const ListHeader = styled(Flex)`
   padding: 14px 16px;
@@ -190,7 +190,7 @@ const Item = styled(Flex)`
   }
 `;
 const Icon = styled.div`
-  color: rgb(156, 163, 175);
+  color: var(--gray-400);
 `;
 const Content = styled(Flex)`
   min-width: 0;
@@ -205,7 +205,7 @@ const Subject = styled.span`
 `;
 const Meta = styled.span`
   font-size: 10px;
-  color: rgb(156, 163, 175);
+  color: var(--gray-400);
 `;
 const DocumentWrapper = styled.div`
   max-width: 70%;
@@ -213,8 +213,8 @@ const DocumentWrapper = styled.div`
   background: var(--white);
   border-radius: 12px;
   box-shadow:
-    rgb(243, 244, 246) 0px 0px 0px 1px inset,
-    rgba(0, 0, 0, 0.05) 0px 1px 2px;
+    var(--gray-100) 0px 0px 0px 1px inset,
+    var(--shadow-black) 0px 1px 2px;
 `;
 const Toolbar = styled(Flex)`
   width: 100%;
@@ -268,7 +268,7 @@ const DeleteButton = styled.button`
   color: var(--text-muted-2);
   cursor: pointer;
   &:hover {
-    color: #ef4444;
+    color: var(--red-500);
   }
 `;
 const Editor = styled.textarea`

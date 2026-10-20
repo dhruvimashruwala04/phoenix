@@ -16,14 +16,14 @@ const CalendarStats = () => {
       value: "18",
       subText: "↑ 8% vs last month",
       icon: Meetings,
-      iconBg: "rgb(239, 246, 255)",
+      iconBg: "var(--blue-50)",
     },
     {
       title: "Deadlines",
       value: "6",
       subText: "↓ 2% vs last month",
       icon: Deadlines,
-      iconBg: "rgb(254, 242, 242)",
+      iconBg: "var(--red-50)",
     },
     {
       title: "Focus Time",
@@ -71,7 +71,7 @@ const Card = styled(Flex)`
   border-radius: 12px;
   box-shadow:
     var(--slate-100) 0px 0px 0px 1px inset,
-    rgba(0, 0, 0, 0.05) 0px 1px 2px;
+    var(--shadow-black) 0px 1px 2px;
 `;
 const IconBox = styled(Flex)`
   width: 44px;

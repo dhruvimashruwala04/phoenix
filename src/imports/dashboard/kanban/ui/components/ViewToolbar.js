@@ -94,7 +94,7 @@ const Tab = styled.button`
   font-weight: ${({ $active }) => ($active ? 500 : 400)};
   cursor: pointer;
   box-shadow: ${({ $active }) =>
-    $active ? "0 1px 3px rgba(15, 23, 42, 0.08)" : "none"};
+    $active ? "0 1px 3px var(--shadow-md)" : "none"};
 `;
 const Actions = styled(Flex)`
   margin-left: auto;

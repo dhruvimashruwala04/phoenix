@@ -176,7 +176,7 @@ const MessageItem = styled(Flex)`
   padding: 14px 16px;
   box-sizing: border-box;
   border-bottom: 1px solid var(--slate-100);
-  background: ${({ $active }) => ($active ? "rgb(248, 250, 255)" : "white")};
+  background: ${({ $active }) => ($active ? "var(--slate-50)" : "white")};
   cursor: pointer;
   ${({ $active }) =>
     $active &&
@@ -245,7 +245,7 @@ const Type = styled.span`
       case "Request":
         return `background: rgb(255, 237, 197); color: var(--amber-500)`;
       case "Alert":
-        return `background: rgb(255, 227, 225); color: rgb(239, 68, 68)`;
+        return `background: rgb(255, 227, 225); color: var(--red-500)`;
       case "Update":
         return `background: rgb(230, 232, 255); color: var(--text-muted);`;
     }

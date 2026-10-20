@@ -182,7 +182,7 @@ const Suggestion = styled(Flex)`
   background: ${({ $variant }) =>
     $variant === "red" ? "var(--rose-50)" : " var(--emerald-50)"};
   box-shadow: ${({ $variant }) =>
-      $variant === "red" ? "var(--rose-200)" : " rgb(167, 243, 208)"}
+      $variant === "red" ? "var(--rose-200)" : " var(--emerald-200)"}
     0px 0px 0px 1px inset;
 
   padding: 16px;
@@ -205,7 +205,7 @@ const Btn = styled(Flex)`
   align-self: flex-start;
   border: 1px solid
     ${({ $variant }) =>
-      $variant === "red" ? "var(--rose-200)" : "rgb(167, 243, 208)"};
+      $variant === "red" ? "var(--rose-200)" : "var(--emerald-200)"};
   background: var(--white);
   color: ${({ $variant }) =>
     $variant === "red" ? "var(--rose-600)" : "var(--emerald-600)"};

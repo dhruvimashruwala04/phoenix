@@ -139,7 +139,7 @@ const RoleButton = styled.button`
   border: 1px solid
     ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--border-input)")};
   border-radius: 20px;
-  background-color: ${({ $active }) => ($active ? "#f0efff" : "white")};
+  background-color: ${({ $active }) => ($active ? "var(--indigo-50)" : "white")};
   color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--text-heading)")};
   font-size: 13px;
   font-weight: 500;
@@ -166,5 +166,5 @@ const TeamButton = styled.button`
   font-weight: ${({ $active }) => ($active ? "500" : "400")};
   cursor: pointer;
   box-shadow: ${({ $active }) =>
-    $active ? "0 1px 3px rgba(15, 23, 42, 0.08)" : "none"};
+    $active ? "0 1px 3px var(--shadow-md)" : "none"};
 `;

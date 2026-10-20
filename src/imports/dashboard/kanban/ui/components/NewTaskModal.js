@@ -146,7 +146,7 @@ const Overlay = styled(Flex)`
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(15, 23, 42, 0.4);
+  background: var(--overlay);
 `;
 const Card = styled.form`
   width: 440px;
@@ -155,7 +155,7 @@ const Card = styled.form`
   flex-direction: column;
   background: var(--white);
   border-radius: 14px;
-  box-shadow: rgba(15, 23, 42, 0.25) 0px 20px 50px;
+  box-shadow: var(--shadow-modal) 0px 20px 50px;
   padding: 24px;
   gap: 16px;
 `;

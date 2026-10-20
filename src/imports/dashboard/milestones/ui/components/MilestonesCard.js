@@ -72,7 +72,7 @@ const Card = styled.div`
   background: var(--white);
   border: 1px solid #f0eef5;
   border-radius: 13px;
-  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.035);
+  box-shadow: 0 2px 5px var(--shadow-xs);
   color: var(--gray-900);
 `;
 const TopSection = styled(Flex)`
@@ -87,7 +87,7 @@ const IconBox = styled(Flex)`
     $status === "Upcoming"
       ? "var(--violet-600)"
       : $status === "Due soon"
-        ? "rgb(217, 119, 6)"
+        ? "var(--amber-600)"
         : "var(--emerald-600)"};
   background: ${({ $status }) =>
     $status === "Upcoming"
@@ -121,7 +121,7 @@ const Status = styled.span`
     $status === "Upcoming"
       ? "var(--violet-600)"
       : $status === "Due soon"
-        ? "rgb(217, 119, 6)"
+        ? "var(--amber-600)"
         : "var(--emerald-600)"};
   background: ${({ $status }) =>
     $status === "Upcoming"
@@ -162,7 +162,7 @@ const ProgressFill = styled.div`
     $status === "Upcoming"
       ? "var(--violet-600)"
       : $status === "Due soon"
-        ? "rgb(217, 119, 6)"
+        ? "var(--amber-600)"
         : "var(--emerald-600)"};
 `;
 const Details = styled(Flex)`

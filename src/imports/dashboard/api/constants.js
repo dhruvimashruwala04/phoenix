@@ -94,6 +94,7 @@ export const nav = [
       ...projects.slice(0, 4).map((project) => ({
         label: project.label,
         href: `/?project=${project.value}`,
+        color: project.color,
       })),
     ],
   },

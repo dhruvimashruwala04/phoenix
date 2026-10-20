@@ -3,10 +3,7 @@ import styled from "styled-components";
 import Card from "./Card";
 import { Flex } from "@/imports/core/components/Flex";
 import useKanbanStore from "@/imports/dashboard/kanban/store/kanbanStore";
-import {
-  projects,
-  statusConfig,
-} from "@/imports/dashboard/kanban/api/constants";
+import { statusConfig } from "@/imports/dashboard/kanban/api/constants";
 
 const Projects = ({ projByFilter }) => {
   const { tasks } = useKanbanStore();
@@ -43,7 +40,7 @@ const Projects = ({ projByFilter }) => {
             <ProjectRow href="/kanban" key={i}>
               <ProjectInfo>
                 <ProjectName align="center" gap="8px">
-                  <Dot $color={status?.color} />
+                  <Dot $color={p.color} />
                   {p.label}
                 </ProjectName>
 

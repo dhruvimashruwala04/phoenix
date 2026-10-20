@@ -17,7 +17,7 @@ const PrimaryButton = styled.button`
 
   &:hover {
     cursor: pointer;
-    background-color: #463bd1;
+    background-color: var(--blue-accent-hover);
   }
 `;
 

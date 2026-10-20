@@ -81,8 +81,8 @@ const Modal = styled(Flex)`
   background: var(--white);
   border-radius: 12px;
   box-shadow:
-    rgb(243, 244, 246) 0px 0px 0px 1px inset,
-    rgba(0, 0, 0, 0.05) 0px 1px 2px;
+    var(--gray-100) 0px 0px 0px 1px inset,
+    var(--shadow-black) 0px 1px 2px;
   padding: 16px;
 `;
 const Row = styled.div`

@@ -374,7 +374,7 @@ const TextButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   &:hover {
-    color: #3730a3;
+    color: var(--indigo-800);
   }
 `;
 const EventList = styled(Flex)``;
@@ -467,7 +467,7 @@ const Priority = styled.span`
   padding: 2px 5px;
   border-radius: 4px;
   background: ${({ $priority }) =>
-    $priority === "High" ? "#f0efff" : "#fff4e5"};
+    $priority === "High" ? "var(--indigo-50)" : "#fff4e5"};
   color: ${({ $priority }) => ($priority === "High" ? "var(--blue-accent)" : "#c77716")};
   font-size: 9px;
   font-weight: 600;

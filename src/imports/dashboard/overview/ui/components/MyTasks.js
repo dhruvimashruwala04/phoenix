@@ -93,7 +93,7 @@ const TaskRow = styled(Flex)`
 const Checkbox = styled.input`
   width: 18px;
   height: 18px;
-  border: 1px solid rgba(223, 228, 233, 1);
+  border: 1px solid var(--border-gray);
   border-radius: 5px;
   accent-color: var(--blue-accent);
   cursor: pointer;

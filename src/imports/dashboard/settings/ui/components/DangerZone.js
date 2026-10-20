@@ -30,7 +30,7 @@ const Card = styled(Flex)`
 const Header = styled.span`
   font-size: 16px;
   font-weight: 700;
-  color: rgb(190, 18, 60);
+  color: var(--rose-700);
   width: 100%;
 `;
 const Info = styled.span`
@@ -57,6 +57,6 @@ const DeleteBtn = styled.button`
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
-  background: rgb(254, 226, 226);
+  background: var(--red-100);
   color: rgb(251, 113, 133);
 `;

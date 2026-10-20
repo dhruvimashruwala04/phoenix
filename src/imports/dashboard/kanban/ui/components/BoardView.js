@@ -128,7 +128,7 @@ const View = styled.div`
 `;
 const Column = styled(Flex)`
   outline: ${({ $isDraggingOver }) =>
-    $isDraggingOver ? "rgb(165, 180, 252)dashed 2px" : "transparent"};
+    $isDraggingOver ? "var(--indigo-300)dashed 2px" : "transparent"};
   outline-offset: 6px;
   border-radius: 12px;
   min-height: 200px;

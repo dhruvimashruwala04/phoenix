@@ -53,7 +53,7 @@ const SettingsCard = styled.div`
   border-radius: 13px;
   box-shadow:
     0 0 0 1px var(--border-soft),
-    0 2px 4px rgba(15, 23, 42, 0.035);
+    0 2px 4px var(--shadow-xs);
 `;
 const SettingRow = styled.div`
   min-height: 67px;
@@ -93,7 +93,7 @@ const Toggle = styled.button`
   cursor: pointer;
   transition: background 180ms ease;
   &:focus-visible {
-    outline: 2px solid #818cf8;
+    outline: 2px solid var(--indigo-400);
     outline-offset: 3px;
   }
 `;
@@ -105,7 +105,7 @@ const ToggleThumb = styled.span`
   height: 16px;
   border-radius: 50%;
   background: var(--white);
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 1px 2px var(--shadow-lg);
   transition: left 180ms ease;
 `;
 const Actions = styled.div`
@@ -118,7 +118,7 @@ const Actions = styled.div`
 const ResetButton = styled.button`
   height: 37px;
   padding: 0 14px;
-  border: 1px solid #dce4ef;
+  border: 1px solid var(--border-input);
   border-radius: 8px;
   background: var(--white);
   color: var(--gray-900);

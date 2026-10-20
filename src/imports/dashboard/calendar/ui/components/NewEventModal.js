@@ -129,7 +129,7 @@ const Overlay = styled(Flex)`
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(15, 23, 42, 0.4);
+  background: var(--overlay);
 `;
 const Card = styled.form`
   width: 440px;
@@ -138,7 +138,7 @@ const Card = styled.form`
   flex-direction: column;
   background: var(--white);
   border-radius: 14px;
-  box-shadow: rgba(15, 23, 42, 0.25) 0px 20px 50px;
+  box-shadow: var(--shadow-modal) 0px 20px 50px;
   padding: 24px;
   gap: 16px;
 `;
@@ -221,13 +221,13 @@ const DeleteButton = styled.button`
   padding: 0 16px;
   border: 1px solid rgb(254, 202, 202);
   border-radius: 7px;
-  background: rgb(254, 242, 242);
+  background: var(--red-50);
   color: rgb(220, 38, 38);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   align-self: flex-start;
   &:hover {
-    background: rgb(254, 226, 226);
+    background: var(--red-100);
   }
 `;

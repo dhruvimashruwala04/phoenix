@@ -92,7 +92,7 @@ const Card = styled(Flex)`
   background: var(--white);
   border: 1px solid var(--slate-100);
   border-radius: 12px;
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 1px 2px var(--shadow-sm);
 `;
 
 const SeatsHeader = styled(Flex)`
@@ -154,6 +154,6 @@ const Button = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: #3730a3;
+    color: var(--indigo-800);
   }
 `;

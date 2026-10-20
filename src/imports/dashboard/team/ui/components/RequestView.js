@@ -65,7 +65,7 @@ const InvitationRow = styled(Flex)`
   min-width: 0;
   min-height: 64px;
   padding: 10px 28px;
-  border-bottom: 1px solid #f0f2f6;
+  border-bottom: 1px solid var(--surface-muted);
   &:last-child {
     border-bottom: none;
   }

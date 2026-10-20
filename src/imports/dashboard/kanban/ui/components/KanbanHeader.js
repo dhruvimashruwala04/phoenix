@@ -192,7 +192,7 @@ const FilterOptions = styled(Flex)`
   background: var(--white);
   border-radius: 12px;
   box-shadow:
-    rgba(15, 23, 42, 0.14) 0px 12px 32px,
+    var(--shadow-xl) 0px 12px 32px,
     var(--slate-100) 0px 0px 0px 1px inset;
   padding: 14px;
   z-index: 20;
@@ -226,7 +226,7 @@ const GroupOptions = styled(Flex)`
   background: var(--white);
   border-radius: 12px;
   box-shadow:
-    rgba(15, 23, 42, 0.14) 0px 12px 32px,
+    var(--shadow-xl) 0px 12px 32px,
     var(--slate-100) 0px 0px 0px 1px inset;
   padding: 5px;
   z-index: 20;

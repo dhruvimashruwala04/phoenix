@@ -77,7 +77,7 @@ const PermissionCard = styled.div`
   background: var(--white);
   border: 1px solid var(--border-soft);
   border-radius: 13px;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 1px 3px var(--shadow-sm);
 `;
 const Grid = styled.div`
   display: grid;
@@ -118,7 +118,7 @@ const PermissionRow = styled.div`
 const PermissionInfo = styled(Flex)`
   min-height: 57px;
   padding: 9px 20px;
-  border-bottom: 1px solid #f1f3f7;
+  border-bottom: 1px solid var(--surface-muted);
 `;
 const PermissionName = styled.div`
   font-size: 12px;
@@ -135,7 +135,7 @@ const PermissionDescription = styled.div`
 const PermissionCheckboxCell = styled(Flex)`
   min-height: 57px;
   padding: 8px 12px;
-  border-bottom: 1px solid #f1f3f7;
+  border-bottom: 1px solid var(--surface-muted);
 `;
 const Checkbox = styled.input`
   appearance: none;
@@ -165,12 +165,12 @@ const Checkbox = styled.input`
     transform: rotate(45deg);
   }
   &:disabled {
-    background: #a5b4fc;
-    border-color: #a5b4fc;
+    background: var(--indigo-300);
+    border-color: var(--indigo-300);
     cursor: not-allowed;
   }
   &:focus-visible {
-    outline: 2px solid #818cf8;
+    outline: 2px solid var(--indigo-400);
     outline-offset: 3px;
   }
 `;

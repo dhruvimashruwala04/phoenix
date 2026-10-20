@@ -68,7 +68,7 @@ const Wrapper = styled(Flex)`
 const TextWrapper = styled(Flex)``;
 const SupText = styled.span`
   background-color: rgba(99, 102, 241, 0.2);
-  color: #c7d2fe;
+  color: var(--indigo-200);
   text-transform: uppercase;
   font-size: 11px;
   font-weight: 700;

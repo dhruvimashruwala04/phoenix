@@ -56,9 +56,34 @@ export const statusConfig = {
 };
 
 export const projects = [
-  { label: "Project Phoenix", value: "phoenix", status: "in_progress" },
-  { label: "Mobile App", value: "mobile", status: "done" },
-  { label: "Website Redesign", value: "website", status: "backlog" },
-  { label: "Marketing Campaign", value: "marketing", status: "review" },
-  { label: "Product Launch", value: "launch", status: "done" },
+  {
+    label: "Project Phoenix",
+    value: "phoenix",
+    status: "in_progress",
+    color: "rgb(59, 130, 246)",
+  },
+  {
+    label: "Mobile App",
+    value: "mobile",
+    status: "done",
+    color: "rgb(168, 85, 247)",
+  },
+  {
+    label: "Website Redesign",
+    value: "website",
+    status: "backlog",
+    color: "rgb(249, 115, 22)",
+  },
+  {
+    label: "Marketing Campaign",
+    value: "marketing",
+    status: "review",
+    color: "rgb(234, 179, 8)",
+  },
+  {
+    label: "Product Launch",
+    value: "launch",
+    status: "done",
+    color: "rgb(34, 197, 94)",
+  },
 ];

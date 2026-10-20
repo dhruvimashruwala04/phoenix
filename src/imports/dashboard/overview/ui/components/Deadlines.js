@@ -76,7 +76,7 @@ const TaskRow = styled(Flex)`
   width: 100%;
   min-height: 69px;
   padding: 10px 18px;
-  border-bottom: 1px solid #f1f3f7;
+  border-bottom: 1px solid var(--surface-muted);
   &:last-child {
     border-bottom: none;
   }
@@ -130,7 +130,7 @@ const Deadline = styled.span`
       case "Overdue":
         return "#ff334f";
       case "Tomorrow":
-        return "#f97316";
+        return "var(--orange-500)";
       case "Today":
         return "var(--emerald-500)";
       default:

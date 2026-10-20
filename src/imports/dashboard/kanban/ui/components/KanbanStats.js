@@ -31,7 +31,7 @@ const KanbanStats = () => {
       value: tasks.filter((task) => task.status === "in_progress").length,
       subText: "↑ 8% vs last week",
       icon: InProgress,
-      iconBg: "rgb(239, 246, 255);",
+      iconBg: "var(--blue-50);",
     },
     {
       title: "Overdue",
@@ -83,7 +83,7 @@ const Card = styled(Flex)`
   border-radius: 12px;
   box-shadow:
     var(--slate-100) 0px 0px 0px 1px inset,
-    rgba(0, 0, 0, 0.05) 0px 1px 2px;
+    var(--shadow-black) 0px 1px 2px;
   padding: 20px 16px;
   height: 97px;
 `;

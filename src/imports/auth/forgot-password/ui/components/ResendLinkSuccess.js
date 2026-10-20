@@ -67,5 +67,5 @@ const IconHolder = styled.span`
 `;
 const Bold = styled.span`
   font-weight: bolder;
-  color: black;
+  color: var(--black);
 `;

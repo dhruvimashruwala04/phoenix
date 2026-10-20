@@ -80,7 +80,7 @@ const InvitationRow = styled(Flex)`
   min-width: 0;
   min-height: 64px;
   padding: 10px 28px;
-  border-bottom: 1px solid #f0f2f6;
+  border-bottom: 1px solid var(--surface-muted);
 
   &:last-child {
     border-bottom: none;
@@ -123,7 +123,7 @@ const PendingBadge = styled.span`
   flex-shrink: 0;
   padding: 3px 8px;
   border-radius: 4px;
-  background: #eef0ff;
+  background: var(--indigo-50);
   color: #5554f0;
   font-size: 10px;
   font-weight: 650;
@@ -132,7 +132,7 @@ const PendingBadge = styled.span`
 const ResendButton = styled.button`
   height: 33px;
   padding: 0 12px;
-  border: 1px solid #dce4ef;
+  border: 1px solid var(--border-input);
   border-radius: 6px;
   background: var(--white);
   color: var(--text-heading);
@@ -172,6 +172,6 @@ const RevokeButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    color: #be123c;
+    color: var(--rose-700);
   }
 `;

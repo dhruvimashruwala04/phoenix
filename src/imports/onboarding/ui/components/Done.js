@@ -124,7 +124,7 @@ const SummaryCard = styled.div`
   background: var(--white);
   border: 1px solid var(--border-soft);
   border-radius: 14px;
-  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+  box-shadow: 0 2px 6px var(--shadow-sm);
 `;
 
 const SummaryRow = styled(Flex)`

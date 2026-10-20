@@ -17,12 +17,12 @@ const AllTaskView = ({ tasks }) => {
     {
       value: "in_progress",
       label: "In Progress",
-      color: "rgb(59, 130, 246)",
+      color: "var(--blue-500)",
     },
     {
       value: "review",
       label: "Review",
-      color: "rgb(249, 115, 22)",
+      color: "var(--orange-500)",
     },
     {
       value: "done",
@@ -152,7 +152,7 @@ const TaskRow = styled(Flex)`
 const Checkbox = styled.input`
   width: 18px;
   height: 18px;
-  border: 1px solid rgba(223, 228, 233, 1);
+  border: 1px solid var(--border-gray);
   border-radius: 5px;
   accent-color: var(--blue-accent);
   cursor: pointer;

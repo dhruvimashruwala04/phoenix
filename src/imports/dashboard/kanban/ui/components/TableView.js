@@ -113,7 +113,7 @@ const Table = styled.div`
   border-radius: 12px;
   box-shadow:
     var(--slate-100) 0px 0px 0px 1px inset,
-    rgba(0, 0, 0, 0.05) 0px 1px 2px;
+    var(--shadow-black) 0px 1px 2px;
 `;
 const HeaderRow = styled.div`
   display: grid;
@@ -168,8 +168,8 @@ const StatusDot = styled.span`
   height: 6px;
   border-radius: 50%;
   background: ${({ $status }) => {
-    if ($status === "in_progress") return "rgb(59, 130, 246)";
-    if ($status === "review") return "rgb(249, 115, 22)";
+    if ($status === "in_progress") return "var(--blue-500)";
+    if ($status === "review") return "var(--orange-500)";
     if ($status === "done") return "var(--emerald-500)";
     return "var(--text-muted-2)";
   }};
@@ -235,7 +235,7 @@ const OwnerAvatar = styled(Flex)`
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: rgb(59, 130, 246);
+  background: var(--blue-500);
   color: var(--white);
   font-size: 9px;
   font-weight: 700;

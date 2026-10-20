@@ -79,7 +79,7 @@ const Card = styled.section`
   background: var(--white);
   border: 1px solid var(--border-soft);
   border-radius: 13px;
-  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.035);
+  box-shadow: 0 2px 4px var(--shadow-xs);
 `;
 const Header = styled(Flex)`
   margin-bottom: 17px;
@@ -122,7 +122,7 @@ const PlanCard = styled.div`
   border: ${({ $current }) =>
     $current ? "2px solid #5146ff" : "1px solid #dce5f0"};
   border-radius: 12px;
-  background: ${({ $current }) => ($current ? "#f8faff" : "var(--white)")};
+  background: ${({ $current }) => ($current ? "var(--slate-50)" : "var(--white)")};
 `;
 const PlanName = styled.span`
   font-size: 14px;

@@ -42,7 +42,7 @@ const FilterButton = styled.button`
   justify-content: center;
   height: 31px;
   padding: 0 12px;
-  border: 1px solid ${({ $active }) => ($active ? "#c7d2fe" : "#dfe6ef")};
+  border: 1px solid ${({ $active }) => ($active ? "var(--indigo-200)" : "#dfe6ef")};
   border-radius: 999px;
   background: ${({ $active }) => ($active ? "var(--indigo-50)" : "var(--white)")};
   color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--slate-700)")};
@@ -56,6 +56,6 @@ const FilterButton = styled.button`
 
   &:hover {
     background: var(--indigo-50);
-    border-color: #c7d2fe;
+    border-color: var(--indigo-200);
   }
 `;

@@ -16,6 +16,7 @@ const NavBar = () => {
               return (
                 <LinkText key={index} href={link.href}>
                   {Icon && <Icon />}
+                  {link.color && <Dot $color={link.color} />}
                   {link.label}
                 </LinkText>
               );
@@ -64,4 +65,10 @@ const LinkText = styled(Link)`
   &:hover {
     color: var(--white);
   }
+`;
+const Dot = styled.div`
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: ${({ $color }) => $color || "var(--blue-accent)"};
 `;

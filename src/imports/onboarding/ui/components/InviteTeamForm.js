@@ -188,7 +188,7 @@ const AddButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   &:hover {
-    background-color: #463bd1;
+    background-color: var(--blue-accent-hover);
   }
 `;
 const InviteList = styled(Flex)`
@@ -277,7 +277,7 @@ const CopyButton = styled.button`
   padding: 0 11px;
   border: none;
   border-radius: 7px;
-  background-color: #eef0ff;
+  background-color: var(--indigo-50);
   color: var(--blue-accent);
   font-size: 12px;
   font-weight: 600;

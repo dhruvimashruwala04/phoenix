@@ -38,7 +38,7 @@ const QuickActions = styled(Flex)`
   background: var(--white);
   border: 1px solid var(--border-muted);
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  box-shadow: 0 8px 24px var(--shadow-lg);
   z-index: 50;
 `;
 const Action = styled(Flex)`

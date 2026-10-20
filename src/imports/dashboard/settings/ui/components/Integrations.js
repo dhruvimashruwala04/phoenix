@@ -66,7 +66,7 @@ const Card = styled.div`
   border-radius: 12px;
   box-shadow:
     var(--slate-100) 0px 0px 0px 1px inset,
-    rgba(0, 0, 0, 0.05) 0px 1px 2px;
+    var(--shadow-black) 0px 1px 2px;
   padding: 18px;
   display: flex;
   flex-direction: column;

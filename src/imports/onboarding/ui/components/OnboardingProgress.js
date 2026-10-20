@@ -129,7 +129,7 @@ const StepNumber = styled(Flex)`
       $active || $completed ? "var(--blue-accent)" : "var(--border-input)"};
 
   color: ${({ $active, $completed }) =>
-    $active || $completed ? "white" : "#8a9aad"};
+    $active || $completed ? "white" : "var(--text-faint)"};
 
   font-size: 11px;
   font-weight: 600;
@@ -139,7 +139,7 @@ const StepName = styled.span`
   font-size: 13px;
 
   color: ${({ $active, $completed }) =>
-    $active ? "var(--text-heading)" : $completed ? "var(--text-secondary)" : "#8a9aad"};
+    $active ? "var(--text-heading)" : $completed ? "var(--text-secondary)" : "var(--text-faint)"};
 
   font-weight: ${({ $active }) => ($active ? "600" : "400")};
 `;
