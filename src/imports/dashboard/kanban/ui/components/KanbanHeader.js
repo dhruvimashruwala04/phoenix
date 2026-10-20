@@ -1,12 +1,12 @@
 import { Flex } from "@/imports/core/components/Flex";
 import SearchBox from "@/imports/dashboard/ui/components/SearchBox";
 import styled from "styled-components";
-import { Filter, Flag, Group, KanbanHeaderIcon, User } from "../assets/Icons";
+import { Filter, Group, KanbanHeaderIcon, User } from "../assets/Icons";
 import AiInsightsBox from "@/imports/dashboard/ui/components/AiInsightsBox";
 import ActionButton from "@/imports/dashboard/ui/components/ActionButton";
 import { useState } from "react";
 import useKanbanStore from "../../store/kanbanStore";
-import { Kanban } from "@/imports/dashboard/ui/assets/Icons";
+import { Flag, Kanban } from "@/imports/core/assets/Icons";
 
 const KanbanHeader = () => {
   const {
@@ -34,6 +34,7 @@ const KanbanHeader = () => {
       label: "Priority",
       value: "priority",
       icon: Flag,
+      iconSize: 16,
     },
     {
       label: "Assignee",
@@ -116,7 +117,7 @@ const KanbanHeader = () => {
                     setOpenGroup(false);
                   }}
                 >
-                  <Icon />
+                  <Icon size={option.iconSize} />
                   <OptionText $active={active}>{option.label}</OptionText>
 
                   {active && <Check />}

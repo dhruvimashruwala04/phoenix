@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Deadlines, Event, Focus, Meetings } from "../assets/Icons";
+import { Event } from "../assets/Icons";
+import { Clock, Flag, Users } from "@/imports/core/assets/Icons";
 import { Flex } from "@/imports/core/components/Flex";
 
 const CalendarStats = () => {
@@ -15,21 +16,25 @@ const CalendarStats = () => {
       title: "Meetings",
       value: "18",
       subText: "↑ 8% vs last month",
-      icon: Meetings,
+      icon: Users,
+      iconColor: "var(--blue-500)",
       iconBg: "var(--blue-50)",
     },
     {
       title: "Deadlines",
       value: "6",
       subText: "↓ 2% vs last month",
-      icon: Deadlines,
+      icon: Flag,
+      iconSize: 16,
+      iconColor: "var(--red-500)",
       iconBg: "var(--red-50)",
     },
     {
       title: "Focus Time",
       value: "24h 30m",
       subText: "This month",
-      icon: Focus,
+      icon: Clock,
+      iconColor: "#A855F7",
       iconBg: "var(--violet-50)",
     },
   ];
@@ -40,7 +45,7 @@ const CalendarStats = () => {
         return (
           <Card gap="16px" key={stat.title} align="center">
             <IconBox align="center" justify="center" $background={stat.iconBg}>
-              <Icon />
+              <Icon color={stat.iconColor} size={stat.iconSize} />
             </IconBox>
 
             <Content direction="column">

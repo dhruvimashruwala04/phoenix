@@ -1,5 +1,5 @@
 import { Flex } from "@/imports/core/components/Flex";
-import { Close } from "@/imports/dashboard/ui/assets/Icons";
+import { Close } from "@/imports/core/assets/Icons";
 import styled from "styled-components";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";

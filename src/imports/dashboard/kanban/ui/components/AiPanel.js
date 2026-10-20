@@ -6,7 +6,7 @@ import { AI, Send } from "../assets/Icons";
 import useAuthStore from "@/imports/auth/store/authStore";
 import { aiSuggestions, help } from "../../api/constants";
 import useKanbanStore from "../../store/kanbanStore";
-import { Close } from "@/imports/dashboard/ui/assets/Icons";
+import { Close } from "@/imports/core/assets/Icons";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
 
 const AiPanel = ({ reply }) => {

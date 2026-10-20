@@ -2,7 +2,8 @@
 import { Flex } from "@/imports/core/components/Flex";
 import ActionButton from "@/imports/dashboard/ui/components/ActionButton";
 import styled from "styled-components";
-import { Document, Edit, Preview, Spec, Trash } from "../assets/Icons";
+import { Document, Edit, Spec } from "../assets/Icons";
+import { OpenEye, Trash } from "@/imports/core/assets/Icons";
 import useDocsStore from "../../store/docsStore";
 import useAuthStore from "@/imports/auth/store/authStore";
 import getInitials from "@/imports/core/utils/getInitials";
@@ -101,7 +102,7 @@ const DocsView = () => {
               >
                 {viewState === "edit" ? (
                   <>
-                    <Preview /> Preview
+                    <OpenEye color="currentColor" /> Preview
                   </>
                 ) : (
                   <>

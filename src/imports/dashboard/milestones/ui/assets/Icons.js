@@ -1,29 +1,3 @@
-export const Flag = () => (
-  <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
-    <path
-      d="M5 21V4m0 1c5-4 9 4 14 0v10c-5 4-9-4-14 0"
-      stroke="currentColor"
-      strokeWidth="1.7"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-export const FlagFilled = () => {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-      <path
-        d="M5 21V4m0 1c5-4 9 4 14 0v10c-5 4-9-4-14 0"
-        stroke="currentColor"
-        strokeWidth="1.7"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-};
-
 export const Due = () => {
   return (
     <svg
@@ -81,17 +55,5 @@ export const Calendar = () => (
       strokeWidth="1.6"
     />
     <path d="M8 3v5M16 3v5M4 10h16" stroke="currentColor" strokeWidth="1.6" />
-  </svg>
-);
-
-export const Trash = () => (
-  <svg viewBox="0 0 24 24" fill="none" width="15" height="15">
-    <path
-      d="M4 7h16M10 11v6m4-6v6M6 7l1 14h10l1-14M9 7V4h6v3"
-      stroke="currentColor"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
   </svg>
 );

@@ -1,13 +1,8 @@
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import useKanbanStore from "@/imports/dashboard/kanban/store/kanbanStore";
-import {
-  TotalTask,
-  Completed,
-  InProgress,
-  Overdue,
-  TeamWorkload,
-} from "../assets/Icons";
+import { TotalTask, InProgress, Overdue, TeamWorkload } from "../assets/Icons";
+import { CheckCircle } from "@/imports/core/assets/Icons";
 
 const KanbanStats = () => {
   const tasks = useKanbanStore((state) => state.tasks);
@@ -23,7 +18,7 @@ const KanbanStats = () => {
       title: "Completed",
       value: tasks.filter((task) => task.status === "done").length,
       subText: "56% of total tasks",
-      icon: Completed,
+      icon: CheckCircle,
       iconBg: "var(--emerald-50)",
     },
     {

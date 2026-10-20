@@ -1,5 +1,5 @@
 import useKanbanStore from "../../kanban/store/kanbanStore";
-import { Clock, Completed, Folder, Team } from "../ui/assets/Icons";
+import { CheckCircle, Clock, Folder, Users } from "@/imports/core/assets/Icons";
 
 const tasks = useKanbanStore((state) => state.tasks);
 export const stats = [
@@ -21,14 +21,14 @@ export const stats = [
     title: "Completed this month",
     value: "72",
     subText: "↑ 16% vs last month",
-    icon: <Completed />,
+    icon: <CheckCircle />,
     iconBg: "rgb(236, 253, 245)",
   },
   {
     title: "Team members",
     value: "12",
     subText: "9 online now",
-    icon: <Team />,
+    icon: <Users />,
     iconBg: "rgb(245, 243, 255)",
   },
 ];

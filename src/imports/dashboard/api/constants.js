@@ -1,6 +1,5 @@
 import { projects } from "../kanban/api/constants";
 import {
-  AiInsights,
   Activity,
   Calendar,
   Dependencies,
@@ -9,7 +8,6 @@ import {
   GanttChart,
   Help,
   Inbox,
-  Kanban,
   Milestones,
   Overview,
   Reports,
@@ -19,6 +17,7 @@ import {
   Timeline,
   Workload,
 } from "../ui/assets/Icons";
+import { AiInsights, Kanban } from "@/imports/core/assets/Icons";
 
 export const nav = [
   {

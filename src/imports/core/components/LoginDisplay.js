@@ -1,7 +1,7 @@
 import { Flex } from "@/imports/core/components/Flex";
 import React from "react";
 import styled from "styled-components";
-import { AI } from "../../auth/login/ui/assets/Icons";
+import { AI } from "@/imports/core/assets/Icons";
 
 const LoginDisplay = () => {
   return (

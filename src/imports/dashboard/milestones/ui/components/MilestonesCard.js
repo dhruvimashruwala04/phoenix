@@ -1,6 +1,7 @@
 import { Flex } from "@/imports/core/components/Flex";
 import styled from "styled-components";
-import { Calendar, Due, Flag, FlagFilled, Trash } from "../assets/Icons";
+import { Calendar, Due } from "../assets/Icons";
+import { Flag, Trash } from "@/imports/core/assets/Icons";
 import formatDateLong from "@/imports/core/utils/formatDateLong";
 import useMilestones from "../../store/milestonesStore";
 
@@ -18,7 +19,7 @@ const MilestonesCard = ({ milestone }) => {
           {milestone.status === "Upcoming" ? (
             <Flag />
           ) : milestone.status === "Completed" ? (
-            <FlagFilled />
+            <Flag filled />
           ) : (
             <Due />
           )}

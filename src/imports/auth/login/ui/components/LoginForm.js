@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
-import { CloseEye, GitHub, Google, OpenEye } from "../assets/Icons";
+import { CloseEye, GitHub, Google } from "../assets/Icons";
+import { OpenEye } from "@/imports/core/assets/Icons";
 import useLoginForm from "../../hooks/useLoginForm";
 import Link from "next/link";
 import ErrorBox from "@/imports/core/components/ErrorBox";

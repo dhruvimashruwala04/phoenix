@@ -1,7 +1,7 @@
 import { Flex } from "@/imports/core/components/Flex";
 import React from "react";
 import styled from "styled-components";
-import { AiInsights } from "../assets/Icons";
+import { AiInsights } from "@/imports/core/assets/Icons";
 
 const AiInsightsBox = ({ variant = "primary", text, onClick }) => {
   return (

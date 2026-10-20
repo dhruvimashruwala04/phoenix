@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
-import { Clock, Completed, Folder, Team } from "../assets/Icons";
+import { CheckCircle, Clock, Folder, Users } from "@/imports/core/assets/Icons";
 import useKanbanStore from "@/imports/dashboard/kanban/store/kanbanStore";
 
 const StatsCards = () => {
@@ -24,14 +24,14 @@ const StatsCards = () => {
       title: "Completed this month",
       value: "72",
       subText: "↑ 16% vs last month",
-      icon: Completed,
+      icon: CheckCircle,
       iconBg: "var(--emerald-50)",
     },
     {
       title: "Team members",
       value: "12",
       subText: "9 online now",
-      icon: Team,
+      icon: Users,
       iconBg: "var(--violet-50)",
     },
   ];

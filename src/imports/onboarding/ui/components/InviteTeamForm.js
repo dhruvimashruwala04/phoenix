@@ -1,7 +1,8 @@
 "use client";
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
-import { Copy, Cross, Link } from "../assets/Icons";
+import { Copy, Link } from "../assets/Icons";
+import { Close } from "@/imports/core/assets/Icons";
 import useOnboardingStore from "../../store/onboardingStore";
 
 const InviteTeamForm = () => {
@@ -87,7 +88,7 @@ const InviteTeamForm = () => {
                 type="button"
                 onClick={() => removeInvite(invite.inviteeEmail)}
               >
-                <Cross />
+                <Close />
               </RemoveButton>
             </InviteRow>
           ))

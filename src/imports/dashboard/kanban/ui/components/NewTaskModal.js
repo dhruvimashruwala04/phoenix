@@ -4,7 +4,7 @@ import styled from "styled-components";
 import useKanbanStore from "../../store/kanbanStore";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
 import useAuthStore from "@/imports/auth/store/authStore";
-import { Close } from "@/imports/dashboard/ui/assets/Icons";
+import { Close } from "@/imports/core/assets/Icons";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
 import CancelButton from "@/imports/core/components/CancelButton";
 import { projects } from "../../api/constants";

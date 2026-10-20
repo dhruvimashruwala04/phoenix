@@ -1,6 +1,6 @@
 "use client";
 import { Flex } from "@/imports/core/components/Flex";
-import { BackArrow } from "@/imports/auth/login/ui/assets/Icons";
+import { ArrowLeft } from "@/imports/core/assets/Icons";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
@@ -23,7 +23,7 @@ const ForgotPasswordForm = () => {
   return (
     <FormBox direction="column" gap="24px">
       <BackText href="/login">
-        <BackArrow />
+        <ArrowLeft />
         Back to log in
       </BackText>
       {success ? (

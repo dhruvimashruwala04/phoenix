@@ -2,7 +2,7 @@ import { Flex } from "@/imports/core/components/Flex";
 import useCalendarStore from "../../store/calendarStore";
 import styled from "styled-components";
 import { categories } from "../../api/constants";
-import { Close } from "@/imports/dashboard/ui/assets/Icons";
+import { Close } from "@/imports/core/assets/Icons";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
 import CancelButton from "@/imports/core/components/CancelButton";
 

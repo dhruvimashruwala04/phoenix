@@ -13,7 +13,7 @@ import AllTaskView from "../components/AllTaskView";
 import useKanbanView from "../../hooks/useKanbanView";
 import AiQuickActions from "../components/AiQuickActions";
 import { useState } from "react";
-import { AiInsights } from "@/imports/dashboard/ui/assets/Icons";
+import { AiInsights } from "@/imports/core/assets/Icons";
 import { AiAssignee, AiPriority, AiReport, AiTask } from "../assets/Icons";
 
 const KanbanPage = () => {

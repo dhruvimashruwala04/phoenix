@@ -2,7 +2,8 @@
 
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
-import { Down, Fullscreen, More, Sort } from "../assets/Icons";
+import { Fullscreen, More, Sort } from "../assets/Icons";
+import { ChevronDown } from "@/imports/core/assets/Icons";
 import useKanbanStore from "../../store/kanbanStore";
 
 const ViewToolbar = () => {
@@ -52,7 +53,7 @@ const ViewToolbar = () => {
                   : "Due date"}
             </strong>
           </span>
-          <Down />
+          <ChevronDown />
         </SortButton>
 
         <IconButton>

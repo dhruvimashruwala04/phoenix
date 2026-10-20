@@ -7,7 +7,7 @@ import SearchBox from "@/imports/dashboard/ui/components/SearchBox";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
 import useCalendarStore from "../../store/calendarStore";
 import styled from "styled-components";
-import { Down } from "../assets/Icons";
+import { ChevronDown } from "@/imports/core/assets/Icons";
 
 const CalendarHeader = () => {
   const projectName = useOnboardingStore((state) => state.projectName);
@@ -24,7 +24,7 @@ const CalendarHeader = () => {
       <Details gap="6px" align="center" justify="space-between">
         <Dot></Dot>
         {projectName}
-        <Down />
+        <ChevronDown />
       </Details>
       <SearchBox
         placeholder="Search events, tasks, people..."

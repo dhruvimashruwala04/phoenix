@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
-import { Close } from "@/imports/dashboard/ui/assets/Icons";
+import { Close } from "@/imports/core/assets/Icons";
 
 const BulkStrip = ({
   selected,

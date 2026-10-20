@@ -4,7 +4,8 @@ import { usePathname, useRouter } from "next/navigation";
 import { Flex } from "@/imports/core/components/Flex";
 import OnboardingProgress from "@/imports/onboarding/ui/components/OnboardingProgress";
 import { steps } from "@/imports/onboarding/api/constant";
-import { LeftArrow, RightArrow } from "@/imports/onboarding/ui/assets/Icons";
+import { RightArrow } from "@/imports/onboarding/ui/assets/Icons";
+import { ArrowLeft } from "@/imports/core/assets/Icons";
 
 const OnboardingLayout = ({ children }) => {
   const pathname = usePathname();
@@ -53,7 +54,7 @@ const OnboardingLayout = ({ children }) => {
             <div />
           ) : (
             <BackButton onClick={handleBack}>
-              <LeftArrow /> Back
+              <ArrowLeft color="var(--black)" /> Back
             </BackButton>
           )}
 

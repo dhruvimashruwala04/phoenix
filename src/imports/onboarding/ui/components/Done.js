@@ -3,7 +3,8 @@
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import useOnboardingStore from "../../store/onboardingStore";
-import { Folder, UserEmpty, UserFilled, Workspace } from "../assets/Icons";
+import { UserEmpty, UserFilled, Workspace } from "../assets/Icons";
+import { Folder } from "@/imports/core/assets/Icons";
 import { useRouter } from "next/navigation";
 
 const Done = () => {
