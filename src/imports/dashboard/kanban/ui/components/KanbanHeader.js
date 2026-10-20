@@ -134,8 +134,8 @@ const KanbanHeader = () => {
 export default KanbanHeader;
 const Header = styled(Flex)`
   min-height: 64px;
-  background: rgb(255, 255, 255);
-  border-bottom: 1px solid rgb(241, 245, 249);
+  background: var(--white);
+  border-bottom: 1px solid var(--slate-100);
   padding: 12px 24px;
   z-index: 5;
   width: 100%;
@@ -144,8 +144,8 @@ const IconWrapper = styled(Flex)`
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background: rgb(238, 242, 255);
-  color: rgb(79, 70, 229);
+  background: var(--indigo-50);
+  color: var(--blue-accent);
   flex-shrink: 0;
 `;
 const TextWrapper = styled(Flex)`
@@ -159,7 +159,7 @@ const Title = styled.span`
 `;
 const Content = styled.span`
   font-size: 12px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
   line-height: 16px;
   text-align: left;
 `;
@@ -173,9 +173,9 @@ const FilterBox = styled.button`
   padding: 0px 14px;
   border-radius: 8px;
   border: 0px;
-  background: rgb(255, 255, 255);
-  box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
-  color: rgb(51, 65, 85);
+  background: var(--white);
+  box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
+  color: var(--slate-700);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -189,11 +189,11 @@ const FilterOptions = styled(Flex)`
   top: 36px;
   left: 0;
   width: fit-content;
-  background: rgb(255, 255, 255);
+  background: var(--white);
   border-radius: 12px;
   box-shadow:
     rgba(15, 23, 42, 0.14) 0px 12px 32px,
-    rgb(241, 245, 249) 0px 0px 0px 1px inset;
+    var(--slate-100) 0px 0px 0px 1px inset;
   padding: 14px;
   z-index: 20;
 `;
@@ -207,9 +207,9 @@ const GroupBox = styled.button`
   padding: 0px 14px;
   border-radius: 8px;
   border: 0px;
-  background: rgb(255, 255, 255);
-  box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
-  color: rgb(51, 65, 85);
+  background: var(--white);
+  box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
+  color: var(--slate-700);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -223,11 +223,11 @@ const GroupOptions = styled(Flex)`
   top: 42px;
   left: 0;
   width: 200px;
-  background: rgb(255, 255, 255);
+  background: var(--white);
   border-radius: 12px;
   box-shadow:
     rgba(15, 23, 42, 0.14) 0px 12px 32px,
-    rgb(241, 245, 249) 0px 0px 0px 1px inset;
+    var(--slate-100) 0px 0px 0px 1px inset;
   padding: 5px;
   z-index: 20;
 `;
@@ -238,15 +238,15 @@ const GroupOption = styled(Flex)`
   border-radius: 8px;
   cursor: pointer;
   background: ${({ $active }) =>
-    $active ? "rgb(238, 242, 255)" : "transparent"};
-  color: ${({ $active }) => ($active ? "rgb(79, 70, 229)" : "rgb(51, 65, 85)")};
+    $active ? "var(--indigo-50)" : "transparent"};
+  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--slate-700)")};
   &:hover {
-    background: rgb(248, 250, 252);
+    background: var(--slate-50);
   }
 `;
 const OptionText = styled.span`
   font-size: 13px;
-  color: ${({ $active }) => ($active ? "rgb(79, 70, 229)" : "rgb(51, 65, 85)")};
+  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--slate-700)")};
 `;
 const Check = styled.span`
   width: 16px;
@@ -262,12 +262,12 @@ const FilterOption = styled.button`
   border: none;
   border-radius: 7px;
   background: ${({ $active }) =>
-    $active ? "rgb(238, 242, 255)" : "transparent"};
-  color: ${({ $active }) => ($active ? "rgb(79, 70, 229)" : "rgb(51, 65, 85)")};
+    $active ? "var(--indigo-50)" : "transparent"};
+  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--slate-700)")};
   text-align: left;
   font-size: 13px;
   cursor: pointer;
   &:hover {
-    background: rgb(248, 250, 252);
+    background: var(--slate-50);
   }
 `;

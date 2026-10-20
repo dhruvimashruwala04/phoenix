@@ -160,22 +160,22 @@ const Wrapper = styled.div`
   height: 100%;
   display: grid;
   grid-template-columns: 445px minmax(0, 1fr);
-  background: white;
-  border: 1px solid rgb(226, 232, 240);
+  background: var(--white);
+  border: 1px solid var(--border-muted);
   border-radius: 12px;
   overflow: hidden;
 `;
 const MessageList = styled.div`
   min-width: 0;
   overflow-y: auto;
-  border-right: 1px solid rgb(226, 232, 240);
+  border-right: 1px solid var(--border-muted);
 `;
 const MessageItem = styled(Flex)`
   position: relative;
   min-height: 78px;
   padding: 14px 16px;
   box-sizing: border-box;
-  border-bottom: 1px solid rgb(241, 245, 249);
+  border-bottom: 1px solid var(--slate-100);
   background: ${({ $active }) => ($active ? "rgb(248, 250, 255)" : "white")};
   cursor: pointer;
   ${({ $active }) =>
@@ -188,11 +188,11 @@ const MessageItem = styled(Flex)`
         top: 0;
         bottom: 0;
         width: 3px;
-        background: rgb(79, 70, 229);
+        background: var(--blue-accent);
       }
     `}
   &:hover {
-    background: rgb(248, 250, 252);
+    background: var(--slate-50);
   }
 `;
 const Avatar = styled(Flex)`
@@ -201,7 +201,7 @@ const Avatar = styled(Flex)`
   height: 34px;
   border-radius: 50%;
   background: ${({ $color }) => $color};
-  color: white;
+  color: var(--white);
   font-size: 11px;
   font-weight: 700;
 `;
@@ -213,12 +213,12 @@ const TopRow = styled(Flex)``;
 const Name = styled.div`
   font-size: 13px;
   font-weight: ${({ $read }) => ($read ? 500 : 700)};
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
 `;
 const Time = styled.div`
   flex-shrink: 0;
   font-size: 11px;
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
 `;
 const Subject = styled.div`
   margin-top: 3px;
@@ -227,7 +227,7 @@ const Subject = styled.div`
   white-space: nowrap;
   font-size: 13px;
   font-weight: ${({ $read }) => ($read ? 500 : 600)};
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
 `;
 const Meta = styled(Flex)`
   margin-top: 5px;
@@ -235,19 +235,19 @@ const Meta = styled(Flex)`
 const Type = styled.span`
   padding: 1px 5px;
   border-radius: 3px;
-  background: rgb(238, 242, 255);
+  background: var(--indigo-50);
   font-size: 9px;
   font-weight: 600;
   ${({ $type }) => {
     switch ($type) {
       case "Mention":
-        return `background: rgb(238, 242, 255); color: rgb(79, 70, 229)`;
+        return `background: var(--indigo-50); color: var(--blue-accent)`;
       case "Request":
-        return `background: rgb(255, 237, 197); color: rgb(245, 158, 11)`;
+        return `background: rgb(255, 237, 197); color: var(--amber-500)`;
       case "Alert":
         return `background: rgb(255, 227, 225); color: rgb(239, 68, 68)`;
       case "Update":
-        return `background: rgb(230, 232, 255); color: rgb(100, 116, 139);`;
+        return `background: rgb(230, 232, 255); color: var(--text-muted);`;
     }
   }}
 `;
@@ -256,7 +256,7 @@ const UnreadDot = styled.span`
   height: 5px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: rgb(79, 70, 229);
+  background: var(--blue-accent);
 `;
 const Conversation = styled(Flex)`
   min-width: 0;
@@ -268,13 +268,13 @@ const ConversationHeader = styled(Flex)`
   width: 100%;
   min-height: 58px;
   padding: 0 18px;
-  border-bottom: 1px solid rgb(226, 232, 240);
+  border-bottom: 1px solid var(--border-muted);
 `;
 const HeaderTitle = styled.h2`
   margin: 0;
   font-size: 14px;
   font-weight: 700;
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
 `;
 const HeaderActions = styled(Flex)``;
 const IconButton = styled.button`
@@ -286,13 +286,13 @@ const IconButton = styled.button`
   padding: 0;
   border: 0;
   background: transparent;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
   cursor: pointer;
 
   ${({ $archive }) =>
     $archive &&
     `
-    color: rgb(79, 70, 229);
+    color: var(--blue-accent);
     `}
 `;
 const ConversationBody = styled(Flex)`
@@ -307,11 +307,11 @@ const SenderDetails = styled(Flex)``;
 const SenderName = styled.span`
   font-size: 13px;
   font-weight: 700;
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
 `;
 const SenderMeta = styled.span`
   font-size: 11px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
 `;
 const MessageText = styled.p`
   max-width: 760px;
@@ -322,15 +322,15 @@ const MessageText = styled.p`
   align-self: ${({ $type }) => ($type === "in" ? "flex-start" : "flex-end")};
 
   background: ${({ $type }) =>
-    $type === "in" ? "transparent" : "rgb(238, 242, 255)"};
+    $type === "in" ? "transparent" : "var(--indigo-50)"};
 
   color: ${({ $type }) =>
-    $type === "in" ? "rgb(51, 65, 85)" : "rgb(49, 46, 129)"};
+    $type === "in" ? "var(--slate-700)" : "rgb(49, 46, 129)"};
 `;
 const ReplyArea = styled(Flex)`
   width: 100%;
   padding: 14px 18px;
-  border-top: 1px solid rgb(226, 232, 240);
+  border-top: 1px solid var(--border-muted);
 `;
 const ReplyInput = styled.input`
   flex: 1;
@@ -338,15 +338,15 @@ const ReplyInput = styled.input`
   height: 38px;
   padding: 0 12px;
   box-sizing: border-box;
-  border: 1px solid rgb(203, 213, 225);
+  border: 1px solid var(--slate-300);
   border-radius: 7px;
   outline: none;
   font-size: 12px;
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
   &::placeholder {
-    color: rgb(148, 163, 184);
+    color: var(--text-muted-2);
   }
   &:focus {
-    border-color: rgb(99, 102, 241);
+    border-color: var(--indigo-500);
   }
 `;

@@ -46,12 +46,12 @@ const Page = styled(Flex)`
   width: 100%;
 `;
 const Left = styled(Flex)`
-  background-color: #0f172a;
+  background-color: var(--slate-900);
   max-width: 256px;
   width: 100%;
 `;
 const Right = styled(Flex)`
-  background-color: #ffffff;
+  background-color: var(--white);
   width: 100%;
 `;
 const LogoWrapper = styled(Flex)`
@@ -72,11 +72,11 @@ const LogoName = styled.span`
   font-size: 17px;
   font-weight: 600;
   font-size: 18px;
-  color: rgb(255, 255, 255);
+  color: var(--white);
 `;
 
 const User = styled(Flex)`
-  border-top: 1px solid rgb(30, 41, 59);
+  border-top: 1px solid var(--slate-800);
   padding: 16px;
   width: 100%;
 `;
@@ -84,8 +84,8 @@ const Initials = styled(Flex)`
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: rgb(51, 65, 85);
-  color: rgb(255, 255, 255);
+  background: var(--slate-700);
+  color: var(--white);
   font-size: 12px;
   font-weight: 600;
   flex-shrink: 0;
@@ -97,7 +97,7 @@ const Details = styled(Flex)`
 `;
 const Name = styled.span`
   display: flex;
-  color: rgb(255, 255, 255);
+  color: var(--white);
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
@@ -108,7 +108,7 @@ const Name = styled.span`
 `;
 const Email = styled.span`
   display: flex;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
   font-size: 12px;
   line-height: 16px;
   width: 100%;

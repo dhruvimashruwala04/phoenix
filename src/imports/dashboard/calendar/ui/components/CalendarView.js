@@ -94,7 +94,7 @@ const CalendarView = ({ onCalendarReady, onDateChange }) => {
                 fontSize: "22px",
                 fontWeight: 700,
                 lineHeight: "26px",
-                color: info.isToday ? "#4f46e5" : "#0f172a",
+                color: info.isToday ? "var(--blue-accent)" : "var(--slate-900)",
               }}
             >
               {info.date.getDate()}
@@ -105,7 +105,7 @@ const CalendarView = ({ onCalendarReady, onDateChange }) => {
                 fontSize: "12px",
                 fontWeight: 400,
                 lineHeight: "16px",
-                color: "#64748b",
+                color: "var(--text-muted)",
               }}
             >
               {info.date.toLocaleDateString("en-US", { weekday: "short" })},{" "}
@@ -171,7 +171,7 @@ const CalendarView = ({ onCalendarReady, onDateChange }) => {
                   style={{
                     flexShrink: 0,
                     fontSize: "11px",
-                    color: "#64748b",
+                    color: "var(--text-muted)",
                   }}
                 >
                   {category?.label}
@@ -263,16 +263,16 @@ const Container = styled.div`
     margin: 0 0 0 4px;
     font-size: 18px;
     font-weight: 700;
-    color: #0f172a;
+    color: var(--slate-900);
   }
 
   && .cal-view-switcher {
     padding: 3px;
     border-radius: 8px;
-    box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+    box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
     button[aria-selected="true"] {
-      background: rgb(238, 242, 255);
-      color: rgb(79, 70, 229);
+      background: var(--indigo-50);
+      color: var(--blue-accent);
       height: 28px;
       padding: 0px 14px;
     }
@@ -332,7 +332,7 @@ const Item = styled.span`
   align-items: center;
   gap: 6px;
   font-size: 12px;
-  color: rgb(71, 85, 105);
+  color: var(--slate-600);
 `;
 const Dot = styled.span`
   width: 7px;

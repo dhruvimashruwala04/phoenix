@@ -124,17 +124,17 @@ export default Profile;
 
 const Wrapper = styled(Flex)`
   width: 100%;
-  background: rgb(255, 255, 255);
+  background: var(--white);
   border-radius: 12px;
   box-shadow:
-    rgb(241, 245, 249) 0px 0px 0px 1px inset,
+    var(--slate-100) 0px 0px 0px 1px inset,
     rgba(0, 0, 0, 0.05) 0px 1px 2px;
   padding: 24px;
 `;
 const Title = styled.span`
   font-size: 16px;
   font-weight: 700;
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
 `;
 const PhotoWrapper = styled(Flex)``;
 const Details = styled.div`
@@ -147,22 +147,22 @@ const Initials = styled(Flex)`
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background: rgb(79, 70, 229);
-  color: rgb(255, 255, 255);
+  background: var(--blue-accent);
+  color: var(--white);
   font-size: 20px;
   font-weight: 700;
 `;
 const PhotoDetails = styled(Flex)``;
 const Info = styled.div`
   font-size: 12px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
 `;
 const Label = styled.label`
   height: 32px;
   padding: 0px 12px;
   border-radius: 8px;
-  background: rgb(255, 255, 255);
-  box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+  background: var(--white);
+  box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
   font-size: 12px;
   cursor: pointer;
   display: flex;
@@ -179,13 +179,13 @@ const InputLabel = styled.label`
   gap: 6px;
   font-size: 12px;
   font-weight: 600;
-  color: rgb(71, 85, 105);
+  color: var(--slate-600);
   > input,
   select {
     height: 38px;
     border-radius: 8px;
     border: 0px;
-    box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+    box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
     padding: 0px 12px;
     font-size: 14px;
     outline: 0px;
@@ -196,7 +196,7 @@ const Buttons = styled(Flex)`
 `;
 const Success = styled.span`
   font-size: 12px;
-  color: rgb(5, 150, 105);
+  color: var(--emerald-600);
   display: flex;
   gap: 6px;
   align-items: center;

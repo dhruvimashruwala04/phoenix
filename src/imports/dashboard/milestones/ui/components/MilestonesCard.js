@@ -69,11 +69,11 @@ const Card = styled.div`
   width: 100%;
   max-width: 360px;
   padding: 19px;
-  background: #ffffff;
+  background: var(--white);
   border: 1px solid #f0eef5;
   border-radius: 13px;
   box-shadow: 0 2px 5px rgba(15, 23, 42, 0.035);
-  color: #111827;
+  color: var(--gray-900);
 `;
 const TopSection = styled(Flex)`
   min-width: 0;
@@ -85,16 +85,16 @@ const IconBox = styled(Flex)`
   border-radius: 11px;
   color: ${({ $status }) =>
     $status === "Upcoming"
-      ? "#7c3aed"
+      ? "var(--violet-600)"
       : $status === "Due soon"
         ? "rgb(217, 119, 6)"
-        : "rgb(5, 150, 105)"};
+        : "var(--emerald-600)"};
   background: ${({ $status }) =>
     $status === "Upcoming"
-      ? "rgb(245, 243, 255)"
+      ? "var(--violet-50)"
       : $status === "Due soon"
-        ? "rgb(255, 251, 235)"
-        : "rgb(236, 253, 245)"};
+        ? "var(--amber-50)"
+        : "var(--emerald-50)"};
 `;
 const ProjectInfo = styled(Flex)`
   flex: 1;
@@ -105,11 +105,11 @@ const ProjectName = styled.h3`
   font-size: 14px;
   font-weight: 650;
   line-height: 18px;
-  color: #111827;
+  color: var(--gray-900);
 `;
 const Category = styled.span`
   font-size: 11px;
-  color: #64748b;
+  color: var(--text-muted);
 `;
 const Status = styled.span`
   flex-shrink: 0;
@@ -119,16 +119,16 @@ const Status = styled.span`
   font-weight: 650;
   color: ${({ $status }) =>
     $status === "Upcoming"
-      ? "#7c3aed"
+      ? "var(--violet-600)"
       : $status === "Due soon"
         ? "rgb(217, 119, 6)"
-        : "rgb(5, 150, 105)"};
+        : "var(--emerald-600)"};
   background: ${({ $status }) =>
     $status === "Upcoming"
-      ? "rgb(245, 243, 255)"
+      ? "var(--violet-50)"
       : $status === "Due soon"
-        ? "rgb(255, 251, 235)"
-        : "rgb(236, 253, 245)"};
+        ? "var(--amber-50)"
+        : "var(--emerald-50)"};
 `;
 const ProgressSection = styled.div`
   margin-top: 15px;
@@ -139,12 +139,12 @@ const ProgressHeader = styled(Flex)`
 const ProgressLabel = styled.span`
   font-size: 10px;
   letter-spacing: 0.25px;
-  color: #64748b;
+  color: var(--text-muted);
 `;
 const ProgressValue = styled.span`
   font-size: 11px;
   font-weight: 700;
-  color: #111827;
+  color: var(--gray-900);
 `;
 const ProgressTrack = styled.div`
   width: 100%;
@@ -160,21 +160,21 @@ const ProgressFill = styled.div`
   transition: width 250ms ease;
   background: ${({ $status }) =>
     $status === "Upcoming"
-      ? "#7c3aed"
+      ? "var(--violet-600)"
       : $status === "Due soon"
         ? "rgb(217, 119, 6)"
-        : "rgb(5, 150, 105)"};
+        : "var(--emerald-600)"};
 `;
 const Details = styled(Flex)`
   margin-top: 14px;
 `;
 const DueDate = styled(Flex)`
   font-size: 11px;
-  color: #64748b;
+  color: var(--text-muted);
 `;
 const TaskCount = styled.span`
   font-size: 11px;
-  color: #64748b;
+  color: var(--text-muted);
 `;
 const Divider = styled.div`
   height: 1px;
@@ -190,7 +190,7 @@ const CompleteButton = styled.button`
   border: none;
   border-radius: 8px;
   background: ${({ $completed }) => ($completed ? "#ede9fe" : "#f5f1ff")};
-  color: #7c3aed;
+  color: var(--violet-600);
   font-size: 12px;
   font-weight: 650;
   cursor: pointer;
@@ -208,12 +208,12 @@ const DeleteButton = styled.button`
   justify-content: center;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
-  background: #ffffff;
-  color: #94a3b8;
+  background: var(--white);
+  color: var(--text-muted-2);
   cursor: pointer;
   &:hover {
-    background: #fff1f2;
-    color: #e11d48;
-    border-color: #fecdd3;
+    background: var(--rose-50);
+    color: var(--rose-600);
+    border-color: var(--rose-200);
   }
 `;

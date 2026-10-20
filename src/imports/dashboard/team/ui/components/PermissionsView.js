@@ -74,8 +74,8 @@ const Wrapper = styled.div`
 const PermissionCard = styled.div`
   width: 100%;
   overflow: hidden;
-  background: #fff;
-  border: 1px solid #edf0f5;
+  background: var(--white);
+  border: 1px solid var(--border-soft);
   border-radius: 13px;
   box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
 `;
@@ -87,27 +87,27 @@ const Grid = styled.div`
 const HeaderCell = styled(Flex)`
   min-height: 57px;
   padding: 12px 20px;
-  border-bottom: 1px solid #edf0f5;
+  border-bottom: 1px solid var(--border-soft);
   font-size: 14px;
   font-weight: 650;
-  color: #111827;
+  color: var(--gray-900);
 `;
 const RoleHeader = styled.div`
   min-height: 57px;
   padding: 10px 12px;
-  border-bottom: 1px solid #edf0f5;
+  border-bottom: 1px solid var(--border-soft);
 `;
 const RoleName = styled.div`
   font-size: 13px;
   font-weight: 650;
   line-height: 18px;
-  color: #111827;
+  color: var(--gray-900);
 `;
 const RoleCount = styled.div`
   margin-top: 1px;
   font-size: 10px;
   line-height: 14px;
-  color: #94a3b8;
+  color: var(--text-muted-2);
 `;
 const PermissionRow = styled.div`
   display: contents;
@@ -124,13 +124,13 @@ const PermissionName = styled.div`
   font-size: 12px;
   font-weight: 550;
   line-height: 17px;
-  color: #111827;
+  color: var(--gray-900);
 `;
 const PermissionDescription = styled.div`
   margin-top: 1px;
   font-size: 11px;
   line-height: 15px;
-  color: #718096;
+  color: var(--gray-500);
 `;
 const PermissionCheckboxCell = styled(Flex)`
   min-height: 57px;
@@ -147,11 +147,11 @@ const Checkbox = styled.input`
   margin: 0;
   border: 1.5px solid #cbd8e8;
   border-radius: 6px;
-  background: #fff;
+  background: var(--white);
   cursor: pointer;
   &:checked {
-    background: #5145ed;
-    border-color: #5145ed;
+    background: var(--blue-accent);
+    border-color: var(--blue-accent);
   }
   &:checked::after {
     content: "";
@@ -160,7 +160,7 @@ const Checkbox = styled.input`
     top: 2px;
     width: 6px;
     height: 11px;
-    border: solid #fff;
+    border: solid var(--white);
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
   }
@@ -178,5 +178,5 @@ const FooterNote = styled.p`
   margin: 18px 0 0;
   font-size: 11px;
   line-height: 17px;
-  color: #94a3b8;
+  color: var(--text-muted-2);
 `;

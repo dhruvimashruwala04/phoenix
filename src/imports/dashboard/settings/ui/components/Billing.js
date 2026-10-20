@@ -76,8 +76,8 @@ const Card = styled.section`
   width: 100%;
   padding: 24px;
   box-sizing: border-box;
-  background: #ffffff;
-  border: 1px solid #edf1f6;
+  background: var(--white);
+  border: 1px solid var(--border-soft);
   border-radius: 13px;
   box-shadow: 0 2px 4px rgba(15, 23, 42, 0.035);
 `;
@@ -90,20 +90,20 @@ const Title = styled.span`
   font-weight: 700;
 `;
 const Subtitle = styled.span`
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 12px;
 `;
 const BillingToggle = styled(Flex)`
   padding: 4px;
   border-radius: 9px;
-  background: #f1f5f9;
+  background: var(--slate-100);
 `;
 const BillingOption = styled.button`
   padding: 6px 10px;
   border: none;
   border-radius: 6px;
-  background: ${({ $active }) => ($active ? "#ffffff" : "transparent")};
-  color: ${({ $active }) => ($active ? "#4f46e5" : "#64748b")};
+  background: ${({ $active }) => ($active ? "var(--white)" : "transparent")};
+  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--text-muted)")};
   font-size: 12px;
   white-space: nowrap;
   cursor: pointer;
@@ -122,7 +122,7 @@ const PlanCard = styled.div`
   border: ${({ $current }) =>
     $current ? "2px solid #5146ff" : "1px solid #dce5f0"};
   border-radius: 12px;
-  background: ${({ $current }) => ($current ? "#f8faff" : "#ffffff")};
+  background: ${({ $current }) => ($current ? "#f8faff" : "var(--white)")};
 `;
 const PlanName = styled.span`
   font-size: 14px;
@@ -139,12 +139,12 @@ const Price = styled.span`
   font-weight: 700;
 `;
 const PriceUnit = styled.span`
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 12px;
 `;
 const Description = styled.span`
   font-size: 12px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
 `;
 const PlanButton = styled.button`
   width: 100%;
@@ -152,13 +152,13 @@ const PlanButton = styled.button`
   padding: 8px;
   border: none;
   border-radius: 8px;
-  background: ${({ $current }) => ($current ? "#edf2ff" : "#4f46e5")};
-  color: ${({ $current }) => ($current ? "#4f46e5" : "#ffffff")};
+  background: ${({ $current }) => ($current ? "#edf2ff" : "var(--blue-accent)")};
+  color: ${({ $current }) => ($current ? "var(--blue-accent)" : "var(--white)")};
   font-size: 12px;
   font-weight: 600;
   cursor: ${({ disabled }) => (disabled ? "default" : "pointer")};
   transition: background 150ms ease;
   &:not(:disabled):hover {
-    background: #4338ca;
+    background: var(--indigo-700);
   }
 `;

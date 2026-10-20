@@ -61,5 +61,5 @@ const Page = styled(Flex)`
 `;
 const Content = styled(Flex)`
   flex: 1 1 70%;
-  border-right: 1px solid rgb(241, 245, 249);
+  border-right: 1px solid var(--slate-100);
 `;

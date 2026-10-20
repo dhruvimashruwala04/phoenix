@@ -79,7 +79,7 @@ const Toolbar = styled(Flex)`
 const ViewTabs = styled(Flex)`
   height: 36px;
   padding: 3px;
-  background: rgb(241, 245, 249);
+  background: var(--slate-100);
   border-radius: 9px;
 `;
 const Tab = styled.button`
@@ -87,9 +87,9 @@ const Tab = styled.button`
   padding: 0 25px;
   border: none;
   border-radius: 7px;
-  background: ${({ $active }) => ($active ? "#ffffff" : "transparent")};
+  background: ${({ $active }) => ($active ? "var(--white)" : "transparent")};
   color: ${({ $active }) =>
-    $active ? "rgb(67, 56, 202)" : "rgb(100, 116, 139)"};
+    $active ? "var(--indigo-700)" : "var(--text-muted)"};
   font-size: 14px;
   font-weight: ${({ $active }) => ($active ? 500 : 400)};
   cursor: pointer;
@@ -103,14 +103,14 @@ const SortButton = styled(Flex)`
   width: fit-content;
   height: 32px;
   padding: 0 10px;
-  border: 1px solid rgb(226, 232, 240);
+  border: 1px solid var(--border-muted);
   border-radius: 8px;
-  background: #ffffff;
-  color: rgb(100, 116, 139);
+  background: var(--white);
+  color: var(--text-muted);
   font-size: 12px;
   cursor: pointer;
   strong {
-    color: rgb(30, 41, 59);
+    color: var(--slate-800);
     font-weight: 600;
   }
 `;
@@ -121,12 +121,12 @@ const IconButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgb(226, 232, 240);
+  border: 1px solid var(--border-muted);
   border-radius: 7px;
-  background: #ffffff;
-  color: rgb(71, 85, 105);
+  background: var(--white);
+  color: var(--slate-600);
   cursor: pointer;
   &:hover {
-    background: rgb(248, 250, 252);
+    background: var(--slate-50);
   }
 `;

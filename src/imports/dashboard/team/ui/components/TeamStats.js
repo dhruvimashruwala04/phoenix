@@ -89,8 +89,8 @@ const Card = styled(Flex)`
   min-width: 0;
   min-height: 88px;
   padding: 16px 20px;
-  background: #ffffff;
-  border: 1px solid #f1f5f9;
+  background: var(--white);
+  border: 1px solid var(--slate-100);
   border-radius: 12px;
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
 `;
@@ -100,14 +100,14 @@ const SeatsHeader = styled(Flex)`
 `;
 
 const Title = styled.span`
-  color: #94a3b8;
+  color: var(--text-muted-2);
   font-size: 12px;
   line-height: 18px;
   font-weight: 400;
 `;
 
 const SeatsValue = styled.span`
-  color: #0f172a;
+  color: var(--slate-900);
   font-size: 12px;
   line-height: 18px;
   font-weight: 700;
@@ -117,10 +117,10 @@ const SeatsValue = styled.span`
 const Value = styled.span`
   color: ${({ $type }) =>
     $type === "pending"
-      ? "#5145ed"
+      ? "var(--blue-accent)"
       : $type === "requests"
         ? "#ff941f"
-        : "#0f172a"};
+        : "var(--slate-900)"};
   font-size: 22px;
   font-weight: 700;
   line-height: 26px;
@@ -139,7 +139,7 @@ const ProgressFill = styled.div`
   width: ${({ $progress }) => $progress}%;
   height: 100%;
   border-radius: inherit;
-  background: #5145ed;
+  background: var(--blue-accent);
 `;
 
 const Button = styled.button`
@@ -148,7 +148,7 @@ const Button = styled.button`
   background: transparent;
   padding: 0;
   margin-top: 3px;
-  color: #5145ed;
+  color: var(--blue-accent);
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;

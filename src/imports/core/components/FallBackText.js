@@ -39,9 +39,9 @@ const Container = styled(Flex)`
   padding: 48px 20px;
 `;
 const Icon = styled(Flex)`
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
 `;
 const Text = styled.div`
   font-size: 13px;
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
 `;

@@ -25,8 +25,8 @@ const Button = styled.button`
   padding: 0px 16px;
   border: 0px;
   background: ${({ $variant }) =>
-    $variant === "primary" ? "rgb(79, 70, 229)" : "rgb(109, 40, 217)"};
-  color: rgb(255, 255, 255);
+    $variant === "primary" ? "var(--blue-accent)" : "var(--violet-700)"};
+  color: var(--white);
   font-size: 14px;
   font-weight: 500;
   display: flex;

@@ -62,10 +62,10 @@ const Grid = styled.div`
   gap: 14px;
 `;
 const Card = styled.div`
-  background: rgb(255, 255, 255);
+  background: var(--white);
   border-radius: 12px;
   box-shadow:
-    rgb(241, 245, 249) 0px 0px 0px 1px inset,
+    var(--slate-100) 0px 0px 0px 1px inset,
     rgba(0, 0, 0, 0.05) 0px 1px 2px;
   padding: 18px;
   display: flex;
@@ -77,10 +77,10 @@ const Icon = styled(Flex)`
   height: 40px;
   width: 40px;
   border-radius: 10px;
-  background: rgb(248, 250, 252);
-  box-shadow: rgb(241, 245, 249) 0px 0px 0px 1px inset;
+  background: var(--slate-50);
+  box-shadow: var(--slate-100) 0px 0px 0px 1px inset;
   font-size: 18px;
-  color: rgb(51, 65, 85);
+  color: var(--slate-700);
 `;
 const Details = styled(Flex)``;
 const Name = styled.span`
@@ -89,6 +89,6 @@ const Name = styled.span`
 `;
 const Description = styled.span`
   font-size: 11px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
   text-align: left;
 `;

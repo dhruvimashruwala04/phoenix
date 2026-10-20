@@ -110,22 +110,22 @@ const StepText = styled.div`
 `;
 const Title = styled.h1`
   margin: 0 0 8px;
-  color: #111827;
+  color: var(--gray-900);
   font-size: 29px;
   line-height: 1.2;
   font-weight: 700;
 `;
 const SubText = styled.p`
   margin: 0;
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 15px;
   line-height: 1.5;
 `;
 const Card = styled.div`
   width: 100%;
   padding: 28px 26px;
-  background: white;
-  border: 1px solid #edf0f4;
+  background: var(--white);
+  border: 1px solid var(--border-soft);
   border-radius: 14px;
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
 `;
@@ -136,14 +136,14 @@ const Footer = styled(Flex)`
 const BackButton = styled.button`
   height: 46px;
   padding: 0 18px;
-  border: 1px solid #dce3ed;
+  border: 1px solid var(--border-input);
   border-radius: 8px;
-  background: white;
+  background: var(--white);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   &:hover {
-    background-color: #f8fafc;
+    background-color: var(--slate-50);
   }
 `;
 const ContinueButton = styled.button`
@@ -152,7 +152,7 @@ const ContinueButton = styled.button`
   border: none;
   border-radius: 8px;
   background-color: var(--blue-accent);
-  color: white;
+  color: var(--white);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -166,10 +166,10 @@ const SkipButton = styled.button`
   padding: 0;
   border: none;
   background: transparent;
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 14px;
   cursor: pointer;
   &:hover {
-    color: #172033;
+    color: var(--text-heading);
   }
 `;

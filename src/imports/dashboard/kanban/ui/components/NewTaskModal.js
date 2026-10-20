@@ -153,7 +153,7 @@ const Card = styled.form`
   max-width: 100%;
   display: flex;
   flex-direction: column;
-  background: rgb(255, 255, 255);
+  background: var(--white);
   border-radius: 14px;
   box-shadow: rgba(15, 23, 42, 0.25) 0px 20px 50px;
   padding: 24px;
@@ -161,7 +161,7 @@ const Card = styled.form`
 `;
 const Header = styled(Flex)``;
 const Title = styled.span`
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
   font-size: 16px;
   font-weight: 600;
 `;
@@ -172,12 +172,12 @@ const CloseButton = styled(Flex)`
 const TitleInput = styled(Flex)`
   font-size: 12px;
   font-weight: 600;
-  color: rgb(71, 85, 105);
+  color: var(--slate-600);
   > input {
     height: 38px;
     border-radius: 8px;
     border: 0px;
-    box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+    box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
     padding: 0px 12px;
     font-size: 14px;
     outline: 0px;
@@ -187,11 +187,11 @@ const TitleInput = styled(Flex)`
 const DescInput = styled(Flex)`
   font-size: 12px;
   font-weight: 600;
-  color: rgb(71, 85, 105);
+  color: var(--slate-600);
   > textarea {
     border-radius: 8px;
     border: 0px;
-    box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+    box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
     padding: 10px 12px;
     font-size: 13px;
     outline: 0px;
@@ -204,16 +204,16 @@ const DropdownInput = styled(Flex)`
   flex: 1 1 0%;
   font-size: 12px;
   font-weight: 600;
-  color: rgb(71, 85, 105);
+  color: var(--slate-600);
   > select,
   > input {
     width: 100%;
     height: 38px;
     border-radius: 8px;
-    border: 1px solid rgb(226, 232, 240);
+    border: 1px solid var(--border-muted);
     padding: 0px 8px;
     font-size: 13px;
-    color: rgb(71, 85, 105);
+    color: var(--slate-600);
   }
 `;
 const Footer = styled(Flex)`

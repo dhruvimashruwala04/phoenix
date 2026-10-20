@@ -122,11 +122,11 @@ const NameInput = styled.input`
   min-width: 100px;
   height: 40px;
   padding: 0 12px;
-  border: 1px solid #dce3ed;
+  border: 1px solid var(--border-input);
   border-radius: 7px;
   outline: none;
-  color: #172033;
-  background: white;
+  color: var(--text-heading);
+  background: var(--white);
   font-size: 13px;
 
   &:focus {
@@ -134,7 +134,7 @@ const NameInput = styled.input`
   }
 
   &::placeholder {
-    color: #8a919b;
+    color: var(--text-subtle);
   }
 `;
 const EmailInput = styled.input`
@@ -142,39 +142,39 @@ const EmailInput = styled.input`
   min-width: 0;
   height: 40px;
   padding: 0 12px;
-  border: 1px solid #dce3ed;
+  border: 1px solid var(--border-input);
   border-radius: 7px;
   outline: none;
-  color: #172033;
-  background: white;
+  color: var(--text-heading);
+  background: var(--white);
   font-size: 13px;
   &:focus {
     border-color: var(--blue-accent);
   }
   &::placeholder {
-    color: #8a919b;
+    color: var(--text-subtle);
   }
 `;
 const StatusSelect = styled.select`
   width: 105px;
   height: 40px;
   padding: 0 10px;
-  border: 1px solid #dce3ed;
+  border: 1px solid var(--border-input);
   border-radius: 7px;
   outline: none;
-  color: #172033;
-  background: white;
+  color: var(--text-heading);
+  background: var(--white);
   font-size: 13px;
 `;
 const RoleSelect = styled.select`
   width: 94px;
   height: 40px;
   padding: 0 10px;
-  border: 1px solid #dce3ed;
+  border: 1px solid var(--border-input);
   border-radius: 7px;
   outline: none;
-  color: #172033;
-  background: white;
+  color: var(--text-heading);
+  background: var(--white);
   font-size: 13px;
 `;
 const AddButton = styled.button`
@@ -183,7 +183,7 @@ const AddButton = styled.button`
   border: none;
   border-radius: 7px;
   background-color: var(--blue-accent);
-  color: white;
+  color: var(--white);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -199,7 +199,7 @@ const InviteRow = styled(Flex)`
   min-height: 50px;
   padding: 0 12px;
   border-radius: 9px;
-  background-color: #f8fafc;
+  background-color: var(--slate-50);
 `;
 const Avatar = styled(Flex)`
   width: 30px;
@@ -207,14 +207,14 @@ const Avatar = styled(Flex)`
   flex-shrink: 0;
   border-radius: 50%;
   background-color: ${({ $color }) => $color};
-  color: white;
+  color: var(--white);
   font-size: 10px;
   font-weight: 600;
 `;
 const MemberName = styled.span`
   display: flex;
   flex: 1;
-  color: #172033;
+  color: var(--text-heading);
   font-size: 13px;
   font-weight: 500;
 `;
@@ -228,18 +228,18 @@ const MemberStatus = styled(Flex)`
   text-transform: capitalize;
 
   background-color: ${({ $status }) =>
-    $status === "accepted" ? "#ecfdf5" : "#fff7ed"};
+    $status === "accepted" ? "var(--emerald-50)" : "#fff7ed"};
 
-  color: ${({ $status }) => ($status === "accepted" ? "#059669" : "#ea580c")};
+  color: ${({ $status }) => ($status === "accepted" ? "var(--emerald-600)" : "#ea580c")};
 `;
 const MemberRole = styled(Flex)`
   min-width: 82px;
   height: 30px;
   padding: 0 10px;
-  border: 1px solid #dce3ed;
+  border: 1px solid var(--border-input);
   border-radius: 6px;
-  background: white;
-  color: #172033;
+  background: var(--white);
+  color: var(--text-heading);
   font-size: 12px;
 `;
 const RemoveButton = styled.button`
@@ -247,25 +247,25 @@ const RemoveButton = styled.button`
   height: 25px;
   border: none;
   background: transparent;
-  color: #94a3b8;
+  color: var(--text-muted-2);
   font-size: 21px;
   line-height: 1;
   cursor: pointer;
   &:hover {
-    color: #475569;
+    color: var(--slate-600);
   }
 `;
 const InviteLinkBox = styled(Flex)`
   width: 100%;
   min-height: 60px;
   padding: 10px 12px;
-  border: 1px solid #dce3ed;
+  border: 1px solid var(--border-input);
   border-radius: 9px;
-  background: white;
+  background: var(--white);
 `;
 const LinkText = styled.span`
   flex: 1;
-  color: #526174;
+  color: var(--text-secondary);
   font-size: 13px;
   display: flex;
 `;
@@ -288,6 +288,6 @@ const CopyButton = styled.button`
 `;
 const EmptyText = styled.span`
   font-size: 12px;
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
   padding: 8px 0px;
 `;

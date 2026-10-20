@@ -32,12 +32,12 @@ const Page = styled(Flex)`
   width: 100%;
 `;
 const Left = styled(Flex)`
-  background-color: #ffffff;
+  background-color: var(--white);
   padding: 32px 64px;
   width: 50%;
 `;
 const Right = styled(Flex)`
-  background-color: #0f172a;
+  background-color: var(--slate-900);
   padding: 64px;
   width: 50%;
 `;
@@ -54,7 +54,7 @@ const Logo = styled.div`
 const LogoName = styled.span`
   font-size: 17px;
   font-weight: 600;
-  color: #172033;
+  color: var(--text-heading);
 `;
 const FormMain = styled(Flex)`
   height: 100%;

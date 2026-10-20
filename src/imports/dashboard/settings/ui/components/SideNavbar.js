@@ -40,12 +40,12 @@ const Item = styled(Flex)`
   font-size: 14px;
   cursor: pointer;
   background: ${({ $active }) =>
-    $active ? "rgb(238, 242, 255)" : "transparent"};
+    $active ? "var(--indigo-50)" : "transparent"};
   color: ${({ $active, $danger }) =>
     $active
-      ? "rgb(79, 70, 229)"
+      ? "var(--blue-accent)"
       : $danger
-        ? "rgb(225, 29, 72)"
-        : "rgb(71, 85, 105)"};
+        ? "var(--rose-600)"
+        : "var(--slate-600)"};
   font-weight: ${({ $active }) => ($active ? "600" : "400")};
 `;

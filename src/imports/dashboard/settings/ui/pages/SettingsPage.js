@@ -49,5 +49,5 @@ const Wrapper = styled(Flex)`
   display: grid;
   grid-template-columns: minmax(180px, 220px) minmax(0px, 1fr);
   gap: 24px;
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
 `;

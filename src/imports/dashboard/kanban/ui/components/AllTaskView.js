@@ -12,7 +12,7 @@ const AllTaskView = ({ tasks }) => {
     {
       value: "backlog",
       label: "Backlog",
-      color: "rgb(148, 163, 184)",
+      color: "var(--text-muted-2)",
     },
     {
       value: "in_progress",
@@ -27,7 +27,7 @@ const AllTaskView = ({ tasks }) => {
     {
       value: "done",
       label: "Done",
-      color: "rgb(16, 185, 129)",
+      color: "var(--emerald-500)",
     },
   ];
 
@@ -96,8 +96,8 @@ const Container = styled(Flex)`
 `;
 const StatusGroup = styled.div`
   width: 100%;
-  background: white;
-  border: 1px solid rgb(226, 232, 240);
+  background: var(--white);
+  border: 1px solid var(--border-muted);
   border-radius: 14px;
   overflow: hidden;
 `;
@@ -105,14 +105,14 @@ const GroupHeader = styled(Flex)`
   height: 44px;
   align-items: center;
   padding: 0 18px;
-  border-bottom: 1px solid rgb(226, 232, 240);
+  border-bottom: 1px solid var(--border-muted);
 `;
 const GroupTitle = styled(Flex)`
   align-items: center;
   gap: 8px;
   font-size: 14px;
   font-weight: 600;
-  color: rgb(30, 41, 59);
+  color: var(--slate-800);
 `;
 const StatusDot = styled.span`
   width: 7px;
@@ -128,8 +128,8 @@ const Count = styled.span`
   align-items: center;
   justify-content: center;
   border-radius: 9px;
-  background: rgb(241, 245, 249);
-  color: rgb(100, 116, 139);
+  background: var(--slate-100);
+  color: var(--text-muted);
   font-size: 10px;
   font-weight: 600;
 `;
@@ -141,12 +141,12 @@ const TaskRow = styled(Flex)`
   padding: 0 18px;
   align-items: center;
   gap: 14px;
-  border-bottom: 1px solid rgb(241, 245, 249);
+  border-bottom: 1px solid var(--slate-100);
   &:last-child {
     border-bottom: none;
   }
   &:hover {
-    background: rgb(248, 250, 252);
+    background: var(--slate-50);
   }
 `;
 const Checkbox = styled.input`
@@ -161,7 +161,7 @@ const TaskTitle = styled.div`
   flex: 1;
   font-size: 14px;
   font-weight: 500;
-  color: ${({ $done }) => ($done ? "rgb(100, 116, 139)" : "rgb(15, 23, 42)")};
+  color: ${({ $done }) => ($done ? "var(--text-muted)" : "var(--slate-900)")};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -175,19 +175,19 @@ const Priority = styled.span`
   font-size: 10px;
   font-weight: 600;
   color: ${({ $priority }) => {
-    if ($priority === "high") return "rgb(244, 63, 94)";
-    if ($priority === "medium") return "rgb(245, 158, 11)";
-    return "rgb(16, 185, 129)";
+    if ($priority === "high") return "var(--rose-500)";
+    if ($priority === "medium") return "var(--amber-500)";
+    return "var(--emerald-500)";
   }};
   background: ${({ $priority }) => {
-    if ($priority === "high") return "rgb(255, 241, 242)";
-    if ($priority === "medium") return "rgb(255, 251, 235)";
-    return "rgb(236, 253, 245)";
+    if ($priority === "high") return "var(--rose-50)";
+    if ($priority === "medium") return "var(--amber-50)";
+    return "var(--emerald-50)";
   }};
 `;
 const DueDate = styled.span`
   width: 55px;
   font-size: 12px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
   text-align: right;
 `;

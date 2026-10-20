@@ -37,7 +37,7 @@ const Text = styled.span`
   line-height: 34px;
   letter-spacing: -0.6px;
   font-weight: 700;
-  color: #172033;
+  color: var(--text-heading);
 `;
 const SubText = styled.span`
   color: var(--text-muted);
@@ -49,8 +49,8 @@ const ResendBtn = styled(Flex)`
   padding: 0px 16px;
   border-radius: 8px;
   border: 0px;
-  background: rgb(255, 255, 255);
-  box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+  background: var(--white);
+  box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
   font-size: 13px;
   cursor: pointer;
 `;
@@ -58,8 +58,8 @@ const IconHolder = styled.span`
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: rgb(236, 253, 245);
-  color: rgb(16, 185, 129);
+  background: var(--emerald-50);
+  color: var(--emerald-500);
   display: flex;
   align-items: center;
   justify-content: center;

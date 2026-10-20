@@ -135,7 +135,7 @@ const AiPanel = ({ onCalendarReady, onDateChange, selectedDate }) => {
                 $color={
                   categories.find(
                     (category) => category.label === event.category,
-                  )?.color || "#94a3b8"
+                  )?.color || "var(--text-muted-2)"
                 }
               />
               <EventInfo>
@@ -217,7 +217,7 @@ export default AiPanel;
 const Panel = styled(Flex)`
   width: 320px;
   flex-shrink: 0;
-  background: rgb(255, 255, 255);
+  background: var(--white);
   padding: 24px;
   height: 100vh;
   @media (max-width: 1280px) {
@@ -245,7 +245,7 @@ const CalendarSection = styled.section`
     margin: 0;
     font-size: 14px;
     font-weight: 700;
-    color: #0f172a;
+    color: var(--slate-900);
   }
   && .mini-nav-btn {
     width: 24px;
@@ -254,19 +254,19 @@ const CalendarSection = styled.section`
     border: 0;
     border-radius: 6px;
     background: transparent;
-    color: #94a3b8;
+    color: var(--text-muted-2);
     cursor: pointer;
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
   && .mini-nav-btn:hover {
-    background: #f1f5f9;
-    color: #4f46e5;
+    background: var(--slate-100);
+    color: var(--blue-accent);
   }
   && .mini-weekday {
     padding: 4px 0 7px;
-    color: #64748b;
+    color: var(--text-muted);
     font-size: 10px;
     font-weight: 600;
     text-align: center;
@@ -293,23 +293,23 @@ const CalendarSection = styled.section`
     height: 27px;
     margin: 2px auto;
     border-radius: 50%;
-    color: #0f172a;
+    color: var(--slate-900);
     font-size: 11px;
   }
   && .mini-day:hover .mini-day-number {
     background: #f1f0ff;
   }
   && .mini-day-other .mini-day-number {
-    color: #cbd5e1;
+    color: var(--slate-300);
   }
   && .mini-day-today .mini-day-number {
-    color: #5145ed;
+    color: var(--blue-accent);
     font-weight: 700;
   }
   && .mini-day-selected .mini-day-number,
   && .mini-day-selected:hover .mini-day-number {
-    background: #5145ed;
-    color: #fff;
+    background: var(--blue-accent);
+    color: var(--white);
   }
   && .mini-day-top-inner {
     display: flex !important;
@@ -363,7 +363,7 @@ const SectionTitle = styled.h3`
   margin: 0;
   font-size: 14px;
   font-weight: 700;
-  color: #0f172a;
+  color: var(--slate-900);
 `;
 const TextButton = styled.button`
   padding: 3px 0;
@@ -395,7 +395,7 @@ const EventInfo = styled.div`
 `;
 const EventName = styled.div`
   overflow: hidden;
-  color: #0f172a;
+  color: var(--slate-900);
   font-size: 12px;
   font-weight: 650;
   text-overflow: ellipsis;
@@ -403,7 +403,7 @@ const EventName = styled.div`
 `;
 const EventTime = styled.div`
   margin-top: 3px;
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 10px;
 `;
 const EventBadge = styled.span`
@@ -415,8 +415,8 @@ const EventBadge = styled.span`
   height: 17px;
   padding: 0 5px;
   border-radius: 12px;
-  background: #f1f5f9;
-  color: #64748b;
+  background: var(--slate-100);
+  color: var(--text-muted);
   font-size: 10px;
 `;
 const TaskList = styled(Flex)``;
@@ -433,18 +433,18 @@ const TaskCheckbox = styled.input`
   width: 16px;
   height: 16px;
   margin: 0;
-  border: 1.5px solid #cbd5e1;
+  border: 1.5px solid var(--slate-300);
   border-radius: 4px;
-  background: #fff;
+  background: var(--white);
   cursor: pointer;
   &:checked {
-    border-color: #5145ed;
-    background: #5145ed;
+    border-color: var(--blue-accent);
+    background: var(--blue-accent);
   }
   &:checked::after {
     display: block;
     content: "✓";
-    color: #fff;
+    color: var(--white);
     font-size: 11px;
     text-align: center;
     line-height: 14px;
@@ -454,7 +454,7 @@ const TaskName = styled.span`
   flex: 1;
   min-width: 0;
   overflow: hidden;
-  color: #334155;
+  color: var(--slate-700);
   font-size: 12px;
   text-decoration: ${({ $completed }) =>
     $completed ? "line-through" : "none"};
@@ -468,7 +468,7 @@ const Priority = styled.span`
   border-radius: 4px;
   background: ${({ $priority }) =>
     $priority === "High" ? "#f0efff" : "#fff4e5"};
-  color: ${({ $priority }) => ($priority === "High" ? "#5145ed" : "#c77716")};
+  color: ${({ $priority }) => ($priority === "High" ? "var(--blue-accent)" : "#c77716")};
   font-size: 9px;
   font-weight: 600;
 `;
@@ -485,26 +485,26 @@ const AddTaskInput = styled.input`
   border: 0;
   outline: none;
   background: transparent;
-  color: #334155;
+  color: var(--slate-700);
   font: inherit;
   font-size: 12px;
   &::placeholder {
-    color: #64748b;
+    color: var(--text-muted);
     opacity: 1;
   }
 `;
 const AddTaskButton = styled.button`
   border: 0;
   background: transparent;
-  color: #5145ed;
+  color: var(--blue-accent);
   font-size: 11px;
   cursor: pointer;
 `;
 const AssistantCard = styled.section`
   padding: 16px;
-  border: 1px solid #edf0f5;
+  border: 1px solid var(--border-soft);
   border-radius: 14px;
-  background: #f8fafc;
+  background: var(--slate-50);
   width: 100%;
 `;
 const AssistantHeading = styled(Flex)`
@@ -515,15 +515,15 @@ const BetaBadge = styled.span`
   padding: 3px 5px;
   border-radius: 4px;
   background: #eeedff;
-  color: #5145ed;
+  color: var(--blue-accent);
   font-size: 9px;
   font-weight: 700;
 `;
 const AssistantInner = styled.div`
   padding: 13px;
-  border: 1px solid #f1f5f9;
+  border: 1px solid var(--slate-100);
   border-radius: 12px;
-  background: #fff;
+  background: var(--white);
 `;
 const SuccessRow = styled(Flex)``;
 const SuccessIcon = styled.span`
@@ -535,18 +535,18 @@ const SuccessIcon = styled.span`
   flex-shrink: 0;
   border-radius: 50%;
   background: #d1fae5;
-  color: #059669;
+  color: var(--emerald-600);
   font-size: 12px;
   font-weight: 700;
 `;
 const SuccessText = styled.span`
-  color: #059669;
+  color: var(--emerald-600);
   font-size: 11px;
   font-weight: 700;
 `;
 const AssistantDescription = styled.p`
   margin: 10px 0 12px 29px;
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 10px;
   line-height: 1.6;
 `;
@@ -556,12 +556,12 @@ const OptimizeButton = styled.button`
   padding: 7px 8px;
   border: 1px solid #c7c5ff;
   border-radius: 8px;
-  background: #fff;
-  color: #5145ed;
+  background: var(--white);
+  color: var(--blue-accent);
   font-size: 10px;
   font-weight: 650;
   cursor: pointer;
   &:hover {
-    background: #f5f3ff;
+    background: var(--violet-50);
   }
 `;

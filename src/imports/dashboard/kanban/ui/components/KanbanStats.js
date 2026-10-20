@@ -17,14 +17,14 @@ const KanbanStats = () => {
       value: tasks.length,
       subText: "↑ 16% vs last month",
       icon: TotalTask,
-      iconBg: "rgb(238, 242, 255)",
+      iconBg: "var(--indigo-50)",
     },
     {
       title: "Completed",
       value: tasks.filter((task) => task.status === "done").length,
       subText: "56% of total tasks",
       icon: Completed,
-      iconBg: "rgb(236, 253, 245)",
+      iconBg: "var(--emerald-50)",
     },
     {
       title: "In Progress",
@@ -38,14 +38,14 @@ const KanbanStats = () => {
       value: tasks.filter((task) => task.status === "backlog").length,
       subText: "↑ 2% vs last week",
       icon: Overdue,
-      iconBg: "rgb(255, 241, 242)",
+      iconBg: "var(--rose-50)",
     },
     {
       title: "Team Workload",
       value: "Medium",
       subText: "Balanced",
       icon: TeamWorkload,
-      iconBg: "rgb(245, 243, 255)",
+      iconBg: "var(--violet-50)",
     },
   ];
 
@@ -79,10 +79,10 @@ const Container = styled.div`
   gap: 16px;
 `;
 const Card = styled(Flex)`
-  background: rgb(255, 255, 255);
+  background: var(--white);
   border-radius: 12px;
   box-shadow:
-    rgb(241, 245, 249) 0px 0px 0px 1px inset,
+    var(--slate-100) 0px 0px 0px 1px inset,
     rgba(0, 0, 0, 0.05) 0px 1px 2px;
   padding: 20px 16px;
   height: 97px;
@@ -98,19 +98,19 @@ const Content = styled(Flex)`
   min-width: 0;
 `;
 const Title = styled.span`
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
   font-size: 12px;
   text-align: left;
   line-height: 18px;
 `;
 const Value = styled.span`
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
   font-size: 22px;
   font-weight: 700;
   line-height: 26px;
 `;
 const SubText = styled.span`
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
   font-size: 11px;
   line-height: 16px;
   text-align: left;

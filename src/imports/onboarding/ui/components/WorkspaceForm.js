@@ -75,7 +75,7 @@ const Section = styled(Flex)`
   width: 100%;
 `;
 const Label = styled.label`
-  color: #334155;
+  color: var(--slate-700);
   font-size: 13px;
   font-weight: 600;
 `;
@@ -83,33 +83,33 @@ const Input = styled.input`
   width: 100%;
   height: 40px;
   padding: 0 12px;
-  border: 1px solid #dce3ed;
+  border: 1px solid var(--border-input);
   border-radius: 7px;
   outline: none;
-  color: #172033;
-  background-color: white;
+  color: var(--text-heading);
+  background-color: var(--white);
   font-size: 13px;
   &:focus {
     border-color: var(--blue-accent);
   }
   &::placeholder {
-    color: #94a3b8;
+    color: var(--text-muted-2);
   }
 `;
 const UrlInput = styled(Flex)`
   width: 100%;
   height: 40px;
-  border: 1px solid #dce3ed;
+  border: 1px solid var(--border-input);
   border-radius: 7px;
   overflow: hidden;
-  background-color: white;
+  background-color: var(--white);
 `;
 const UrlPrefix = styled(Flex)`
   height: 100%;
   padding: 0 12px;
-  background-color: #f8fafc;
-  border-right: 1px solid #dce3ed;
-  color: #718096;
+  background-color: var(--slate-50);
+  border-right: 1px solid var(--border-input);
+  color: var(--gray-500);
   font-size: 13px;
 `;
 const UrlField = styled.input`
@@ -118,8 +118,8 @@ const UrlField = styled.input`
   padding: 0 12px;
   border: none;
   outline: none;
-  color: #172033;
-  background: white;
+  color: var(--text-heading);
+  background: var(--white);
   font-size: 13px;
 `;
 const Available = styled(Flex)`
@@ -135,7 +135,7 @@ const InitialIcon = styled(Flex)`
   height: 48px;
   border-radius: 9px;
   background-color: ${({ $color }) => $color};
-  color: white;
+  color: var(--white);
   font-size: 20px;
   font-weight: 600;
 `;

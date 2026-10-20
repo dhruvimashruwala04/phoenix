@@ -24,10 +24,10 @@ const Container = styled(Flex)`
   width: ${({ $width }) => $width || "280px"};
   height: 36px;
   border-radius: 8px;
-  background: rgb(248, 250, 252);
-  box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+  background: var(--slate-50);
+  box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
   padding: 0 10px;
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
 `;
 const Input = styled.input`
   flex: 1;
@@ -35,9 +35,9 @@ const Input = styled.input`
   border: none;
   outline: none;
   background: transparent;
-  color: rgb(51, 65, 85);
+  color: var(--slate-700);
   font-size: 13px;
   &::placeholder {
-    color: rgb(148, 163, 184);
+    color: var(--text-muted-2);
   }
 `;

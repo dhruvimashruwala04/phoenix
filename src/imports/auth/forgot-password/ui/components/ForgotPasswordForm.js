@@ -74,7 +74,7 @@ const BackText = styled(Link)`
   display: flex;
   gap: 8px;
   align-items: center;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
 `;
 const Header = styled(Flex)``;
 const Text = styled.span`
@@ -82,7 +82,7 @@ const Text = styled.span`
   line-height: 34px;
   letter-spacing: -0.6px;
   font-weight: 700;
-  color: #172033;
+  color: var(--text-heading);
 `;
 const SubText = styled.span`
   color: var(--text-muted);
@@ -94,20 +94,20 @@ const Field = styled(Flex)`
 const Label = styled.span`
   font-size: 12px;
   font-weight: 600;
-  color: #334155;
+  color: var(--slate-700);
 `;
 const Input = styled.input`
   width: 100%;
   height: 37px;
-  border: 1px solid ${({ $error }) => ($error ? "rgb(225, 29, 72)" : "#dce3ed")};
+  border: 1px solid ${({ $error }) => ($error ? "var(--rose-600)" : "var(--border-input)")};
   border-radius: 7px;
   padding: 0 12px;
   outline: none;
   font-size: 13px;
-  color: #172033;
+  color: var(--text-heading);
   background-color: var(--background);
   &::placeholder {
-    color: #8a919b;
+    color: var(--text-subtle);
   }
   &:focus {
     border-color: var(--blue-accent);

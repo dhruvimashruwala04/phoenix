@@ -21,9 +21,9 @@ const DangerZone = () => {
 export default DangerZone;
 
 const Card = styled(Flex)`
-  background: rgb(255, 255, 255);
+  background: var(--white);
   border-radius: 12px;
-  box-shadow: rgb(254, 205, 211) 0px 0px 0px 1px inset;
+  box-shadow: var(--rose-200) 0px 0px 0px 1px inset;
   padding: 24px;
   width: 100%;
 `;
@@ -35,7 +35,7 @@ const Header = styled.span`
 `;
 const Info = styled.span`
   font-size: 13px;
-  color: rgb(71, 85, 105);
+  color: var(--slate-600);
   width: 100%;
 `;
 const DeleteWrapper = styled(Flex)``;
@@ -43,7 +43,7 @@ const Input = styled.input`
   height: 38px;
   border-radius: 8px;
   border: 0px;
-  box-shadow: rgb(254, 205, 211) 0px 0px 0px 1px inset;
+  box-shadow: var(--rose-200) 0px 0px 0px 1px inset;
   padding: 0px 12px;
   font-size: 14px;
   width: 240px;

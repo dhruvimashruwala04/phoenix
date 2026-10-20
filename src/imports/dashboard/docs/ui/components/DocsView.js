@@ -152,7 +152,7 @@ const Container = styled(Flex)`
 `;
 const ListWrapper = styled(Flex)`
   flex: 1 1 240px;
-  background: rgb(255, 255, 255);
+  background: var(--white);
   border-radius: 12px;
   box-shadow:
     rgb(243, 244, 246) 0px 0px 0px 1px inset,
@@ -161,7 +161,7 @@ const ListWrapper = styled(Flex)`
 const ListHeader = styled(Flex)`
   padding: 14px 16px;
   width: 100%;
-  border-bottom: 1px solid rgb(241, 245, 249);
+  border-bottom: 1px solid var(--slate-100);
 `;
 const Text = styled.span`
   font-size: 13px;
@@ -172,17 +172,17 @@ const List = styled.div`
   min-width: 0;
   overflow-y: auto;
   overflow-x: hidden;
-  border-right: 1px solid rgb(226, 232, 240);
+  border-right: 1px solid var(--border-muted);
   border-radius: 0 0 12px 12px;
 `;
 const Item = styled(Flex)`
   width: 100%;
   padding: 14px 16px;
-  border-bottom: 1px solid rgb(241, 245, 249);
-  background: white;
+  border-bottom: 1px solid var(--slate-100);
+  background: var(--white);
   cursor: pointer;
   &:hover {
-    background: rgb(248, 250, 252);
+    background: var(--slate-50);
   }
   &:last-child {
     border-bottom: none;
@@ -210,7 +210,7 @@ const Meta = styled.span`
 const DocumentWrapper = styled.div`
   max-width: 70%;
   width: 100%;
-  background: rgb(255, 255, 255);
+  background: var(--white);
   border-radius: 12px;
   box-shadow:
     rgb(243, 244, 246) 0px 0px 0px 1px inset,
@@ -220,12 +220,12 @@ const Toolbar = styled(Flex)`
   width: 100%;
   min-height: 49px;
   padding: 0 16px;
-  border-bottom: 1px solid rgb(241, 245, 249);
+  border-bottom: 1px solid var(--slate-100);
   flex-shrink: 0;
 `;
 const FileName = styled(Flex)`
   font-size: 12px;
-  color: rgb(71, 85, 105);
+  color: var(--slate-600);
   svg {
     width: 13px;
     height: 13px;
@@ -236,7 +236,7 @@ const ToolbarActions = styled(Flex)`
 `;
 const SavedText = styled.span`
   font-size: 11px;
-  color: #059669;
+  color: var(--emerald-600);
   white-space: nowrap;
 `;
 const PreviewButton = styled.button`
@@ -246,14 +246,14 @@ const PreviewButton = styled.button`
   gap: 6px;
   height: 30px;
   padding: 0 11px;
-  border: 1px solid rgb(226, 232, 240);
+  border: 1px solid var(--border-muted);
   border-radius: 6px;
-  background: #ffffff;
-  color: rgb(15, 23, 42);
+  background: var(--white);
+  color: var(--slate-900);
   font-size: 12px;
   cursor: pointer;
   &:hover {
-    background: rgb(248, 250, 252);
+    background: var(--slate-50);
   }
 `;
 const DeleteButton = styled.button`
@@ -265,7 +265,7 @@ const DeleteButton = styled.button`
   padding: 0;
   border: none;
   background: transparent;
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
   cursor: pointer;
   &:hover {
     color: #ef4444;
@@ -293,20 +293,20 @@ const Title = styled.input`
   outline: 0px;
   font-size: 24px;
   font-weight: 700;
-  color: rgb(17, 24, 39);
+  color: var(--gray-900);
   padding: 0px;
   background: transparent;
   text-overflow: ellipsis;
 `;
 const EditDetails = styled(Flex)`
   font-size: 11px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
 `;
 const Initials = styled(Flex)`
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background: rgb(124, 58, 237);
-  color: white;
+  background: var(--violet-600);
+  color: var(--white);
   font-size: 10px;
 `;

@@ -82,12 +82,12 @@ const TaskRow = styled(Flex)`
   padding: 0 18px;
   align-items: center;
   gap: 14px;
-  border-bottom: 1px solid rgb(241, 245, 249);
+  border-bottom: 1px solid var(--slate-100);
   &:last-child {
     border-bottom: none;
   }
   &:hover {
-    background: rgb(248, 250, 252);
+    background: var(--slate-50);
   }
 `;
 const Checkbox = styled.input`
@@ -102,7 +102,7 @@ const TaskTitle = styled.div`
   flex: 1;
   font-size: 14px;
   font-weight: 500;
-  color: ${({ $done }) => ($done ? "rgb(100, 116, 139)" : "rgb(15, 23, 42)")};
+  color: ${({ $done }) => ($done ? "var(--text-muted)" : "var(--slate-900)")};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -116,26 +116,26 @@ const Priority = styled.span`
   font-size: 10px;
   font-weight: 600;
   color: ${({ $priority }) => {
-    if ($priority === "high") return "rgb(244, 63, 94)";
-    if ($priority === "medium") return "rgb(245, 158, 11)";
-    return "rgb(16, 185, 129)";
+    if ($priority === "high") return "var(--rose-500)";
+    if ($priority === "medium") return "var(--amber-500)";
+    return "var(--emerald-500)";
   }};
   background: ${({ $priority }) => {
-    if ($priority === "high") return "rgb(255, 241, 242)";
-    if ($priority === "medium") return "rgb(255, 251, 235)";
-    return "rgb(236, 253, 245)";
+    if ($priority === "high") return "var(--rose-50)";
+    if ($priority === "medium") return "var(--amber-50)";
+    return "var(--emerald-50)";
   }};
 `;
 const DueDate = styled.span`
   width: 55px;
   font-size: 12px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
   text-align: right;
 `;
 const AddTask = styled(Flex)`
   width: 100%;
   padding: 14px 18px;
-  border-top: 1px solid rgb(241, 245, 249);
+  border-top: 1px solid var(--slate-100);
 `;
 const Input = styled.input`
   flex: 1;
@@ -143,15 +143,15 @@ const Input = styled.input`
   height: 38px;
   padding: 0 12px;
   box-sizing: border-box;
-  border: 1px solid rgb(241, 245, 249);
+  border: 1px solid var(--slate-100);
   border-radius: 7px;
   outline: none;
   font-size: 12px;
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
   &::placeholder {
-    color: rgb(148, 163, 184);
+    color: var(--text-muted-2);
   }
   &:focus {
-    border-color: rgb(99, 102, 241);
+    border-color: var(--indigo-500);
   }
 `;

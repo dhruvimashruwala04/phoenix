@@ -10,8 +10,8 @@ const PrimaryButton = styled.button`
   padding: 0 16px;
   border-radius: 7px;
   background-color: ${(props) =>
-    props.variant === "secondary" ? "rgb(109, 40, 217)" : "var(--blue-accent)"};
-  color: white;
+    props.variant === "secondary" ? "var(--violet-700)" : "var(--blue-accent)"};
+  color: var(--white);
   font-size: 15px;
   font-weight: 500;
 

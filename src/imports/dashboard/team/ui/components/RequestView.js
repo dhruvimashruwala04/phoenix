@@ -56,10 +56,10 @@ export default RequestView;
 
 const List = styled.div`
   width: 100%;
-  border: 1px solid #edf0f5;
+  border: 1px solid var(--border-soft);
   border-radius: 9px;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--white);
 `;
 const InvitationRow = styled(Flex)`
   min-width: 0;
@@ -81,34 +81,34 @@ const Avatar = styled(Flex)`
   border-radius: 50%;
   font-size: 11px;
   font-weight: 700;
-  color: rgb(255, 255, 255);
-  background: rgb(245, 158, 11);
+  color: var(--white);
+  background: var(--amber-500);
 `;
 const InviteInfo = styled(Flex)`
   flex: 1;
   min-width: 100px;
 `;
 const Email = styled.div`
-  color: #17243a;
+  color: var(--text-heading);
   font-size: 13px;
   font-weight: 650;
   overflow-wrap: anywhere;
 `;
 const Subtitle = styled.div`
-  color: #718096;
+  color: var(--gray-500);
   font-size: 11px;
 `;
 const Muted = styled.span`
   font-weight: 400;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
 `;
 const ApproveButton = styled.button`
   height: 32px;
   padding: 0px 14px;
   border-radius: 8px;
   border: 0px;
-  background: rgb(79, 70, 229);
-  color: rgb(255, 255, 255);
+  background: var(--blue-accent);
+  color: var(--white);
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;
@@ -118,8 +118,8 @@ const DenyButton = styled.button`
   padding: 0px 14px;
   border-radius: 8px;
   border: 0px;
-  background: rgb(255, 255, 255);
-  box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+  background: var(--white);
+  box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
   font-size: 12px;
   cursor: pointer;
 `;

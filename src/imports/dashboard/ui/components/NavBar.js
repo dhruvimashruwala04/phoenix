@@ -46,7 +46,7 @@ const Header = styled.div`
   font-size: 12px;
   line-height: 16px;
   letter-spacing: 0.6px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
   text-transform: uppercase;
 `;
 const LinkText = styled(Link)`
@@ -59,9 +59,9 @@ const LinkText = styled(Link)`
   padding: 8px 12px;
   font-size: 16px;
   background: transparent;
-  color: rgb(203, 213, 225);
+  color: var(--slate-300);
   font-weight: 400;
   &:hover {
-    color: white;
+    color: var(--white);
   }
 `;

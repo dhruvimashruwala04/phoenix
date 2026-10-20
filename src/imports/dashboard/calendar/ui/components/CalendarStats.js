@@ -9,7 +9,7 @@ const CalendarStats = () => {
       value: "32",
       subText: "↑ 12% vs last month",
       icon: Event,
-      iconBg: "rgb(238, 242, 255)",
+      iconBg: "var(--indigo-50)",
     },
     {
       title: "Meetings",
@@ -30,7 +30,7 @@ const CalendarStats = () => {
       value: "24h 30m",
       subText: "This month",
       icon: Focus,
-      iconBg: "rgb(245, 243, 255)",
+      iconBg: "var(--violet-50)",
     },
   ];
   return (
@@ -67,10 +67,10 @@ const Container = styled.div`
 const Card = styled(Flex)`
   min-width: 0;
   padding: 20px 16px;
-  background: rgb(255, 255, 255);
+  background: var(--white);
   border-radius: 12px;
   box-shadow:
-    rgb(241, 245, 249) 0px 0px 0px 1px inset,
+    var(--slate-100) 0px 0px 0px 1px inset,
     rgba(0, 0, 0, 0.05) 0px 1px 2px;
 `;
 const IconBox = styled(Flex)`
@@ -84,18 +84,18 @@ const Content = styled(Flex)`
   min-width: 0;
 `;
 const Title = styled.span`
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
   font-size: 12px;
   line-height: 18px;
 `;
 const Value = styled.span`
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
   font-size: 22px;
   font-weight: 700;
   line-height: 26px;
 `;
 const SubText = styled.span`
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
   font-size: 11px;
   line-height: 16px;
 `;

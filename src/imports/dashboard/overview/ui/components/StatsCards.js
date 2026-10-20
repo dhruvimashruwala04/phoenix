@@ -11,28 +11,28 @@ const StatsCards = () => {
       value: tasks.length,
       subText: "2 due this quarter",
       icon: Folder,
-      iconBg: "rgb(238, 242, 255)",
+      iconBg: "var(--indigo-50)",
     },
     {
       title: "Due this week",
       value: "14",
       subText: "3 overdue",
       icon: Clock,
-      iconBg: "rgb(255, 251, 235)",
+      iconBg: "var(--amber-50)",
     },
     {
       title: "Completed this month",
       value: "72",
       subText: "↑ 16% vs last month",
       icon: Completed,
-      iconBg: "rgb(236, 253, 245)",
+      iconBg: "var(--emerald-50)",
     },
     {
       title: "Team members",
       value: "12",
       subText: "9 online now",
       icon: Team,
-      iconBg: "rgb(245, 243, 255)",
+      iconBg: "var(--violet-50)",
     },
   ];
 
@@ -68,10 +68,10 @@ const Container = styled.div`
 const Card = styled(Flex)`
   min-width: 0;
   padding: 20px 16px;
-  background: rgb(255, 255, 255);
+  background: var(--white);
   border-radius: 12px;
   box-shadow:
-    rgb(241, 245, 249) 0px 0px 0px 1px inset,
+    var(--slate-100) 0px 0px 0px 1px inset,
     rgba(0, 0, 0, 0.05) 0px 1px 2px;
 `;
 const IconBox = styled(Flex)`
@@ -85,18 +85,18 @@ const Content = styled(Flex)`
   min-width: 0;
 `;
 const Title = styled.span`
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
   font-size: 12px;
   line-height: 18px;
 `;
 const Value = styled.span`
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
   font-size: 22px;
   font-weight: 700;
   line-height: 26px;
 `;
 const SubText = styled.span`
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
   font-size: 11px;
   line-height: 16px;
 `;

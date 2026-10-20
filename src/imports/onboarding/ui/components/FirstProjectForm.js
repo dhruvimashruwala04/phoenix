@@ -82,7 +82,7 @@ const Section = styled(Flex)`
   width: 100%;
 `;
 const Label = styled.label`
-  color: #334155;
+  color: var(--slate-700);
   font-size: 13px;
   font-weight: 600;
 `;
@@ -90,17 +90,17 @@ const Input = styled.input`
   width: 100%;
   height: 40px;
   padding: 0 12px;
-  border: 1px solid #dce3ed;
+  border: 1px solid var(--border-input);
   border-radius: 7px;
   outline: none;
-  color: #172033;
-  background: white;
+  color: var(--text-heading);
+  background: var(--white);
   font-size: 13px;
   &:focus {
     border-color: var(--blue-accent);
   }
   &::placeholder {
-    color: #94a3b8;
+    color: var(--text-muted-2);
   }
 `;
 const ViewContainer = styled.div`
@@ -116,7 +116,7 @@ const ViewCard = styled.button`
   align-items: flex-start;
   padding: 16px;
   border: 1px solid
-    ${({ $active }) => ($active ? "var(--blue-accent)" : "#dce3ed")};
+    ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--border-input)")};
   border-radius: 12px;
   background: ${({ $active }) => ($active ? "#f5f4ff" : "white")};
   box-shadow: ${({ $active }) =>
@@ -130,19 +130,19 @@ const ViewIcon = styled(Flex)`
   margin-bottom: 10px;
   border-radius: 9px;
   background-color: ${({ $active }) =>
-    $active ? "var(--blue-accent)" : "#eef2ff"};
+    $active ? "var(--blue-accent)" : "var(--indigo-50)"};
   color: ${({ $active }) => ($active ? "white" : "var(--blue-accent)")};
   font-size: 18px;
   font-weight: 600;
 `;
 const ViewTitle = styled.div`
   margin-bottom: 7px;
-  color: #172033;
+  color: var(--text-heading);
   font-size: 15px;
   font-weight: 600;
 `;
 const ViewDescription = styled.div`
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 12px;
   line-height: 1.5;
 `;
@@ -155,7 +155,7 @@ const AiBox = styled(Flex)`
 
   border-radius: 10px;
 
-  background-color: #eef2ff;
+  background-color: var(--indigo-50);
 `;
 
 const AiIcon = styled(Flex)`
@@ -163,7 +163,7 @@ const AiIcon = styled(Flex)`
   height: 38px;
   margin-right: 12px;
   border-radius: 8px;
-  background-color: white;
+  background-color: var(--white);
   color: var(--blue-accent);
   font-size: 18px;
 `;
@@ -172,12 +172,12 @@ const AiText = styled.div`
 `;
 const AiTitle = styled.div`
   margin-bottom: 2px;
-  color: #172033;
+  color: var(--text-heading);
   font-size: 13px;
   font-weight: 600;
 `;
 const AiDescription = styled.div`
-  color: #526174;
+  color: var(--text-secondary);
   font-size: 12px;
 `;
 const Toggle = styled.button`
@@ -188,7 +188,7 @@ const Toggle = styled.button`
   border: none;
   border-radius: 20px;
   background-color: ${({ $active }) =>
-    $active ? "var(--blue-accent)" : "#cbd5e1"};
+    $active ? "var(--blue-accent)" : "var(--slate-300)"};
   cursor: pointer;
 `;
 const ToggleCircle = styled.span`
@@ -198,7 +198,7 @@ const ToggleCircle = styled.span`
   top: 3px;
   left: ${({ $active }) => ($active ? "23px" : "3px")};
   border-radius: 50%;
-  background-color: white;
+  background-color: var(--white);
   transition: left 0.2s ease;
 `;
 const SuggestedSection = styled(Flex)`
@@ -206,7 +206,7 @@ const SuggestedSection = styled(Flex)`
 `;
 const SuggestedTitle = styled.div`
   margin-bottom: 1px;
-  color: #94a3b8;
+  color: var(--text-muted-2);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -223,6 +223,6 @@ const TaskCheckbox = styled(Flex)`
   font-weight: 700;
 `;
 const TaskText = styled.span`
-  color: #334155;
+  color: var(--slate-700);
   font-size: 13px;
 `;

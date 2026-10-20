@@ -21,9 +21,9 @@ const AiInsightsWrapper = styled(Flex)`
   border-radius: 8px;
   border: 0px;
   background: ${({ $variant }) =>
-    $variant === "primary" ? "rgb(238, 242, 255)" : "rgb(255, 255, 255)"};
+    $variant === "primary" ? "var(--indigo-50)" : "var(--white)"};
   color: ${({ $variant }) =>
-    $variant === "primary" ? "rgb(79, 70, 229)" : " rgb(109, 40, 217)"};
+    $variant === "primary" ? "var(--blue-accent)" : " var(--violet-700)"};
   font-size: 14px;
   font-weight: 500;
   display: flex;

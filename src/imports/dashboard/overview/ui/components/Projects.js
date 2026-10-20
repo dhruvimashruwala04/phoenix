@@ -83,12 +83,12 @@ const ProjectRow = styled.a`
   gap: 16px;
   align-items: center;
   padding: 14px 20px;
-  border-bottom: 1px solid rgb(248, 250, 252);
+  border-bottom: 1px solid var(--slate-50);
   &:last-child {
     border-bottom: none;
   }
   &:hover {
-    background: rgb(248, 250, 252);
+    background: var(--slate-50);
     cursor: pointer;
   }
 `;
@@ -99,7 +99,7 @@ const ProjectInfo = styled.div`
 const ProjectName = styled(Flex)`
   font-size: 14px;
   font-weight: 600;
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -115,7 +115,7 @@ const Meta = styled.div`
   margin-top: 3px;
   font-size: 11px;
   line-height: 14px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
   white-space: nowrap;
 `;
 const ProgressSection = styled.div`
@@ -125,14 +125,14 @@ const ProgressSection = styled.div`
 const ProgressLabel = styled(Flex)`
   margin-bottom: 5px;
   font-size: 10px;
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
 `;
 const ProgressTrack = styled.div`
   width: 100%;
   height: 4px;
   overflow: hidden;
   border-radius: 4px;
-  background: rgb(241, 245, 249);
+  background: var(--slate-100);
 `;
 const ProgressBar = styled.div`
   width: ${({ $progress }) => `${$progress}%`};
@@ -163,7 +163,7 @@ const Status = styled.span`
         return "rgba(221, 244, 234, 1)";
 
       default:
-        return "rgb(241, 245, 249)";
+        return "var(--slate-100)";
     }
   }};
 `;

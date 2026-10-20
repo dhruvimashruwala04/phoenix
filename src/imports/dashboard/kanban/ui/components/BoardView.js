@@ -141,18 +141,18 @@ const Header = styled(Flex)`
   width: 100%;
 `;
 const Left = styled(Flex)`
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
 `;
 const Title = styled.span`
   font-size: 14px;
   font-weight: 700;
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
 `;
 const Counter = styled.span`
   font-size: 10px;
   font-weight: 600;
-  color: rgb(100, 116, 139);
-  background: rgb(226, 232, 240);
+  color: var(--text-muted);
+  background: var(--border-muted);
   border-radius: 9999px;
   padding: 1px 7px;
 `;
@@ -163,7 +163,7 @@ const AddTask = styled.button`
   width: 100%;
   border: 0px;
   background: transparent;
-  color: rgb(99, 102, 241);
+  color: var(--indigo-500);
   font-size: 12px;
   font-weight: 500;
   padding: 8px;
@@ -174,7 +174,7 @@ const AddTask = styled.button`
   justify-content: center;
   border-radius: 8px;
   &:hover {
-    background: rgb(238, 242, 255);
+    background: var(--indigo-50);
   }
 `;
 const TaskList = styled.div`

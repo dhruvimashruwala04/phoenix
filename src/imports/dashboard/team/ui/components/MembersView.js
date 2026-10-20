@@ -120,8 +120,8 @@ export default MembersView;
 const GridContainer = styled.div`
   width: 100%;
   overflow-x: auto;
-  background: #fff;
-  border: 1px solid #edf1f6;
+  background: var(--white);
+  border: 1px solid var(--border-soft);
   border-radius: 13px;
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
 `;
@@ -134,7 +134,7 @@ const GridHeader = styled.div`
   min-width: 850px;
   min-height: 39px;
   padding: 0 20px;
-  border-bottom: 1px solid #edf1f6;
+  border-bottom: 1px solid var(--border-soft);
 `;
 const MemberRow = styled.div`
   display: grid;
@@ -145,7 +145,7 @@ const MemberRow = styled.div`
   min-width: 850px;
   min-height: 59px;
   padding: 0 20px;
-  border-bottom: 1px solid #f1f5f9;
+  border-bottom: 1px solid var(--slate-100);
   &:last-child {
     border-bottom: 0;
   }
@@ -159,26 +159,26 @@ const CheckBox = styled.input`
   width: 16px;
   height: 16px;
   margin: 0;
-  border: 1.5px solid #cbd5e1;
+  border: 1.5px solid var(--slate-300);
   border-radius: 4px;
-  background: #fff;
+  background: var(--white);
   cursor: pointer;
   flex-shrink: 0;
   &:checked {
-    background: #5145ed;
-    border-color: #5145ed;
+    background: var(--blue-accent);
+    border-color: var(--blue-accent);
   }
   &:checked::after {
     content: "✓";
     display: block;
-    color: #fff;
+    color: var(--white);
     text-align: center;
     font-size: 11px;
     line-height: 14px;
   }
 `;
 const ColumnLabel = styled.span`
-  color: #94a3b8;
+  color: var(--text-muted-2);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.25px;
@@ -194,7 +194,7 @@ const Avatar = styled(Flex)`
   flex-shrink: 0;
   border-radius: 50%;
   background: ${({ $color }) => $color};
-  color: #fff;
+  color: var(--white);
   font-size: 11px;
   font-weight: 700;
 `;
@@ -204,9 +204,9 @@ const OnlineIndicator = styled.span`
   bottom: -1px;
   width: 11px;
   height: 11px;
-  border: 2px solid #fff;
+  border: 2px solid var(--white);
   border-radius: 50%;
-  background: ${({ $online }) => ($online ? "#00c781" : "#cbd5e1")};
+  background: ${({ $online }) => ($online ? "#00c781" : "var(--slate-300)")};
 `;
 const MemberInfo = styled.div`
   min-width: 0;
@@ -216,7 +216,7 @@ const NameLine = styled(Flex)`
 `;
 const MemberName = styled.span`
   overflow: hidden;
-  color: #0f172a;
+  color: var(--slate-900);
   font-size: 12px;
   font-weight: 650;
   text-overflow: ellipsis;
@@ -225,20 +225,20 @@ const MemberName = styled.span`
 const YouBadge = styled.span`
   padding: 1px 4px;
   border-radius: 3px;
-  background: #f1f5f9;
-  color: #64748b;
+  background: var(--slate-100);
+  color: var(--text-muted);
   font-size: 9px;
   font-weight: 700;
 `;
 const Email = styled.div`
   overflow: hidden;
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 10px;
   text-overflow: ellipsis;
   white-space: nowrap;
 `;
 const TeamName = styled.span`
-  color: #475569;
+  color: var(--slate-600);
   font-size: 12px;
 `;
 const AccessCell = styled.div`
@@ -251,12 +251,12 @@ const AccessSelect = styled.select`
   padding: 0 8px;
   border: 1px solid #dce4ee;
   border-radius: 6px;
-  background: #fff;
-  color: #0f172a;
+  background: var(--white);
+  color: var(--slate-900);
   font-size: 12px;
   &:disabled {
-    background: #fff;
-    color: #94a3b8;
+    background: var(--white);
+    color: var(--text-muted-2);
     cursor: not-allowed;
   }
 `;
@@ -264,13 +264,13 @@ const StatusCell = styled(Flex)``;
 const StatusBadge = styled.span`
   padding: 3px 7px;
   border-radius: 4px;
-  background: ${({ $active }) => ($active ? "#e5fbf2" : "#f1f5f9")};
-  color: ${({ $active }) => ($active ? "#009b70" : "#64748b")};
+  background: ${({ $active }) => ($active ? "#e5fbf2" : "var(--slate-100)")};
+  color: ${({ $active }) => ($active ? "#009b70" : "var(--text-muted)")};
   font-size: 10px;
   font-weight: 700;
 `;
 const LastActive = styled.span`
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 11px;
 `;
 const Actions = styled(Flex)``;
@@ -281,15 +281,15 @@ const ActionButton = styled.button`
   padding: 2px;
   border: 0;
   background: transparent;
-  color: #64748b;
+  color: var(--text-muted);
   cursor: pointer;
   &:hover {
-    color: #334155;
+    color: var(--slate-700);
   }
 `;
 const RemoveButton = styled(ActionButton)`
   color: #ff365d;
   &:hover {
-    color: #e11d48;
+    color: var(--rose-600);
   }
 `;

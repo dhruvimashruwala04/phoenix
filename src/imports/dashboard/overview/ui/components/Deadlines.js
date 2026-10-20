@@ -85,8 +85,8 @@ const DateBadge = styled(Flex)`
   width: 44px;
   min-width: 44px;
   height: 42px;
-  background: #f8fafc;
-  border: 1px solid #edf0f5;
+  background: var(--slate-50);
+  border: 1px solid var(--border-soft);
   border-radius: 11px;
 `;
 const Month = styled.span`
@@ -96,7 +96,7 @@ const Month = styled.span`
   line-height: 12px;
 `;
 const Day = styled.span`
-  color: #172033;
+  color: var(--text-heading);
   font-size: 16px;
   font-weight: 700;
   line-height: 18px;
@@ -106,7 +106,7 @@ const TaskInfo = styled(Flex)`
   min-width: 0;
 `;
 const TaskTitle = styled.div`
-  color: #172033;
+  color: var(--text-heading);
   font-size: 13px;
   font-weight: 650;
   line-height: 17px;
@@ -132,9 +132,9 @@ const Deadline = styled.span`
       case "Tomorrow":
         return "#f97316";
       case "Today":
-        return "#10b981";
+        return "var(--emerald-500)";
       default:
-        return "#64748b";
+        return "var(--text-muted)";
     }
   }};
   @media (max-width: 420px) {

@@ -49,8 +49,8 @@ const Toolbar = styled(Flex)`
   padding: 9px 13px;
   box-sizing: border-box;
   border-radius: 10px;
-  background: #1e293b;
-  color: #ffffff;
+  background: var(--slate-800);
+  color: var(--white);
   margin: 14px 0 20px;
   @media (max-width: 600px) {
     align-items: flex-start;
@@ -74,18 +74,18 @@ const SecondaryButton = styled.button`
   padding: 0 12px;
   border: none;
   border-radius: 6px;
-  background: #334155;
-  color: #f8fafc;
+  background: var(--slate-700);
+  color: var(--slate-50);
   font-size: 12px;
   white-space: nowrap;
   cursor: pointer;
   &:hover {
-    background: #475569;
+    background: var(--slate-600);
   }
 `;
 const RemoveButton = styled(SecondaryButton)`
   background: #f01846;
-  color: #ffffff;
+  color: var(--white);
   &:hover {
     background: #d9123c;
   }
@@ -100,6 +100,6 @@ const CloseButton = styled.button`
   color: #a8b5c7;
   cursor: pointer;
   &:hover {
-    color: #ffffff;
+    color: var(--white);
   }
 `;

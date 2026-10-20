@@ -95,7 +95,7 @@ const Avatar = styled(Flex)`
   flex-shrink: 0;
   border-radius: 50%;
   background-color: var(--blue-accent);
-  color: white;
+  color: var(--white);
   font-size: 18px;
   font-weight: 600;
 `;
@@ -103,7 +103,7 @@ const NameField = styled(Flex)`
   flex: 1;
 `;
 const Label = styled.label`
-  color: #172033;
+  color: var(--text-heading);
   font-size: 13px;
   font-weight: 600;
 `;
@@ -111,14 +111,14 @@ const Input = styled.input`
   width: 100%;
   height: 40px;
   padding: 0 12px;
-  border: 1px solid #dce3ed;
+  border: 1px solid var(--border-input);
   border-radius: 7px;
   outline: none;
-  color: #172033;
-  background-color: white;
+  color: var(--text-heading);
+  background-color: var(--white);
   font-size: 13px;
   &::placeholder {
-    color: #94a3b8;
+    color: var(--text-muted-2);
   }
   &:focus {
     border-color: var(--blue-accent);
@@ -137,10 +137,10 @@ const RoleButton = styled.button`
   gap: 8px;
   padding: 0 13px;
   border: 1px solid
-    ${({ $active }) => ($active ? "var(--blue-accent)" : "#dce3ed")};
+    ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--border-input)")};
   border-radius: 20px;
   background-color: ${({ $active }) => ($active ? "#f0efff" : "white")};
-  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "#172033")};
+  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--text-heading)")};
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
@@ -153,7 +153,7 @@ const TeamContainer = styled(Flex)`
   height: 43px;
   padding: 4px;
   border-radius: 9px;
-  background-color: #f1f5f9;
+  background-color: var(--slate-100);
 `;
 const TeamButton = styled.button`
   flex: 1;
@@ -161,7 +161,7 @@ const TeamButton = styled.button`
   border: none;
   border-radius: 8px;
   background-color: ${({ $active }) => ($active ? "white" : "transparent")};
-  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "#526174")};
+  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--text-secondary)")};
   font-size: 13px;
   font-weight: ${({ $active }) => ($active ? "500" : "400")};
   cursor: pointer;

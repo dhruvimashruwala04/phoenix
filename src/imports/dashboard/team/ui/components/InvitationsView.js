@@ -70,10 +70,10 @@ const MailIcon = () => (
 
 const List = styled.div`
   width: 100%;
-  border: 1px solid #edf0f5;
+  border: 1px solid var(--border-soft);
   border-radius: 9px;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--white);
 `;
 
 const InvitationRow = styled(Flex)`
@@ -108,14 +108,14 @@ const InviteInfo = styled(Flex)`
 `;
 
 const Email = styled.div`
-  color: #17243a;
+  color: var(--text-heading);
   font-size: 13px;
   font-weight: 650;
   overflow-wrap: anywhere;
 `;
 
 const Subtitle = styled.div`
-  color: #718096;
+  color: var(--gray-500);
   font-size: 11px;
 `;
 
@@ -134,13 +134,13 @@ const ResendButton = styled.button`
   padding: 0 12px;
   border: 1px solid #dce4ef;
   border-radius: 6px;
-  background: white;
-  color: #17243a;
+  background: var(--white);
+  color: var(--text-heading);
   font-size: 12px;
   cursor: pointer;
 
   &:hover {
-    background: #f8fafc;
+    background: var(--slate-50);
   }
 `;
 
@@ -166,7 +166,7 @@ const RevokeButton = styled.button`
   padding: 0 6px;
   border: none;
   background: transparent;
-  color: #f43f5e;
+  color: var(--rose-500);
   font-size: 12px;
   font-weight: 600;
   cursor: pointer;

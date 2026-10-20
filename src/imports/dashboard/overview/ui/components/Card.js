@@ -32,10 +32,10 @@ export default Card;
 const CardWrapper = styled(Flex)`
   /* width: 100%; */
 
-  background: rgb(255, 255, 255);
+  background: var(--white);
   border-radius: 12px;
   box-shadow:
-    rgb(241, 245, 249) 0px 0px 0px 1px inset,
+    var(--slate-100) 0px 0px 0px 1px inset,
     rgba(0, 0, 0, 0.05) 0px 1px 2px;
 `;
 
@@ -43,17 +43,17 @@ const CardHeader = styled(Flex)`
   width: 100%;
   height: 48px;
   padding: 0 18px;
-  border-bottom: 1px solid rgb(241, 245, 249);
+  border-bottom: 1px solid var(--slate-100);
 `;
 
 const Title = styled.span`
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
   font-size: 14px;
   font-weight: 700;
 `;
 
 const HeaderLink = styled(Link)`
-  color: rgb(124, 58, 237);
+  color: var(--violet-600);
   font-size: 12px;
   font-weight: 500;
   cursor: pointer;
@@ -61,7 +61,7 @@ const HeaderLink = styled(Link)`
 `;
 
 const HeaderText = styled.div`
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
   font-size: 12px;
   font-weight: 500;
 `;

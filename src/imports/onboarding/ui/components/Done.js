@@ -96,14 +96,14 @@ const SuccessIcon = styled(Flex)`
   margin-bottom: 18px;
   border-radius: 50%;
   background-color: #e8faf4;
-  color: #10b981;
+  color: var(--emerald-500);
   font-size: 32px;
   font-weight: 600;
 `;
 
 const Title = styled.h1`
   margin: 0 0 8px;
-  color: #111827;
+  color: var(--gray-900);
   font-size: 32px;
   line-height: 1.2;
   font-weight: 700;
@@ -112,7 +112,7 @@ const Title = styled.h1`
 
 const SubText = styled.p`
   margin: 0 0 30px;
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 15px;
   line-height: 1.5;
   text-align: center;
@@ -121,8 +121,8 @@ const SubText = styled.p`
 const SummaryCard = styled.div`
   width: 100%;
   overflow: hidden;
-  background: white;
-  border: 1px solid #edf0f4;
+  background: var(--white);
+  border: 1px solid var(--border-soft);
   border-radius: 14px;
   box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
 `;
@@ -130,7 +130,7 @@ const SummaryCard = styled.div`
 const SummaryRow = styled(Flex)`
   min-height: 75px;
   padding: 12px 20px;
-  border-bottom: 1px solid #edf0f4;
+  border-bottom: 1px solid var(--border-soft);
 
   &:last-child {
     border-bottom: none;
@@ -143,7 +143,7 @@ const IconBox = styled(Flex)`
   flex-shrink: 0;
   margin-right: 15px;
   border-radius: 10px;
-  background-color: #eef2ff;
+  background-color: var(--indigo-50);
   color: var(--blue-accent);
   font-size: 18px;
 `;
@@ -155,12 +155,12 @@ const SummaryText = styled.div`
 
 const Label = styled.div`
   margin-bottom: 3px;
-  color: #64748b;
+  color: var(--text-muted);
   font-size: 12px;
 `;
 
 const Value = styled.div`
-  color: #172033;
+  color: var(--text-heading);
   font-size: 14px;
   font-weight: 600;
 `;

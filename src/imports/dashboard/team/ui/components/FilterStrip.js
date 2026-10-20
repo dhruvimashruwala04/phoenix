@@ -44,8 +44,8 @@ const FilterButton = styled.button`
   padding: 0 12px;
   border: 1px solid ${({ $active }) => ($active ? "#c7d2fe" : "#dfe6ef")};
   border-radius: 999px;
-  background: ${({ $active }) => ($active ? "#eef2ff" : "#ffffff")};
-  color: ${({ $active }) => ($active ? "#5145ed" : "#334155")};
+  background: ${({ $active }) => ($active ? "var(--indigo-50)" : "var(--white)")};
+  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--slate-700)")};
   font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
@@ -55,7 +55,7 @@ const FilterButton = styled.button`
     border-color 150ms ease;
 
   &:hover {
-    background: #eef2ff;
+    background: var(--indigo-50);
     border-color: #c7d2fe;
   }
 `;

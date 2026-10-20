@@ -75,7 +75,7 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   padding: 0 24px;
-  background: white;
+  background: var(--white);
   border-bottom: 1px solid #e8edf3;
   justify-content: space-between;
 `;
@@ -98,7 +98,7 @@ const Logo = styled.div`
 const BrandName = styled.span`
   font-size: 16px;
   font-weight: 700;
-  color: #172033;
+  color: var(--text-heading);
 `;
 
 const Steps = styled(Flex)`
@@ -126,7 +126,7 @@ const StepNumber = styled(Flex)`
 
   border: 1px solid
     ${({ $active, $completed }) =>
-      $active || $completed ? "var(--blue-accent)" : "#dce3ed"};
+      $active || $completed ? "var(--blue-accent)" : "var(--border-input)"};
 
   color: ${({ $active, $completed }) =>
     $active || $completed ? "white" : "#8a9aad"};
@@ -139,13 +139,13 @@ const StepName = styled.span`
   font-size: 13px;
 
   color: ${({ $active, $completed }) =>
-    $active ? "#172033" : $completed ? "#526174" : "#8a9aad"};
+    $active ? "var(--text-heading)" : $completed ? "var(--text-secondary)" : "#8a9aad"};
 
   font-weight: ${({ $active }) => ($active ? "600" : "400")};
 `;
 
 const Skip = styled(Link)`
-  color: #526174;
+  color: var(--text-secondary);
   font-size: 13px;
   text-decoration: none;
 `;

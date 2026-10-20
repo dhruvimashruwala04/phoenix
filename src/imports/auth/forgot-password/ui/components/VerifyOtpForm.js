@@ -90,7 +90,7 @@ const Text = styled.span`
   line-height: 34px;
   letter-spacing: -0.6px;
   font-weight: 700;
-  color: #172033;
+  color: var(--text-heading);
 `;
 const SubText = styled.span`
   color: var(--text-muted);
@@ -101,7 +101,7 @@ const IconHolder = styled.span`
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: #eef2ff;
+  background: var(--indigo-50);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -139,13 +139,13 @@ const OtpContainer = styled(Flex)`
 const OtpInput = styled.input`
   width: 60px;
   height: 52px;
-  border: 1px solid #dce3ed;
+  border: 1px solid var(--border-input);
   border-radius: 8px;
   outline: none;
   text-align: center;
   font-size: 22px;
   font-weight: 600;
-  color: #172033;
+  color: var(--text-heading);
   background: var(--background);
   &:focus {
     border: 2px solid var(--blue-accent);

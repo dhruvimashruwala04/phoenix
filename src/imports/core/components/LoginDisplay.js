@@ -28,7 +28,7 @@ const LoginDisplay = () => {
                 height: "100%",
                 width: "60%",
                 borderRadius: " 9999px",
-                background: "rgb(79, 70, 229)",
+                background: "var(--blue-accent)",
               }}
             ></div>
           </Bar>
@@ -78,7 +78,7 @@ const SupText = styled.span`
   border-radius: 50px;
 `;
 const Header = styled.span`
-  color: white;
+  color: var(--white);
   font-size: 36px;
   letter-spacing: -0.5px;
   font-weight: 700;
@@ -86,7 +86,7 @@ const Header = styled.span`
 `;
 
 const SubText = styled.span`
-  color: #94a3b8;
+  color: var(--text-muted-2);
 `;
 
 const AiChat = styled(Flex)`
@@ -102,8 +102,8 @@ const DarkSec = styled(Flex)`
   margin-left: 32px;
   border-radius: 12px;
   padding: 14px 16px;
-  background-color: rgb(30, 41, 59);
-  color: rgb(203, 213, 225);
+  background-color: var(--slate-800);
+  color: var(--slate-300);
 `;
 const AiText = styled.span`
   font-size: 12px;
@@ -122,7 +122,7 @@ const Text = styled.span`
 `;
 const Value = styled.span`
   font-size: 12px;
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
 `;
 const WhiteHeader = styled.span`
   font-weight: 600;
@@ -130,12 +130,12 @@ const WhiteHeader = styled.span`
 `;
 const WhiteText = styled.span`
   font-size: 12px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
 `;
 const Bar = styled(Flex)`
   height: 4px;
   border-radius: 9999px;
-  background: rgb(241, 245, 249);
+  background: var(--slate-100);
   width: 100%;
 `;
 const Data = styled(Flex)`
@@ -146,10 +146,10 @@ const Risk = styled.div`
   font-weight: 700;
   padding: 2px 8px;
   border-radius: 4px;
-  background: rgb(255, 241, 242);
-  color: rgb(244, 63, 94);
+  background: var(--rose-50);
+  color: var(--rose-500);
 `;
 const Number = styled.div`
   font-size: 10px;
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
 `;

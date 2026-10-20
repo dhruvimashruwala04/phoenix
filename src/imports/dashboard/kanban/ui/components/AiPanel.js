@@ -86,8 +86,8 @@ const Panel = styled(Flex)`
   width: 335px;
   max-width: 100%;
   flex-shrink: 0;
-  background: rgb(255, 255, 255);
-  border-left: 1px solid rgb(241, 245, 249);
+  background: var(--white);
+  border-left: 1px solid var(--slate-100);
   position: fixed;
   right: 0px;
   top: 0px;
@@ -98,17 +98,17 @@ const Panel = styled(Flex)`
 const Header = styled(Flex)`
   width: 100%;
   height: 64px;
-  border-bottom: 1px solid rgb(241, 245, 249);
+  border-bottom: 1px solid var(--slate-100);
   padding: 0px 20px;
 `;
 const Text = styled.div`
   font-weight: 700;
   font-size: 14px;
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
 `;
 const Badge = styled.div`
-  background: rgb(238, 242, 255);
-  color: rgb(79, 70, 229);
+  background: var(--indigo-50);
+  color: var(--blue-accent);
   font-size: 9px;
   font-weight: 700;
   padding: 2px 6px;
@@ -117,13 +117,13 @@ const Badge = styled.div`
 `;
 const CloseBtn = styled(Flex)`
   background: transparent;
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
   cursor: pointer;
   width: 28px;
   height: 28px;
   border-radius: 6px;
   &:hover {
-    background-color: rgb(248, 250, 252);
+    background-color: var(--slate-50);
   }
 `;
 const Wrapper = styled(Flex)``;
@@ -138,8 +138,8 @@ const AiIcon = styled(Flex)`
   width: 28px;
   height: 28px;
   border-radius: 8px;
-  background: rgb(238, 242, 255);
-  color: rgb(79, 70, 229);
+  background: var(--indigo-50);
+  color: var(--blue-accent);
   font-size: 12px;
 `;
 const BoldText = styled.span`
@@ -148,13 +148,13 @@ const BoldText = styled.span`
 `;
 const SubText = styled.div`
   font-size: 12px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
 `;
 const Row = styled(Flex)`
   width: 100%;
   text-align: left;
   cursor: pointer;
-  background: rgb(238, 242, 255);
+  background: var(--indigo-50);
   border-radius: 10px;
   padding: 12px;
 `;
@@ -162,8 +162,8 @@ const Icon = styled(Flex)`
   width: 28px;
   height: 28px;
   border-radius: 8px;
-  background: rgb(255, 255, 255);
-  color: rgb(79, 70, 229);
+  background: var(--white);
+  color: var(--blue-accent);
   font-size: 12px;
   flex-shrink: 0;
 `;
@@ -171,18 +171,18 @@ const TextWrapper = styled(Flex)``;
 const Title = styled.span`
   font-size: 12px;
   font-weight: 700;
-  color: rgb(15, 23, 42);
+  color: var(--slate-900);
 `;
 const ContentVal = styled.span`
   font-size: 10px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
 `;
 const Suggestion = styled(Flex)`
   border-radius: 10px;
   background: ${({ $variant }) =>
-    $variant === "red" ? "rgb(255, 241, 242)" : " rgb(236, 253, 245)"};
+    $variant === "red" ? "var(--rose-50)" : " var(--emerald-50)"};
   box-shadow: ${({ $variant }) =>
-      $variant === "red" ? "rgb(254, 205, 211)" : " rgb(167, 243, 208)"}
+      $variant === "red" ? "var(--rose-200)" : " rgb(167, 243, 208)"}
     0px 0px 0px 1px inset;
 
   padding: 16px;
@@ -190,7 +190,7 @@ const Suggestion = styled(Flex)`
 const SuggestionText = styled.span`
   font-size: 12px;
   line-height: 19px;
-  color: rgb(51, 65, 85);
+  color: var(--slate-700);
   font-style: italic;
 `;
 const HeadingText = styled(Flex)`
@@ -198,17 +198,17 @@ const HeadingText = styled(Flex)`
   font-weight: 700;
   letter-spacing: 0.4px;
   color: ${({ $variant }) =>
-    $variant === "red" ? "rgb(225, 29, 72)" : "rgb(5, 150, 105)"};
+    $variant === "red" ? "var(--rose-600)" : "var(--emerald-600)"};
 `;
 
 const Btn = styled(Flex)`
   align-self: flex-start;
   border: 1px solid
     ${({ $variant }) =>
-      $variant === "red" ? "rgb(254, 205, 211)" : "rgb(167, 243, 208)"};
-  background: rgb(255, 255, 255);
+      $variant === "red" ? "var(--rose-200)" : "rgb(167, 243, 208)"};
+  background: var(--white);
   color: ${({ $variant }) =>
-    $variant === "red" ? "rgb(225, 29, 72)" : "rgb(5, 150, 105)"};
+    $variant === "red" ? "var(--rose-600)" : "var(--emerald-600)"};
   font-size: 10px;
   font-weight: 700;
   padding: 5px 10px;
@@ -220,13 +220,13 @@ const SText = styled.span`
   font-weight: 700;
   letter-spacing: 0.4px;
   color: ${({ $variant }) =>
-    $variant === "red" ? "rgb(225, 29, 72)" : "rgb(5, 150, 105)"};
+    $variant === "red" ? "var(--rose-600)" : "var(--emerald-600)"};
   text-transform: uppercase;
 `;
 const SIcon = styled(Flex)``;
 const AskAi = styled(Flex)`
   padding: 16px 20px;
-  border-top: 1px solid rgb(241, 245, 249);
+  border-top: 1px solid var(--slate-100);
   width: 100%;
 `;
 const AskInput = styled.input`
@@ -235,8 +235,8 @@ const AskInput = styled.input`
   height: 38px;
   border-radius: 8px;
   border: 0px;
-  background: rgb(248, 250, 252);
-  box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
+  background: var(--slate-50);
+  box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
   padding: 0px 12px;
   font-size: 12px;
   outline: 0px;
@@ -248,6 +248,6 @@ const QuickActionText = styled(Flex)`
   padding: 10px 12px;
   border-radius: 10px;
   white-space: pre-wrap;
-  background: rgb(248, 250, 252);
-  color: rgb(51, 65, 85);
+  background: var(--slate-50);
+  color: var(--slate-700);
 `;

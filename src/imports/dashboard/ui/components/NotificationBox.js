@@ -17,8 +17,8 @@ const NotificationWrapper = styled(Flex)`
   width: 36px;
   height: 36px;
   border-radius: 8px;
-  background: rgb(255, 255, 255);
-  box-shadow: rgb(226, 232, 240) 0px 0px 0px 1px inset;
-  color: rgb(100, 116, 139);
+  background: var(--white);
+  box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
+  color: var(--text-muted);
   position: relative;
 `;

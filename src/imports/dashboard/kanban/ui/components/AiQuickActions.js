@@ -35,8 +35,8 @@ const QuickActions = styled(Flex)`
   transform: translateX(-50%);
   height: 48px;
   padding: 5px 8px;
-  background: white;
-  border: 1px solid rgb(226, 232, 240);
+  background: var(--white);
+  border: 1px solid var(--border-muted);
   border-radius: 10px;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
   z-index: 50;
@@ -47,17 +47,17 @@ const Action = styled(Flex)`
   border-radius: 7px;
   font-size: 12px;
   font-weight: 600;
-  color: rgb(71, 85, 105);
+  color: var(--slate-600);
   cursor: pointer;
   white-space: nowrap;
   ${({ $title }) =>
     $title &&
     `
-      color: rgb(79, 70, 229);
-      background: rgb(238, 242, 255);
+      color: var(--blue-accent);
+      background: var(--indigo-50);
       border: 1px solid rgb(224, 231, 255);
     `}
   &:hover {
-    background: rgb(248, 250, 252);
+    background: var(--slate-50);
   }
 `;

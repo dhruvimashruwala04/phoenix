@@ -49,10 +49,10 @@ const Container = styled.div`
 const SettingsCard = styled.div`
   width: 100%;
   padding: 0 24px;
-  background: #ffffff;
+  background: var(--white);
   border-radius: 13px;
   box-shadow:
-    0 0 0 1px #edf1f6,
+    0 0 0 1px var(--border-soft),
     0 2px 4px rgba(15, 23, 42, 0.035);
 `;
 const SettingRow = styled.div`
@@ -79,7 +79,7 @@ const SettingTitle = styled.div`
 `;
 const Description = styled.div`
   font-size: 12px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
 `;
 const Toggle = styled.button`
   position: relative;
@@ -89,7 +89,7 @@ const Toggle = styled.button`
   padding: 0;
   border: none;
   border-radius: 20px;
-  background: ${({ $active }) => ($active ? "#4f46e5" : "#e2e8f0")};
+  background: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--border-muted)")};
   cursor: pointer;
   transition: background 180ms ease;
   &:focus-visible {
@@ -104,7 +104,7 @@ const ToggleThumb = styled.span`
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #ffffff;
+  background: var(--white);
   box-shadow: 0 1px 2px rgba(15, 23, 42, 0.12);
   transition: left 180ms ease;
 `;
@@ -120,12 +120,12 @@ const ResetButton = styled.button`
   padding: 0 14px;
   border: 1px solid #dce4ef;
   border-radius: 8px;
-  background: #ffffff;
-  color: #111827;
+  background: var(--white);
+  color: var(--gray-900);
   font-size: 14px;
   cursor: pointer;
   &:hover {
-    background: #f8fafc;
+    background: var(--slate-50);
   }
 `;
 const SaveButton = styled.button`
@@ -133,12 +133,12 @@ const SaveButton = styled.button`
   padding: 0 16px;
   border: none;
   border-radius: 8px;
-  background: #4f46e5;
-  color: #ffffff;
+  background: var(--blue-accent);
+  color: var(--white);
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
   &:hover {
-    background: #4338ca;
+    background: var(--indigo-700);
   }
 `;

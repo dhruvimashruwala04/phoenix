@@ -143,7 +143,7 @@ const Text = styled.span`
   line-height: 34px;
   letter-spacing: -0.6px;
   font-weight: 700;
-  color: #172033;
+  color: var(--text-heading);
 `;
 const SubText = styled.span`
   color: var(--text-muted);
@@ -159,10 +159,10 @@ const Btn = styled(Flex)`
   border-radius: 7px;
   background-color: var(--background);
   font-size: 13px;
-  color: #172033;
+  color: var(--text-heading);
   &:hover {
     cursor: pointer;
-    background-color: #f8fafc;
+    background-color: var(--slate-50);
   }
 `;
 const Icon = styled(Flex)`
@@ -186,7 +186,7 @@ const HLine = styled.span`
 const DividerText = styled.span`
   flex-shrink: 0;
   font-size: 11px;
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
 `;
 const Field = styled(Flex)`
   width: 100%;
@@ -194,21 +194,21 @@ const Field = styled(Flex)`
 const Label = styled.span`
   font-size: 12px;
   font-weight: 600;
-  color: #334155;
+  color: var(--slate-700);
 `;
 const Input = styled.input`
   width: 100%;
   height: 37px;
 
-  border: 1px solid ${({ $error }) => ($error ? "rgb(225, 29, 72)" : "#dce3ed")};
+  border: 1px solid ${({ $error }) => ($error ? "var(--rose-600)" : "var(--border-input)")};
   border-radius: 7px;
   padding: 0 12px;
   outline: none;
   font-size: 13px;
-  color: #172033;
+  color: var(--text-heading);
   background-color: var(--background);
   &::placeholder {
-    color: #8a919b;
+    color: var(--text-subtle);
   }
   &:focus {
     border-color: var(--blue-accent);
@@ -227,7 +227,7 @@ const Eye = styled.span`
   right: 12px;
   top: 50%;
   transform: translateY(-50%);
-  color: #94a3b8;
+  color: var(--text-muted-2);
   font-size: 13px;
   cursor: pointer;
 `;
@@ -243,7 +243,7 @@ const Checkbox = styled.input`
 `;
 const IAgree = styled.span`
   font-size: 12px;
-  color: #64748b;
+  color: var(--text-muted);
 `;
 const AgreeLink = styled(Link)`
   color: var(--blue-accent);
@@ -284,12 +284,12 @@ const StrengthBar = styled.span`
   flex: 1;
   height: 3px;
   border-radius: 4px;
-  background-color: ${({ $active }) => ($active ? "#10B981" : "#E2E8F0")};
+  background-color: ${({ $active }) => ($active ? "var(--emerald-500)" : "var(--border-muted)")};
 `;
 const StrengthText = styled.span`
   display: block;
   margin-top: 5px;
   font-size: 10px;
-  color: #10b981;
+  color: var(--emerald-500);
   justify-self: flex-start;
 `;

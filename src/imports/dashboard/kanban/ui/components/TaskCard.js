@@ -54,8 +54,8 @@ export default TaskCard;
 const Card = styled.div`
   width: 100%;
   padding: 16px;
-  background: #ffffff;
-  border: 1px solid rgb(226, 232, 240);
+  background: var(--white);
+  border: 1px solid var(--border-muted);
   border-radius: 11px;
   box-shadow: 0 2px 4px rgba(15, 23, 42, 0.06);
 `;
@@ -63,13 +63,13 @@ const Title = styled.div`
   font-size: 14px;
   line-height: 20px;
   font-weight: 600;
-  color: rgb(30, 41, 59);
+  color: var(--slate-800);
 `;
 const Description = styled.div`
   margin-top: 10px;
   font-size: 12px;
   line-height: 20px;
-  color: rgb(100, 116, 139);
+  color: var(--text-muted);
 `;
 const ProgressSection = styled.div`
   margin-top: 10px;
@@ -77,20 +77,20 @@ const ProgressSection = styled.div`
 const ProgressLabel = styled(Flex)`
   margin-bottom: 5px;
   font-size: 10px;
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
 `;
 const ProgressTrack = styled.div`
   width: 100%;
   height: 4px;
   overflow: hidden;
   border-radius: 4px;
-  background: rgb(226, 232, 240);
+  background: var(--border-muted);
 `;
 const ProgressBar = styled.div`
   width: ${({ $progress }) => `${$progress}%`};
   height: 100%;
   border-radius: 4px;
-  background: rgb(79, 70, 229);
+  background: var(--blue-accent);
 `;
 const Bottom = styled(Flex)`
   margin-top: 14px;
@@ -104,13 +104,13 @@ const Priority = styled.span`
   color: ${({ $priority }) => {
     if ($priority === "low") return "rgb(34, 197, 94)";
     if ($priority === "medium") return "rgb(234, 179, 8)";
-    if ($priority === "high") return "rgb(244, 63, 94)";
+    if ($priority === "high") return "var(--rose-500)";
   }};
 
   background: ${({ $priority }) => {
     if ($priority === "low") return "rgb(240, 253, 244)";
     if ($priority === "medium") return "rgb(254, 252, 232)";
-    if ($priority === "high") return "rgb(255, 241, 242)";
+    if ($priority === "high") return "var(--rose-50)";
   }};
 `;
 const Right = styled(Flex)`
@@ -121,7 +121,7 @@ const DateText = styled.span`
   align-items: center;
   gap: 4px;
   font-size: 10px;
-  color: rgb(148, 163, 184);
+  color: var(--text-muted-2);
 `;
 const Clock = styled.span`
   font-size: 13px;
@@ -130,8 +130,8 @@ const Avatar = styled(Flex)`
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: rgb(99, 102, 241);
-  color: white;
+  background: var(--indigo-500);
+  color: var(--white);
   font-size: 9px;
   font-weight: 600;
 `;
@@ -142,7 +142,7 @@ const CompletedText = styled.span`
   font-weight: 700;
   line-height: 15px;
   background: transparent;
-  color: rgb(16, 185, 129);
+  color: var(--emerald-500);
 `;
 const Details = styled(Flex)`
   width: 100%;
