@@ -13,6 +13,7 @@ import {
 import useOnboardingStore from "../../store/onboardingStore";
 import useAuthStore from "@/imports/auth/store/authStore";
 import getInitials from "@/imports/core/utils/getInitials";
+import Input from "@/imports/core/components/Input";
 
 const AboutYouForm = () => {
   const { user, updateUser } = useAuthStore();
@@ -29,6 +30,7 @@ const AboutYouForm = () => {
           <NameField direction="column" gap="7px">
             <Label>Your name</Label>
             <Input
+              height="40px"
               value={user?.name || "John Smith"}
               onChange={(e) => updateUser({ name: e.target.value })}
               placeholder="John Smith"
@@ -107,23 +109,6 @@ const Label = styled.label`
   font-size: var(--fs-13);
   font-weight: var(--fw-600);
 `;
-const Input = styled.input`
-  width: 100%;
-  height: 40px;
-  padding: 0 12px;
-  border: 1px solid var(--border-input);
-  border-radius: var(--radius-7);
-  outline: none;
-  color: var(--text-heading);
-  background-color: var(--white);
-  font-size: var(--fs-13);
-  &::placeholder {
-    color: var(--text-muted-2);
-  }
-  &:focus {
-    border-color: var(--blue-accent);
-  }
-`;
 const Section = styled(Flex)`
   width: 100%;
 `;
@@ -139,8 +124,10 @@ const RoleButton = styled.button`
   border: 1px solid
     ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--border-input)")};
   border-radius: var(--radius-20);
-  background-color: ${({ $active }) => ($active ? "var(--indigo-50)" : "white")};
-  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--text-heading)")};
+  background-color: ${({ $active }) =>
+    $active ? "var(--indigo-50)" : "white"};
+  color: ${({ $active }) =>
+    $active ? "var(--blue-accent)" : "var(--text-heading)"};
   font-size: var(--fs-13);
   font-weight: var(--fw-500);
   cursor: pointer;
@@ -161,7 +148,8 @@ const TeamButton = styled.button`
   border: none;
   border-radius: var(--radius-8);
   background-color: ${({ $active }) => ($active ? "white" : "transparent")};
-  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--text-secondary)")};
+  color: ${({ $active }) =>
+    $active ? "var(--blue-accent)" : "var(--text-secondary)"};
   font-size: var(--fs-13);
   font-weight: ${({ $active }) => ($active ? "500" : "400")};
   cursor: pointer;

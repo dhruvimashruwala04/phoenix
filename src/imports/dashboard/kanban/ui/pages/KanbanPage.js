@@ -104,7 +104,6 @@ export default KanbanPage;
 const Page = styled.div`
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   display: grid;
   grid-template-columns: ${({ $aiOpen }) =>
     $aiOpen ? "minmax(0, 1fr) 335px" : "1fr"};
@@ -117,9 +116,8 @@ const LeftSection = styled(Flex)`
 const Content = styled(Flex)`
   flex: 1 1 0%;
   min-height: 0;
-  padding: 24px 24px 110px;
+  padding: 24px 24px 70px;
   width: 100%;
   overflow-y: auto;
-  overflow-x: auto;
-  scrollbar-width: thin;
+  overflow-x: hidden;
 `;

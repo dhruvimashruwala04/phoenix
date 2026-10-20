@@ -8,6 +8,7 @@ import { Close } from "@/imports/core/assets/Icons";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
 import CancelButton from "@/imports/core/components/CancelButton";
 import { projects } from "../../api/constants";
+import Input from "@/imports/core/components/Input";
 
 const NewTaskModal = () => {
   const {
@@ -43,7 +44,7 @@ const NewTaskModal = () => {
 
         <TitleInput direction="column" gap="6px">
           Title
-          <input
+          <Input
             name="title"
             type="text"
             placeholder="e.g. Onboarding email sequence"
@@ -54,12 +55,13 @@ const NewTaskModal = () => {
 
         <DescInput direction="column" gap="6px">
           Description
-          <textarea
+          <Input
             name="desc"
+            variant="textarea"
             rows="4"
             value={desc}
             onChange={(e) => setDesc(e.target.value)}
-          ></textarea>
+          />
         </DescInput>
 
         <Details gap="12px">
@@ -85,7 +87,7 @@ const NewTaskModal = () => {
           </DropdownInput>
           <DropdownInput direction="column" gap="6px">
             Due Date
-            <input
+            <Input
               name="dueDate"
               type="date"
               value={dueDate}
@@ -173,31 +175,11 @@ const TitleInput = styled(Flex)`
   font-size: var(--fs-12);
   font-weight: var(--fw-600);
   color: var(--slate-600);
-  > input {
-    height: 38px;
-    border-radius: var(--radius-8);
-    border: 0px;
-    box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
-    padding: 0px 12px;
-    font-size: var(--fs-14);
-    outline: 0px;
-    width: 100%;
-  }
 `;
 const DescInput = styled(Flex)`
   font-size: var(--fs-12);
   font-weight: var(--fw-600);
   color: var(--slate-600);
-  > textarea {
-    border-radius: var(--radius-8);
-    border: 0px;
-    box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
-    padding: 10px 12px;
-    font-size: var(--fs-13);
-    outline: 0px;
-    width: 100%;
-    resize: vertical;
-  }
 `;
 const Details = styled(Flex)``;
 const DropdownInput = styled(Flex)`
@@ -205,8 +187,7 @@ const DropdownInput = styled(Flex)`
   font-size: var(--fs-12);
   font-weight: var(--fw-600);
   color: var(--slate-600);
-  > select,
-  > input {
+  > select {
     width: 100%;
     height: 38px;
     border-radius: var(--radius-8);

@@ -3,6 +3,7 @@ import React from "react";
 import styled from "styled-components";
 import useMilestones from "../../store/milestonesStore";
 import ActionButton from "@/imports/dashboard/ui/components/ActionButton";
+import Input from "@/imports/core/components/Input";
 
 const NewMilestones = () => {
   const {
@@ -21,39 +22,39 @@ const NewMilestones = () => {
   return (
     <Modal direction="column" gap="10px" align="flex-end">
       <Row>
-        <Input direction="column" gap="6px">
+        <InputWrapper direction="column" gap="6px">
           Title
-          <input
+          <Input
             name="title"
             type="text"
             placeholder="e.g. Beta release"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
-        </Input>
-        <Input direction="column" gap="6px">
+        </InputWrapper>
+        <InputWrapper direction="column" gap="6px">
           Phase
-          <input
+          <Input
             name="phase"
             type="text"
             placeholder="e.g. Development"
             value={phase}
             onChange={(e) => setPhase(e.target.value)}
           />
-        </Input>
-        <Input direction="column" gap="6px">
+        </InputWrapper>
+        <InputWrapper direction="column" gap="6px">
           Total Tasks
-          <input
+          <Input
             name="totalTasks"
             type="number"
             placeholder="e.g. 10"
             value={totalTasks}
             onChange={(e) => setTotalTasks(e.target.value)}
           />
-        </Input>
+        </InputWrapper>
         <DropdownInput direction="column" gap="6px">
           Due Date
-          <input
+          <Input
             name="dueDate"
             type="date"
             value={dueDate}
@@ -91,28 +92,17 @@ const Row = styled.div`
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 `;
-const Input = styled(Flex)`
+const InputWrapper = styled(Flex)`
   font-size: var(--fs-12);
   font-weight: var(--fw-600);
   color: var(--slate-600);
-  > input {
-    height: 38px;
-    border-radius: var(--radius-8);
-    border: 0px;
-    box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
-    padding: 0px 12px;
-    font-size: var(--fs-14);
-    outline: 0px;
-    width: 100%;
-  }
 `;
 const DropdownInput = styled(Flex)`
   flex: 1 1 0%;
   font-size: var(--fs-12);
   font-weight: var(--fw-600);
   color: var(--slate-600);
-  > select,
-  > input {
+  > select {
     width: 100%;
     height: 38px;
     border-radius: var(--radius-8);

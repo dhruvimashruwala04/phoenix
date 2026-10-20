@@ -5,6 +5,7 @@ import { categories } from "../../api/constants";
 import { Close } from "@/imports/core/assets/Icons";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
 import CancelButton from "@/imports/core/components/CancelButton";
+import Input from "@/imports/core/components/Input";
 
 const NewEventModal = () => {
   const {
@@ -40,7 +41,7 @@ const NewEventModal = () => {
 
         <TitleInput direction="column" gap="6px">
           Title
-          <input
+          <Input
             name="title"
             type="text"
             placeholder="e.g. Sprint Retro"
@@ -52,7 +53,7 @@ const NewEventModal = () => {
         <Details gap="12px">
           <DropdownInput direction="column" gap="6px">
             Date
-            <input
+            <Input
               name="date"
               type="date"
               value={date}
@@ -61,7 +62,7 @@ const NewEventModal = () => {
           </DropdownInput>
           <DropdownInput direction="column" gap="6px">
             Start
-            <input
+            <Input
               name="startTime"
               type="time"
               value={startTime}
@@ -70,7 +71,7 @@ const NewEventModal = () => {
           </DropdownInput>
           <DropdownInput direction="column" gap="6px">
             End
-            <input
+            <Input
               name="endTime"
               type="time"
               value={endTime}
@@ -156,16 +157,6 @@ const TitleInput = styled(Flex)`
   font-size: var(--fs-12);
   font-weight: var(--fw-600);
   color: var(--slate-600);
-  > input {
-    height: 38px;
-    border-radius: var(--radius-8);
-    border: 0px;
-    box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
-    padding: 0px 12px;
-    font-size: var(--fs-14);
-    outline: 0px;
-    width: 100%;
-  }
 `;
 const Details = styled(Flex)``;
 const DropdownInput = styled(Flex)`
@@ -173,8 +164,7 @@ const DropdownInput = styled(Flex)`
   font-size: var(--fs-12);
   font-weight: var(--fw-600);
   color: var(--slate-600);
-  > select,
-  > input {
+  > select {
     width: 100%;
     height: 38px;
     border-radius: var(--radius-8);
@@ -193,7 +183,8 @@ const CategoryButton = styled.button`
   align-items: center;
   gap: 6px;
   padding: 6px 10px;
-  border: 1px solid ${({ $active, $color }) => ($active ? $color : "var(--border-input)")};
+  border: 1px solid
+    ${({ $active, $color }) => ($active ? $color : "var(--border-input)")};
   border-radius: var(--radius-20);
   background-color: ${({ $active, $bg }) => ($active ? $bg : "white")};
   color: ${({ $active, $color }) => ($active ? $color : "var(--text-heading)")};

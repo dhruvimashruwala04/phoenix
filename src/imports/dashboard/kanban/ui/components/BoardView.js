@@ -40,78 +40,80 @@ const BoardView = ({ columns, getSortedTasks }) => {
   return (
     <DragDropContext onDragEnd={(result) => handleDragEnd(result)}>
       <View>
-        {columns.map((column) => {
-          const sortedTasks = getSortedTasks(column);
-          const filteredTasks = sortedTasks.filter((task) => {
+        <Grid rows={columns.length}>
+          {columns.map((column) => {
+            const sortedTasks = getSortedTasks(column);
+            const filteredTasks = sortedTasks.filter((task) => {
+              return (
+                task.title?.toLowerCase().includes(query) ||
+                task.desc?.toLowerCase().includes(query)
+              );
+            });
+
             return (
-              task.title?.toLowerCase().includes(query) ||
-              task.desc?.toLowerCase().includes(query)
+              <Droppable
+                key={column.value}
+                droppableId={String(column.value)}
+                isDropDisabled={false}
+              >
+                {(provided, snapshot) => (
+                  <Column
+                    ref={provided.innerRef}
+                    {...provided.droppableProps}
+                    direction="column"
+                    gap="12px"
+                    $isDraggingOver={snapshot.isDraggingOver}
+                  >
+                    <Header justify="space-between" align="center">
+                      <Left gap="12px" align="center">
+                        <Title>{column.title}</Title>
+                        <Counter>{sortedTasks.length}</Counter>
+                      </Left>
+
+                      <AddBtn onClick={() => setShowTask(true)}>
+                        <Add />
+                      </AddBtn>
+                    </Header>
+
+                    <TaskList>
+                      {filteredTasks.map((task, index) => (
+                        <Draggable
+                          key={String(task.id)}
+                          draggableId={String(task.id)}
+                          index={index}
+                        >
+                          {(provided, snapshot) => (
+                            <DraggableTask
+                              ref={provided.innerRef}
+                              {...provided.draggableProps}
+                              {...provided.dragHandleProps}
+                              $isDragging={snapshot.isDragging}
+                            >
+                              <TaskCard
+                                title={task.title}
+                                desc={task.desc}
+                                priority={task.priority}
+                                status={task.status}
+                                assignee={task.assignee}
+                                dueDate={task.dueDate}
+                              />
+                            </DraggableTask>
+                          )}
+                        </Draggable>
+                      ))}
+
+                      {provided.placeholder}
+                    </TaskList>
+
+                    <AddTask onClick={() => setShowTask(true)}>
+                      + Add task
+                    </AddTask>
+                  </Column>
+                )}
+              </Droppable>
             );
-          });
-
-          return (
-            <Droppable
-              key={column.value}
-              droppableId={String(column.value)}
-              isDropDisabled={false}
-            >
-              {(provided, snapshot) => (
-                <Column
-                  ref={provided.innerRef}
-                  {...provided.droppableProps}
-                  direction="column"
-                  gap="12px"
-                  $isDraggingOver={snapshot.isDraggingOver}
-                >
-                  <Header justify="space-between" align="center">
-                    <Left gap="12px" align="center">
-                      <Title>{column.title}</Title>
-                      <Counter>{sortedTasks.length}</Counter>
-                    </Left>
-
-                    <AddBtn onClick={() => setShowTask(true)}>
-                      <Add />
-                    </AddBtn>
-                  </Header>
-
-                  <TaskList>
-                    {filteredTasks.map((task, index) => (
-                      <Draggable
-                        key={String(task.id)}
-                        draggableId={String(task.id)}
-                        index={index}
-                      >
-                        {(provided, snapshot) => (
-                          <DraggableTask
-                            ref={provided.innerRef}
-                            {...provided.draggableProps}
-                            {...provided.dragHandleProps}
-                            $isDragging={snapshot.isDragging}
-                          >
-                            <TaskCard
-                              title={task.title}
-                              desc={task.desc}
-                              priority={task.priority}
-                              status={task.status}
-                              assignee={task.assignee}
-                              dueDate={task.dueDate}
-                            />
-                          </DraggableTask>
-                        )}
-                      </Draggable>
-                    ))}
-
-                    {provided.placeholder}
-                  </TaskList>
-
-                  <AddTask onClick={() => setShowTask(true)}>
-                    + Add task
-                  </AddTask>
-                </Column>
-              )}
-            </Droppable>
-          );
-        })}
+          })}
+        </Grid>
       </View>
     </DragDropContext>
   );
@@ -121,10 +123,16 @@ export default BoardView;
 
 const View = styled.div`
   width: 100%;
+  overflow-x: auto;
+  flex-shrink: 0;
+`;
+const Grid = styled.div`
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, minmax(260px, 1fr));
+  grid-template-columns: ${({ rows }) => `repeat(${rows}, minmax(260px, 1fr))`};
   gap: 24px;
   align-items: start;
+  padding-bottom: 12px;
 `;
 const Column = styled(Flex)`
   outline: ${({ $isDraggingOver }) =>

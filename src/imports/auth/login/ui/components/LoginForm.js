@@ -8,6 +8,7 @@ import useLoginForm from "../../hooks/useLoginForm";
 import Link from "next/link";
 import ErrorBox from "@/imports/core/components/ErrorBox";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
+import Input from "@/imports/core/components/Input";
 
 const LoginForm = () => {
   const {
@@ -166,24 +167,6 @@ const Label = styled.span`
   font-size: var(--fs-12);
   font-weight: var(--fw-600);
   color: var(--slate-700);
-`;
-const Input = styled.input`
-  width: 100%;
-  height: 37px;
-
-  border: 1px solid ${({ $error }) => ($error ? "var(--rose-600)" : "var(--border-input)")};
-  border-radius: var(--radius-7);
-  padding: 0 12px;
-  outline: none;
-  font-size: var(--fs-13);
-  color: var(--text-heading);
-  background-color: var(--background);
-  &::placeholder {
-    color: var(--text-subtle);
-  }
-  &:focus {
-    border-color: var(--blue-accent);
-  }
 `;
 const PasswordHeader = styled(Flex)`
   width: 100%;

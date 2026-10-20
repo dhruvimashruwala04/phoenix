@@ -5,6 +5,7 @@ import { Archive, Mail, Star, StarredMessage } from "../assets/Icons";
 import useInboxStore from "../../store/inboxStore";
 import FallBackText from "@/imports/core/components/FallBackText";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
+import Input from "@/imports/core/components/Input";
 
 const InboxView = () => {
   const {
@@ -130,7 +131,7 @@ const InboxView = () => {
           </ConversationBody>
 
           <ReplyArea align="center" gap="8px">
-            <ReplyInput
+            <Input
               placeholder="Write a reply..."
               value={reply}
               onChange={(event) => setReply(event.target.value)}
@@ -331,22 +332,4 @@ const ReplyArea = styled(Flex)`
   width: 100%;
   padding: 14px 18px;
   border-top: 1px solid var(--border-muted);
-`;
-const ReplyInput = styled.input`
-  flex: 1;
-  min-width: 0;
-  height: 38px;
-  padding: 0 12px;
-  box-sizing: border-box;
-  border: 1px solid var(--slate-300);
-  border-radius: var(--radius-7);
-  outline: none;
-  font-size: var(--fs-12);
-  color: var(--slate-900);
-  &::placeholder {
-    color: var(--text-muted-2);
-  }
-  &:focus {
-    border-color: var(--indigo-500);
-  }
 `;

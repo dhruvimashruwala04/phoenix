@@ -4,6 +4,7 @@ import { Flex } from "@/imports/core/components/Flex";
 import { MagicWand } from "../assets/Icons";
 import { views, tasks } from "../../api/constant";
 import useOnboardingStore from "../../store/onboardingStore";
+import Input from "@/imports/core/components/Input";
 
 const FirstProjectForm = () => {
   const { projectName, setProjectName, view, setView, aiTasks, setAiTasks } =
@@ -14,6 +15,7 @@ const FirstProjectForm = () => {
       <Section direction="column" gap="8px">
         <Label>Project name</Label>
         <Input
+          height="40px"
           value={projectName}
           onChange={(e) => setProjectName(e.target.value)}
           placeholder="Website Redesign"
@@ -29,7 +31,9 @@ const FirstProjectForm = () => {
               $active={active}
               onClick={() => setView(item.name)}
             >
-              <ViewIcon align="center" justify="center" $active={active}>{item.icon}</ViewIcon>
+              <ViewIcon align="center" justify="center" $active={active}>
+                {item.icon}
+              </ViewIcon>
               <ViewTitle>{item.name}</ViewTitle>
               <ViewDescription>{item.description}</ViewDescription>
             </ViewCard>
@@ -63,7 +67,9 @@ const FirstProjectForm = () => {
 
           {tasks.map((task) => (
             <Task align="center" gap="8px" key={task}>
-              <TaskCheckbox align="center" justify="center">✓</TaskCheckbox>
+              <TaskCheckbox align="center" justify="center">
+                ✓
+              </TaskCheckbox>
               <TaskText>{task}</TaskText>
             </Task>
           ))}
@@ -85,23 +91,6 @@ const Label = styled.label`
   color: var(--slate-700);
   font-size: var(--fs-13);
   font-weight: var(--fw-600);
-`;
-const Input = styled.input`
-  width: 100%;
-  height: 40px;
-  padding: 0 12px;
-  border: 1px solid var(--border-input);
-  border-radius: var(--radius-7);
-  outline: none;
-  color: var(--text-heading);
-  background: var(--white);
-  font-size: var(--fs-13);
-  &:focus {
-    border-color: var(--blue-accent);
-  }
-  &::placeholder {
-    color: var(--text-muted-2);
-  }
 `;
 const ViewContainer = styled.div`
   width: 100%;
@@ -149,7 +138,6 @@ const ViewDescription = styled.div`
 const AiBox = styled(Flex)`
   width: 100%;
   min-height: 68px;
-
 
   padding: 10px 14px;
 
@@ -211,8 +199,7 @@ const SuggestedTitle = styled.div`
   font-weight: var(--fw-700);
   letter-spacing: 0.5px;
 `;
-const Task = styled(Flex)`
-`;
+const Task = styled(Flex)``;
 const TaskCheckbox = styled(Flex)`
   width: 13px;
   height: 13px;

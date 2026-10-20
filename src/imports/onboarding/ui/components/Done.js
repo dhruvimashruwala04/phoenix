@@ -6,25 +6,20 @@ import useOnboardingStore from "../../store/onboardingStore";
 import { UserEmpty, UserFilled, Workspace } from "../assets/Icons";
 import { Folder } from "@/imports/core/assets/Icons";
 import { useRouter } from "next/navigation";
+import useAuthStore from "@/imports/auth/store/authStore";
 
 const Done = () => {
-  const {
-    name,
-    role,
-    workspaceName,
-    workspaceUrl,
-    invites,
-    projectName,
-    view,
-  } = useOnboardingStore();
+  const { role, workspaceName, workspaceUrl, invites, projectName, view } =
+    useOnboardingStore();
+  const { user } = useAuthStore();
 
-  const firstName = name.split(" ")[0];
+  const firstName = user?.name?.split(" ")[0];
   const router = useRouter();
 
   const summary = [
     {
       label: "You",
-      value: name + " · " + role,
+      value: user?.name + " · " + role,
       icon: <UserEmpty />,
       href: "/onboarding/about-you",
     },

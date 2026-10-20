@@ -6,6 +6,7 @@ import useKanbanStore from "../../../kanban/store/kanbanStore";
 import formatDate from "@/imports/core/utils/formatDate";
 import useAuthStore from "@/imports/auth/store/authStore";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
+import Input from "@/imports/core/components/Input";
 
 const MyTasks = ({ tasksByProj }) => {
   const { updateTaskStatus } = useKanbanStore();
@@ -55,6 +56,7 @@ const MyTasks = ({ tasksByProj }) => {
       </TaskList>
       <AddTask align="center" gap="8px">
         <Input
+          $flex
           placeholder="Add a task for today and press Enter"
           // value={reply}
           // onChange={(event) => setReply(event.target.value)}
@@ -136,22 +138,4 @@ const AddTask = styled(Flex)`
   width: 100%;
   padding: 14px 18px;
   border-top: 1px solid var(--slate-100);
-`;
-const Input = styled.input`
-  flex: 1;
-  min-width: 0;
-  height: 38px;
-  padding: 0 12px;
-  box-sizing: border-box;
-  border: 1px solid var(--slate-100);
-  border-radius: var(--radius-7);
-  outline: none;
-  font-size: var(--fs-12);
-  color: var(--slate-900);
-  &::placeholder {
-    color: var(--text-muted-2);
-  }
-  &:focus {
-    border-color: var(--indigo-500);
-  }
 `;

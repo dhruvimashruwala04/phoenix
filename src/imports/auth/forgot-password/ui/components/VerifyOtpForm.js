@@ -135,7 +135,6 @@ const Demo = styled(Flex)`
 const OtpContainer = styled(Flex)`
   width: 100%;
 `;
-
 const OtpInput = styled.input`
   width: 60px;
   height: 52px;

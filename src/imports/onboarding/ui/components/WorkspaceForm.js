@@ -4,6 +4,7 @@ import { Flex } from "@/imports/core/components/Flex";
 import { initialsColors } from "../../api/constant";
 import { Tick } from "../assets/Icons";
 import useOnboardingStore from "../../store/onboardingStore";
+import Input from "@/imports/core/components/Input";
 
 const WorkspaceForm = () => {
   const {
@@ -30,7 +31,7 @@ const WorkspaceForm = () => {
         <Label>Workspace URL</Label>
         <UrlInput align="center">
           <UrlPrefix align="center">phoenix.app/</UrlPrefix>
-          <UrlField
+          <Input
             value={workspaceUrl}
             onChange={(e) => setWorkspaceUrl(e.target.value)}
           />
@@ -79,23 +80,6 @@ const Label = styled.label`
   font-size: var(--fs-13);
   font-weight: var(--fw-600);
 `;
-const Input = styled.input`
-  width: 100%;
-  height: 40px;
-  padding: 0 12px;
-  border: 1px solid var(--border-input);
-  border-radius: var(--radius-7);
-  outline: none;
-  color: var(--text-heading);
-  background-color: var(--white);
-  font-size: var(--fs-13);
-  &:focus {
-    border-color: var(--blue-accent);
-  }
-  &::placeholder {
-    color: var(--text-muted-2);
-  }
-`;
 const UrlInput = styled(Flex)`
   width: 100%;
   height: 40px;
@@ -112,24 +96,12 @@ const UrlPrefix = styled(Flex)`
   color: var(--gray-500);
   font-size: var(--fs-13);
 `;
-const UrlField = styled.input`
-  flex: 1;
-  height: 100%;
-  padding: 0 12px;
-  border: none;
-  outline: none;
-  color: var(--text-heading);
-  background: var(--white);
-  font-size: var(--fs-13);
-`;
 const Available = styled(Flex)`
   color: #00a878;
   font-size: var(--fs-12);
   font-weight: var(--fw-500);
 `;
-
-const IconRow = styled(Flex)`
-`;
+const IconRow = styled(Flex)``;
 const InitialIcon = styled(Flex)`
   width: 48px;
   height: 48px;

@@ -4,6 +4,7 @@ import { Flex } from "@/imports/core/components/Flex";
 import { Copy, Link } from "../assets/Icons";
 import { Close } from "@/imports/core/assets/Icons";
 import useOnboardingStore from "../../store/onboardingStore";
+import Input from "@/imports/core/components/Input";
 
 const InviteTeamForm = () => {
   const {
@@ -29,12 +30,16 @@ const InviteTeamForm = () => {
   return (
     <Form direction="column" gap="18px">
       <AddRow align="stretch" gap="8px">
-        <NameInput
+        <Input
+          width="100px"
+          height="40px"
           value={inviteeName}
           onChange={(e) => setInviteeName(e.target.value)}
           placeholder="Name"
         />
-        <EmailInput
+        <Input
+          width="100px"
+          height="40px"
           value={inviteeEmail}
           onChange={(e) => setInviteeEmail(e.target.value)}
           placeholder="teammate@company.com"
@@ -118,44 +123,6 @@ const Form = styled(Flex)`
 const AddRow = styled(Flex)`
   width: 100%;
 `;
-const NameInput = styled.input`
-  flex: 1;
-  min-width: 100px;
-  height: 40px;
-  padding: 0 12px;
-  border: 1px solid var(--border-input);
-  border-radius: var(--radius-7);
-  outline: none;
-  color: var(--text-heading);
-  background: var(--white);
-  font-size: var(--fs-13);
-
-  &:focus {
-    border-color: var(--blue-accent);
-  }
-
-  &::placeholder {
-    color: var(--text-subtle);
-  }
-`;
-const EmailInput = styled.input`
-  flex: 1;
-  min-width: 0;
-  height: 40px;
-  padding: 0 12px;
-  border: 1px solid var(--border-input);
-  border-radius: var(--radius-7);
-  outline: none;
-  color: var(--text-heading);
-  background: var(--white);
-  font-size: var(--fs-13);
-  &:focus {
-    border-color: var(--blue-accent);
-  }
-  &::placeholder {
-    color: var(--text-subtle);
-  }
-`;
 const StatusSelect = styled.select`
   width: 105px;
   height: 40px;
@@ -231,7 +198,8 @@ const MemberStatus = styled(Flex)`
   background-color: ${({ $status }) =>
     $status === "accepted" ? "var(--emerald-50)" : "#fff7ed"};
 
-  color: ${({ $status }) => ($status === "accepted" ? "var(--emerald-600)" : "#ea580c")};
+  color: ${({ $status }) =>
+    $status === "accepted" ? "var(--emerald-600)" : "#ea580c"};
 `;
 const MemberRole = styled(Flex)`
   min-width: 82px;

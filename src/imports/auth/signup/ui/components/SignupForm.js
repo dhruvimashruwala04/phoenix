@@ -8,6 +8,7 @@ import styled from "styled-components";
 import useSignupForm from "../../hooks/useSignupForm";
 import ErrorBox from "@/imports/core/components/ErrorBox";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
+import Input from "@/imports/core/components/Input";
 
 const SignupForm = () => {
   const {
@@ -59,7 +60,7 @@ const SignupForm = () => {
       <Field direction="column" gap="7px">
         <Label>Full Name</Label>
         <Input
-          type="email"
+          type="text"
           placeholder="John Smith"
           value={name}
           $error={nameError}
@@ -192,31 +193,9 @@ const Label = styled.span`
   font-weight: var(--fw-600);
   color: var(--slate-700);
 `;
-const Input = styled.input`
-  width: 100%;
-  height: 37px;
-
-  border: 1px solid ${({ $error }) => ($error ? "var(--rose-600)" : "var(--border-input)")};
-  border-radius: var(--radius-7);
-  padding: 0 12px;
-  outline: none;
-  font-size: var(--fs-13);
-  color: var(--text-heading);
-  background-color: var(--background);
-  &::placeholder {
-    color: var(--text-subtle);
-  }
-  &:focus {
-    border-color: var(--blue-accent);
-  }
-`;
-
 const PasswordWrapper = styled.div`
   position: relative;
   width: 100%;
-  input {
-    padding-right: 40px;
-  }
 `;
 const Eye = styled.span`
   position: absolute;
@@ -280,7 +259,8 @@ const StrengthBar = styled.span`
   flex: 1;
   height: 3px;
   border-radius: var(--radius-4);
-  background-color: ${({ $active }) => ($active ? "var(--emerald-500)" : "var(--border-muted)")};
+  background-color: ${({ $active }) =>
+    $active ? "var(--emerald-500)" : "var(--border-muted)"};
 `;
 const StrengthText = styled.span`
   display: block;

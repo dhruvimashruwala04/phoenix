@@ -4,6 +4,7 @@ import styled from "styled-components";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
 import CancelButton from "@/imports/core/components/CancelButton";
+import Input from "@/imports/core/components/Input";
 
 const NewInviteModal = ({ setShowInvite }) => {
   const {
@@ -31,27 +32,27 @@ const NewInviteModal = ({ setShowInvite }) => {
           </CloseButton>
         </Header>
 
-        <Input direction="column" gap="6px">
+        <InputWrapper direction="column" gap="6px">
           Full name
-          <input
+          <Input
             name="title"
             type="text"
             placeholder="Jordan Smith"
             value={inviteeName}
             onChange={(e) => setInviteeName(e.target.value)}
           />
-        </Input>
+        </InputWrapper>
 
-        <Input direction="column" gap="6px">
+        <InputWrapper direction="column" gap="6px">
           Email Address
-          <input
+          <Input
             name="title"
             type="text"
             placeholder="jordan@acme.com"
             value={inviteeEmail}
             onChange={(e) => setInviteeEmail(e.target.value)}
           />
-        </Input>
+        </InputWrapper>
 
         <Details gap="12px">
           <DropdownInput direction="column" gap="6px">
@@ -138,15 +139,13 @@ const CloseButton = styled(Flex)`
   background: transparent;
   cursor: pointer;
 `;
-
 const Details = styled(Flex)``;
 const DropdownInput = styled(Flex)`
   flex: 1 1 0%;
   font-size: var(--fs-12);
   font-weight: var(--fw-600);
   color: var(--slate-600);
-  > select,
-  > input {
+  > select {
     width: 100%;
     height: 38px;
     border-radius: var(--radius-8);
@@ -159,40 +158,8 @@ const DropdownInput = styled(Flex)`
 const Footer = styled(Flex)`
   margin-top: 4px;
 `;
-// const PrimaryButton = styled.button`
-//   height: 36px;
-//   padding: 0px 16px;
-//   border-radius: 8px;
-//   border: 0px;
-//   background: var(--blue-accent);
-//   color: var(--white);
-//   font-size: 14px;
-//   font-weight: 500;
-//   cursor: pointer;
-// `;
-// const CancelButton = styled.button`
-//   height: 38px;
-//   padding: 0 16px;
-//   border: 1px solid var(--border-muted);
-//   border-radius: 7px;
-//   background: var(--white);
-//   color: var(--slate-700);
-//   font-size: 15px;
-//   font-weight: 500;
-//   cursor: pointer;
-// `;
-const Input = styled(Flex)`
+const InputWrapper = styled(Flex)`
   font-size: var(--fs-12);
   font-weight: var(--fw-600);
   color: var(--slate-600);
-  > input {
-    height: 38px;
-    border-radius: var(--radius-8);
-    border: 0px;
-    box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
-    padding: 0px 12px;
-    font-size: var(--fs-14);
-    outline: 0px;
-    width: 100%;
-  }
 `;
