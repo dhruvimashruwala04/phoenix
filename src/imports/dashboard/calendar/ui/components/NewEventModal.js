@@ -6,6 +6,8 @@ import { Close } from "@/imports/core/assets/Icons";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
 import CancelButton from "@/imports/core/components/CancelButton";
 import Input from "@/imports/core/components/Input";
+import DropdownInput from "@/imports/core/components/DropdownInput";
+import { projects } from "@/imports/dashboard/kanban/api/constants";
 
 const NewEventModal = () => {
   const {
@@ -23,6 +25,8 @@ const NewEventModal = () => {
     saveEvent,
     selectedEventId,
     deleteEvent,
+    projName,
+    setProjName,
   } = useCalendarStore();
 
   return (
@@ -71,6 +75,14 @@ const NewEventModal = () => {
             onChange={(e) => setEndTime(e.target.value)}
           />
         </Details>
+
+        <DropdownInput
+          label="Project"
+          name="projName"
+          value={projName}
+          onChange={(e) => setProjName(e.target.value)}
+          options={projects}
+        />
 
         <Section direction="column" gap="6px">
           <Label>Category</Label>

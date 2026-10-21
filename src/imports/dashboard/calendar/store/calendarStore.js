@@ -11,6 +11,7 @@ const useCalendarStore = create(
       endTime: "11:00",
       category: "Meeting",
       selectedEventId: null,
+      projName: "phoenix",
       searchQuery: "",
 
       events: [],
@@ -21,6 +22,7 @@ const useCalendarStore = create(
       setStartTime: (startTime) => set({ startTime }),
       setEndTime: (endTime) => set({ endTime }),
       setCategory: (category) => set({ category }),
+      setProjName: (projName) => set({ projName }),
       setSearchQuery: (searchQuery) => set({ searchQuery }),
 
       saveEvent: () =>
@@ -33,6 +35,7 @@ const useCalendarStore = create(
             endTime,
             category,
             events,
+            projName,
           } = state;
 
           const eventData = {
@@ -40,6 +43,7 @@ const useCalendarStore = create(
             startTime: `${date}T${startTime}`,
             endTime: `${date}T${endTime}`,
             category,
+            projName,
           };
 
           if (selectedEventId) {
@@ -77,6 +81,7 @@ const useCalendarStore = create(
             startTime: event.startTime.split("T")[1].slice(0, 5),
             endTime: event.endTime.split("T")[1].slice(0, 5),
             category: event.category,
+            projName: event.projName,
           };
         }),
 
@@ -88,6 +93,7 @@ const useCalendarStore = create(
           startTime: "10:00",
           endTime: "11:00",
           category: "Meeting",
+          projName: "phoenix",
         }),
 
       deleteEvent: () =>
@@ -102,6 +108,7 @@ const useCalendarStore = create(
           startTime: "10:00",
           endTime: "11:00",
           category: "Meeting",
+          projName: "phoenix",
         })),
     }),
     {

@@ -31,17 +31,15 @@ const InviteTeamForm = () => {
 
   return (
     <Form direction="column" gap="18px">
-      <AddRow align="stretch" gap="8px">
+      <AddRow align="center" gap="8px">
         <Input
           width="100px"
-          height="40px"
           value={inviteeName}
           onChange={(e) => setInviteeName(e.target.value)}
           placeholder="Name"
         />
         <Input
           width="100px"
-          height="40px"
           value={inviteeEmail}
           onChange={(e) => setInviteeEmail(e.target.value)}
           placeholder="teammate@company.com"

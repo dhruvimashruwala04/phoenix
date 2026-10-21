@@ -16,7 +16,7 @@ import { categories } from "../../api/constants";
 import useCalendarStore from "../../store/calendarStore";
 import { useRef } from "react";
 
-const CalendarView = ({ onCalendarReady, onDateChange }) => {
+const CalendarView = ({ onCalendarReady, onDateChange, currentProj }) => {
   const { events, setSelectedEvent, setShowNewEvent, searchQuery } =
     useCalendarStore();
   const calendarRef = useRef(null);
@@ -28,11 +28,15 @@ const CalendarView = ({ onCalendarReady, onDateChange }) => {
     start: event.startTime,
     end: event.endTime,
   }));
-  const filteredEvents = query
-    ? calendarEvents.filter((event) =>
-        event.title?.toLowerCase().includes(query),
-      )
-    : calendarEvents;
+
+  const filteredEvents = calendarEvents.filter((event) => {
+    const matchesQuery = event.title?.toLowerCase().includes(query);
+
+    const matchesProject =
+      event.projName === currentProj || currentProj === null;
+
+    return matchesQuery && matchesProject;
+  });
 
   return (
     <Container>

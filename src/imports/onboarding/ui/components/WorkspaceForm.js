@@ -18,20 +18,21 @@ const WorkspaceForm = () => {
 
   return (
     <Form direction="column" gap="22px">
-      <Section direction="column" gap="8px">
-        <Label>Workspace name</Label>
-        <Input
-          value={workspaceName}
-          onChange={(e) => setWorkspaceName(e.target.value)}
-          placeholder="Acme Inc."
-        />
-      </Section>
+      {/* <Section direction="column" gap="8px"> */}
+      {/* <Label>Workspace name</Label> */}
+      <Input
+        label="Workspace name"
+        value={workspaceName}
+        onChange={(e) => setWorkspaceName(e.target.value)}
+        placeholder="Acme Inc."
+      />
+      {/* </Section> */}
 
-      <Section direction="column" gap="8px">
+      <Section direction="column" gap="6px">
         <Label>Workspace URL</Label>
         <UrlInput align="center">
           <UrlPrefix align="center">phoenix.app/</UrlPrefix>
-          <Input
+          <input
             value={workspaceUrl}
             onChange={(e) => setWorkspaceUrl(e.target.value)}
           />
@@ -76,9 +77,9 @@ const Section = styled(Flex)`
   width: 100%;
 `;
 const Label = styled.label`
-  color: var(--slate-700);
-  font-size: var(--fs-13);
+  font-size: var(--fs-12);
   font-weight: var(--fw-600);
+  color: var(--slate-600);
 `;
 const UrlInput = styled(Flex)`
   width: 100%;
@@ -87,6 +88,17 @@ const UrlInput = styled(Flex)`
   border-radius: var(--radius-7);
   overflow: hidden;
   background-color: var(--white);
+  > input {
+    height: 100%;
+    width: 100%;
+    padding: 0 12px;
+    border: 0px;
+    border-radius: var(--radius-7);
+    &:focus {
+      outline: none;
+      box-shadow: 0px 0px 0px 1px var(--blue-accent) inset;
+    }
+  }
 `;
 const UrlPrefix = styled(Flex)`
   height: 100%;

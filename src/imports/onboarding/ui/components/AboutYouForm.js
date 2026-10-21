@@ -27,15 +27,12 @@ const AboutYouForm = () => {
             {getInitials(user?.name)}
           </Avatar>
 
-          <NameField direction="column" gap="7px">
-            <Label>Your name</Label>
-            <Input
-              height="40px"
-              value={user?.name || "John Smith"}
-              onChange={(e) => updateUser({ name: e.target.value })}
-              placeholder="John Smith"
-            />
-          </NameField>
+          <Input
+            label="Your name"
+            value={user?.name || "John Smith"}
+            onChange={(e) => updateUser({ name: e.target.value })}
+            placeholder="John Smith"
+          />
         </NameRow>
 
         <Section direction="column" gap="10px">
@@ -101,13 +98,10 @@ const Avatar = styled(Flex)`
   font-size: var(--fs-18);
   font-weight: var(--fw-600);
 `;
-const NameField = styled(Flex)`
-  flex: 1;
-`;
 const Label = styled.label`
-  color: var(--text-heading);
-  font-size: var(--fs-13);
+  font-size: var(--fs-12);
   font-weight: var(--fw-600);
+  color: var(--slate-600);
 `;
 const Section = styled(Flex)`
   width: 100%;
@@ -116,7 +110,7 @@ const RoleContainer = styled(Flex)`
   flex-wrap: wrap;
 `;
 const RoleButton = styled.button`
-  height: 39px;
+  height: 38px;
   display: flex;
   align-items: center;
   gap: 8px;

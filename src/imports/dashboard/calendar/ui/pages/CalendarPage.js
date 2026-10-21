@@ -11,9 +11,11 @@ import { useEffect, useState } from "react";
 
 const CalendarPage = () => {
   const { showNewEvent } = useCalendarStore();
+
   const [mainCalendarApi, setMainCalendarApi] = useState(null);
   const [miniCalendarApi, setMiniCalendarApi] = useState(null);
   const [currentDate, setCurrentDate] = useState(new Date(2026, 5, 17));
+  const [currentProj, setCurrentProj] = useState(null);
 
   useEffect(() => {
     [mainCalendarApi, miniCalendarApi].forEach((api) => {
@@ -34,12 +36,16 @@ const CalendarPage = () => {
   return (
     <Page>
       <Content direction="column">
-        <CalendarHeader />
+        <CalendarHeader
+          currentProj={currentProj}
+          setCurrentProj={setCurrentProj}
+        />
         <CalendarStats />
         <CalendarView
           onCalendarReady={setMainCalendarApi}
           onDateChange={syncDate}
           selectedDate={currentDate}
+          currentProj={currentProj}
         />
         {showNewEvent && <NewEventModal />}
       </Content>

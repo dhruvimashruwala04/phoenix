@@ -128,7 +128,7 @@ const Overlay = styled(Flex)`
   background: var(--overlay);
 `;
 const Card = styled.form`
-  width: 440px;
+  width: 470px;
   max-width: 100%;
   display: flex;
   flex-direction: column;

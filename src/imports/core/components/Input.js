@@ -26,10 +26,12 @@ const Input = ({
   }
   return (
     <Wrapper direction="column" gap="6px" width={width}>
-      <Header justify="space-between">
-        {label && label}
-        {action && action}
-      </Header>
+      {(label || action) && (
+        <Header justify="space-between">
+          {label && label}
+          {action && action}
+        </Header>
+      )}
       <InputBox
         type={type}
         placeholder={placeholder}

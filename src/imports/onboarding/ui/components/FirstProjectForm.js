@@ -15,7 +15,6 @@ const FirstProjectForm = () => {
       <Section direction="column" gap="8px">
         <Label>Project name</Label>
         <Input
-          height="40px"
           value={projectName}
           onChange={(e) => setProjectName(e.target.value)}
           placeholder="Website Redesign"

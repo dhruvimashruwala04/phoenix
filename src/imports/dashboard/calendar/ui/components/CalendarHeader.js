@@ -8,11 +8,25 @@ import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
 import useCalendarStore from "../../store/calendarStore";
 import styled from "styled-components";
 import { ChevronDown } from "@/imports/core/assets/Icons";
+import { projects } from "@/imports/dashboard/kanban/api/constants";
 
-const CalendarHeader = () => {
-  const projectName = useOnboardingStore((state) => state.projectName);
+const CalendarHeader = ({ currentProj, setCurrentProj }) => {
   const { setShowNewEvent, clearSelectedEvent, searchQuery, setSearchQuery } =
     useCalendarStore();
+
+  const projectName =
+    projects.find((p) => p.value === currentProj)?.label || "All";
+
+  const handleNextProject = () => {
+    const currentIndex = projects.findIndex((p) => p.value === currentProj);
+    if (currentIndex === -1) {
+      setCurrentProj(projects[0].value);
+    } else if (currentIndex === projects.length - 1) {
+      setCurrentProj(null);
+    } else {
+      setCurrentProj(projects[currentIndex + 1].value);
+    }
+  };
 
   return (
     <Header gap="12px 16px" wrap="wrap" align="center">
@@ -21,8 +35,8 @@ const CalendarHeader = () => {
         <Content>Plan, schedule and manage your work</Content>
       </TextWrapper>
 
-      <Details gap="6px" align="center" justify="space-between">
-        <Dot></Dot>
+      <Details type="button" onClick={handleNextProject}>
+        <Dot $color={projects.find((p) => p.value === currentProj)?.color} />
         {projectName}
         <ChevronDown />
       </Details>
@@ -69,7 +83,11 @@ const Content = styled.span`
   line-height: var(--lh-16);
   text-align: left;
 `;
-const Details = styled(Flex)`
+const Details = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
   width: fit-content;
   height: 32px;
   padding: 0 10px;
@@ -88,5 +106,5 @@ const Dot = styled.span`
   width: 7px;
   height: 7px;
   border-radius: var(--radius-full);
-  background: var(--indigo-500);
+  background: ${({ $color }) => $color || "var(--text-muted)"};
 `;
