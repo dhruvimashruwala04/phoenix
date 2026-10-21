@@ -5,6 +5,8 @@ import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
 import CancelButton from "@/imports/core/components/CancelButton";
 import Input from "@/imports/core/components/Input";
+import DropdownInput from "@/imports/core/components/DropdownInput";
+import { accessRoles, roles } from "@/imports/onboarding/api/constant";
 
 const NewInviteModal = ({ setShowInvite }) => {
   const {
@@ -18,6 +20,7 @@ const NewInviteModal = ({ setShowInvite }) => {
     addInvite,
     setInviteeName,
   } = useOnboardingStore();
+
   return (
     <Overlay
       align="center"
@@ -32,61 +35,50 @@ const NewInviteModal = ({ setShowInvite }) => {
           </CloseButton>
         </Header>
 
-        <InputWrapper direction="column" gap="6px">
-          Full name
-          <Input
-            name="title"
-            type="text"
-            placeholder="Jordan Smith"
-            value={inviteeName}
-            onChange={(e) => setInviteeName(e.target.value)}
-          />
-        </InputWrapper>
-
-        <InputWrapper direction="column" gap="6px">
-          Email Address
-          <Input
-            name="title"
-            type="text"
-            placeholder="jordan@acme.com"
-            value={inviteeEmail}
-            onChange={(e) => setInviteeEmail(e.target.value)}
-          />
-        </InputWrapper>
+        <Input
+          label="Full name"
+          name="title"
+          type="text"
+          placeholder="Jordan Smith"
+          value={inviteeName}
+          onChange={(e) => setInviteeName(e.target.value)}
+        />
+        <Input
+          label="Email Address"
+          name="title"
+          type="text"
+          placeholder="jordan@acme.com"
+          value={inviteeEmail}
+          onChange={(e) => setInviteeEmail(e.target.value)}
+        />
 
         <Details gap="12px">
-          <DropdownInput direction="column" gap="6px">
-            Access
-            <select
-              value={inviteeRole}
-              onChange={(e) => setInviteeRole(e.target.value)}
-            >
-              <option value="Admin">Admin</option>
-              <option value="Member">Member</option>
-              <option value="Viewer">Viewer</option>
-            </select>
-          </DropdownInput>
-          <DropdownInput direction="column" gap="6px">
-            Team
-            <select value={team} onChange={(e) => setTeam(e.target.value)}>
-              <option value="Design">Design</option>
-              <option value="Engineering">Engineering</option>
-              <option value="Product">Product</option>
-              <option value="Marketing">Marketing</option>
-            </select>
-          </DropdownInput>
+          <DropdownInput
+            label="Access"
+            options={accessRoles.map((r) => ({
+              value: r,
+              label: r,
+            }))}
+            value={inviteeRole}
+            onChange={(e) => setInviteeRole(e.target.value)}
+          />
+          <DropdownInput
+            label="Team"
+            options={roles.map((t) => ({
+              value: t,
+              label: t,
+            }))}
+            value={team}
+            onChange={(e) => setTeam(e.target.value)}
+          />
         </Details>
 
-        {/* <Input direction="column" gap="6px">
-          Personal message (optional)
-          <input
-            name="title"
-            type="text"
-            placeholder="Join us on Project Phoenix!"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </Input> */}
+        {/* <Input
+          label="Personal message (optional)"
+          name="msg"
+          type="text"
+          placeholder="Join us on Project Phoenix!"
+        /> */}
 
         <Footer gap="8px" justify="space-between">
           <div style={{ display: "flex", gap: "8px", marginLeft: "auto" }}>
@@ -140,26 +132,6 @@ const CloseButton = styled(Flex)`
   cursor: pointer;
 `;
 const Details = styled(Flex)``;
-const DropdownInput = styled(Flex)`
-  flex: 1 1 0%;
-  font-size: var(--fs-12);
-  font-weight: var(--fw-600);
-  color: var(--slate-600);
-  > select {
-    width: 100%;
-    height: 38px;
-    border-radius: var(--radius-8);
-    border: 1px solid var(--border-muted);
-    padding: 0px 8px;
-    font-size: var(--fs-13);
-    color: var(--slate-600);
-  }
-`;
 const Footer = styled(Flex)`
   margin-top: 4px;
-`;
-const InputWrapper = styled(Flex)`
-  font-size: var(--fs-12);
-  font-weight: var(--fw-600);
-  color: var(--slate-600);
 `;

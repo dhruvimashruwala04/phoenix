@@ -52,3 +52,11 @@ export const initialPermissions = [
     allow: false,
   },
 ];
+
+export const timeZone = [
+  { value: "pac", label: "Pacific Time (UTC-7)" },
+  { value: "eas", label: "Eastern Time (UTC-4)" },
+  { value: "lon", label: "London (UTC+1)" },
+  { value: "ber", label: "Berlin (UTC+2)" },
+  { value: "sin", label: "Singapore (UTC+8)" },
+];

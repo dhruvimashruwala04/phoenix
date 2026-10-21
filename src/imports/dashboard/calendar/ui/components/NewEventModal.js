@@ -39,45 +39,37 @@ const NewEventModal = () => {
           </CloseButton>
         </Header>
 
-        <TitleInput direction="column" gap="6px">
-          Title
-          <Input
-            name="title"
-            type="text"
-            placeholder="e.g. Sprint Retro"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </TitleInput>
+        <Input
+          label="Title"
+          name="title"
+          type="text"
+          placeholder="e.g. Sprint Retro"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
 
         <Details gap="12px">
-          <DropdownInput direction="column" gap="6px">
-            Date
-            <Input
-              name="date"
-              type="date"
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            />
-          </DropdownInput>
-          <DropdownInput direction="column" gap="6px">
-            Start
-            <Input
-              name="startTime"
-              type="time"
-              value={startTime}
-              onChange={(e) => setStartTime(e.target.value)}
-            />
-          </DropdownInput>
-          <DropdownInput direction="column" gap="6px">
-            End
-            <Input
-              name="endTime"
-              type="time"
-              value={endTime}
-              onChange={(e) => setEndTime(e.target.value)}
-            />
-          </DropdownInput>
+          <Input
+            label="Date"
+            name="date"
+            type="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+          />
+          <Input
+            label="Start"
+            name="startTime"
+            type="time"
+            value={startTime}
+            onChange={(e) => setStartTime(e.target.value)}
+          />
+          <Input
+            label="End"
+            name="endTime"
+            type="time"
+            value={endTime}
+            onChange={(e) => setEndTime(e.target.value)}
+          />
         </Details>
 
         <Section direction="column" gap="6px">
@@ -133,7 +125,7 @@ const Overlay = styled(Flex)`
   background: var(--overlay);
 `;
 const Card = styled.form`
-  width: 440px;
+  width: 460px;
   max-width: 100%;
   display: flex;
   flex-direction: column;
@@ -153,27 +145,8 @@ const CloseButton = styled(Flex)`
   background: transparent;
   cursor: pointer;
 `;
-const TitleInput = styled(Flex)`
-  font-size: var(--fs-12);
-  font-weight: var(--fw-600);
-  color: var(--slate-600);
-`;
 const Details = styled(Flex)``;
-const DropdownInput = styled(Flex)`
-  flex: 1 1 0%;
-  font-size: var(--fs-12);
-  font-weight: var(--fw-600);
-  color: var(--slate-600);
-  > select {
-    width: 100%;
-    height: 38px;
-    border-radius: var(--radius-8);
-    border: 1px solid var(--border-muted);
-    padding: 0px 8px;
-    font-size: var(--fs-13);
-    color: var(--slate-600);
-  }
-`;
+
 const Footer = styled(Flex)`
   margin-top: 4px;
 `;

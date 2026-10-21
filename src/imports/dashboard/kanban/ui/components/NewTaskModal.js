@@ -7,8 +7,9 @@ import useAuthStore from "@/imports/auth/store/authStore";
 import { Close } from "@/imports/core/assets/Icons";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
 import CancelButton from "@/imports/core/components/CancelButton";
-import { projects } from "../../api/constants";
+import { priorityOptions, projects, statusOptions } from "../../api/constants";
 import Input from "@/imports/core/components/Input";
+import DropdownInput from "@/imports/core/components/DropdownInput";
 
 const NewTaskModal = () => {
   const {
@@ -41,90 +42,66 @@ const NewTaskModal = () => {
             <Close />
           </CloseButton>
         </Header>
-
-        <TitleInput direction="column" gap="6px">
-          Title
-          <Input
-            name="title"
-            type="text"
-            placeholder="e.g. Onboarding email sequence"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+        <Input
+          label="Title"
+          name="title"
+          type="text"
+          placeholder="e.g. Onboarding email sequence"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <Input
+          label="Description"
+          name="desc"
+          variant="textarea"
+          rows="4"
+          value={desc}
+          onChange={(e) => setDesc(e.target.value)}
+        />
+        <Details>
+          <DropdownInput
+            label="Priority"
+            value={priority}
+            onChange={(e) => setPriority(e.target.value)}
+            options={priorityOptions}
           />
-        </TitleInput>
-
-        <DescInput direction="column" gap="6px">
-          Description
-          <Input
-            name="desc"
-            variant="textarea"
-            rows="4"
-            value={desc}
-            onChange={(e) => setDesc(e.target.value)}
+          <DropdownInput
+            label="Status"
+            value={status}
+            onChange={(e) => setStatus(e.target.value)}
+            options={statusOptions}
           />
-        </DescInput>
-
-        <Details gap="12px">
-          <DropdownInput direction="column" gap="6px">
-            Priority
-            <select
-              value={priority}
-              onChange={(e) => setPriority(e.target.value)}
-            >
-              <option value="high">High</option>
-              <option value="medium">Medium</option>
-              <option value="low">Low</option>
-            </select>
-          </DropdownInput>
-          <DropdownInput direction="column" gap="6px">
-            Status
-            <select value={status} onChange={(e) => setStatus(e.target.value)}>
-              <option value="backlog">Backlog</option>
-              <option value="in_progress">In Progress</option>
-              <option value="review">Review</option>
-              <option value="done">Done</option>
-            </select>
-          </DropdownInput>
-          <DropdownInput direction="column" gap="6px">
-            Due Date
-            <Input
-              name="dueDate"
-              type="date"
-              value={dueDate}
-              onChange={(e) => setDueDate(e.target.value)}
-            />
-          </DropdownInput>
+          <Input
+            label="Due Date"
+            name="dueDate"
+            type="date"
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
+          />
         </Details>
-        <Details gap="12px">
-          <DropdownInput direction="column" gap="6px">
-            Assignee
-            <select
-              value={assignee}
-              onChange={(e) => setAssignee(e.target.value)}
-            >
-              <option value={user.name}>{user.name}</option>
-              {invites?.map((i) => (
-                <option key={i.inviteeName} value={i.inviteeName}>
-                  {i.inviteeName}
-                </option>
-              ))}
-            </select>
-          </DropdownInput>
-          <DropdownInput direction="column" gap="6px">
-            Project
-            <select
-              value={projName}
-              onChange={(e) => setProjName(e.target.value)}
-            >
-              {projects?.map((p) => (
-                <option key={p.value} value={p.value}>
-                  {p.label}
-                </option>
-              ))}
-            </select>
-          </DropdownInput>
+        <Details>
+          <DropdownInput
+            label="Assignee"
+            value={assignee}
+            onChange={(e) => setAssignee(e.target.value)}
+            options={[
+              { value: user.name, label: user.name },
+              ...invites?.map((i) => ({
+                value: i.inviteeName,
+                label: i.inviteeName,
+              })),
+            ]}
+          />
+          <DropdownInput
+            label="Project"
+            value={projName}
+            onChange={(e) => setProjName(e.target.value)}
+            options={projects?.map((p) => ({
+              value: p.value,
+              label: p.label,
+            }))}
+          />
         </Details>
-
         <Footer justify="flex-end" gap="8px">
           <CancelButton onClick={() => setShowTask(false)}>Cancel</CancelButton>
           <PrimaryButton
@@ -171,31 +148,10 @@ const CloseButton = styled(Flex)`
   background: transparent;
   cursor: pointer;
 `;
-const TitleInput = styled(Flex)`
-  font-size: var(--fs-12);
-  font-weight: var(--fw-600);
-  color: var(--slate-600);
-`;
-const DescInput = styled(Flex)`
-  font-size: var(--fs-12);
-  font-weight: var(--fw-600);
-  color: var(--slate-600);
-`;
-const Details = styled(Flex)``;
-const DropdownInput = styled(Flex)`
-  flex: 1 1 0%;
-  font-size: var(--fs-12);
-  font-weight: var(--fw-600);
-  color: var(--slate-600);
-  > select {
-    width: 100%;
-    height: 38px;
-    border-radius: var(--radius-8);
-    border: 1px solid var(--border-muted);
-    padding: 0px 8px;
-    font-size: var(--fs-13);
-    color: var(--slate-600);
-  }
+const Details = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 16px;
 `;
 const Footer = styled(Flex)`
   margin-top: 4px;

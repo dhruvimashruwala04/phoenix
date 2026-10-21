@@ -87,3 +87,16 @@ export const projects = [
     color: "rgb(34, 197, 94)",
   },
 ];
+
+export const priorityOptions = [
+  { value: "high", label: "High" },
+  { value: "medium", label: "Medium" },
+  { value: "low", label: "Low" },
+];
+
+export const statusOptions = [
+  { value: "backlog", label: "Backlog" },
+  { value: "in_progress", label: "In Progress" },
+  { value: "review", label: "Review" },
+  { value: "done", label: "Done" },
+];

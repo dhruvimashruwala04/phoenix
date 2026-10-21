@@ -50,7 +50,7 @@ const VerifyOtpForm = () => {
       <SubText>
         Enter the 6-digit code we sent to <Bold>{email}</Bold>.
       </SubText>
-      <OtpContainer gap="8px">
+      <OtpContainer gap="8px" align="center" justify="center">
         {otp.map((value, index) => (
           <OtpInput
             key={index}

@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import CancelButton from "@/imports/core/components/CancelButton";
 import PrimaryButton from "@/imports/core/components/PrimaryButton";
 import { roles } from "@/imports/onboarding/api/constant";
+import DropdownInput from "@/imports/core/components/DropdownInput";
+import { timeZone } from "../../api/constants";
 
 const Profile = () => {
   const { user, updateUser } = useAuthStore();
@@ -74,27 +76,23 @@ const Profile = () => {
           />
         </InputLabel>
 
-        <InputLabel>
-          Role
-          <select onChange={(e) => setNewRole(e.target.value)} value={newRole}>
-            {roles.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
-        </InputLabel>
+        <DropdownInput
+          label="Role"
+          options={roles.map((r) => ({
+            value: r,
+            label: r,
+          }))}
+          value={newRole}
+          onChange={(e) => setNewRole(e.target.value)}
+        />
 
-        <InputLabel>
-          Time Zone
-          <select>
-            <option value="pac">Pacific Time (UTC-7)</option>
-            <option value="eas">Eastern Time (UTC-4)</option>
-            <option value="lon">London (UTC+1)</option>
-            <option value="ber">Berlin (UTC+2)</option>
-            <option value="sin">Singapore (UTC+8)</option>
-          </select>
-        </InputLabel>
+        <DropdownInput
+          label="Time Zone"
+          options={timeZone.map((t) => ({
+            value: t.value,
+            label: t.label,
+          }))}
+        />
       </Details>
 
       <Buttons justify="flex-end" align="center" gap="10px">

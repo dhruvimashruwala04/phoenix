@@ -48,6 +48,8 @@ export const roles = [
 ];
 export const teamSizes = ["Just me", "2-10", "11-50", "51-200", "200+"];
 
+export const accessRoles = ["Owner", "Admin", "Member", "Viewer"];
+
 export const initialsColors = [
   "#4f46e5",
   "#ec4899",
@@ -55,6 +57,9 @@ export const initialsColors = [
   "#f59e0b",
   "#172033",
 ];
+
+export const status = ["Accepted", "Pending"];
+
 export const views = [
   {
     name: "Kanban board",

@@ -23,6 +23,7 @@ const LoginForm = () => {
     errorMessage,
     handleLogin,
   } = useLoginForm();
+
   const [showPass, setShowPass] = useState(false);
   const togglePass = () => {
     setShowPass(!showPass);
@@ -53,40 +54,34 @@ const LoginForm = () => {
         <DividerText>or with email</DividerText>
         <HLine />
       </Line>
-      <Field direction="column" gap="7px">
-        <Label>Work email</Label>
+      <Input
+        label="Work email"
+        type="email"
+        placeholder="you@company.com"
+        value={email}
+        $error={emailError}
+        onChange={(e) => {
+          setEmail(e.target.value);
+          setEmailError(false);
+        }}
+      />
+
+      <PasswordWrapper>
         <Input
-          type="email"
-          placeholder="you@company.com"
-          value={email}
-          $error={emailError}
+          label="Password"
+          action={<Forgot href="/forgot-password">Forgot password?</Forgot>}
+          type={showPass ? "text" : "password"}
+          placeholder="••••••••"
+          value={password}
+          $error={passwordError}
           onChange={(e) => {
-            setEmail(e.target.value);
-            setEmailError(false);
+            setPassword(e.target.value);
+            setPasswordError(false);
           }}
         />
-      </Field>
-      <Field direction="column" gap="7px">
-        <PasswordHeader align="center" justify="space-between">
-          <Label>Password</Label>
-          <Forgot href="/forgot-password">Forgot password?</Forgot>
-        </PasswordHeader>
-        <PasswordWrapper>
-          <Input
-            type={showPass ? "text" : "password"}
-            placeholder="••••••••"
-            value={password}
-            $error={passwordError}
-            onChange={(e) => {
-              setPassword(e.target.value);
-              setPasswordError(false);
-            }}
-          />
-          <Eye onClick={togglePass}>
-            {showPass ? <CloseEye /> : <OpenEye />}
-          </Eye>
-        </PasswordWrapper>
-      </Field>
+        <Eye onClick={togglePass}>{showPass ? <CloseEye /> : <OpenEye />}</Eye>
+      </PasswordWrapper>
+
       <Remember align="center" gap="8px">
         <Checkbox type="checkbox" defaultChecked />
         <RememberText>Keep me signed in for 30 days</RememberText>
@@ -160,19 +155,9 @@ const DividerText = styled.span`
   font-size: var(--fs-11);
   color: var(--text-muted-2);
 `;
-const Field = styled(Flex)`
-  width: 100%;
-`;
-const Label = styled.span`
-  font-size: var(--fs-12);
-  font-weight: var(--fw-600);
-  color: var(--slate-700);
-`;
-const PasswordHeader = styled(Flex)`
-  width: 100%;
-`;
 const Forgot = styled(Link)`
   font-size: var(--fs-11);
+  font-weight: var(--fw-400);
   color: var(--blue-accent);
   &:hover {
     cursor: pointer;
@@ -189,7 +174,7 @@ const PasswordWrapper = styled.div`
 const Eye = styled.span`
   position: absolute;
   right: 12px;
-  top: 50%;
+  top: 40px;
   transform: translateY(-50%);
   color: var(--text-muted-2);
   font-size: var(--fs-13);

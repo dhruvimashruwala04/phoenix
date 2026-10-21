@@ -57,36 +57,33 @@ const SignupForm = () => {
         <DividerText>or </DividerText>
         <HLine />
       </Line>
-      <Field direction="column" gap="7px">
-        <Label>Full Name</Label>
-        <Input
-          type="text"
-          placeholder="John Smith"
-          value={name}
-          $error={nameError}
-          onChange={(e) => {
-            setName(e.target.value);
-            setNameError(false);
-          }}
-        />
-      </Field>
-      <Field direction="column" gap="7px">
-        <Label>Work email</Label>
-        <Input
-          type="email"
-          placeholder="you@company.com"
-          value={email}
-          $error={emailError}
-          onChange={(e) => {
-            setEmail(e.target.value);
-            setEmailError(false);
-          }}
-        />
-      </Field>
-      <Field direction="column" gap="7px">
-        <Label>Password</Label>
-        <PasswordWrapper>
+      <Input
+        label="Full Name"
+        name="name"
+        type="text"
+        placeholder="John Smith"
+        value={name}
+        $error={nameError}
+        onChange={(e) => {
+          setName(e.target.value);
+          setNameError(false);
+        }}
+      />
+      <Input
+        label="Work email"
+        type="email"
+        placeholder="you@company.com"
+        value={email}
+        $error={emailError}
+        onChange={(e) => {
+          setEmail(e.target.value);
+          setEmailError(false);
+        }}
+      />
+      <PasswordWrapper direction="column" gap="6px">
+        <InputWrapper>
           <Input
+            label="Password"
             type={showPass ? "text" : "password"}
             placeholder="At least 8 characters"
             value={password}
@@ -96,22 +93,21 @@ const SignupForm = () => {
           <Eye onClick={togglePass}>
             {showPass ? <CloseEye /> : <OpenEye />}
           </Eye>
-        </PasswordWrapper>
+        </InputWrapper>
         <StrengthContainer>
           <StrengthBars align="stretch" gap="4px">
             {[1, 2, 3, 4, 5].map((bar) => (
               <StrengthBar key={bar} $active={bar <= passwordStrength} />
             ))}
           </StrengthBars>
-
           {passwordStrength > 0 && (
             <StrengthText>
               {passwordStrength < 3 ? "Weak password" : "Strong password"}
             </StrengthText>
           )}
         </StrengthContainer>
-        <PasswordText>Use 8+ characters with a number and symbol</PasswordText>
-      </Field>
+      </PasswordWrapper>
+      <PasswordText>Use 8+ characters with a number and symbol</PasswordText>
       <Remember align="center" gap="8px">
         <Checkbox type="checkbox" />
         <IAgree>
@@ -185,22 +181,17 @@ const DividerText = styled.span`
   font-size: var(--fs-11);
   color: var(--text-muted-2);
 `;
-const Field = styled(Flex)`
+const PasswordWrapper = styled(Flex)`
   width: 100%;
 `;
-const Label = styled.span`
-  font-size: var(--fs-12);
-  font-weight: var(--fw-600);
-  color: var(--slate-700);
-`;
-const PasswordWrapper = styled.div`
+const InputWrapper = styled.div`
+  width: 100%;
   position: relative;
-  width: 100%;
 `;
 const Eye = styled.span`
   position: absolute;
   right: 12px;
-  top: 50%;
+  top: 40px;
   transform: translateY(-50%);
   color: var(--text-muted-2);
   font-size: var(--fs-13);
@@ -242,7 +233,6 @@ const CreateLink = styled(Link)`
     text-decoration: underline;
   }
 `;
-
 const PasswordText = styled(Flex)`
   width: 100%;
   font-size: var(--fs-10);

@@ -5,6 +5,8 @@ import { Copy, Link } from "../assets/Icons";
 import { Close } from "@/imports/core/assets/Icons";
 import useOnboardingStore from "../../store/onboardingStore";
 import Input from "@/imports/core/components/Input";
+import DropdownInput from "@/imports/core/components/DropdownInput";
+import { accessRoles, roles, status } from "../../api/constant";
 
 const InviteTeamForm = () => {
   const {
@@ -44,27 +46,27 @@ const InviteTeamForm = () => {
           onChange={(e) => setInviteeEmail(e.target.value)}
           placeholder="teammate@company.com"
         />
-        <RoleSelect
+        <DropdownInput
+          options={accessRoles.map((r) => ({
+            value: r,
+            label: r,
+          }))}
           value={inviteeRole}
           onChange={(e) => setInviteeRole(e.target.value)}
-        >
-          <option value="Admin">Admin</option>
-          <option value="Member">Member</option>
-          <option value="Viewer">Viewer</option>
-        </RoleSelect>
-        <StatusSelect
+        />
+        <DropdownInput
+          options={status.map((s) => ({ value: s, label: s }))}
           value={linkStatus}
           onChange={(e) => setLinkStatus(e.target.value)}
-        >
-          <option value="Accepted">Accepted</option>
-          <option value="Pending">Pending</option>
-        </StatusSelect>
-        <StatusSelect value={team} onChange={(e) => setTeam(e.target.value)}>
-          <option value="Design">Design</option>
-          <option value="Engineering">Engineering</option>
-          <option value="Product">Product</option>
-          <option value="Marketing">Marketing</option>
-        </StatusSelect>
+        />
+        <DropdownInput
+          options={roles.map((t) => ({
+            value: t,
+            label: t,
+          }))}
+          value={team}
+          onChange={(e) => setTeam(e.target.value)}
+        />
         <AddButton type="button" onClick={addInvite}>
           Add
         </AddButton>
@@ -122,28 +124,6 @@ const Form = styled(Flex)`
 `;
 const AddRow = styled(Flex)`
   width: 100%;
-`;
-const StatusSelect = styled.select`
-  width: 105px;
-  height: 40px;
-  padding: 0 10px;
-  border: 1px solid var(--border-input);
-  border-radius: var(--radius-7);
-  outline: none;
-  color: var(--text-heading);
-  background: var(--white);
-  font-size: var(--fs-13);
-`;
-const RoleSelect = styled.select`
-  width: 94px;
-  height: 40px;
-  padding: 0 10px;
-  border: 1px solid var(--border-input);
-  border-radius: var(--radius-7);
-  outline: none;
-  color: var(--text-heading);
-  background: var(--white);
-  font-size: var(--fs-13);
 `;
 const AddButton = styled.button`
   width: 60px;

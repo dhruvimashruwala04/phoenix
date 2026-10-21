@@ -22,45 +22,37 @@ const NewMilestones = () => {
   return (
     <Modal direction="column" gap="10px" align="flex-end">
       <Row>
-        <InputWrapper direction="column" gap="6px">
-          Title
-          <Input
-            name="title"
-            type="text"
-            placeholder="e.g. Beta release"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-          />
-        </InputWrapper>
-        <InputWrapper direction="column" gap="6px">
-          Phase
-          <Input
-            name="phase"
-            type="text"
-            placeholder="e.g. Development"
-            value={phase}
-            onChange={(e) => setPhase(e.target.value)}
-          />
-        </InputWrapper>
-        <InputWrapper direction="column" gap="6px">
-          Total Tasks
-          <Input
-            name="totalTasks"
-            type="number"
-            placeholder="e.g. 10"
-            value={totalTasks}
-            onChange={(e) => setTotalTasks(e.target.value)}
-          />
-        </InputWrapper>
-        <DropdownInput direction="column" gap="6px">
-          Due Date
-          <Input
-            name="dueDate"
-            type="date"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-          />
-        </DropdownInput>
+        <Input
+          label="Title"
+          name="title"
+          type="text"
+          placeholder="e.g. Beta release"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <Input
+          label="Phase"
+          name="phase"
+          type="text"
+          placeholder="e.g. Development"
+          value={phase}
+          onChange={(e) => setPhase(e.target.value)}
+        />
+        <Input
+          label="Total Tasks"
+          name="totalTasks"
+          type="number"
+          placeholder="e.g. 10"
+          value={totalTasks}
+          onChange={(e) => setTotalTasks(e.target.value)}
+        />
+        <Input
+          label="Due Date"
+          name="dueDate"
+          type="date"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+        />
       </Row>
       <ActionButton
         text="Create"
@@ -91,24 +83,4 @@ const Row = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-`;
-const InputWrapper = styled(Flex)`
-  font-size: var(--fs-12);
-  font-weight: var(--fw-600);
-  color: var(--slate-600);
-`;
-const DropdownInput = styled(Flex)`
-  flex: 1 1 0%;
-  font-size: var(--fs-12);
-  font-weight: var(--fw-600);
-  color: var(--slate-600);
-  > select {
-    width: 100%;
-    height: 38px;
-    border-radius: var(--radius-8);
-    border: 1px solid var(--border-muted);
-    padding: 0px 8px;
-    font-size: var(--fs-13);
-    color: var(--slate-600);
-  }
 `;

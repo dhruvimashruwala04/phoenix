@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import { Activate, Deactivate, Remove } from "../assets/Icons";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
+import DropdownInput from "@/imports/core/components/DropdownInput";
+import { accessRoles } from "@/imports/onboarding/api/constant";
 
 const MembersView = ({
   selected,
@@ -65,7 +67,7 @@ const MembersView = ({
             <Avatar align="center" justify="center" $color={member.color}>
               {member.initials} <OnlineIndicator $online={member.online} />
             </Avatar>
-            <MemberInfo>
+            <MemberInfo direction="column">
               <NameLine align="center" gap="6px">
                 <MemberName>{member.inviteeName}</MemberName>
                 {member.you && <YouBadge>YOU</YouBadge>}
@@ -74,18 +76,19 @@ const MembersView = ({
             </MemberInfo>
           </MemberCell>
           <TeamName>{member.team}</TeamName>
-          <AccessCell>
-            <AccessSelect
-              value={member.inviteeRole}
-              disabled={member.you}
-              onChange={(e) =>
-                changeInviteeRole(member.inviteeEmail, e.target.value)
-              }
-            >
-              <option>Owner</option> <option>Admin</option>
-              <option>Member</option> <option>Viewer</option>
-            </AccessSelect>
-          </AccessCell>
+          <DropdownInput
+            options={accessRoles.map((r) => ({
+              value: r,
+              label: r,
+            }))}
+            value={member.inviteeRole}
+            onChange={(e) =>
+              changeInviteeRole(member.inviteeEmail, e.target.value)
+            }
+            disabled={member.you}
+            width="80%"
+            height="30px"
+          />
           <StatusCell align="center">
             <StatusBadge $active={member.status === "Active"}>
               {member.status}
@@ -208,7 +211,7 @@ const OnlineIndicator = styled.span`
   border-radius: var(--radius-full);
   background: ${({ $online }) => ($online ? "#00c781" : "var(--slate-300)")};
 `;
-const MemberInfo = styled.div`
+const MemberInfo = styled(Flex)`
   min-width: 0;
 `;
 const NameLine = styled(Flex)`
@@ -240,25 +243,6 @@ const Email = styled.div`
 const TeamName = styled.span`
   color: var(--slate-600);
   font-size: var(--fs-12);
-`;
-const AccessCell = styled.div`
-  min-width: 0;
-`;
-const AccessSelect = styled.select`
-  width: 100%;
-  max-width: 100px;
-  height: 30px;
-  padding: 0 8px;
-  border: 1px solid #dce4ee;
-  border-radius: var(--radius-6);
-  background: var(--white);
-  color: var(--slate-900);
-  font-size: var(--fs-12);
-  &:disabled {
-    background: var(--white);
-    color: var(--text-muted-2);
-    cursor: not-allowed;
-  }
 `;
 const StatusCell = styled(Flex)``;
 const StatusBadge = styled.span`

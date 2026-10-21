@@ -36,20 +36,17 @@ const ForgotPasswordForm = () => {
             <SubText>Enter your email and we'll send a reset link.</SubText>
           </Header>
 
-          <Field direction="column" gap="7px">
-            <Label>Work email</Label>
-            <Input
-              type="email"
-              placeholder="you@company.com"
-              value={email}
-              $error={emailError}
-              onChange={(e) => {
-                setEmail(e.target.value);
-                setEmailError(false);
-              }}
-            />
-          </Field>
-
+          <Input
+            label="Work email"
+            type="email"
+            placeholder="you@company.com"
+            value={email}
+            $error={emailError}
+            onChange={(e) => {
+              setEmail(e.target.value);
+              setEmailError(false);
+            }}
+          />
           {errorMessage && <ErrorBox>{errorMessage}</ErrorBox>}
           <PrimaryButton
             align="center"
@@ -65,6 +62,7 @@ const ForgotPasswordForm = () => {
 };
 
 export default ForgotPasswordForm;
+
 const FormBox = styled(Flex)`
   max-width: 400px;
   width: 100%;
@@ -88,12 +86,4 @@ const Text = styled.span`
 const SubText = styled.span`
   color: var(--text-muted);
   font-size: var(--fs-13);
-`;
-const Field = styled(Flex)`
-  width: 100%;
-`;
-const Label = styled.span`
-  font-size: var(--fs-12);
-  font-weight: var(--fw-600);
-  color: var(--slate-700);
 `;
