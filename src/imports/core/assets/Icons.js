@@ -43,6 +43,21 @@ export const ArrowLeft = ({ size = 10, color = "var(--text-muted)" }) => (
   </svg>
 );
 
+export const ChevronUp = ({ size = 8, color = "var(--text-muted)" }) => (
+  <svg
+    width={size}
+    height={(size * 5) / 8}
+    viewBox="0 0 8 5"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3.58594 0.42969L0.158203 3.83984C0 4.015625 0 4.279297 0.158203 4.4375L0.5625 4.841797C0.720703 5 0.984375 5 1.16016 4.841797L3.88477 2.13477L6.5918 4.841797C6.76758 5 7.03125 5 7.18945 4.841797L7.59375 4.4375C7.75195 4.279297 7.75195 4.015625 7.59375 3.83984L4.16602 0.42969C4.00781 0.271484 3.74414 0.271484 3.58594 0.42969Z"
+      fill={color}
+    />
+  </svg>
+);
+
 export const ChevronDown = ({ size = 8, color = "var(--text-muted)" }) => (
   <svg
     width={size}

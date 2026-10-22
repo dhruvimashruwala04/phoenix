@@ -40,6 +40,7 @@ const useCalendarStore = create(
 
           const eventData = {
             title,
+            date,
             startTime: `${date}T${startTime}`,
             endTime: `${date}T${endTime}`,
             category,
