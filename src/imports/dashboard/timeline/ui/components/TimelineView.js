@@ -1,14 +1,12 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import useCalendarStore from "@/imports/dashboard/calendar/store/calendarStore";
 import { Flex } from "@/imports/core/components/Flex";
 import { categories } from "@/imports/dashboard/calendar/api/constants";
 import formatDate from "@/imports/core/utils/formatDate";
 import { ChevronDown, ChevronUp } from "@/imports/core/assets/Icons";
-import formatDateLong from "@/imports/core/utils/formatDateLong";
-import formatDateMonth from "@/imports/core/utils/formatDateMonth";
 
 const TimelineView = ({ filter, searchQuery }) => {
   const { events } = useCalendarStore();
@@ -35,7 +33,7 @@ const TimelineView = ({ filter, searchQuery }) => {
   const groupedEvents = filteredEvents.reduce((acc, event) => {
     if (!event.date) return acc;
 
-    const month = formatDateMonth(event.date);
+    const month = formatDate(event.date, "month");
     if (!acc[month]) acc[month] = [];
     acc[month].push(event);
 
@@ -93,7 +91,7 @@ const TimelineView = ({ filter, searchQuery }) => {
                     {isSelected && (
                       <EventDetails>
                         {event.title} — scheduled for{" "}
-                        {formatDateLong(eventDate)}
+                        {formatDate(eventDate, "long")}
                         <ProgressSection align="center" gap="10px">
                           <ProgressTrack>
                             <ProgressFill

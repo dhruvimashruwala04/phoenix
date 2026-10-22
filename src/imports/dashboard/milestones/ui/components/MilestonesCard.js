@@ -2,8 +2,8 @@ import { Flex } from "@/imports/core/components/Flex";
 import styled from "styled-components";
 import { Calendar, Due } from "../assets/Icons";
 import { Flag, Trash } from "@/imports/core/assets/Icons";
-import formatDateLong from "@/imports/core/utils/formatDateLong";
 import useMilestones from "../../store/milestonesStore";
+import formatDate from "@/imports/core/utils/formatDate";
 
 const MilestonesCard = ({ milestone }) => {
   const { deleteMilestone, handleToggleStatus } = useMilestones();
@@ -42,7 +42,7 @@ const MilestonesCard = ({ milestone }) => {
       <Details justify="space-between" align="center">
         <DueDate align="center" gap="6px">
           <Calendar />
-          <span>Due {formatDateLong(milestone.dueDate)}</span>
+          <span>Due {formatDate(milestone.dueDate, "long")}</span>
         </DueDate>
         <TaskCount>
           {milestone.completedTasks}/{milestone.totalTasks} tasks

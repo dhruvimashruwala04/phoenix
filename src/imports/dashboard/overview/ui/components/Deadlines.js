@@ -3,7 +3,7 @@ import Card from "./Card";
 import useKanbanStore from "@/imports/dashboard/kanban/store/kanbanStore";
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
-import formatDateLong from "@/imports/core/utils/formatDateLong";
+import formatDate from "@/imports/core/utils/formatDate";
 
 const Deadlines = ({ tasksByProj }) => {
   const { tasks } = useKanbanStore();
@@ -47,7 +47,7 @@ const Deadlines = ({ tasksByProj }) => {
                   gap="1px"
                 >
                   <Month>
-                    {formatDateLong(task.dueDate).slice(0, 3).toUpperCase()}
+                    {formatDate(task.dueDate, "long").slice(0, 3).toUpperCase()}
                   </Month>
                   <Day>{task.dueDate.split("-")[2]}</Day>
                 </DateBadge>
