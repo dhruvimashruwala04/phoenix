@@ -77,7 +77,6 @@ const Tab = styled.button`
     color: var(--text-muted-2);
   }
 `;
-
 const ReadButton = styled.button`
   height: 34px;
   padding: 0px 14px;

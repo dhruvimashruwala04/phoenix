@@ -15,7 +15,7 @@ const WorkloadView = ({
   const query = searchQuery.trim().toLowerCase();
 
   const filteredMembers = members.filter((m) =>
-    m.name.toLowerCase().includes(query),
+    m.name?.toLowerCase().includes(query),
   );
 
   return (

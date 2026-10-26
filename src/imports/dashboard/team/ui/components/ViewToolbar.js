@@ -69,18 +69,3 @@ const Tab = styled.button`
     color: var(--text-muted-2);
   }
 `;
-
-const ReadButton = styled.button`
-  height: 34px;
-  padding: 0px 14px;
-  border-radius: var(--radius-8);
-  border: 0px;
-  background: var(--white);
-  box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
-  font-size: var(--fs-13);
-  color: var(--slate-700);
-  cursor: pointer;
-  display: flex;
-  gap: 8px;
-  align-items: center;
-`;

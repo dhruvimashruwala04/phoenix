@@ -81,6 +81,7 @@ export const Other = () => {
     </svg>
   );
 };
+
 export const RightArrow = () => {
   return (
     <svg
