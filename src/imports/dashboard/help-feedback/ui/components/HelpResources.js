@@ -1,12 +1,20 @@
 import styled from "styled-components";
 import { resources } from "../../api/constants";
 import { Flex } from "@/imports/core/components/Flex";
+import { useRouter } from "next/navigation";
 
 const HelpResources = () => {
+  const router = useRouter();
+
   return (
     <Grid>
       {resources.map((item) => (
-        <ResourceCard key={item.title} role="button" tabIndex={0}>
+        <ResourceCard
+          key={item.title}
+          role="button"
+          tabIndex={0}
+          onClick={() => router.push(item.link)}
+        >
           <Icon align="center" justify="center">
             {<item.icon />}
           </Icon>

@@ -48,21 +48,25 @@ export const resources = [
     icon: Rocket,
     title: "Getting started",
     description: "5-minute setup",
+    link: "/kanban",
   },
   {
     icon: GanttChart,
     title: "Planning with Gantt",
     description: "Dependencies & baselines",
+    link: "/gantt",
   },
   {
     icon: AiInsights,
     title: "Using AI",
     description: "Insights & auto-schedule",
+    link: "/ai-insights",
   },
   {
     icon: Calendar,
     title: "Calendar sync",
     description: "Events and focus time",
+    link: "/calendar",
   },
 ];
 
