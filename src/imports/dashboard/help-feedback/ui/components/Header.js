@@ -13,8 +13,8 @@ const Header = ({ searchQuery, setSearchQuery }) => {
       </TextWrapper>
       <SearchBox
         placeholder="Search help & feedback..."
-        // value={searchQuery}
-        // onChange={(e) => setSearchQuery(e.target.value)}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
       />
       <NotificationBox />
     </HeaderWrapper>

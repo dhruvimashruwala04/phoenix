@@ -4,14 +4,18 @@ import { useState } from "react";
 import styled from "styled-components";
 import { questions } from "../../api/constants";
 
-const FAQ = () => {
+const FAQ = ({ searchQuery }) => {
   const [openIndex, setOpenIndex] = useState(0);
+
+  const query = searchQuery.trim().toLowerCase();
+  const filteredQuestion = questions.filter((question) =>
+    question.question.toLowerCase().includes(query),
+  );
 
   return (
     <Card>
       <CardTitle>Frequently asked questions</CardTitle>
-
-      {questions.map((item, index) => (
+      {filteredQuestion.map((item, index) => (
         <FAQItem key={item.question}>
           <Question
             onClick={() => setOpenIndex(openIndex === index ? -1 : index)}
@@ -19,7 +23,6 @@ const FAQ = () => {
             {item.question}
             <Toggle>{openIndex === index ? "−" : "+"}</Toggle>
           </Question>
-
           {openIndex === index && <Answer>{item.answer}</Answer>}
         </FAQItem>
       ))}

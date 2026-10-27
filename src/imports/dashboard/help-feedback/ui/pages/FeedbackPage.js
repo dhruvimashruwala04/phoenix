@@ -1,3 +1,4 @@
+"use client";
 import { Flex } from "@/imports/core/components/Flex";
 import React from "react";
 import styled from "styled-components";
@@ -6,14 +7,17 @@ import FAQ from "../components/FAQ";
 import KeyboardShortcuts from "../components/KeyboardShortcuts";
 import HelpResources from "../components/HelpResources";
 import ContactSupport from "../components/ContactSupport";
+import { useState } from "react";
 
 const FeedbackPage = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
     <Page direction="column">
-      <Header />
+      <Header setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
       <Content gap="24px">
         <Section direction="column" gap="24px">
-          <FAQ />
+          <FAQ searchQuery={searchQuery} />
           <KeyboardShortcuts />
         </Section>
         <Section direction="column" gap="24px">
