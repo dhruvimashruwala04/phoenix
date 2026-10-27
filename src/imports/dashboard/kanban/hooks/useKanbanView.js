@@ -56,7 +56,6 @@ const useKanbanView = () => {
     }));
   }
 
-  // 4. Used by BoardView
   const getSortedTasks = (column) => {
     const columnTasks = filteredTasks.filter((task) => {
       if (groupBy === "status") {
@@ -77,7 +76,6 @@ const useKanbanView = () => {
     return sortTasks(columnTasks);
   };
 
-  // 5. Used by TableView + AllTaskView
   const sortedTasks = sortTasks(filteredTasks);
 
   return {
