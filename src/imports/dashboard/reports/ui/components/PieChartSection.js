@@ -3,14 +3,15 @@ import styled from "styled-components";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { Flex } from "@/imports/core/components/Flex";
 
-const COLORS = [
-  "var(--indigo-700)",
-  "var(--emerald-500)",
-  "var(--amber-500)",
-  "var(--rose-500)",
-];
+const COLORS = {
+  "In Progress": "var(--indigo-700)",
+  Done: "var(--emerald-500)",
+  Review: "var(--amber-500)",
+  Backlog: "var(--rose-500)",
+};
 
 const PieChartSection = ({ data }) => {
+  console.log("data", data);
   return (
     <Card direction="column" gap="12px">
       <Heading>Status distribution</Heading>
@@ -31,7 +32,7 @@ const PieChartSection = ({ data }) => {
                 stroke="none"
               >
                 {data.map((entry, index) => (
-                  <Cell key={entry.name} fill={COLORS[index % COLORS.length]} />
+                  <Cell key={entry.name} fill={COLORS[entry.name]} />
                 ))}
               </Pie>
             </PieChart>
