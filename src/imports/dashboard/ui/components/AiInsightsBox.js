@@ -5,7 +5,12 @@ import { AiInsights } from "@/imports/core/assets/Icons";
 
 const AiInsightsBox = ({ variant = "primary", text, onClick }) => {
   return (
-    <AiInsightsWrapper align="center" gap="8px" $variant={variant} onClick={onClick}>
+    <AiInsightsWrapper
+      align="center"
+      gap="8px"
+      $variant={variant}
+      onClick={onClick}
+    >
       <AiInsights />
       {text}
     </AiInsightsWrapper>
@@ -19,7 +24,8 @@ const AiInsightsWrapper = styled(Flex)`
   height: 36px;
   padding: 0px 14px;
   border-radius: var(--radius-8);
-  border: 0px;
+  border: ${({ $variant }) =>
+    $variant === "primary" ? "0px" : "1px solid rgb(237, 233, 254)"};
   background: ${({ $variant }) =>
     $variant === "primary" ? "var(--indigo-50)" : "var(--white)"};
   color: ${({ $variant }) =>

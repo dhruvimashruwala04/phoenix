@@ -54,7 +54,7 @@ export const resources = [
     icon: GanttChart,
     title: "Planning with Gantt",
     description: "Dependencies & baselines",
-    link: "/gantt",
+    link: "/gantt-chart",
   },
   {
     icon: AiInsights,

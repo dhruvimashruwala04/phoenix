@@ -19,7 +19,6 @@ const SearchBox = ({ width, placeholder, value, onChange }) => {
 export default SearchBox;
 
 const Container = styled(Flex)`
-  flex: 0 1 280px;
   min-width: 140px;
   width: ${({ $width }) => $width || "280px"};
   height: 36px;
