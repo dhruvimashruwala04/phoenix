@@ -1,12 +1,10 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import styled, { css } from "styled-components";
+import { useState } from "react";
+import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import { More } from "@/imports/core/assets/Icons";
-import useKanbanStore from "@/imports/dashboard/kanban/store/kanbanStore";
 import getInitials from "@/imports/core/utils/getInitials";
 import formatDate from "@/imports/core/utils/formatDate";
+import { projects } from "@/imports/dashboard/kanban/api/constants";
 
 const initialSubtasks = [
   { title: "Dashboard design", done: true },
@@ -16,16 +14,7 @@ const initialSubtasks = [
   { title: "Prototype", done: false },
 ];
 
-const TaskDetailsCard = () => {
-  const { tasks } = useKanbanStore();
-
-  const initialId = tasks[0]?.id;
-
-  useEffect(() => {
-    setSelectedId(initialId);
-  }, [tasks]);
-
-  const [selectedId, setSelectedId] = useState(initialId);
+const TaskDetailsCard = ({ selectedId, tasks }) => {
   const [subtasks, setSubtasks] = useState(initialSubtasks);
 
   const completed = subtasks.filter((task) => task.done).length;
@@ -40,9 +29,12 @@ const TaskDetailsCard = () => {
   };
 
   const selectedTask = tasks.find((t) => t.id === selectedId);
+  const projectName = projects.find(
+    (p) => p.value === selectedTask?.projName,
+  )?.label;
 
   const getLabel = (value) =>
-    value.replace(/_/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+    value?.replace(/_/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
 
   return (
     <Card direction="column">
@@ -60,17 +52,21 @@ const TaskDetailsCard = () => {
             {selectedTask?.title}
           </TaskName>
 
-          <Tag>DESIGN</Tag>
+          <Tag>{projectName}</Tag>
         </TaskHeading>
 
         <DetailRow>
           <Label>STATUS</Label>
-          <StatusBadge>{getLabel(selectedTask?.status)}</StatusBadge>
+          <StatusBadge $status={selectedTask?.status}>
+            {getLabel(selectedTask?.status)}
+          </StatusBadge>
         </DetailRow>
 
         <DetailRow>
           <Label>PRIORITY</Label>
-          <PriorityBadge>{getLabel(selectedTask?.priority)}</PriorityBadge>
+          <PriorityBadge $priority={selectedTask?.priority}>
+            {getLabel(selectedTask?.priority)}
+          </PriorityBadge>
         </DetailRow>
 
         <DetailRow>
@@ -83,7 +79,7 @@ const TaskDetailsCard = () => {
 
         <DetailRow>
           <Label>START DATE</Label>
-          <DateValue>May 26, 2026</DateValue>
+          <DateValue>{formatDate(selectedTask?.startDate, "long")}</DateValue>
         </DetailRow>
 
         <DetailRow>
@@ -92,7 +88,7 @@ const TaskDetailsCard = () => {
         </DetailRow>
 
         <ProgressSection direction="column" gap="8px">
-          <DetailRow align="center" justify="space-between" flex={true}>
+          <DetailRow align="center" justify="space-between" flex="true">
             <Label>PROGRESS</Label>
             <ProgressValue>{progress}%</ProgressValue>
           </DetailRow>
@@ -108,7 +104,7 @@ const TaskDetailsCard = () => {
         </DescriptionSection>
 
         <SubtasksSection direction="column" gap="9px">
-          <DetailRow align="center" justify="space-between" flex={true}>
+          <DetailRow align="center" justify="space-between" flex="true">
             <Label>SUBTASKS</Label>
             <ProgressValue>
               {completed}/{subtasks.length}
@@ -227,22 +223,41 @@ const StatusBadge = styled.span`
   padding: 6px 10px;
   border-radius: 7px;
   background: #edf5ff;
-  color: #1672ff;
   font-size: 12px;
   font-weight: 600;
   width: fit-content;
   justify-self: end;
+  color: ${({ $status }) => {
+    if ($status === "done") return "rgb(34, 197, 94)";
+    if ($status === "review") return "rgb(234, 179, 8)";
+    if ($status === "backlog") return "var(--rose-500)";
+    if ($status === "in_progress") return "var(--indigo-500)";
+  }};
+  background: ${({ $status }) => {
+    if ($status === "done") return "rgb(240, 253, 244)";
+    if ($status === "review") return "rgb(254, 252, 232)";
+    if ($status === "backlog") return "var(--rose-50)";
+    if ($status === "in_progress") return "var(--indigo-50)";
+  }};
 `;
 
 const PriorityBadge = styled.span`
   padding: 6px 11px;
   border-radius: 7px;
-  background: #fff0f1;
-  color: #ff3348;
   font-size: 12px;
   font-weight: 600;
   width: fit-content;
   justify-self: end;
+  color: ${({ $priority }) => {
+    if ($priority === "low") return "rgb(34, 197, 94)";
+    if ($priority === "medium") return "rgb(234, 179, 8)";
+    if ($priority === "high") return "var(--rose-500)";
+  }};
+  background: ${({ $priority }) => {
+    if ($priority === "low") return "rgb(240, 253, 244)";
+    if ($priority === "medium") return "rgb(254, 252, 232)";
+    if ($priority === "high") return "var(--rose-50)";
+  }};
 `;
 
 const Assignee = styled(Flex)`

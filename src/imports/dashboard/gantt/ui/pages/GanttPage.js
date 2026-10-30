@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import GanttHeader from "../components/GanttHeader";
 import styled from "styled-components";
@@ -5,14 +6,17 @@ import { Flex } from "@/imports/core/components/Flex";
 import Stats from "../components/Stats";
 import Cards from "../components/Cards";
 import GanttView from "../components/GanttView";
+import { useState } from "react";
 
 const GanttPage = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+
   return (
     <Page direction="column">
-      <GanttHeader />
+      <GanttHeader searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <Content gap="24px" direction="column">
         <Stats />
-        <GanttView />
+        <GanttView searchQuery={searchQuery} />
         <Cards />
       </Content>
     </Page>
@@ -29,4 +33,7 @@ const Page = styled(Flex)`
 const Content = styled(Flex)`
   width: 100%;
   padding: 24px;
+  min-width: 0;
+  min-height: 0;
+  flex-shrink: 0;
 `;

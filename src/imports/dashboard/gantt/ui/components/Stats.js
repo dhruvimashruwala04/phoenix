@@ -164,9 +164,9 @@ const SmallTitle = styled.span`
   text-align: left;
 `;
 const Change = styled.span`
-  color: var(--violet-500);
+  color: var(--violet-600);
   font-size: var(--fs-18);
-  font-weight: var(--fw-800);
+  font-weight: 700;
   line-height: 1.1;
 `;
 const Subtitle = styled.span`

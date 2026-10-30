@@ -69,6 +69,7 @@ const useReports = () => {
 
   return {
     sortBy,
+    setSortBy,
     selectedProj,
     setSelectedProj,
     projOptions,

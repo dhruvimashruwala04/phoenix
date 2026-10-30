@@ -9,7 +9,7 @@ import styled from "styled-components";
 import { nav } from "../../api/constants";
 import { useRouter } from "next/navigation";
 
-const GanttHeader = () => {
+const GanttHeader = ({ searchQuery, setSearchQuery }) => {
   const [view, setView] = useState("Gantt");
   const router = useRouter();
 
@@ -20,8 +20,8 @@ const GanttHeader = () => {
           <SearchBox
             width="100%"
             placeholder="Search tasks, milestones..."
-            // value={searchQuery}
-            // onChange={(e) => setSearchQuery(e.target.value)}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
           />
         </Left>
         <Right gap="12px" align="center">
