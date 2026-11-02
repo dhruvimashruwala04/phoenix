@@ -4,7 +4,7 @@ import SearchBox from "@/imports/dashboard/ui/components/SearchBox";
 import React from "react";
 import styled from "styled-components";
 
-const THeader = () => {
+const THeader = ({ searchQuery, setSearchQuery }) => {
   return (
     <Header gap="12px 16px" wrap="wrap" align="center">
       <TextWrapper direction="column">
@@ -13,8 +13,8 @@ const THeader = () => {
       </TextWrapper>
       <SearchBox
         placeholder="Search time tracking..."
-        // value={searchQuery}
-        // onChange={(e) => setSearchQuery(e.target.value)}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
       />
       <NotificationBox />
     </Header>

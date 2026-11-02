@@ -4,7 +4,7 @@ import { Flex } from "@/imports/core/components/Flex";
 import { Play, Trash } from "@/imports/core/assets/Icons";
 import { projects } from "@/imports/dashboard/kanban/api/constants";
 
-const TodayEntries = ({ records, formatTime, handleDelete }) => {
+const TodayEntries = ({ records, formatTime, handleDelete, searchQuery }) => {
   const getTime = (dateString) => {
     return dateString.split("T")[1].slice(0, 5);
   };
@@ -13,11 +13,16 @@ const TodayEntries = ({ records, formatTime, handleDelete }) => {
     return projects.find((p) => p.value === proj)?.label;
   };
 
+  const query = searchQuery?.trim().toLowerCase() || "";
+  const filteredRecords = records.filter((rec) =>
+    rec.title.toLowerCase().includes(query),
+  );
+
   return (
     <Container>
       <Header>Today's entries</Header>
 
-      {records.map((entry) => (
+      {filteredRecords.map((entry) => (
         <EntryRow key={entry.id} justify="space-between">
           <EntryDetails>
             <EntryTitle>{entry.title || "Untitled entry"}</EntryTitle>
@@ -45,6 +50,7 @@ const TodayEntries = ({ records, formatTime, handleDelete }) => {
       ))}
 
       {records.length === 0 && <NoEntries>No entries for today</NoEntries>}
+      {filteredRecords.length === 0 && <NoEntries>No entries found</NoEntries>}
     </Container>
   );
 };

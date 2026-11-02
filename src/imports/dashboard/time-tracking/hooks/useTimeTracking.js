@@ -8,6 +8,7 @@ const useTimeTracking = () => {
   const [isRunning, setIsRunning] = useState(false);
   const [records, setRecords] = useState([]);
   const [elapsed, setElapsed] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const startTimeRef = useRef(null);
   const intervalRef = useRef(null);
@@ -81,6 +82,8 @@ const useTimeTracking = () => {
     startTimeRef,
     intervalRef,
     handleDelete,
+    searchQuery,
+    setSearchQuery,
   };
 };
 

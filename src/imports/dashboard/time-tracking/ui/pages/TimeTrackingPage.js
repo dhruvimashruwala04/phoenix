@@ -22,11 +22,13 @@ const TimeTrackingPage = () => {
     elapsed,
     formatTime,
     handleDelete,
+    searchQuery,
+    setSearchQuery,
   } = useTimeTracking();
 
   return (
     <Page direction="column">
-      <THeader />
+      <THeader searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <Content gap="24px" direction="column">
         <NewTrackingModal
           title={title}
@@ -45,6 +47,7 @@ const TimeTrackingPage = () => {
           records={records}
           formatTime={formatTime}
           handleDelete={handleDelete}
+          searchQuery={searchQuery}
         />
       </Content>
     </Page>
