@@ -29,7 +29,7 @@ const Grid = styled.div`
   width: 100%;
   min-width: 0;
   display: grid;
-  grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
+  grid-template-columns: minmax(0, 7fr) minmax(0, 370px);
   gap: 24px;
   align-items: start;
 `;

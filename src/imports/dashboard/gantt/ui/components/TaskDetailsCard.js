@@ -138,7 +138,6 @@ export default TaskDetailsCard;
 
 const Card = styled(Flex)`
   width: 100%;
-  max-width: 340px;
   overflow: hidden;
   background: #fff;
   border: 1px solid #edf0f5;
