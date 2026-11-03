@@ -1,9 +1,9 @@
 "use client";
-import useMilestones from "@/imports/dashboard/milestones/store/milestonesStore";
+import useMilestonesStore from "@/imports/dashboard/milestones/store/milestonesStore";
 import { useState } from "react";
 
 const useDependencies = () => {
-  const { milestones } = useMilestones();
+  const { milestones } = useMilestonesStore();
   const [showModal, setShowModal] = useState(false);
   const [blockingTask, setBlockingTask] = useState("");
   const [blockedTask, setBlockedTask] = useState("");

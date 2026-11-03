@@ -1,11 +1,11 @@
 import { Flex } from "@/imports/core/components/Flex";
 import NotificationBox from "@/imports/dashboard/ui/components/NotificationBox";
 import SearchBox from "@/imports/dashboard/ui/components/SearchBox";
-import useMilestones from "../../store/milestonesStore";
+import useMilestonesStore from "../../store/milestonesStore";
 import styled from "styled-components";
 
 const MilestonesHeader = () => {
-  const { searchQuery, setSearchQuery } = useMilestones();
+  const { searchQuery, setSearchQuery } = useMilestonesStore();
 
   return (
     <Header gap="12px 16px" wrap="wrap" align="center">

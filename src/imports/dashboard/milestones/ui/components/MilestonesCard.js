@@ -2,11 +2,11 @@ import { Flex } from "@/imports/core/components/Flex";
 import styled from "styled-components";
 import { Calendar, Due } from "../assets/Icons";
 import { Flag, Trash } from "@/imports/core/assets/Icons";
-import useMilestones from "../../store/milestonesStore";
+import useMilestonesStore from "../../store/milestonesStore";
 import formatDate from "@/imports/core/utils/formatDate";
 
 const MilestonesCard = ({ milestone }) => {
-  const { deleteMilestone, handleToggleStatus } = useMilestones();
+  const { deleteMilestone, handleToggleStatus } = useMilestonesStore();
 
   const progress = Math.round(
     (milestone.completedTasks / milestone.totalTasks) * 100,

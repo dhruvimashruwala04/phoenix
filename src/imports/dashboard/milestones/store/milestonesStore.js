@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-const useMilestones = create(
+const useMilestonesStore = create(
   persist(
     (set) => ({
       selectedView: "all",
@@ -111,4 +111,4 @@ const useMilestones = create(
   ),
 );
 
-export default useMilestones;
+export default useMilestonesStore;

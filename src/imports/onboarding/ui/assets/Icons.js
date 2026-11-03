@@ -12,11 +12,11 @@ export const Product = () => {
   );
 };
 
-export const Design = () => {
+export const Design = ({ size = 16 }) => {
   return (
     <svg
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       viewBox="0 0 512 512"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
@@ -26,11 +26,11 @@ export const Design = () => {
   );
 };
 
-export const Engineering = () => {
+export const Engineering = ({ size = 16 }) => {
   return (
     <svg
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       viewBox="0 0 448 512"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"
@@ -40,11 +40,11 @@ export const Engineering = () => {
   );
 };
 
-export const Marketing = () => {
+export const Marketing = ({ size = 16 }) => {
   return (
     <svg
-      width="16"
-      height="16"
+      width={size}
+      height={size}
       viewBox="0 0 512 512"
       fill="currentColor"
       xmlns="http://www.w3.org/2000/svg"

@@ -4,12 +4,12 @@ import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import { AiInsights, Flag, Users } from "@/imports/core/assets/Icons";
 import { Overdue, Task } from "@/imports/dashboard/kanban/ui/assets/Icons";
-import useMilestones from "@/imports/dashboard/milestones/store/milestonesStore";
+import useMilestonesStore from "@/imports/dashboard/milestones/store/milestonesStore";
 import useKanbanStore from "@/imports/dashboard/kanban/store/kanbanStore";
 import useWorkload from "@/imports/dashboard/workload/hooks/useWorkload";
 
 const Stats = () => {
-  const { milestones } = useMilestones();
+  const { milestones } = useMilestonesStore();
   const { tasks } = useKanbanStore();
   const { teamUtilization } = useWorkload();
 

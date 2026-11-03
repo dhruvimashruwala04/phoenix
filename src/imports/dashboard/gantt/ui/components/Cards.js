@@ -4,11 +4,11 @@ import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import { Flag, Path, Shield, Users } from "@/imports/core/assets/Icons";
 import useWorkload from "@/imports/dashboard/workload/hooks/useWorkload";
-import useMilestones from "@/imports/dashboard/milestones/store/milestonesStore";
+import useMilestonesStore from "@/imports/dashboard/milestones/store/milestonesStore";
 import formatDate from "@/imports/core/utils/formatDate";
 
 const Cards = () => {
-  const { milestones } = useMilestones();
+  const { milestones } = useMilestonesStore();
   const { teamUtilization } = useWorkload();
 
   const today = new Date();

@@ -4,11 +4,11 @@ import MilestonesHeader from "../components/MilestonesHeader";
 import { Flex } from "@/imports/core/components/Flex";
 import ViewToolbar from "../components/ViewToolbar";
 import MilestonesView from "../components/MilestonesView";
-import useMilestones from "../../store/milestonesStore";
+import useMilestonesStore from "../../store/milestonesStore";
 import NewMilestones from "../components/NewMilestones";
 
 const MilestonesPage = () => {
-  const { showModal } = useMilestones();
+  const { showModal } = useMilestonesStore();
   return (
     <Page direction="column">
       <MilestonesHeader />

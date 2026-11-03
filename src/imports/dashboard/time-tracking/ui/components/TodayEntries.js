@@ -22,35 +22,40 @@ const TodayEntries = ({ records, formatTime, handleDelete, searchQuery }) => {
     <Container>
       <Header>Today's entries</Header>
 
-      {filteredRecords.map((entry) => (
-        <EntryRow key={entry.id} justify="space-between">
-          <EntryDetails>
-            <EntryTitle>{entry.title || "Untitled entry"}</EntryTitle>
+      {records.length === 0 ? (
+        <NoEntries>No entries for today</NoEntries>
+      ) : filteredRecords.length === 0 ? (
+        <NoEntries>No entries found</NoEntries>
+      ) : (
+        filteredRecords.map((entry) => (
+          <EntryRow key={entry.id} justify="space-between">
+            <EntryDetails>
+              <EntryTitle>{entry.title || "Untitled entry"}</EntryTitle>
 
-            <EntrySubtitle>
-              {getProj(entry.project)} · {getTime(entry.startTime)} -{" "}
-              {getTime(entry.endTime)}
-            </EntrySubtitle>
-          </EntryDetails>
+              <EntrySubtitle>
+                {getProj(entry.project)} · {getTime(entry.startTime)} -{" "}
+                {getTime(entry.endTime)}
+              </EntrySubtitle>
+            </EntryDetails>
 
-          <Actions gap="12px" align="center">
-            <Duration>{formatTime(entry.duration)}</Duration>
-            <PlayButton align="center" justify="center">
-              <Play size={12} />
-            </PlayButton>
-            <DeleteButton
-              align="center"
-              justify="center"
-              onClick={() => handleDelete(entry.id)}
-            >
-              <Trash size={16} />
-            </DeleteButton>
-          </Actions>
-        </EntryRow>
-      ))}
+            <Actions gap="12px" align="center">
+              <Duration>{formatTime(entry.duration)}</Duration>
 
-      {records.length === 0 && <NoEntries>No entries for today</NoEntries>}
-      {filteredRecords.length === 0 && <NoEntries>No entries found</NoEntries>}
+              <PlayButton align="center" justify="center">
+                <Play size={12} />
+              </PlayButton>
+
+              <DeleteButton
+                align="center"
+                justify="center"
+                onClick={() => handleDelete(entry.id)}
+              >
+                <Trash size={16} />
+              </DeleteButton>
+            </Actions>
+          </EntryRow>
+        ))
+      )}
     </Container>
   );
 };

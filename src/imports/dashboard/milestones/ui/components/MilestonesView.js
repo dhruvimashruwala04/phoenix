@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import MilestonesCard from "./MilestonesCard";
-import useMilestones from "../../store/milestonesStore";
+import useMilestonesStore from "../../store/milestonesStore";
 import FallBackText from "@/imports/core/components/FallBackText";
 
 const MilestonesView = () => {
-  const { milestones, selectedView, searchQuery } = useMilestones();
+  const { milestones, selectedView, searchQuery } = useMilestonesStore();
 
   const query = (searchQuery || "").trim().toLowerCase();
 

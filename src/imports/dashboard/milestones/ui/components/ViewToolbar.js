@@ -2,11 +2,11 @@
 import { Flex } from "@/imports/core/components/Flex";
 import ActionButton from "@/imports/dashboard/ui/components/ActionButton";
 import styled from "styled-components";
-import useMilestones from "../../store/milestonesStore";
+import useMilestonesStore from "../../store/milestonesStore";
 
 const ViewToolbar = () => {
   const { selectedView, setSelectedView, setShowModal, showModal, milestones } =
-    useMilestones();
+    useMilestonesStore();
 
   const all = milestones.length;
   const upcoming = milestones.filter((m) => m.status === "Upcoming").length;
