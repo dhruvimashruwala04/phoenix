@@ -15,6 +15,7 @@ const THeader = ({ searchQuery, setSearchQuery }) => {
         placeholder="Search time tracking..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onClear={() => setSearchQuery("")}
       />
       <NotificationBox />
     </Header>

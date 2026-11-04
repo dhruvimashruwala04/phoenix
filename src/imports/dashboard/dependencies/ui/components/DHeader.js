@@ -15,6 +15,7 @@ const DHeader = ({ searchQuery, setSearchQuery }) => {
         placeholder="Search dependencies..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onClear={() => setSearchQuery("")}
       />
       <NotificationBox />
     </Header>

@@ -16,9 +16,10 @@ const InboxHeader = () => {
       </TextWrapper>
 
       <SearchBox
+        placeholder="Search inbox..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        placeholder="Search inbox..."
+        onClear={() => setSearchQuery("")}
       />
       <NotificationBox />
     </Header>

@@ -15,6 +15,7 @@ const TimelineHeader = ({ searchQuery, setSearchQuery }) => {
         placeholder="Search timeline..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onClear={() => setSearchQuery("")}
       />
       <NotificationBox />
     </Header>

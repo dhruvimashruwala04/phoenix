@@ -14,8 +14,9 @@ const SettingsHeader = () => {
 
       <SearchBox
         placeholder="Search settings..."
-        // value={searchQuery}
-        // onChange={(e) => setSearchQuery(e.target.value)}
+        value=""
+        onChange={() => {}}
+        onClear={() => {}}
       />
       <NotificationBox />
     </Header>

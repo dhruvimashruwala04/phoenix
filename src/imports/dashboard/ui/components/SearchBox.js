@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import { Search } from "../assets/Icons";
+import { Close } from "@/imports/core/assets/Icons";
 
-const SearchBox = ({ width, placeholder, value, onChange }) => {
+const SearchBox = ({ width, placeholder, value = "", onChange, onClear }) => {
   return (
     <Container align="center" gap="8px" $width={width}>
       <Search />
@@ -12,6 +13,11 @@ const SearchBox = ({ width, placeholder, value, onChange }) => {
         value={value}
         onChange={onChange}
       />
+      {value?.length > 0 && (
+        <CloseButton onClick={onClear}>
+          <Close size={9} />
+        </CloseButton>
+      )}
     </Container>
   );
 };
@@ -27,6 +33,7 @@ const Container = styled(Flex)`
   box-shadow: var(--border-muted) 0px 0px 0px 1px inset;
   padding: 0 10px;
   color: var(--text-muted-2);
+  position: relative;
 `;
 const Input = styled.input`
   flex: 1;
@@ -39,4 +46,11 @@ const Input = styled.input`
   &::placeholder {
     color: var(--text-muted-2);
   }
+`;
+const CloseButton = styled(Flex)`
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
 `;

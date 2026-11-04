@@ -22,6 +22,7 @@ const GanttHeader = ({ searchQuery, setSearchQuery }) => {
             placeholder="Search tasks, milestones..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            onClear={() => setSearchQuery("")}
           />
         </Left>
         <Right gap="12px" align="center">

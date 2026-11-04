@@ -15,6 +15,7 @@ const WorkloadHeader = ({ searchQuery, setSearchQuery }) => {
         placeholder="Search workload..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onClear={() => setSearchQuery("")}
       />
       <NotificationBox />
     </Header>

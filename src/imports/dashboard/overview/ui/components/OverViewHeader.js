@@ -10,7 +10,12 @@ const OverViewHeader = () => {
         <Title>Overview</Title>
         <Content>Your workspace at a glance</Content>
       </TextWrapper>
-      <SearchBox placeholder="Search overview..." />
+      <SearchBox
+        placeholder="Search overview..."
+        value=""
+        onChange={() => {}}
+        onClear={() => {}}
+      />
       <NotificationBox />
     </Header>
   );

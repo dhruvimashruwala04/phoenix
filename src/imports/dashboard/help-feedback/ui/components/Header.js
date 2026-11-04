@@ -15,6 +15,7 @@ const Header = ({ searchQuery, setSearchQuery }) => {
         placeholder="Search help & feedback..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onClear={() => setSearchQuery("")}
       />
       <NotificationBox />
     </HeaderWrapper>

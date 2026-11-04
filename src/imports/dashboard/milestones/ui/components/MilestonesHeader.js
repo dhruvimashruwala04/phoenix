@@ -18,6 +18,7 @@ const MilestonesHeader = () => {
         placeholder="Search milestones..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onClear={() => setSearchQuery("")}
       />
       <NotificationBox />
     </Header>

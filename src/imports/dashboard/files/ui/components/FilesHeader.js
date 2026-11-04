@@ -15,6 +15,7 @@ const FilesHeader = ({ searchQuery, setSearchQuery }) => {
         placeholder="Search files..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onClear={() => setSearchQuery("")}
       />
       <NotificationBox />
     </Header>

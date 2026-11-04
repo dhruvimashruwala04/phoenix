@@ -4,7 +4,6 @@ import ActionButton from "@/imports/dashboard/ui/components/ActionButton";
 import AiInsightsBox from "@/imports/dashboard/ui/components/AiInsightsBox";
 import NotificationBox from "@/imports/dashboard/ui/components/NotificationBox";
 import SearchBox from "@/imports/dashboard/ui/components/SearchBox";
-import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
 import useCalendarStore from "../../store/calendarStore";
 import styled from "styled-components";
 import { ChevronDown } from "@/imports/core/assets/Icons";
@@ -44,6 +43,7 @@ const CalendarHeader = ({ currentProj, setCurrentProj }) => {
         placeholder="Search events, tasks, people..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onClear={() => setSearchQuery("")}
       />
       <AiInsightsBox text="AI Insights" />
       <NotificationBox />

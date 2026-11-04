@@ -64,6 +64,7 @@ const KanbanHeader = () => {
         placeholder="Search tasks, people, tags..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onClear={() => setSearchQuery("")}
       />
       <AiInsightsBox text="AI Insights" onClick={() => setAiPanel(!aiPanel)} />
 
@@ -240,14 +241,16 @@ const GroupOption = styled(Flex)`
   cursor: pointer;
   background: ${({ $active }) =>
     $active ? "var(--indigo-50)" : "transparent"};
-  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--slate-700)")};
+  color: ${({ $active }) =>
+    $active ? "var(--blue-accent)" : "var(--slate-700)"};
   &:hover {
     background: var(--slate-50);
   }
 `;
 const OptionText = styled.span`
   font-size: var(--fs-13);
-  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--slate-700)")};
+  color: ${({ $active }) =>
+    $active ? "var(--blue-accent)" : "var(--slate-700)"};
 `;
 const Check = styled.span`
   width: 16px;
@@ -264,7 +267,8 @@ const FilterOption = styled.button`
   border-radius: var(--radius-7);
   background: ${({ $active }) =>
     $active ? "var(--indigo-50)" : "transparent"};
-  color: ${({ $active }) => ($active ? "var(--blue-accent)" : "var(--slate-700)")};
+  color: ${({ $active }) =>
+    $active ? "var(--blue-accent)" : "var(--slate-700)"};
   text-align: left;
   font-size: var(--fs-13);
   cursor: pointer;

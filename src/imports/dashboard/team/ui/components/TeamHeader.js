@@ -19,6 +19,7 @@ const TeamHeader = () => {
         placeholder="Search teams..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        onClear={() => setSearchQuery("")}
       />
       <NotificationBox />
     </Header>

@@ -11,7 +11,12 @@ const DocsHeader = () => {
         <Content>Specs, notes and meeting minutes</Content>
       </TextWrapper>
 
-      <SearchBox placeholder="Search documents..." />
+      <SearchBox
+        placeholder="Search documents..."
+        value=""
+        onChange={() => {}}
+        onClear={() => {}}
+      />
       <NotificationBox />
     </Header>
   );
