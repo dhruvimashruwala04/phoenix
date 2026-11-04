@@ -69,7 +69,7 @@ export const nav = [
       },
       {
         label: "Activity",
-        href: "/calendar",
+        href: "/activity",
         icon: Activity,
       },
       {

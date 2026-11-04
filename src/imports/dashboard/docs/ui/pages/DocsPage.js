@@ -1,3 +1,4 @@
+"use client";
 import styled from "styled-components";
 import DocsHeader from "../components/DocsHeader";
 import { Flex } from "@/imports/core/components/Flex";
