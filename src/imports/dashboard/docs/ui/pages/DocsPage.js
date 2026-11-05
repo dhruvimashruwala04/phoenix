@@ -1,13 +1,22 @@
 "use client";
 import styled from "styled-components";
-import DocsHeader from "../components/DocsHeader";
 import { Flex } from "@/imports/core/components/Flex";
 import DocsView from "../components/DocsView";
+import CommonHeader from "@/imports/core/components/CommonHeader";
+import useDocsStore from "../../store/docsStore";
 
 const DocsPage = () => {
+  const { searchQuery, setSearchQuery } = useDocsStore();
+
   return (
     <Page direction="column">
-      <DocsHeader />
+      <CommonHeader
+        title="Docs"
+        description="Specs, notes and meeting minutes"
+        placeholder="Search documents..."
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
       <Content>
         <DocsView />
       </Content>

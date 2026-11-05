@@ -2,11 +2,11 @@
 import { Flex } from "@/imports/core/components/Flex";
 import React, { useState } from "react";
 import styled from "styled-components";
-import AiHeader from "../components/AiHeader";
 import Stats from "../components/Stats";
 import ViewToolbar from "../components/ViewToolbar";
 import AiSuggestions from "../components/AiSuggestions";
 import ProjectAssistant from "../components/ProjectAssistant";
+import CommonHeader from "@/imports/core/components/CommonHeader";
 
 const AiInsightsPage = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -14,7 +14,13 @@ const AiInsightsPage = () => {
 
   return (
     <Page direction="column">
-      <AiHeader searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <CommonHeader
+        title="AI Insights"
+        description="Predictions, risks and recommendations"
+        placeholder="Search ai insights..."
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
       <Content gap="24px" direction="column">
         <Stats />
         <ViewToolbar

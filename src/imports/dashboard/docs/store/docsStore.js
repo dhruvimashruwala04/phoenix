@@ -9,12 +9,14 @@ const useDocsStore = create(
       selectedDocId: null,
       viewState: "edit",
       text: "",
+      searchQuery: "",
 
       documents: [],
 
       setEditorVal: (editorVal) => set({ editorVal }),
       setViewState: (viewState) => set({ viewState }),
       setText: (text) => set({ text }),
+      setSearchQuery: (searchQuery) => set({ searchQuery }),
 
       addDocument: () => {
         set((state) => {

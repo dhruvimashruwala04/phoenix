@@ -27,6 +27,7 @@ const DocsView = () => {
     setText,
     text,
     deleteDocument,
+    searchQuery,
   } = useDocsStore();
 
   const savingText = "Saving...";
@@ -46,6 +47,12 @@ const DocsView = () => {
     }, 1000);
   };
 
+  const query = searchQuery.trim().toLowerCase();
+
+  const filteredDocs = documents?.filter((doc) =>
+    doc.title.toLowerCase().includes(query),
+  );
+
   return (
     <Container gap="20px">
       <ListWrapper direction="column">
@@ -60,7 +67,7 @@ const DocsView = () => {
         </ListHeader>
 
         <List>
-          {documents
+          {filteredDocs
             ?.slice()
             .reverse()
             .map((doc) => (
@@ -127,7 +134,9 @@ const DocsView = () => {
               disabled={viewState === "preview"}
             />
             <EditDetails gap="10px" align="center">
-              <Initials align="center" justify="center">{getInitials(user.name)}</Initials>
+              <Initials align="center" justify="center">
+                {getInitials(user.name)}
+              </Initials>
               {user.name} · edited just now
             </EditDetails>
             {viewState === "edit" ? (

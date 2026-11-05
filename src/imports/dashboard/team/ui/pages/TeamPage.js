@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import MembersView from "../components/MembersView";
 import FilterStrip from "../components/FilterStrip";
-import TeamHeader from "../components/TeamHeader";
 import TeamStats from "../components/TeamStats";
 import ViewToolbar from "../components/ViewToolbar";
 import InvitationsView from "../components/InvitationsView";
@@ -15,6 +14,7 @@ import useTeam from "../../hooks/useTeam";
 import { useState } from "react";
 import { initialRequests } from "../../api/constant";
 import useOnboardingStore from "@/imports/onboarding/store/onboardingStore";
+import CommonHeader from "@/imports/core/components/CommonHeader";
 
 const TeamPage = () => {
   const {
@@ -38,7 +38,7 @@ const TeamPage = () => {
     roleCount,
   } = useTeam();
 
-  const { searchQuery } = useOnboardingStore();
+  const { searchQuery, setSearchQuery } = useOnboardingStore();
 
   const [requests, setRequests] = useState(initialRequests);
 
@@ -50,7 +50,13 @@ const TeamPage = () => {
 
   return (
     <Page direction="column">
-      <TeamHeader />
+      <CommonHeader
+        title="Team"
+        description="People and roles"
+        placeholder="Search team..."
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
       <Content direction="column" gap="20px">
         <TeamStats
           active={active.length}

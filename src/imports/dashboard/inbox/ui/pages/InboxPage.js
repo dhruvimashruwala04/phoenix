@@ -1,13 +1,23 @@
+"use client";
 import styled from "styled-components";
-import InboxHeader from "../components/InboxHeader";
 import { Flex } from "@/imports/core/components/Flex";
 import ViewToolbar from "../components/ViewToolbar";
 import InboxView from "../components/InboxView";
+import useInboxStore from "../../store/inboxStore";
+import CommonHeader from "@/imports/core/components/CommonHeader";
 
 const InboxPage = () => {
+  const { searchQuery, setSearchQuery } = useInboxStore();
+
   return (
     <Page direction="column">
-      <InboxHeader />
+      <CommonHeader
+        title="Inbox"
+        description="Mentions, requests and updates"
+        placeholder="Search inbox..."
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
       <Content direction="column" gap="24px">
         <ViewToolbar />
         <InboxView />

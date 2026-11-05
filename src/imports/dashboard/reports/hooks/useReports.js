@@ -7,6 +7,7 @@ const useReports = () => {
   const [sortBy, setSortBy] = useState("Completed");
   const [selectedProj, setSelectedProj] = useState("all");
   const [view, setView] = useState("7 days");
+  const [searchQuery, setSearchQuery] = useState("");
 
   const { tasks } = useKanbanStore();
 
@@ -26,8 +27,11 @@ const useReports = () => {
       totalTasks > 0 ? Math.round((member.completed / totalTasks) * 100) : 0;
   });
 
+  const query = searchQuery.trim().toLowerCase() || "";
+
   const sortedMembers = Object.entries(members)
     .map(([name, data]) => ({ name, ...data }))
+    .filter((member) => member.name.toLowerCase().includes(query))
     .sort((a, b) => {
       if (sortBy === "Completed") {
         return b.completed - a.completed;
@@ -77,6 +81,8 @@ const useReports = () => {
     data,
     view,
     setView,
+    searchQuery,
+    setSearchQuery,
   };
 };
 

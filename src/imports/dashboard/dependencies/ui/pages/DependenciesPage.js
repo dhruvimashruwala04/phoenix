@@ -3,9 +3,9 @@ import { Flex } from "@/imports/core/components/Flex";
 import React from "react";
 import styled from "styled-components";
 import AddModal from "../components/AddModal";
-import DHeader from "../components/DHeader";
 import DView from "../components/DView";
 import useDependencies from "../../hooks/useDependencies";
+import CommonHeader from "@/imports/core/components/CommonHeader";
 
 const DependenciesPage = () => {
   const {
@@ -27,7 +27,13 @@ const DependenciesPage = () => {
 
   return (
     <Page direction="column">
-      <DHeader searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <CommonHeader
+        title="Dependencies"
+        description="What blocks what"
+        placeholder="Search dependencies..."
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
       <Content direction="column" gap="24px">
         <AddModal
           dependencies={dependencies}

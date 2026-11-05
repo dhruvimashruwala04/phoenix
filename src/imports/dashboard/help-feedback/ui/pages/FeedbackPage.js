@@ -2,19 +2,25 @@
 import { Flex } from "@/imports/core/components/Flex";
 import React from "react";
 import styled from "styled-components";
-import Header from "../components/Header";
 import FAQ from "../components/FAQ";
 import KeyboardShortcuts from "../components/KeyboardShortcuts";
 import HelpResources from "../components/HelpResources";
 import ContactSupport from "../components/ContactSupport";
 import { useState } from "react";
+import CommonHeader from "@/imports/core/components/CommonHeader";
 
 const FeedbackPage = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <Page direction="column">
-      <Header setSearchQuery={setSearchQuery} searchQuery={searchQuery} />
+      <CommonHeader
+        title="Help & Feedback"
+        description="Guides, shortcuts and support"
+        placeholder="Search help & feedback..."
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
       <Content gap="24px">
         <Section direction="column" gap="24px">
           <FAQ searchQuery={searchQuery} />

@@ -3,10 +3,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import WorkloadView from "../components/WorkloadView";
-import WorkloadHeader from "../components/WorkloadHeader";
 import Stats from "../components/Stats";
 import ViewToolbar from "../components/ViewToolbar";
 import useWorkload from "../../hooks/useWorkload";
+import CommonHeader from "@/imports/core/components/CommonHeader";
 
 const WorkloadPage = () => {
   const {
@@ -25,7 +25,10 @@ const WorkloadPage = () => {
 
   return (
     <Page direction="column">
-      <WorkloadHeader
+      <CommonHeader
+        title="Workload"
+        description="Team capacity for the next two weeks"
+        placeholder="Search workload..."
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />

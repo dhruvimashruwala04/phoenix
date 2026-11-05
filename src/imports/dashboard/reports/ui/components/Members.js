@@ -4,11 +4,8 @@ import getInitials from "@/imports/core/utils/getInitials";
 import { Sort } from "@/imports/dashboard/ui/assets/Icons";
 import React from "react";
 import styled from "styled-components";
-import useReports from "../../hooks/useReports";
 
-const Members = () => {
-  const { sortedMembers, sortBy, setSortBy } = useReports();
-
+const Members = ({ sortedMembers, sortBy, setSortBy }) => {
   const columns = [
     "MEMBER",
     "COMPLETED",

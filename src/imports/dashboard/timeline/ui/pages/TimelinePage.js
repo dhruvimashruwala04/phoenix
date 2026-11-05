@@ -1,11 +1,11 @@
 "use client";
 import React, { useState } from "react";
-import TimelineHeader from "../components/TimelineHeader";
 import TimelineView from "../components/TimelineView";
 import { Flex } from "@/imports/core/components/Flex";
 import styled from "styled-components";
 import ViewToolbar from "../components/ViewToolbar";
 import NewTimelineModal from "../components/NewTimelineModal";
+import CommonHeader from "@/imports/core/components/CommonHeader";
 
 const TimelinePage = () => {
   const [showAdd, setShowAdd] = useState(false);
@@ -14,7 +14,10 @@ const TimelinePage = () => {
 
   return (
     <Page direction="column">
-      <TimelineHeader
+      <CommonHeader
+        title="Timelines"
+        description="Roadmap phases and key dates"
+        placeholder="Search timeline..."
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />

@@ -2,9 +2,9 @@
 import { Flex } from "@/imports/core/components/Flex";
 import React, { useState } from "react";
 import styled from "styled-components";
-import ActivityHeader from "../components/ActivityHeader";
 import ViewToolbar from "../components/ViewToolbar";
 import ActivityRecords from "../components/ActivityRecords";
+import CommonHeader from "@/imports/core/components/CommonHeader";
 
 const ActivityPage = () => {
   const [activeFilter, setActiveFilter] = useState("all");
@@ -12,7 +12,10 @@ const ActivityPage = () => {
 
   return (
     <Page direction="column">
-      <ActivityHeader
+      <CommonHeader
+        title="Activity"
+        description="Everything that changed recently"
+        placeholder="Search activity..."
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
       />

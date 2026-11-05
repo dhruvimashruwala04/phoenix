@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import SettingsHeader from "../components/SettingsHeader";
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import SideNavbar from "../components/SideNavbar";
@@ -10,13 +9,20 @@ import Integrations from "../components/Integrations";
 import Billing from "../components/Billing";
 import DangerZone from "../components/DangerZone";
 import Profile from "../components/Profile";
+import CommonHeader from "@/imports/core/components/CommonHeader";
 
 const SettingsPage = () => {
   const { settingsView } = useOnboarding();
 
   return (
     <Page direction="column">
-      <SettingsHeader />
+      <CommonHeader
+        title="Settings"
+        description="Workspace and account preferences"
+        placeholder="Search settings..."
+        searchQuery=""
+        setSearchQuery={() => {}}
+      />
       <Content>
         <Wrapper>
           <SideNavbar />

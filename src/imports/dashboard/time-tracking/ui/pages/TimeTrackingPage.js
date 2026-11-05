@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import THeader from "../components/THeader";
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import NewTrackingModal from "../components/NewTrackingModal";
@@ -8,6 +7,7 @@ import TodayEntries from "../components/TodayEntries";
 import useTimeTracking from "../../hooks/useTimeTracking";
 import Stats from "../components/Stats";
 import Timesheet from "../components/TimeSheet";
+import CommonHeader from "@/imports/core/components/CommonHeader";
 
 const TimeTrackingPage = () => {
   const {
@@ -28,7 +28,13 @@ const TimeTrackingPage = () => {
 
   return (
     <Page direction="column">
-      <THeader searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <CommonHeader
+        title="Time Tracking"
+        description="Log and review hours"
+        placeholder="Search time tracking..."
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
       <Content gap="24px" direction="column">
         <NewTrackingModal
           title={title}

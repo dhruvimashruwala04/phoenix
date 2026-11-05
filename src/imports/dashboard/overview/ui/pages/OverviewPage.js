@@ -1,5 +1,4 @@
 import React from "react";
-import OverViewHeader from "../components/OverViewHeader";
 import StatsCards from "../components/StatsCards";
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
@@ -7,24 +6,39 @@ import OverviewCards from "../components/OverviewCards";
 import useKanbanStore from "@/imports/dashboard/kanban/store/kanbanStore";
 import { useSearchParams } from "next/navigation";
 import { projects } from "@/imports/dashboard/kanban/api/constants";
+import CommonHeader from "@/imports/core/components/CommonHeader";
 
 const OverviewPage = () => {
-  const { tasks } = useKanbanStore();
+  const { tasks, searchQuery, setSearchQuery } = useKanbanStore();
 
   const searchParams = useSearchParams();
   const projName = searchParams.get("project") || null;
 
-  const projByFilter = projName
-    ? projects.filter((proj) => proj.value === projName)
-    : projects;
+  const query = searchQuery.trim().toLowerCase() || "";
 
-  const tasksByProj = projName
-    ? tasks.filter((task) => task.projName === projName)
-    : tasks;
+  const projByFilter = projects.filter((proj) => {
+    const matchesProject = !projName || proj.value === projName;
+    const matchesSearch = proj.label.toLowerCase().includes(query);
+
+    return matchesProject && matchesSearch;
+  });
+
+  const tasksByProj = tasks.filter((task) => {
+    const matchesProject = !projName || task.projName === projName;
+    const matchesSearch = task.title?.toLowerCase().includes(query);
+
+    return matchesProject && matchesSearch;
+  });
 
   return (
     <Page direction="column">
-      <OverViewHeader />
+      <CommonHeader
+        title="Overview"
+        description="Your workspace at a glance"
+        placeholder="Search overview..."
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
       <Content direction="column" gap="24px">
         <StatsCards />
         <OverviewCards tasksByProj={tasksByProj} projByFilter={projByFilter} />

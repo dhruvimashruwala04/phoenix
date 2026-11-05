@@ -1,6 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import FilesHeader from "../components/FilesHeader";
 import styled from "styled-components";
 import { Flex } from "@/imports/core/components/Flex";
 import ViewToolbar from "../components/ViewToolbar";
@@ -9,6 +8,7 @@ import useFilesStore from "../../store/filesStore";
 import GridView from "../components/GridView";
 import ListView from "../components/ListView";
 import FileDetails from "../components/FileDetails";
+import CommonHeader from "@/imports/core/components/CommonHeader";
 
 const FilesPage = () => {
   const { view, selectedId, files, category } = useFilesStore();
@@ -31,7 +31,13 @@ const FilesPage = () => {
 
   return (
     <Page direction="column">
-      <FilesHeader searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <CommonHeader
+        title="Files"
+        description="Shared assets and attachments"
+        placeholder="Search files..."
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+      />
       <Content gap="24px" direction="column">
         <ViewToolbar />
         <UploadDropzone />
