@@ -30,6 +30,8 @@ const OverviewPage = () => {
     return matchesProject && matchesSearch;
   });
 
+  const ProjBadge = projects.find((p) => p.value === projName) || null;
+
   return (
     <Page direction="column">
       <CommonHeader
@@ -38,6 +40,7 @@ const OverviewPage = () => {
         placeholder="Search overview..."
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
+        badge={ProjBadge}
       />
       <Content direction="column" gap="24px">
         <StatsCards />

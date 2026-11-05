@@ -1,10 +1,12 @@
+"use client";
 import { Flex } from "@/imports/core/components/Flex";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { nav } from "../../api/constants";
 
 const NavBar = () => {
+  const [active, setActive] = useState("Overview");
   return (
     <Nav direction="column" gap="16px">
       {nav.map((main, i) => (
@@ -14,7 +16,12 @@ const NavBar = () => {
             {main.links.map((link, index) => {
               const Icon = link.icon;
               return (
-                <LinkText key={index} href={link.href}>
+                <LinkText
+                  key={index}
+                  href={link.href}
+                  $active={active === link.label}
+                  onClick={() => setActive(link.label)}
+                >
                   {Icon && <Icon />}
                   {link.color && <Dot $color={link.color} />}
                   {link.label}
@@ -57,10 +64,11 @@ const LinkText = styled(Link)`
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 8px 12px;
+  padding: 8px 14px;
   font-size: var(--fs-16);
-  background: transparent;
-  color: var(--slate-300);
+  background: ${({ $active }) =>
+    $active ? "var(--blue-accent)" : "transparent"};
+  color: ${({ $active }) => ($active ? "var(--white)" : "var(--slate-300)")};
   font-weight: var(--fw-400);
   &:hover {
     color: var(--white);
