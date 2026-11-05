@@ -11,7 +11,6 @@ const COLORS = {
 };
 
 const PieChartSection = ({ data }) => {
-  console.log("data", data);
   return (
     <Card direction="column" gap="12px">
       <Heading>Status distribution</Heading>
