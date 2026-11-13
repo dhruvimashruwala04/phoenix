@@ -13,7 +13,6 @@ const useAuthStore = create(
         })),
 
       setUser: (user) => set({ user }),
-      logout: () => set({ user: null }),
 
       updateUser: (updatedData) =>
         set((state) => ({

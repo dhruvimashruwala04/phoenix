@@ -6,10 +6,16 @@ import NavBar from "@/imports/dashboard/ui/components/NavBar";
 import useAuthStore from "@/imports/auth/store/authStore";
 import { Logout } from "@/imports/dashboard/ui/assets/Icons";
 import getInitials from "@/imports/core/utils/getInitials";
+import { removeAuthToken } from "@/imports/auth/utils/auth";
 
 const DashboardLayout = ({ children }) => {
-  const { user, logout } = useAuthStore();
+  const { user, setUser } = useAuthStore();
   const initials = getInitials(user?.name);
+
+  const handleLogout = () => {
+    setUser(null);
+    removeAuthToken();
+  };
 
   return (
     <Page direction="row" align="stretch">
@@ -29,7 +35,7 @@ const DashboardLayout = ({ children }) => {
             <Name>{user?.name}</Name>
             <Email>{user?.email}</Email>
           </Details>
-          <LogoutBtn align="center" justify="center" onClick={logout}>
+          <LogoutBtn align="center" justify="center" onClick={handleLogout}>
             <Logout />
           </LogoutBtn>
         </User>

@@ -2,6 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import useAuthStore from "../../store/authStore";
+import api from "../../api/api";
 
 const useSignupForm = () => {
   const [name, setName] = useState("");
@@ -15,7 +16,8 @@ const useSignupForm = () => {
   const router = useRouter();
   const [passwordStrength, setPasswordStrength] = useState(0);
 
-  const { registerUser } = useAuthStore();
+  const { setUser } = useAuthStore();
+  const { createUser } = api();
 
   const checkPasswordStrength = (password) => {
     let strength = 0;
@@ -34,7 +36,7 @@ const useSignupForm = () => {
     setPasswordStrength(checkPasswordStrength(value));
   };
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const nameInvalid = name === "";
@@ -60,10 +62,15 @@ const useSignupForm = () => {
       return;
     }
 
-    const newUser = { name, email, password };
-    registerUser(newUser);
-    setErrorMessage("");
-    router.push("/login");
+    try {
+      const newUser = { name, email, password };
+      const result = await createUser(newUser);
+      setUser(result.data);
+      setErrorMessage("");
+      router.push("/");
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
   };
 
   return {
